@@ -165,20 +165,33 @@ body
 			margin-top 30px
 			text-align center
 	.nosotros
-		.titul
-			border-bottom 2px solid azul
-			color verde
+		position relative
+		.encabezado
+			color white
+			background azul
+			border 10px solid amarillo
 			text-align center
-			padding 10px 0px
-			width 50%
-			margin 0 auto
+			padding 10px
+		.titul		
+			color azul
+			text-align center
+			line-height 16px
+			border-bottom 4px solid amarillo
+			span
+				color verde
+				font-size 14px
 		.quienes
-			margin-top 2em	
-		p
-			text-align center	
-		p
-		ul
-			margin-top 1em			
+			img
+				width 100%	
+		.mision	
+			img
+				width 100%		
+		.valores
+			img
+				width 100%			
+			
+			
+				
 	.contacto
 		width 70%
 		margin 0 auto
@@ -235,7 +248,15 @@ footer
 				.descripcion
 					font-size 18px
 					left 24%
-					bottom 65px		
+					bottom 65px	
+		.nosotros	
+			.titul
+				font-size 30px
+				line-height 20px
+				margin 20px 0
+				span
+					font-size 18px
+
 
 
 @media (min-width 768px)
@@ -278,9 +299,82 @@ footer
 					h2
 						font-size 1.5em	
 		.nosotros
-			width 80%
-			margin 0 auto					
-				
+			.headnosotros
+				position relative
+				height 150px
+				.encabezado
+					width 500px
+					position absolute
+					right 0
+				.logonosotros
+					width 300px		
+					position absolute	
+			.quienes
+				position relative
+				height 400px
+				.titul
+					width 500px
+					position absolute
+					right 0
+				img
+					width 40%						
+					position absolute
+					left 50px
+					top 90px
+				.texto
+					position absolute
+					top 95px
+					width 518px
+					right 0	
+				.flechaabajo
+					position absolute 
+					left -60px
+					bottom 50%	
+					img
+						width 215px
+						z-index 9
+			.mision
+				position relative
+				height 390px
+				.titul
+					width 500px
+					position absolute
+					left 0		
+				img
+					width 40%
+					position absolute 
+					right 0		
+					top 0
+				.texto
+					position absolute
+					width 500px
+					left 0		
+					top 100px
+				.fechaderecha
+					position absolute
+					right 240px
+					top 210px	
+					img
+						width 200px
+			.valores
+				position relative
+				height 400px
+				.titul
+					width 500px
+					position absolute
+					right 0
+				img
+					width 40%
+					position absolute
+					left 0
+					top 0
+				.texto
+					position absolute
+					right 0
+					top 100px	
+					width 500px					
+									
+																		
 	footer
 		padding-bottom 10px
 		.social
@@ -367,7 +461,42 @@ footer
 					top 85px
 					transform rotate(-9deg)
 				.descripcion
-					left 30%	
+					left 30%
+		.nosotros 
+			.headnosotros 
+				.logonosotros		
+					width 400px	
+					z-index 9
+				.encabezado
+					width 700px
+					font-size 2em
+					right 10px	
+			.quienes
+				height 500px
+				img
+					left 260px	
+					top 65px	
+				.flechaabajo
+					left -195px
+					img
+						width 245px	
+			.mision
+				height 450px
+				img
+					right 120px	
+				.fechaderecha 
+					right 380px
+					top 256px
+					z-index 9
+					img
+						width 300px
+			.valores
+				img
+					left 80px	
+				.texto 
+					width 600px			
+								
+					 	
 
 @media (min-width:1400px)																		
 	.menumain 
@@ -375,5 +504,10 @@ footer
 			li 
 				a
 					padding 18px 72px
+	.infomain 
+		.nosotros 
+			.mision 
+				.fechaderecha					
+					right 429px
 							
 			
