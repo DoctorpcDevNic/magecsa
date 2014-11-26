@@ -63,12 +63,12 @@
 		      			<ul class="nav navbar-nav" style="width:100%">
 		      				<li class="activemenu">
 		      					<a href="{{ URL::to('/') }}">
-		      					<i class="glyphicon glyphicon-home"></i>
+		      					<i class="glyphicon glyphicon-home"></i><br>
 		      						Inicio
 		      					</a></li>
 		      				<li class="dropdown">
 			                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-			                    	<i class="glyphicon glyphicon-user"></i>
+			                    	<i class="glyphicon glyphicon-user"></i><br>
 			                    	Nosotros 
 			                    </a>
 			                    <ul class="dropdown-menu submenu" role="menu">
@@ -80,7 +80,7 @@
 			                </li>
 		      				<li class="dropdown">
 			                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-			                    	<i class="glyphicon glyphicon-list-alt"></i>
+			                    	<i class="glyphicon glyphicon-list-alt"></i><br>
 			                    	Nuestros Servicios 
 			                    </a>
 			                    <ul class="dropdown-menu submenu" role="menu" style="width:102% !important">
@@ -99,11 +99,11 @@
 			                    </ul>
 			                </li>
 			                <li><a href="{{URL::to('/')  }}">
-			                	<i class="glyphicon glyphicon-briefcase"></i>
+			                	<i class="glyphicon glyphicon-briefcase"></i><br>
 			                	Clientes 
 			                </a></li>  
 			                <li><a href="{{URL::to('Cotactenos')  }}">
-			                	<i class="glyphicon glyphicon-envelope"></i>
+			                	<i class="glyphicon glyphicon-envelope"></i><br>
 			                	Contactenos 
 			                </a></li>  
 		      			</ul>

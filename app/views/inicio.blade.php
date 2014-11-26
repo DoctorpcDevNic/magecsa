@@ -45,71 +45,90 @@
 		<h2>Vacantes</h2>
 
 		{{-- Slider Vacante Mobil --}}
-		<div class="fluid_container hidden-lg hidden-md">              
-        	<div class="camera_wrap camera_azure_skin" id="camera_wrap_2">
-            	<div data-src="{{ asset( 'img/vacantephone.png' )}}">
-                  	<div class="infovacante">
-                  		<h3 class="fecha">
-                  			4 de Diciembre
-                  		</h3>
-                  		<div class="descripcion">
-                  			<p class="aplican">Finanzas | Contabilidad | Auditoría</p>
-                  			<p class="lugar">Panamá Ciudad Panamá </p>
-                  			<p class="bold">Requisitos</p>
-                  			<ul class="requisitos">
-                  				<li>-Licenciatura en contabilidad, auditoría, banca, finanzas o carreras afines. </li>
-                  				<li>Inglés nivel avanzado. </li>
-                  				<li>-Experiencia en auditoría interna(deseable)</li>
-                  			</ul>
-                  		</div>
-                  	</div> 	
-                    <div class="logo_slider">
-                    	<img src="{{ asset('img/claro-logo.png') }}">
-                    </div>
-              	</div>
-              	<div data-src="{{ asset( 'img/vacantephone.png') }}">
-                   	<div class="infovacante">
-                  		<h3 class="fecha">
-                  			4 de Diciembre
-                  		</h3>
-                  		<div class="descripcion">
-                  			<p class="aplican">Finanzas | Contabilidad | Auditoría</p>
-                  			<p class="lugar">Panamá Ciudad Panamá </p>
-                  			<p class="bold">Requisitos</p>
-                  			<ul class="requisitos">
-                  				<li>-Licenciatura en contabilidad, auditoría, banca, finanzas o carreras afines. </li>
-                  				<li>Inglés nivel avanzado. </li>
-                  				<li>-Experiencia en auditoría interna(deseable)</li>
-                  			</ul>
-                  		</div>
-                  	</div> 	
-                    <div class="logo_slider">
-                    	<img src="{{ asset('img/claro-logo.png') }}">
-                    </div>
-              	</div>
-              	<div data-src="{{ asset( 'img/vacantephone.png') }}">
-              		<div class="infovacante">
-                  		<h3 class="fecha">
-                  			4 de Diciembre
-                  		</h3>
-                  		<div class="descripcion">
-                  			<p class="aplican">Finanzas | Contabilidad | Auditoría</p>
-                  			<p class="lugar">Panamá Ciudad Panamá </p>
-                  			<p class="bold">Requisitos</p>
-                  			<ul class="requisitos">
-                  				<li>-Licenciatura en contabilidad, auditoría, banca, finanzas o carreras afines. </li>
-                  				<li>Inglés nivel avanzado. </li>
-                  				<li>-Experiencia en auditoría interna(deseable)</li>
-                  			</ul>
-                  		</div>
-                  	</div> 	
-              		<div class="logo_slider">
-                    	<img src="{{ asset('img/claro-logo.png') }}">
-                    </div>
-              	</div>
-          	</div>
-    	</div>
-    	{{-- End  --}}	
+		
+    	
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">      
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="{{ asset( 'img/vacantephone.png') }}" alt="..."  class="mobil">
+            <img src="{{ asset( 'img/vacante.png') }}" alt="..."  class="computer imgslider">
+            <div class="infovacante">
+              <h3 class="fecha">
+                4 de Diciembre
+              </h3>
+              <div class="descripcion">
+                <p class="aplican">Finanzas | Contabilidad | Auditoría</p>
+                <p class="lugar">Panamá Ciudad Panamá </p>
+                <p class="bold computer">Requisitos</p>
+                <ul class="requisitos computer">
+                  <li>-Licenciatura en contabilidad, auditoría, banca, finanzas o carreras afines. </li>
+                  <li>Inglés nivel avanzado. </li>
+                  <li>-Experiencia en auditoría interna(deseable)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="logo_slider">
+              <img src="{{ asset('img/claro-logo.png') }}">
+            </div>      
+          </div>
+          <div class="item">
+            <img src="{{ asset( 'img/vacantephone.png') }}" alt="..."  class="mobil">
+            <img src="{{ asset( 'img/vacante.png') }}" alt="..."  class="computer imgslider">
+            <div class="infovacante">
+              <h3 class="fecha">
+                4 de Diciembre
+              </h3>
+              <div class="descripcion">
+                <p class="aplican">Finanzas | Contabilidad | Auditoría</p>
+                <p class="lugar">Panamá Ciudad Panamá </p>
+                <p class="bold computer">Requisitos</p>
+                <ul class="requisitos computer">
+                  <li>-Licenciatura en contabilidad, auditoría, banca, finanzas o carreras afines. </li>
+                  <li>Inglés nivel avanzado. </li>
+                  <li>-Experiencia en auditoría interna(deseable)</li>
+                </ul>
+              </div>
+              <div class="logo_slider">
+                <img src="{{ asset('img/claro-logo.png') }}">
+              </div>  
+            </div>
+          </div>
+          <div class="item">
+            <img src="{{ asset( 'img/vacantephone.png') }}" alt="..."  class="mobil">
+            <img src="{{ asset( 'img/vacante.png') }}" alt="..."  class="computer imgslider">
+            <div class="infovacante">
+              <h3 class="fecha">
+                4 de Diciembre
+              </h3>
+              <div class="descripcion">
+                <p class="aplican">Finanzas | Contabilidad | Auditoría</p>
+                <p class="lugar">Panamá Ciudad Panamá </p>
+                <p class="bold computer">Requisitos</p>
+                <ul class="requisitos computer">
+                  <li>-Licenciatura en contabilidad, auditoría, banca, finanzas o carreras afines. </li>
+                  <li>Inglés nivel avanzado. </li>
+                  <li>-Experiencia en auditoría interna(deseable)</li>
+                </ul>
+              </div>
+              <div class="logo_slider">
+                <img src="{{ asset('img/claro-logo.png') }}">
+              </div>  
+            </div>
+          </div>          
+        </div>
+         <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>        
+      </div>
+      {{-- End  --}}  
 	</div>
 
 	<div class="clear"></div>
@@ -121,17 +140,7 @@
 	</div>
 @stop
 
-@section('js')
-	<script>
-	    jQuery(function(){
-	      
-	      jQuery('#camera_wrap_2').camera({        
-	        height: '25%',   
-	        pagination: false,       
-	      });
-	      
-	    });
-  	</script>
+@section('js')	
 
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 

@@ -36,7 +36,9 @@ body
 	img
 		width 30%
 		
-
+.carousel-control.right
+.carousel-control.left
+	background-image none
 .navbar-default .navbar-nav>.open>a
 .navbar-default .navbar-nav>.open>a:hover
 	background-color transparent	
@@ -134,8 +136,8 @@ body
 						
 		.logo_slider
 			position absolute
-			top 50px
-			left 18px
+			top 20px
+			left 13px	
 			img
 				width 20% !important	
 		.infovacante
@@ -143,13 +145,14 @@ body
 				font-size 18px	
 				position absolute
 				right 14px
-				top 32px
+				top 8px
 		
 			.descripcion							
-				bottom 13px
+				bottom 30px
 				font-size 10px
 				position absolute
 				text-align center
+				left 25%
 				p
 					padding 0
 					margin 0
@@ -221,15 +224,28 @@ footer
 		.vacante
 			.logo_slider
 				position absolute
-				top 5px
+				top 37px
+				left 25px
 				img
-					width 18%							
-						
+					width 15% !important	
+			.infovacante
+				.fecha
+					top 25px	
+					right 32px
+				.descripcion
+					font-size 18px
+					left 24%
+					bottom 65px		
 
-@media (min-width 768px)	
+
+@media (min-width 768px)
+	.logo
+		top 78px	
+	.container-fluid
+		width 90%
 	.menumain
 		margin 0 auto
-		width 90%
+		width 100%
 		li
 			.submenu
 				
@@ -240,8 +256,10 @@ footer
 				padding 18px 30px
 				img
 					width 20px
+			i
+				font-size 25px	
 	.slidermain
-		margin-top 0
+		margin-top 87px
 		.camera_caption 
 			div	
 				font-size 1.5em
@@ -283,6 +301,26 @@ footer
 			color white !important	
 			text-decoration none
 			
+@media (min-width 900px)
+	.infomain
+		.vacante
+			.logo_slider
+				top 100px
+				left 60px
+			.infovacante
+				.fecha
+					font-size 22px
+					right 60px
+					top 64px	
+					-webkit-transform rotate(-10deg)
+					transform rotate(-10deg)
+				.descripcion
+					font-size 15px
+					text-align initial
+					left 27%	
+					
+							
+			
 @media (min-width:1000px)	
 	.menumain 
 		ul
@@ -316,10 +354,26 @@ footer
 				padding 20px	
 	.infomain 
 		.vacante 
-			.camera_caption 
-				div		
-					font-size 1.2em
-					padding 15px											
+			.imgslider
+				height 400px
+				width 100%	
+			.logo_slider
+				top 125px
+				left 100px
+			.infovacante
+				.fecha
+					font-size 25px
+					right 142px
+					top 85px
+					transform rotate(-9deg)
+				.descripcion
+					left 30%	
 
+@media (min-width:1400px)																		
+	.menumain 
+		ul 
+			li 
+				a
+					padding 18px 72px
 							
 			
