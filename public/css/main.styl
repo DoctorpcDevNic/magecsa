@@ -1,0 +1,325 @@
+verde = #60b05c
+amarillo = #e9e966
+azul = #44b4c8
+verdetran = rgba(96, 176, 92, .75)
+azultran = rgba(68, 180, 200, .9)
+
+@font-face {
+    font-family: Junction;
+    src: url('../fonts/Junction-webfont.ttf');    
+}
+
+body
+	font-family Junction
+	font-size 18px
+	margin 0
+	padding 0
+.bold
+	font-weight bold
+.slidermain
+	margin-top 51px
+	position relative
+	transition all 1s ease
+	img	
+		width 100%
+		
+	.camera_caption
+		div
+			background azultran
+			font-family Junction
+			font-size 18px
+			padding 5px
+			text-align center
+.logo
+	position absolute
+	top 50px
+	img
+		width 30%
+		
+
+.navbar-default .navbar-nav>.open>a
+.navbar-default .navbar-nav>.open>a:hover
+	background-color transparent	
+.navbar-default
+	border-color transparent	
+	.navbar-toggle
+		border-color transparent
+		&:hover
+			background-color transparent	
+	.navbar-collapse
+		border-color transparent	
+		padding 0	
+.navbar-nav
+	margin 0	
+.nav .open>a
+.nav .open>a:hover
+.nav .open>a:focus	
+	background-color transparent	
+
+.menumain
+	background verdetran
+	left 0
+	position fixed
+	right 0
+	top 0
+	transition all 1s ease
+	z-index 99
+	
+	ul
+		li
+			&:hover
+				background amarillo
+				
+				a
+					color  black !important
+			a
+				color white !important
+				font-size 18px
+				text-align center
+				&:hover
+					background amarillo
+			.submenu 
+				background-color azultran !important	
+				padding 0 !important
+				li
+					a
+						color white !important
+						font-size 16px
+						&:hover
+						&:focus
+						&:active
+							color black !important						
+								
+			
+.infomain
+	hr
+		border-top 3px solid azul
+		margin 10px 0
+	.menuother
+		.row
+			margin 0
+			.col-md-3
+			.col-xs-3
+				margin 20px 0 0 0					
+				
+				a
+					color verde
+					text-decoration none
+
+				h2
+					font-size 14px	
+					margin 0
+					text-align center
+					
+	.divider
+		padding 1em	0	
+	
+	.vacante
+		h2
+			background azul
+			color white
+			margin 0 0 1em 0
+			padding 5px 10px
+			width 155px
+		.camera_caption
+			div
+				background rgba(0, 0, 0, .75)
+				font-size 18px
+				padding 5px
+				text-align center
+		.camera_wrap 
+			img
+				width 100% !important
+				margin-left 0 !important
+						
+		.logo_slider
+			position absolute
+			top 50px
+			left 18px
+			img
+				width 20% !important	
+		.infovacante
+			.fecha
+				font-size 18px	
+				position absolute
+				right 14px
+				top 32px
+		
+			.descripcion							
+				bottom 13px
+				font-size 10px
+				position absolute
+				text-align center
+				p
+					padding 0
+					margin 0
+				.aplican
+					font-weight bold	
+	.ubicacion
+		.titul
+			color verde	
+			font-size 22px	
+			margin-top 30px
+			text-align center
+	.nosotros
+		.titul
+			border-bottom 2px solid azul
+			color verde
+			text-align center
+			padding 10px 0px
+			width 50%
+			margin 0 auto
+		.quienes
+			margin-top 2em	
+		p
+			text-align center	
+		p
+		ul
+			margin-top 1em			
+	.contacto
+		width 70%
+		margin 0 auto
+		.titul
+			padding 1em
+			color verde
+			border-bottom 2px solid azul
+		form	
+			margin-top 2em
+			textarea
+				resize none	
+			label
+				color verde			
+
+.clear
+	clear both	
+	
+.mapa
+	height 300px			
+	width 100%
+			
+footer
+	background verde
+	color white
+	margin-top 1em
+	padding-top 10px
+	position relative
+	text-align center
+	p
+		margin 0
+	.social
+		img
+			width 50px		
+		
+@media (min-width 550px)
+	.infomain 
+		.menuother
+			.row 
+				.col-md-3 
+				.col-xs-3
+					h2
+						font-size 18px
+		.vacante
+			.logo_slider
+				position absolute
+				top 5px
+				img
+					width 18%							
+						
+
+@media (min-width 768px)	
+	.menumain
+		margin 0 auto
+		width 90%
+		li
+			.submenu
+				
+				li
+					a
+						padding 10px
+			a
+				padding 18px 30px
+				img
+					width 20px
+	.slidermain
+		margin-top 0
+		.camera_caption 
+			div	
+				font-size 1.5em
+	.container
+		width 95%	
+		
+	.img-responsive					
+		height 110px
+		margin 0 auto
+		
+	.infomain 
+		.menuother
+			.row 
+				.col-md-3 
+				.col-xs-3
+					h2
+						font-size 1.5em	
+		.nosotros
+			width 80%
+			margin 0 auto					
+				
+	footer
+		padding-bottom 10px
+		.social
+			position absolute
+			right 5px
+			top 5px
+			img
+				width 50px
+		ul
+			padding 0
+			margin 0
+			li
+				display inline-block
+				
+				span
+					padding 0px 5px		
+		a
+			color white !important	
+			text-decoration none
+			
+@media (min-width:1000px)	
+	.menumain 
+		ul
+			li
+				.submenu
+					width 100% !important
+					max-width none !important 
+				a	
+					padding 18px 35px	
+	.slidermain 
+		.camera_caption 
+			div	
+				padding 20px
+	.infomain 
+		.ubicacion 
+			.titul
+				font-size 1.5em	
+		hr
+			margin 15px 0 									
+					
+
+@media (min-width:1300px)	
+	.menumain 
+		ul
+			li 
+				a	
+					padding 18px 63px	
+	.slidermain 
+		.camera_caption 
+			div	
+				padding 20px	
+	.infomain 
+		.vacante 
+			.camera_caption 
+				div		
+					font-size 1.2em
+					padding 15px											
+
+							
+			
