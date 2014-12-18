@@ -31,13 +31,13 @@
 				<div class="fluid_container">              
                 	<div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
                     	<div data-src="{{ asset( 'img/emprendedores.jpg' )}}">
-	                        <div class="camera_caption fadeFromBottom">"Tu oportunidad de crecer profecionalmente es hoy, bienvenido a nuestro equipo"</div>		                        
+	                        <div class="camera_caption fadeFromBottom">"Tu oportunidad de crecer profesionalmente es hoy, bienvenido a nuestro equipo"</div>		                        
                       	</div>
                       	<div data-src="{{ asset( 'img/emprendedores.jpg') }}">
-	                       <div class="camera_caption fadeFromBottom" >"Tu oportunidad de crecer profecionalmente es hoy, bienvenido a nuestro equipo"</div>		                        
+	                       <div class="camera_caption fadeFromBottom" >"Tu oportunidad de crecer profesionalmente es hoy, bienvenido a nuestro equipo"</div>		                        
                       	</div>
                       	<div data-src="{{ asset( 'img/emprendedores.jpg') }}">
-                      		<div class="camera_caption fadeFromBottom" >"Tu oportunidad de crecer profecionalmente es hoy, bienvenido a nuestro equipo"</div>		                        
+                      		<div class="camera_caption fadeFromBottom" >"Tu oportunidad de crecer profesionalmente es hoy, bienvenido a nuestro equipo"</div>		                        
                       	</div>
                   	</div>
             	</div>	
@@ -102,7 +102,7 @@
 			                	<i class="glyphicon glyphicon-briefcase"></i><br>
 			                	Clientes 
 			                </a></li>  
-			                <li><a href="{{URL::to('Cotactenos')  }}">
+			                <li><a href="{{URL::to('Contactenos')  }}">
 			                	<i class="glyphicon glyphicon-envelope"></i><br>
 			                	Contactenos 
 			                </a></li>  

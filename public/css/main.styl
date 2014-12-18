@@ -1,7 +1,7 @@
-verde = #60b05c
-amarillo = #e9e966
+verde = #7bab3d
+amarillo = #fbef44
 azul = #44b4c8
-verdetran = rgba(96, 176, 92, .75)
+verdetran = rgba(123, 172, 61, .75)
 azultran = rgba(68, 180, 200, .9)
 
 @font-face {
@@ -32,7 +32,7 @@ body
 			text-align center
 .logo
 	position absolute
-	top 50px
+	top 55px
 	img
 		width 30%
 		
@@ -59,7 +59,7 @@ body
 	background-color transparent	
 
 .menumain
-	background verdetran
+	background azultran
 	left 0
 	position fixed
 	right 0
@@ -84,6 +84,7 @@ body
 				background-color azultran !important	
 				padding 0 !important
 				li
+					
 					a
 						color white !important
 						font-size 16px
@@ -186,11 +187,12 @@ body
 		.mision	
 			img
 				width 100%		
+		.vision
+			img
+				width 100%		
 		.valores
 			img
-				width 100%			
-			
-			
+				width 100%							
 				
 	.contacto
 		width 70%
@@ -204,7 +206,36 @@ body
 			textarea
 				resize none	
 			label
-				color verde			
+				color verde	
+	
+	.masservicios					
+		margin-top 2em
+		ul
+			padding-left 25px
+			li
+				a
+					color verde
+					i
+						padding 0px 8px
+		#registroempresa
+			.logoempresa
+				img
+					width 30%
+					margin 0 auto	
+					display block
+			.datos
+				margin-top 1em	
+		#busquedacandidato
+			.titul
+				color azul				
+				text-decoration underline	
+				text-align center
+				font-size 18px
+			p
+				color verde	
+							
+.nav-tabs
+	border-bottom 0
 
 .clear
 	clear both	
@@ -261,7 +292,10 @@ footer
 
 @media (min-width 768px)
 	.logo
-		top 78px	
+		top 100px	
+		left 12px
+		img
+			width 40%
 	.container-fluid
 		width 90%
 	.menumain
@@ -307,7 +341,7 @@ footer
 					position absolute
 					right 0
 				.logonosotros
-					width 300px		
+					width 240px		
 					position absolute	
 			.quienes
 				position relative
@@ -356,9 +390,9 @@ footer
 					top 210px	
 					img
 						width 200px
-			.valores
+			.vision
 				position relative
-				height 400px
+				height 500px
 				.titul
 					width 500px
 					position absolute
@@ -366,11 +400,35 @@ footer
 				img
 					width 40%
 					position absolute
-					left 0
+					left 0 
 					top 0
 				.texto
 					position absolute
+					width 500px
 					right 0
+					top 100px
+				.fechaderecha
+					position absolute
+					right 500px
+					top 300px	
+					img
+						width 215px
+										
+			.valores
+				position relative
+				height 400px
+				.titul
+					width 500px
+					position absolute
+					left 0
+				img
+					width 40%
+					position absolute
+					right 0
+					top 0
+				.texto
+					position absolute
+					left 0
 					top 100px	
 					width 500px					
 									
@@ -413,6 +471,8 @@ footer
 					text-align initial
 					left 27%	
 					
+	.nav-tabs
+		border-bottom 1px solid #ddd				
 							
 			
 @media (min-width:1000px)	
@@ -462,10 +522,12 @@ footer
 					transform rotate(-9deg)
 				.descripcion
 					left 30%
+					font-size 18px
 		.nosotros 
 			.headnosotros 
-				.logonosotros		
-					width 400px	
+				.logonosotros	
+					margin-top 10px	
+					width 330px	
 					z-index 9
 				.encabezado
 					width 700px
@@ -485,14 +547,19 @@ footer
 				img
 					right 120px	
 				.fechaderecha 
-					right 380px
+					right 420px
 					top 256px
 					z-index 9
 					img
-						width 300px
+						width 245px
+			.vision
+				height 570px
+				.fechaderecha
+					img
+						width 270px			
 			.valores
 				img
-					left 80px	
+					right 80px	
 				.texto 
 					width 600px			
 								

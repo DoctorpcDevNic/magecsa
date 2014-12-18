@@ -14,7 +14,7 @@
 				</a>	
 			</div>
 			<div class="col-md-3 col-xs-3">
-				<a href="">
+				<a href="{{ URL::to('MasServicios') }}">
 					<img src="{{ asset('img/capacitaciones.png') }}" class="img-responsive">
 					<hr>
 					<h2>Mas servicios</h2>
@@ -145,7 +145,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
   	<script>
-  		var myLatlng = new google.maps.LatLng(12.140148, -86.282335);
+  		var myLatlng = new google.maps.LatLng(12.137221, -86.281380);
 
 		var mapOptions = {
 		  center: myLatlng,
@@ -157,7 +157,7 @@
 		var map = new google.maps.Map(document.getElementById("mapas"), mapOptions);
 
 		 var lugar = new google.maps.Marker({
-              position: new google.maps.LatLng(12.140148, -86.282335),
+              position: new google.maps.LatLng(12.137221, -86.281380),
               map: map,
               animation:google.maps.Animation.BOUNCE
         });
