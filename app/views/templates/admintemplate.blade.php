@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Administrador | MAGECSA</title>
 
     <!-- Bootstrap Core CSS -->
     {{ HTML::style('css/bootstrap.min.css') }}
@@ -124,7 +124,7 @@
                     <ul class="nav" id="side-menu">
                         {{-- usuarios --}}
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Usuarios</a>
+                            <a href="{{ URL::to('administrador') }}"><i class="fa fa-user fa-fw"></i> Usuarios</a>
                         </li>
                         {{-- candidatos --}}
                         <li>
@@ -145,7 +145,7 @@
                         </li>
                         {{-- Vacantes --}}
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Vacantes</a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Vacantes</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>

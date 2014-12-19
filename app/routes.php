@@ -36,6 +36,11 @@ Route::get('test', function()
 	return View::make('nosotros.test');
 });
 
+
+Route::get('login', function(){
+	return View::make('login');
+});
+
 /*
 	roles
 	0->admin
@@ -43,12 +48,19 @@ Route::get('test', function()
 	2->empresas
 	3->candidato
 */
-Route::get('administrador', function(){
-	$users = User::all();
-	return View::make('admin.admin')->with('usuarios', $users);
+ Route::group(array('prefix' => 'administrador'), function () {
+	Route::get('/', function(){
+		$users = User::all();
+		return View::make('admin.admin')->with('usuarios', $users);
+	});
+
+	Route::get('usuariosadmin/update/{id}', array('uses' => 'UsuariosAdminController@viewUpdate'));
+	Route::get('usuariosadmin/delete/{id}', array('uses' => 'UsuariosAdminController@delete'));
+	Route::post('usuariosadmin/save', array('uses' => 'UsuariosAdminController@save'));
+	Route::post('usuariosadmin/update/{id}', array('uses' => 'UsuariosAdminController@update'));
 });
 
-
+ /*
 Route::get('insert', function(){
 	$user = new User();
 	$userdato = new UsuarioDato();
@@ -65,10 +77,10 @@ Route::get('insert', function(){
 	$userdato->fecha_nacimiento = 'fecha';
 	
 	$userhab->base_datos = "mysql";
-	$userhab->programas_diseño = "corel";
+	$userhab->programas_diseno = "corel";
 
 	$userhab2->base_datos = "sql";
-	$userhab2->programas_diseño = "photo";
+	$userhab2->programas_diseno = "photo";
 
 
 
@@ -92,5 +104,4 @@ Route::get('ver',function(){
 		echo $value->base_datos;
 		echo $value->id .'<br>';
 	}
-	
-});
+*/	

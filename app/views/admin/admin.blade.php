@@ -40,13 +40,14 @@
 
 <h1 class="page-header">Administradores</h1>
 
-<div class="table-responsive">
+<div class="">
 	<table class="table table-hover">
 		<thead>
 			<tr>
 				<td>Nombre</td>
 				<td>Email</td>
-				<td>Username</td>										
+				<td>Username</td>
+				<td>Cargo</td>										
 				<td>ROL</td>
 				<td>Acciones</td>										
 			</tr>
@@ -55,14 +56,24 @@
 			@foreach($usuarios as $value)
 				@if($value->role_id == 0)
 					<tr>
-						<td>{{$value->nombre}}</td>					
-						<td>{{$value->email}}</td>					
+						<td>{{ $value->usuarioadmin->nombres }}</td>					
+						<td>{{ $value->usuarioadmin->email }}</td>					
 						<td>{{ $value->username }}</td>	
+						<td>{{ $value->usuarioadmin->cargo }}</td>
 						<td>Administrador</td>	
-						<td>
-							<a href="{{ URL::to('administrador/usuarios/del/'. $value->id .'') }}" class="btn btn-small btn-danger">Borrar Usuario</a>
+						<td>							
+							<div class="btn-group">
+								<button type="button" class="btn btn-warning  dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+									Acciones <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="{{ URL::to('administrador/usuariosadmin/update/'. $value->id) }}">Ver Usuario</a></li>
+									<li><a href="{{ URL::to('administrador/usuariosadmin/update/'. $value->id) }}">Modificar Usuario</a></li>
+									<li class="divider"></li>
+									<li><a href="{{ URL::to('administrador/usuariosadmin/delete/'. $value->id) }}">Borrar Usuario</a></li>
+								</ul>
+							</div>
 						</td>
-						
 					</tr>
 				@endif	
 			@endforeach
@@ -76,12 +87,18 @@
 <div>
  		{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
 
-			{{ Form::open(array('url' => 'administrador/usuarios/register', 'files' => true, 'class' => 'form-horizontal')) }}
+			{{ Form::open(array('url' => 'administrador/usuariosadmin/save', 'class' => 'form-horizontal')) }}
 
 				<div class="form-group">
-					{{ Form::label('nombre', 'Nombre', array('class' => 'col-sm-2 control-label')) }}
+					{{ Form::label('nombres', 'Nombres', array('class' => 'col-sm-2 control-label')) }}
 					<div class="col-sm-7">
-						{{ Form::text('nombre', Input::old('nombre'), array('class' => 'form-control', 'placeholder'=> 'Nombre')) }}	
+						{{ Form::text('nombres', Input::old('nombres'), array('class' => 'form-control', 'placeholder'=> 'Nombres')) }}	
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('apellidos', 'Apellidos', array('class' => 'col-sm-2 control-label')) }}
+					<div class="col-sm-7">
+						{{ Form::text('apellidos', Input::old('apellidos'), array('class' => 'form-control', 'placeholder'=> 'Apellidos')) }}	
 					</div>
 				</div>
 				<div class="form-group">
@@ -90,6 +107,12 @@
 						{{ Form::text('email', Input::old('email'), array('class' => 'form-control', 'placeholder'=> 'Email')) }}	
 					</div>
 				</div>
+				<div class="form-group">
+					{{ Form::label('cargo', 'Cargo', array('class' => 'col-sm-2 control-label')) }}
+					<div class="col-sm-7">
+						{{ Form::text('cargo', Input::old('cargo'), array('class' => 'form-control', 'placeholder'=> 'Cargo')) }}	
+					</div>
+				</div>	
 				<div class="form-group">
 					{{ Form::label('username', 'Username', array('class' => 'col-sm-2 control-label')) }}
 					<div class="col-sm-7">
@@ -119,11 +142,9 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						{{ Form::submit('Registrarse' , array('class'=> 'btn btn-primary')) }}
+						{{ Form::submit('Guardar' , array('class'=> 'btn btn-primary')) }}
 					</div>	
 				</div>
-				
-
 			{{ Form::close() }}
 </div>			
 
