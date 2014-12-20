@@ -15,9 +15,10 @@ class CreateUsuarioscontactosTable extends Migration {
 		Schema::create('usuarioscontactos', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('nombre');
-			$table->string('telefono');
-			$table->string('email');
+			$table->string('nombre_contacto');
+			$table->string('telefono_contacto');
+			$table->string('email_contacto');
+			$table->integer('usuario_experiencia_id');
 			$table->timestamps();
 		});
 	}
@@ -30,7 +31,7 @@ class CreateUsuarioscontactosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('usuarioscontactos_');
+		Schema::drop('usuarioscontactos');
 	}
 
 }

@@ -19,6 +19,7 @@ class CreateUsuarioseducacionTable extends Migration {
 			$table->string('titulo');
 			$table->string('instituto');
 			$table->string('fecha_finalizacion');
+			$table->integer('usuario_id');
 			$table->timestamps();
 		});
 	}

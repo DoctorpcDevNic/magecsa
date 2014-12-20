@@ -16,6 +16,8 @@ body
 	padding 0
 .bold
 	font-weight bold
+textarea
+	resize none	
 .slidermain
 	margin-top 51px
 	position relative
@@ -202,9 +204,7 @@ body
 			color verde
 			border-bottom 2px solid azul
 		form	
-			margin-top 2em
-			textarea
-				resize none	
+			margin-top 2em			
 			label
 				color verde	
 	
@@ -232,7 +232,53 @@ body
 				text-align center
 				font-size 18px
 			p
-				color verde	
+				color verde
+					
+	.registro
+		.s
+			display none
+			
+		.titul
+			text-align center
+			color orange
+		.iconitos
+			border-bottom 4px solid amarillo
+			.row
+				padding 0
+				.col-xs-3
+					padding 0
+				.icono
+					p
+						color azul
+						font-size 15px
+		.campos
+			img
+				width 30px
+			input
+			textarea
+			select
+				border 1px solid azul
+				color azul
+			#textareainput
+				height 34px				
+				transition all 1s ease
+				&:hover
+				&:active	
+					height 100px
+			.categoria			
+				.titulother
+					color white
+					background-color azul
+					padding 6px
+				.subtitul
+					color azul
+					border-bottom 3px solid amarillo	
+					text-align center
+		
+				
+						
+					
+					
 							
 .nav-tabs
 	border-bottom 0

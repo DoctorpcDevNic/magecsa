@@ -15,13 +15,13 @@ class CreateUsuariosexpectativasTable extends Migration {
 		Schema::create('usuariosexpectativas', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('interes_laboral');
-			$table->string('categoria_licencia');
+			$table->string('interes_laboral');			
 			$table->string('expectativa_salarial');
 			$table->string('ubicacion_laboral');
 			$table->string('areas_interes');
 			$table->string('puesto_interes');
 			$table->string('horario');
+			$table->integer('usuario_id');
 			$table->timestamps();
 		});
 	}

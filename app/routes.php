@@ -41,6 +41,12 @@ Route::get('login', function(){
 	return View::make('login');
 });
 
+Route::get('Registrar', function(){
+	return View::make('nosotros.registrar');
+});
+
+Route::post('candidato/save', array('uses' => 'CandidatosController@save'));
+
 /*
 	roles
 	0->admin

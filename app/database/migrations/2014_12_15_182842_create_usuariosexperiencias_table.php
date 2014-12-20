@@ -17,13 +17,14 @@ class CreateUsuariosexperienciasTable extends Migration {
 			$table->increments('id');
 			$table->string('nombre_empresa');
 			$table->string('actividad_empresa');
-			$table->string('telefono');
+			$table->string('telefono_empresa');
 			$table->string('area');
 			$table->string('puesto');
 			$table->string('fecha_inicio');
 			$table->string('fecha_fin');
 			$table->text('logros');
-			$table->string('funciones');
+			$table->text('funciones');
+			$table->integer('usuario_id');
 			$table->timestamps();
 		});
 	}

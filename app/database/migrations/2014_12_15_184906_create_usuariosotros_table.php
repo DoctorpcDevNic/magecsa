@@ -16,7 +16,8 @@ class CreateUsuariosotrosTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('idioma');
-			$table->string('nivel_dominio');
+			$table->string('nivel_dominio');	
+			$table->integer('usuario_id');		
 			$table->timestamps();
 		});
 	}

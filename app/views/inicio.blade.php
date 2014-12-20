@@ -21,7 +21,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 col-xs-3">
-				<a href="">
+				<a href="{{ URL::to('Registrar') }}">
 					<img src="{{ asset('img/inscribete.png') }}" class="img-responsive">
 					<hr>
 					<h2>Registrate</h2>

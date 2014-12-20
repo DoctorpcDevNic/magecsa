@@ -4,6 +4,10 @@ function main(){
 	$('.mobil').addClass("hidden-sm hidden-md hidden-lg");
 	$('.computer').addClass('hidden-xs');
 
+
+	$('#convencional').mask('0000-0000');
+	$('#celular').mask('0000-0000');	
+
 	seleccion();
 	
 }

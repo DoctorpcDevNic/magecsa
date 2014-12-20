@@ -21,7 +21,6 @@ class CreateUsuarioshabilidadesTable extends Migration {
 			$table->string('programas_aplicacion');
 			$table->string('programas_diseno');
 			$table->string('sistemas_operativos');
-			$table->string('categoria_licencia');
 			$table->integer('usuario_id');
 			$table->timestamps();
 		});

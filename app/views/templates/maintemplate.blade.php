@@ -138,6 +138,8 @@
 
     	{{ HTML::script('js/vendor/jquery-1.11.1.min.js') }}        
       	{{ HTML::script('js/main.js') }}
+      	{{ HTML::script('js/jquery.mask.min.js') }}
+      	
 
       	{{ HTML::script('js/bootstrap.min.js') }}
   		{{ HTML::script('js/jquery.smartmenus.min.js') }}
