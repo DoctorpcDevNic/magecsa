@@ -1,8 +1,8 @@
 verde = #7bab3d
 amarillo = #fbef44
-azul = #44b4c8
+azul = #45aabb
 verdetran = rgba(123, 172, 61, .75)
-azultran = rgba(68, 180, 200, .9)
+azultran = rgba(69, 170, 187, .9)
 
 @font-face {
     font-family: Junction;
@@ -240,7 +240,7 @@ textarea
 			
 		.titul
 			text-align center
-			color orange
+			color verde
 		.iconitos
 			border-bottom 4px solid amarillo
 			.row
@@ -281,6 +281,7 @@ textarea
 		width 300px
 		display block
 		background azul
+		color white !important
 		&:hover
 			background azultran
 						
@@ -485,12 +486,13 @@ footer
 					top 100px	
 					width 500px		
 		.registro
+			.titul
+				font-size 2em
 			.campos
 				.categoria
 					.titulother
 						margin-left -5%
 						width 500px	
-						padding 10px 6px	
 						img
 							width 60px	
 							margin-left 40px
@@ -506,15 +508,23 @@ footer
 							
 					.img-contra
 						bottom 0
+						left 22%
 					.img-user
-						top 75px	
+						top 68px	
 								
 			.iconitos
 				.row
 					.icono
+						position relative
 						p
 							text-align center
 							font-size 1.5em	
+						.flecha	
+							position absolute
+							width 70px
+							top 15%
+							right -30px
+								
 			.regis
 				padding 20px									
 				color white !important
@@ -649,7 +659,13 @@ footer
 				img
 					right 80px	
 				.texto 
-					width 600px			
+					width 600px		
+		.registro
+			.campos
+				.cuenta
+					.img-contra
+					.img-user
+						left 25%						
 								
 					 	
 

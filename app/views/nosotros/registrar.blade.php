@@ -6,24 +6,27 @@
 @endif
 
 <div class="registro">
-	<h2 class="titul">¡Mas Empleos y Servicios!</h2>
+	<h2 class="titul">¡Mas Empleos, Mas Servicios!</h2>
 
 	<div class="iconitos">
 		<div class="row">
 			<div class="icono col-xs-3">
-				<img src="{{ asset('img/bd.png') }}" alt="" class="img-responsive">
+				<img src="{{ asset('img/flecha.png') }}" alt="" class="flecha computer">
+				<img src="{{ asset('img/user.png') }}" alt="" class="img-responsive">
 				<p>1. Te registras</p>
 			</div>
 			<div class="icono col-xs-3">
-				<img src="{{ asset('img/bd.png') }}" alt="" class="img-responsive">
+				<img src="{{ asset('img/flecha.png') }}" alt="" class="flecha computer">
+				<img src="{{ asset('img/rellena.png') }}" alt="" class="img-responsive">
 				<p>2. Rellenas tus datos </p>
 			</div>
 			<div class="icono col-xs-3">
-				<img src="{{ asset('img/bd.png') }}" alt="" class="img-responsive">
+				<img src="{{ asset('img/flecha.png') }}" alt="" class="flecha computer">
+				<img src="{{ asset('img/cv.png') }}" alt="" class="img-responsive">
 				<p>3. Envias tu CV</p>
 			</div>
 			<div class="icono col-xs-3">
-				<img src="{{ asset('img/bd.png') }}" alt="" class="img-responsive">
+				<img src="{{ asset('img/bienvenido.png') }}" alt="" class="img-responsive">
 				<p>4. Bienvenido al Equipo</p>
 			</div>
 		</div>	
@@ -32,10 +35,10 @@
 	<div class="campos">
 		{{ Form::open(array('url' => 'candidato/save', 'class' => 'form-horizontal')) }}
 			<div class="categoria cuenta">
-				<img src="{{ asset('img/bd.png') }}" alt="" class="computer img-user">
-				<img src="{{ asset('img/bd.png') }}" alt="" class="computer img-contra">
+				<img src="{{ asset('img/user.png') }}" alt="" class="computer img-user">
+				<img src="{{ asset('img/contrasena.png') }}" alt="" class="computer img-contra">
 				<h3 class="titulother">
-					<img src="{{ asset('img/bd.png') }}" alt="" class="computer">
+					<img src="{{ asset('img/datoscuenta.png') }}" alt="" class="computer">
 					Datos de la cuenta
 				</h3>
 				<div class="campo col-sm-offset-4">
@@ -59,7 +62,7 @@
 			{{-- datos personales --}}
 			<div class="categoria personales ">
 				<h3 class="titulother">
-					<img src="{{ asset('img/bd.png') }}" alt="" class="computer">
+					<img src="{{ asset('img/datospersonales.png') }}" alt="" class="computer">
 					Datos Personales
 				</h3>
 				<div class="campo col-sm-offset-2">
@@ -181,7 +184,7 @@
 			{{--  expectativa laboral --}}
 			<div class="categoria expectativa">
 				<h3 class="titulother">
-					<img src="{{ asset('img/bd.png') }}" alt="" class="computer">
+					<img src="{{ asset('img/expectativa.png') }}" alt="" class="computer">
 					EXPECTATIVA LABORAL
 				</h3>
 				<div class="campo col-sm-offset-2">
@@ -278,7 +281,7 @@
 			{{-- experiencia profecional --}}	
 			<div class="categoria expectativa">
 				<h3 class="titulother">
-					<img src="{{ asset('img/bd.png') }}" alt="" class="computer">
+					<img src="{{ asset('img/experiencia.png') }}" alt="" class="computer">
 					EXPERIENCIA PROFESIONAL
 				</h3>
 				<div class="campo col-sm-offset-2">
@@ -363,7 +366,7 @@
 			{{--Educacion Academica --}}
 			<div class="categoria educacion">
 				<h3 class="titulother">
-					<img src="{{ asset('img/bd.png') }}" alt="" class="computer">
+					<img src="{{ asset('img/educacion.png') }}" alt="" class="computer">
 					Educacion Academica
 				</h3>
 				<div class="campo col-sm-offset-2">
@@ -421,7 +424,7 @@
 			{{-- Otros estudios --}}
 			<div class="categoria estudios">
 				<h3 class="titulother">
-					<img src="{{ asset('img/bd.png') }}" alt="" class="computer">
+					<img src="{{ asset('img/otros.png') }}" alt="" class="computer">
 					OTROS ESTUDIOS
 				</h3>
 				<div class="campo col-sm-offset-2">
