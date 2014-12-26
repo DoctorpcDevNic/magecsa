@@ -73,7 +73,7 @@
 						{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
 					
 						<h3 class="titulother">
-							<img src="{{ asset('img/datoscuenta.png') }}" alt="" class="computer">
+							<img src="{{ asset('img/datospersonales.png') }}" alt="" class="computer">
 							Datos Personales
 						</h3>
 						<div class="formu">

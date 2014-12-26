@@ -46,6 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a class="navbar-brand" href="{{ URL::to('/') }}">MAGECSA</a>
                 <a class="navbar-brand" href="#">Administrador</a>
             </div>
             <!-- /.navbar-header -->

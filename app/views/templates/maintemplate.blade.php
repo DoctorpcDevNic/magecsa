@@ -107,6 +107,20 @@
 			                	<i class="glyphicon glyphicon-envelope"></i><br>
 			                	Contactenos 
 			                </a></li>  
+			                <li class="dropdown">
+			                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+			                    	<i class="glyphicon glyphicon-list-alt"></i><br>
+			                    	Perfil 
+			                    </a>
+			                    <ul class="dropdown-menu submenu" role="menu">
+			                    	@if(Auth::check())
+			                    		<li><a href="{{ URL::to('Perfil/'. Auth::user()->username) }}">Ver perfil</a></li>       
+			                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
+			                    	@else
+			                    		<li><a href="{{ URL::to('login') }}">Iniciar Sesion</a></li>
+			                    	@endif        
+			                    </ul>
+			                </li>
 		      			</ul>
 		      		</div>
 		      	</div>		
