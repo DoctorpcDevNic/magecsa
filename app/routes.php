@@ -45,7 +45,24 @@ Route::get('Registrar', function(){
 	return View::make('nosotros.registrar');
 });
 
+Route::get('login', function(){
+	return View::make('usuario.login');
+});
+
 Route::post('candidato/save', array('uses' => 'CandidatosController@save'));
+
+Route::get('Perfil/{username}', 'CandidatosController@viewPerfil');
+
+Route::group(array('prefix' => 'perfil'), function () {
+	Route::post('update/datoscuenta/{id}','CandidatosController@updatedatoscuenta');
+	Route::post('update/datospersonales/{id}','CandidatosController@updatedatospersonales');
+	Route::post('update/experiencia/{id}','CandidatosController@updateexperiencia');
+
+	Route::post('login', 'CandidatosController@login');
+
+
+	Route::get('logout', 'CandidatosController@getLogout');
+});
 
 /*
 	roles

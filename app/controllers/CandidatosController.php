@@ -3,6 +3,16 @@
 class CandidatosController extends BaseController {
 
 	/**
+	 * [viewPerfil description]
+	 * @param  [type] $username [description]
+	 * @return [type]           [description]
+	 */
+	public function viewPerfil($username){
+		$user = User::where('username', $username)->first();
+		return View::make('usuario.perfil')->with('user', $user);
+	}
+
+	/**
 	 * [save description]
 	 * @return [type] [description]
 	 */
@@ -86,6 +96,148 @@ class CandidatosController extends BaseController {
 		Session::flash('message', 'Usuario Agregado');
 		return Redirect::back();
 		
+	}	
+
+
+	/**
+	 * [updatedatoscuenta description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
+	public function updatedatoscuenta($id){
+		$user = User::find($id);
+
+		if(Auth::user()->id == $id){			
+
+			if($user->username == Input::get('username')){
+				$rules = array(
+					'username' => 'required',
+					'password' => 'confirmed|required',
+					'password_confirmation' => 'required'
+				);
+
+			}else{
+				$rules = array(
+					'username' => 'unique:usuarios|required',
+					'password' => 'confirmed|required',
+					'password_confirmation' => 'required'
+				);				
+			}
+
+			$message = array(
+				'required' => 'El campo :attribute es requerido',
+				'unique' => 'El nombre de usuario ya esta en uso'			
+			);
+
+			$validator = Validator::make(Input::all(), $rules, $message);
+
+			if ($validator->fails()){				
+				return Redirect::back()->withErrors($validator);
+			}else{
+
+				$user->username = Input::get('username');
+				$user->password = Hash::make(Input::get('password'));;
+				$user->save();
+
+				Session::flash('message', 'Usuario Modificado');
+				return Redirect::to('Perfil/'. $user->username);
+
+			}		
+
+		}else{
+			return Redirect::to('/');
+		}
+	}
+
+	public function updatedatospersonales($id){
+		$user = User::find($id);
+
+		if(Auth::user()->id == $id){	
+
+			$userdato = UsuarioDato::where('usuario_id', $id)->first();
+
+			$userdato->nombres = Input::get('nombres');
+			$userdato->apellidos = Input::get('apellidos');
+			$userdato->fecha_nacimiento = Input::get('fecha_nacimiento');
+			$userdato->estado_civil = Input::get('estado_civil');
+			$userdato->genero = Input::get('genero');
+			$userdato->nacionalidad = Input::get('nacionalidad');
+			$userdato->tipo_identificacion = Input::get('tipo_identificacion');
+			$userdato->no_identificacion = Input::get('no_identificacion');
+			$userdato->departamento = Input::get('departamento');
+			$userdato->direccion = Input::get('direccion');
+			$userdato->convencional = Input::get('convencional');
+			$userdato->celular = Input::get('celular');
+			$userdato->email = Input::get('email');
+			$userdato->vehiculo = Input::get('vehiculo');
+
+			$categorias = implode(',',$_POST['categoria_licencia']); 
+			$userdato->categoria_licencia = $categorias;
+
+			$userdato->disponible_viajar = Input::get('disponible_viajar');
+			$userdato->objetivo = Input::get('objetivo');
+					
+			$user->usuariodato()->save($userdato);
+
+
+			Session::flash('message', 'Usuario Modificado');
+			return Redirect::back();
+
+		}else{
+			return Auth::user()->username;
+		}
+	}
+
+	public function login(){
+		if($this->validateFormsLogin(Input::all()) === true){
+			$userdata = array(
+				'username' =>Input::get('username'),
+				'password' =>Input::get('password')
+				);
+
+			if(Auth::attempt($userdata)){
+				if(Auth::user()->role_id == 0){
+					return Redirect::to('administrador');
+				}else if(Auth::user()->role_id == 1){
+					return Redirect::to('administrador');
+				}else if(Auth::user()->role_id == 2){
+					return Redirect::to('administrador');
+				}else if(Auth::user()->role_id == 3){
+					return Redirect::to('Perfil/' . Auth::user()->username);
+				}
+			}else{
+				Session::flash('message', 'Error al iniciar session');
+				return Redirect::to('login');
+			}
+		}else{
+			return Redirect::to('login')->withErrors($this->validateFormsLogin(Input::all()))->withInput();		
+		}	
+	}
+
+	/**
+	 * cierra session
+	 * @return [type]
+	 */
+	public function getLogout(){
+		Auth::logout();
+		return Redirect::to('/');
+	}
+
+	private function validateFormsLogin($inputs = array()){
+		$rules = array(			
+			'username' => 'required',			
+			'password' => 'required',			
+			);
+		$message = array(
+			'required' => 'El campo :attribute es requerido',			
+			);
+		$validate = Validator::make($inputs, $rules, $message);
+
+		if($validate->fails()){
+			return $validate;
+		}else{
+			return true;
+		}
 	}
 }
 

@@ -11,7 +11,8 @@
 
 
 		{{ HTML::style('css/bootstrap.min.css') }}
-		{{ HTML::style('css/jquery.smartmenus.bootstrap.css') }}		
+		{{ HTML::style('css/jquery.smartmenus.bootstrap.css') }}	
+		{{ HTML::style('css/bootstrap.vertical-tabs.min.css') }}	
 
 		{{ HTML::style('css/main.css') }}
 
