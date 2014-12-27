@@ -184,7 +184,40 @@ class CandidatosController extends BaseController {
 			return Redirect::back();
 
 		}else{
-			return Auth::user()->username;
+			return Redirect::to('/');
+		}
+	}
+
+	public function updateexpectativa($id){
+		
+	}
+
+	public function updateavatar($id){
+		$file = 'no_img.png';
+		$user = User::find($id);
+
+		if(Auth::user()->id == $id){	
+			$userdato = UsuarioDato::where('usuario_id', $id)->first();
+
+
+			if(Input::hasFile('archivo')) {
+				File::delete('img/upload/'. $userdato->foto);
+		       	Input::file('archivo')->move('img/upload', Auth::user()->username . Input::file("archivo")->getClientOriginalName());
+		       	$file = Auth::user()->username . Input::file("archivo")->getClientOriginalName();
+
+		       	$userdato->foto = $file;
+		       	$user->usuariodato()->save($userdato);
+
+		       	Session::flash('message', 'Usuario Modificado');
+				return Redirect::back();
+
+	     	}else{
+	     		Session::flash('message', 'No se encontro imagen');
+				return Redirect::back();
+	     	}			
+			
+		}else{
+			return Redirect::to('/');
 		}
 	}
 

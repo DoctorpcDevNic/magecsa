@@ -57,6 +57,8 @@ Route::group(array('prefix' => 'perfil'), function () {
 	Route::post('update/datoscuenta/{id}','CandidatosController@updatedatoscuenta');
 	Route::post('update/datospersonales/{id}','CandidatosController@updatedatospersonales');
 	Route::post('update/experiencia/{id}','CandidatosController@updateexperiencia');
+	Route::post('update/expectativa/{id}','CandidatosController@updateexpectativa');
+	Route::post('update/avatar/{id}','CandidatosController@updateavatar');
 
 	Route::post('login', 'CandidatosController@login');
 

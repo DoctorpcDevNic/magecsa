@@ -46,9 +46,7 @@ function main(){
 		}
 	});
 
-	$( "#interes_laboral option" ).each(function(){
-		console.log($('#interes_laboral').data('select'));
-		console.log($(this).val());
+	$( "#interes_laboral option" ).each(function(){	
 
 		if($('#interes_laboral').data('select') == $(this).val()){
 			$(this).attr('selected', 'selected');
@@ -103,6 +101,12 @@ function main(){
 		}
 	});
 
+	$('#cambiaravatar').click(function(){
+		$('#ModalAvatar').modal('show'); 
+	});
+
+
+	getCategoria();
 
 	seleccion();
 
@@ -127,11 +131,19 @@ function seleccion(){
 		a.push($(this).val());
 		
 		$('.infouser').append("<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>×</span><span class='sr-only'>Close</span></button><strong>"+ $(this).val() +"</strong></div>");
-
-		//console.log(a);
-		//console.log(a.length);
-
-		//$('.infouser').html(a);
-		//alert($(this).val());
 	});
+}
+
+function getCategoria(){
+
+	var datos = $('#valoreslicencia').val();
+	var	cu = datos.split(',');
+
+	for (var i = 0; i < cu.length; i++) {
+		$("#licencia input[type='checkbox']").each(function(){
+			if(cu[i] == $(this).val()){
+				$(this).attr('checked', 'checked');				
+			}
+		});
+	}	
 }

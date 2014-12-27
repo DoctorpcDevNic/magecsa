@@ -3,7 +3,7 @@
 <div class="perfil">
 
 	<div class="col-xs-8 mobil avatar">
-		<img src="{{ asset('img/bd.png') }}" alt="" class="img-responsive">
+		<img src="http://www.larazon.com.ar/actualidad/foto-tomada-Alberto-Diaz-Korda_IECIMA20131123_0002_19.jpg" alt="" class="img-responsive">		
 	</div>
 
 	@if(Auth::check() && Auth::user()->id == $user->id )		
@@ -19,7 +19,11 @@
 			</div>
 
 			<div class="col-xs-3 computer" style="margin-top: 2em"> 
-				<img src="http://www.larazon.com.ar/actualidad/foto-tomada-Alberto-Diaz-Korda_IECIMA20131123_0002_19.jpg" alt="" class="img-responsive avatar">
+				<div class="avatar">
+					<img src="{{ asset('img/upload/' . $user->usuariodato->foto) }}" alt="" class="img-responsive">
+					<a href="#" class="btn btn-primary" id="cambiaravatar">Cambiar Avatar</a>
+				</div>
+				
 			    <ul class="nav nav-tabs tabs-left">
 			      	<li class="active"><a href="#datoscuenta" data-toggle="tab">Datos De la Cuenta</a></li>
 			     	<li><a href="#datospersonales" data-toggle="tab">Datos Personales</a></li>
@@ -168,7 +172,8 @@
 									    </div>					    
 									</div>
 									<h3 class="subtitul">Categoria de Licencia</h3>
-									<div class="form-group" id='licencia'>	
+									<div class="form-group" id='licencia'>
+										<input type="hidden" id="valoreslicencia" value="{{$user->usuariodato->categoria_licencia}}">	
 									    <div class="col-sm-4 col-xs-4">
 									    	<input type="checkbox" name="categoria_licencia[]" value="Motocicleta">Motocicleta<br>
 									    	<input type="checkbox" name="categoria_licencia[]" value="Profecional">Profecional<br>
@@ -257,6 +262,7 @@
 											</select> 
 									    </div>	
 									    <div class="col-sm-5">
+									    {{-- here --}}
 									    	<select class="form-control" name="areas_interes" data-select='{{$user->usuarioexpectativa()->first()->areas_interes}}' id="areas_interes">
 												 <option selected="selected" class="s">Areas de Interes </option>
 												 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>				
@@ -464,6 +470,36 @@
 	@else
 		esto sale si no estas log ni sos el user
 	@endif		
+
+
+
+	{{-- Modal --}}	
+
+	<div class="modal fade" id="ModalAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Cambiar Avatar</h4>
+	      </div>
+	      <div class="modal-body">
+	        {{ Form::open(array('url' => 'perfil/update/avatar/' .  $user->id ,'files' => 'true', 'class' => 'form-horizontal')) }}
+	        	<div class="form-group">
+					{{ Form::label('imagen', 'Imagen', array('class' => 'col-sm-2 control-label')) }}
+					<div class="col-sm-6">
+						{{ Form::file('archivo') }}
+					</div>
+				</div>				
+	        	<div class="modal-footer">
+			    	<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+	        		<button type="submit" class="btn btn-success">Guardar Cambios</button>
+		      	</div> 
+	        {{ Form::close() }}
+	      </div> 
+
+	    </div>
+	  </div>
+	</div>
 
 </div>
 @stop
