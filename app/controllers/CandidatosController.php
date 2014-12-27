@@ -189,7 +189,28 @@ class CandidatosController extends BaseController {
 	}
 
 	public function updateexpectativa($id){
-		
+		$user = User::find($id);
+
+		if(Auth::user()->id == $id){	
+
+			$userexpec = UsuarioExpectativa::where('usuario_id', $id)->first();
+			
+			$userexpec->interes_laboral = Input::get('interes_laboral');
+			$userexpec->expectativa_salarial = Input::get('expectativa_salarial');
+			$userexpec->ubicacion_laboral = Input::get('ubicacion_laboral');
+			$userexpec->areas_interes = Input::get('areasseleccionadas');
+			$userexpec->puesto_interes = Input::get('puesto_interes');
+			$userexpec->horario = Input::get('horario');
+
+			$user->usuarioexpectativa()->save($userexpec);
+
+			Session::flash('message', 'Usuario Modificado');
+			return Redirect::back();
+
+
+		}else{
+			return Redirect::to('/');	
+		}		
 	}
 
 	public function updateavatar($id){

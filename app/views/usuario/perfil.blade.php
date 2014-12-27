@@ -208,7 +208,7 @@
 							Expectativa Laboral
 						</h3>
 						<div class="formu">
-							{{ Form::open(array('url' => 'perfil/update/expectativa/' .  $user->id, 'class' => 'form-horizontal')) }}
+							{{ Form::open(array('url' => 'perfil/update/expectativa/' .  $user->id, 'class' => 'form-horizontal sendAjax')) }}
 								<div class="campo col-sm-offset-1">
 									<div class="form-group">	
 									    <div class="col-sm-5 ">
@@ -262,9 +262,9 @@
 											</select> 
 									    </div>	
 									    <div class="col-sm-5">
-									    {{-- here --}}
-									    	<select class="form-control" name="areas_interes" data-select='{{$user->usuarioexpectativa()->first()->areas_interes}}' id="areas_interes">
-												 <option selected="selected" class="s">Areas de Interes </option>
+									    {{-- here --}}	
+									    	<input type="hidden" name="areasseleccionadas" id="areasseleccionadas">								    	
+									    	<select class="form-control" name="areas_interes" data-select='{{$user->usuarioexpectativa()->first()->areas_interes}}' id="areas_interes">												 
 												 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>				
 												 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
 												 <option value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad</option>	
@@ -300,7 +300,7 @@
 								</div>
 								<div class="form-group">
 									{{-- <a href="" id="addexpectativa" class="btn btn-primary">Agregar Area De Interes</a> --}}								
-									{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis')) }}				
+									{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
 								</div>
 							{{ Form::close() }}
 						</div>
@@ -502,4 +502,21 @@
 	</div>
 
 </div>
+@stop
+
+@section('js')
+<script type="text/javascript">
+$(function(){
+	$("#areas_interes").multiselect({
+		header: "Selecciona 3 Areas de interes",
+		selectedList: 3,
+		click: function(e){
+	       if( $(this).multiselect("widget").find("input:checked").length > 3 ){	           
+	           return false;
+	       } 
+	   },
+	   multiple: true,	   
+	});
+});
+</script>
 @stop

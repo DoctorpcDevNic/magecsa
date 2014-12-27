@@ -63,11 +63,7 @@ function main(){
 			$(this).attr('selected', 'selected');
 		}
 	});
-	$( "#areas_interes option" ).each(function(){
-		if($('#areas_interes').data('select') == $(this).val()){
-			$(this).attr('selected', 'selected');
-		}
-	});
+	
 	$( "#puesto_interes option" ).each(function(){
 		if($('#puesto_interes').data('select') == $(this).val()){
 			$(this).attr('selected', 'selected');
@@ -105,13 +101,23 @@ function main(){
 		$('#ModalAvatar').modal('show'); 
 	});
 
+	$('#areasselect').val($('#areas_interes').data('select'));	
+
+	$('#btnareas').click(function(){
+		//$('#areasselect').val($("#pp").html());
+		console.log('hola');
+	});
+
 
 	getCategoria();
+	getArea();
 
 	seleccion();
 
 
-	
+	$('#submitexpectativas').click(function(){
+		$('#areasseleccionadas').val($('#pp').html());
+	});
 }
 
 function seleccion(){
@@ -147,3 +153,19 @@ function getCategoria(){
 		});
 	}	
 }
+
+function getArea(){
+	var datos = $('#areas_interes').data('select');
+	var	cu = datos.split(',');
+
+	//console.log(cu);
+	for (var i = 0; i < cu.length; i++) {
+		$( "#areas_interes option" ).each(function(){
+			if(cu[i] == $(this).val()){
+				console.log($(this).val());
+				$(this).attr('selected', 'selected');
+			}
+		});	
+	}	
+}
+
