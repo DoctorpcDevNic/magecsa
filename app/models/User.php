@@ -34,6 +34,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasOne('UsuarioDato', 'usuario_id');
 	}
 
+	public function usuariootro(){
+		return $this->hasOne('UsuarioOtro', 'usuario_id');
+	}
+
+	
+
 	/**
 	 * relacion uno a mucho	
 	 */	
@@ -46,10 +52,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function usuarioeducacion(){
 		return $this->hasMany('UsuarioEducacion', 'usuario_id');
 	}
-	public function usuariootro(){
-		return $this->hasMany('UsuarioOtro', 'usuario_id');
-	}
 	public function usuariohabilidad(){
 		return $this->hasMany('UsuarioHabilidad', 'usuario_id');
 	}
+		
 }

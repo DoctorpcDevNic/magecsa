@@ -451,7 +451,12 @@
 					    </div>					    
 					</div>
 					<h3 class="subtitul">Habilidades Tecnicas</h3>
-					<div class="form-group">	
+					<div class="form-group">						
+					    <div class="col-sm-10">
+					    	{{ Form::textarea('habilidad', Input::old('habilidad'), array('class' => 'form-control', 'placeholder'=> 'Habilidades tecnicas')) }}	
+					    </div>
+					</div>
+			{{-- 	<div class="form-group">	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="base_datos" >
 								 <option selected="selected" class="s">Base de Datos</option>
@@ -517,6 +522,7 @@
 							</select> 
 					    </div>					    
 					</div>
+			--}}		
 				</div>
 			</div>	
 			<h3 class="divider"></h3>

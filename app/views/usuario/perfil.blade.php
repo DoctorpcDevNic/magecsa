@@ -393,6 +393,10 @@
 										    	{{ Form::text('email_contacto', Input::old('email_contacto'), array('class' => 'form-control', 'placeholder'=> 'E-mail de Contacto')) }}	
 										    </div>
 										</div>
+										<div class="form-group">
+											{{-- <a href="" id="addexpectativa" class="btn btn-primary">Agregar Area De Interes</a> --}}								
+											{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
+										</div>
 									</div>
 								{{ Form::close() }}	
 							</div>
@@ -404,11 +408,11 @@
 					
 						<h3 class="titulother">
 							<img src="{{ asset('img/educacion.png') }}" alt="" class="computer">
-							Expectativa Laboral
+							Formacion Academinca
 						</h3>
 						@foreach($user->usuarioeducacion()->get() as $value)
 							<div class="formu">
-								{{ Form::open(array('url' => 'perfil/update/experiencia/' .  $user->id .'/' .$value->id, 'class' => 'form-horizontal')) }}
+								{{ Form::open(array('url' => 'perfil/update/academica/' .  $user->id .'/' .$value->id, 'class' => 'form-horizontal')) }}
 									<div class="campo col-sm-offset-2">								
 										<div class="form-group">	
 										    <div class="col-sm-5">
@@ -459,12 +463,61 @@
 										    	{{ Form::input('date','fecha_finalizacion', Input::old('fecha_finalizacion') ? Input::old(): $value->fecha_finalizacion, array('class' => 'form-control')) }}	
 										    </div>
 										</div>
+										<div class="form-group">
+											{{-- <a href="" id="addexpectativa" class="btn btn-primary">Agregar Area De Interes</a> --}}								
+											{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
+										</div>
 									</div>
 								{{ Form::close() }}	
 							</div>
 						@endforeach	
 					</div>
-					<div class="tab-pane" id="otros">Settings Tab.</div>
+					{{-- OTROS ESTUDIOS --}}
+					<div class="tab-pane" id="otros">
+						{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
+					
+						<h3 class="titulother">
+							<img src="{{ asset('img/otros.png') }}" alt="" class="computer">
+							OTROS ESTUDIOS
+						</h3>
+						<div class="formu">
+							{{ Form::open(array('url' => 'perfil/update/otros/' . $user->id , 'class' => 'form-horizontal')) }}
+								<div class="campo col-sm-offset-2">
+									<div class="form-group">	
+									    <div class="col-sm-5">
+									    	<select class="form-control" name="idioma" data-select='{{$user->usuariootro->idioma}}' id="idioma">
+												 <option selected="selected" class="s">Idioma</option>
+												 <option value="Aleman">Aleman</option>				
+												 <option value="Arabe">Arabe</option>	
+												 <option value="Cantones">Cantones</option>				
+												 <option value="Chino - Mandarin">Chino - Mandarin</option>				
+												 <option value="Español">Español</option>	
+											</select> 
+									    </div>
+									    <div class="col-sm-5">
+									    	<select class="form-control" name="nivel_dominio" data-select='{{$user->usuariootro->nivel_dominio}}' id="nivel_dominio">
+												 <option selected="selected" class="s">Nivel de Dominio </option>
+												 <option value="Basico">Basico</option>				
+												 <option value="Intermedio">Intermedio</option>	
+												 <option value="Avanzado">Avanzado</option>				
+												 <option value="Nativo">Nativo</option>				
+												 <option value="Bilingüe">Bilingüe</option>	
+											</select> 
+									    </div>					    
+									</div>
+									<h3 class="subtitul">Habilidades Tecnicas</h3>
+									<div class="form-group">						
+								    	<div class="col-sm-10">
+									    	{{ Form::textarea('habilidad', Input::old('habilidad') ? Input::old(): $user->usuariootro->habilidad, array('class' => 'form-control', 'placeholder'=> 'Habilidades tecnicas')) }}	
+									    </div>
+									</div>	
+									<div class="form-group">
+										{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
+									</div>
+								</div>
+							{{ Form::close() }}	
+						</div>			
+					</div>
 			    </div>
 			</div> 		
 	@else

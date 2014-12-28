@@ -96,6 +96,16 @@ function main(){
 			$(this).attr('selected', 'selected');
 		}
 	});
+	$( "#idioma option" ).each(function(){
+		if($('#idioma').data('select') == $(this).val()){
+			$(this).attr('selected', 'selected');
+		}
+	});
+	$( "#nivel_dominio option" ).each(function(){
+		if($('#nivel_dominio').data('select') == $(this).val()){
+			$(this).attr('selected', 'selected');
+		}
+	});
 
 	$('#cambiaravatar').click(function(){
 		$('#ModalAvatar').modal('show'); 

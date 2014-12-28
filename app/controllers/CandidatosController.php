@@ -77,14 +77,17 @@ class CandidatosController extends BaseController {
 
 		$userotro->idioma = Input::get('idioma');
 		$userotro->nivel_dominio = Input::get('nivel_dominio');
+		$userotro->habilidad = Input::get('habilidad');
 
+		/*	
 		$userhab->base_datos = Input::get('base_datos');
 		$userhab->frameworks = Input::get('frameworks');
 		$userhab->lenguajes_programacion = Input::get('lenguajes_programacion');
 		$userhab->programas_aplicacion = Input::get('programas_aplicacion');
 		$userhab->programas_diseno = Input::get('programas_diseno');
 		$userhab->sistemas_operativos = Input::get('sistemas_operativos');
-
+		*/
+	
 		$user->save();
 		$user->usuariodato()->save($userdato);
 		$user->usuarioexpectativa()->save($userexpec);
@@ -149,6 +152,11 @@ class CandidatosController extends BaseController {
 		}
 	}
 
+	/**
+	 * [updatedatospersonales description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
 	public function updatedatospersonales($id){
 		$user = User::find($id);
 
@@ -188,6 +196,11 @@ class CandidatosController extends BaseController {
 		}
 	}
 
+	/**
+	 * [updateexpectativa description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
 	public function updateexpectativa($id){
 		$user = User::find($id);
 
@@ -213,6 +226,106 @@ class CandidatosController extends BaseController {
 		}		
 	}
 
+	/**
+	 * [updateexperiencia description]
+	 * @param  [type] $iduser  [description]
+	 * @param  [type] $idexper [description]
+	 * @return [type]          [description]
+	 */
+	public function updateexperiencia($iduser, $idexper){
+		$user = User::find($iduser);
+
+		if(Auth::user()->id == $iduser){	
+
+			$userexper = UsuarioExperiencia::where('usuario_id', $iduser)->get();
+
+			foreach ($userexper as $value) {
+				if($value->id == $idexper){
+					$userexper = $value;
+				}
+			}
+
+			$userexper->nombre_empresa = Input::get('nombre_empresa');
+			$userexper->actividad_empresa = Input::get('actividad_empresa');
+			$userexper->telefono_empresa = Input::get('telefono_empresa');
+			$userexper->area = Input::get('area');
+			$userexper->puesto = Input::get('puesto');
+			$userexper->fecha_inicio = Input::get('fecha_inicio');
+			$userexper->fecha_fin = Input::get('fecha_fin');
+			$userexper->logros = Input::get('logros');
+			$userexper->funciones = Input::get('funciones');
+
+
+			$user->usuarioexperiencia()->save($userexper);
+
+			Session::flash('message', 'Usuario Modificado');
+			return Redirect::back();
+
+		}else{
+
+			return Redirect::to('/');
+		}	
+	}
+
+	/**
+	 * [updateacademica description]
+	 * @param  [type] $iduser  [description]
+	 * @param  [type] $idacade [description]
+	 * @return [type]          [description]
+	 */
+	public function updateacademica($iduser, $idacade){
+		$user = User::find($iduser);
+
+		if(Auth::user()->id == $iduser){	
+			$usereduca = UsuarioEducacion::where('usuario_id', $iduser)->get();
+
+			foreach ($usereduca as $value) {
+				if($value->id == $idacade){
+					$usereduca = $value;
+				}
+			}
+
+			$usereduca->nivel_academico = Input::get('nivel_academico');
+			$usereduca->titulo = Input::get('titulo');
+			$usereduca->instituto = Input::get('instituto');
+			$usereduca->fecha_finalizacion = Input::get('fecha_finalizacion');
+
+			$user->usuarioeducacion()->save($usereduca);
+
+			Session::flash('message', 'Usuario Modificado');
+			return Redirect::back();
+
+		}else{
+			return Redirect::to('/');	
+		}
+	}
+
+	public function updateotros($id){
+		$user = User::find($id);
+
+		if(Auth::user()->id == $id){	
+
+			$userotro = UsuarioOtro::where('usuario_id', $id)->first();
+
+			$userotro->idioma = Input::get('idioma');
+			$userotro->nivel_dominio = Input::get('nivel_dominio');
+			$userotro->habilidad = Input::get('habilidad');
+
+			$user->usuariootro()->save($userotro);
+				
+			Session::flash('message', 'Usuario Modificado');
+			return Redirect::back();
+		}else{
+			return Redirect::to('/');	
+		}	
+			
+	}
+
+	/**
+	 * [updateavatar description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
 	public function updateavatar($id){
 		$file = 'no_img.png';
 		$user = User::find($id);
@@ -242,6 +355,10 @@ class CandidatosController extends BaseController {
 		}
 	}
 
+	/**
+	 * [login description]
+	 * @return [type] [description]
+	 */
 	public function login(){
 		if($this->validateFormsLogin(Input::all()) === true){
 			$userdata = array(
@@ -277,6 +394,11 @@ class CandidatosController extends BaseController {
 		return Redirect::to('/');
 	}
 
+	/**
+	 * [validateFormsLogin description]
+	 * @param  array  $inputs [description]
+	 * @return [type]         [description]
+	 */
 	private function validateFormsLogin($inputs = array()){
 		$rules = array(			
 			'username' => 'required',			
