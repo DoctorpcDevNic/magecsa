@@ -1,9 +1,76 @@
 @extends('templates.maintemplate')
 @section('contenido')
-<div class="perfil">
+<div class="perfil">	
+
+	<div class="perfilpublico">
+		<div class="row">
+			<div class="col-xs-3 avatarpf">
+				<img src="{{ asset('img/upload/' . $user->usuariodato->foto) }}" alt="">
+			</div>
+			<div class="col-xs-9">
+				<p class="nombre">{{ $user->usuariodato->nombres ." ". $user->usuariodato->apellidos  }}</p>
+				<p class="objetivo">{{ $user->usuariodato->objetivo }}</p>
+			</div>
+		</div>	
+		<div class="infopf">
+			<div class="row">
+				<div class="col-xs-3 info">
+					<div class="cabe">
+						<img src="{{ asset('img/educacion.png') }}" alt="">
+						<p class="computer">Formacion Academica</p>
+					</div>
+					<div class="exbd">
+						@foreach($user->usuarioeducacion()->get() as $value)
+							<p>{{$value->titulo}}</p>
+						@endforeach
+					</div>	
+					<span></span>
+				</div>
+					<div class="col-xs-3 info">
+					<div class="cabe">
+						<img src="{{ asset('img/experiencia.png') }}" alt="">
+						<p class="computer">Experiencia Profecional</p>
+					</div>
+					<div class="exbd">
+						@foreach($user->usuarioexperiencia()->get() as $value)
+							<p>{{$value->funciones}}</p>
+						@endforeach
+					</div>	
+					<span></span>
+				</div>
+				<div class="col-xs-3 info">
+					<div class="cabe">
+						<img src="{{ asset('img/datospersonales.png') }}" alt="">
+						<p class="computer">Otros datos de interes</p>
+					</div>
+					<div class="exbd">
+						<?php 
+							$fecha = UsuarioDato::where('usuario_id', $user->id)->first(); 
+							list($Y,$m,$d) = explode("-",$fecha->fecha_nacimiento);
+							$fecha = date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y ;
+						 ?>
+						<p>{{ $fecha }} años</p>
+						<p>{{ $user->usuariodato->estado_civil }}</p>
+						<p>Vehiculo: @if($user->usuariodato->estado_civil == 0) no @else si @endif</p>
+						{{-- <p> Licencia : {{ $user->usuariodato->categoria_licencia }} </p> --}}
+					</div>
+					<span></span>
+				</div>
+				<div class="col-xs-3 info">
+					<div class="cabe">
+						<img src="{{ asset('img/bd.png') }}" alt="">
+						<p class="computer">Nacionalidad</p>
+					</div>
+					<div class="exbd">
+						<p>{{ $user->usuariodato->nacionalidad . ", " . $user->usuariodato->departamento }}</p>
+					</div>	
+				</div>
+			</div>				
+		</div>
+	</div>
 
 	<div class="col-xs-8 mobil avatar">
-		<img src="http://www.larazon.com.ar/actualidad/foto-tomada-Alberto-Diaz-Korda_IECIMA20131123_0002_19.jpg" alt="" class="img-responsive">		
+		<img src="{{ asset('img/upload/' . $user->usuariodato->foto) }}" alt="" class="img-responsive">		
 	</div>
 
 	@if(Auth::check() && Auth::user()->id == $user->id )		
@@ -519,9 +586,7 @@
 						</div>			
 					</div>
 			    </div>
-			</div> 		
-	@else
-		esto sale si no estas log ni sos el user
+			</div>
 	@endif		
 
 
