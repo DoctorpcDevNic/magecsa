@@ -111,71 +111,12 @@ function main(){
 		$('#ModalAvatar').modal('show'); 
 	});
 
-	$('#areasselect').val($('#areas_interes').data('select'));	
+	
 
-	$('#btnareas').click(function(){
-		//$('#areasselect').val($("#pp").html());
-		console.log('hola');
-	});
-
-
-	getCategoria();
-	getArea();
-
-	seleccion();
-
+	
 
 	$('#submitexpectativas').click(function(){
 		$('#areasseleccionadas').val($('#pp').html());
 	});
-}
-
-function seleccion(){
-	var a = [];
-
-
-	$('#selec').click(function(){
-		if(a.length == 3){
-			$("#selec").attr('disabled' , 'disabled');
-		}else{
-			$("#selec").removeAttr('disabled');	
-		}
-	})
-
-	$('#selec').change(function(){
-	
-		a.push($(this).val());
-		
-		$('.infouser').append("<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>×</span><span class='sr-only'>Close</span></button><strong>"+ $(this).val() +"</strong></div>");
-	});
-}
-
-function getCategoria(){
-
-	var datos = $('#valoreslicencia').val();
-	var	cu = datos.split(',');
-
-	for (var i = 0; i < cu.length; i++) {
-		$("#licencia input[type='checkbox']").each(function(){
-			if(cu[i] == $(this).val()){
-				$(this).attr('checked', 'checked');				
-			}
-		});
-	}	
-}
-
-function getArea(){
-	var datos = $('#areas_interes').data('select');
-	var	cu = datos.split(',');
-
-	//console.log(cu);
-	for (var i = 0; i < cu.length; i++) {
-		$( "#areas_interes option" ).each(function(){
-			if(cu[i] == $(this).val()){
-				console.log($(this).val());
-				$(this).attr('selected', 'selected');
-			}
-		});	
-	}	
 }
 

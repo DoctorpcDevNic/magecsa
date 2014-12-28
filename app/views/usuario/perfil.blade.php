@@ -558,6 +558,7 @@
 @stop
 
 @section('js')
+{{ HTML::script('js/formulario.js') }}
 <script type="text/javascript">
 $(function(){
 	$("#areas_interes").multiselect({

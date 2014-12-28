@@ -22,9 +22,10 @@
 		{{ HTML::style('css/monokai.min.css') }}
 		{{ HTML::style('css/styleSlidePost.css') }}   
 
+		
 		{{ HTML::style('css/jquery.multiselect.css') }}  
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css" />
-		 
+			
     </head>
     <body>
 
@@ -174,9 +175,11 @@
 		{{ HTML::script('js/jquery.easing.1.3.js') }}
 
 		{{-- End --}}
+
+		
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
 		{{ HTML::script('js/jquery.multiselect.js') }}	
-
+		
 		
 
 	<script>
