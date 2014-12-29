@@ -70,7 +70,7 @@ Route::group(array('prefix' => 'perfil'), function () {
 		//return View::make('usuario.cv')->with('user', $user);
 
 		$html = View::make("usuario.cv")->with('user', $user);
-    	return PDF::load($html, 'A4', 'portrait')->download('MAGECSA-CV');
+    	return PDF::load($html, 'A4', 'portrait')->show();
 	});
 });
 

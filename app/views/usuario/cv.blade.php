@@ -8,7 +8,7 @@
 <body>
 	
 	<div class="cabe">
-		<img src="{{ asset('img/logo.png') }}" alt="" class="logo">
+		<img src="{{ asset('img/logocv.png') }}" alt="" class="logo">
 		<h2 class="slogan">¡Más Empleos , Mas Servicios!</h2>
 
 		<div class="cuadroder">
@@ -43,7 +43,7 @@
 		<div class="cuadros">
 			<div class="cuadro der">
 				<div class="cabe">
-					<img src="{{ asset('img/otros.png') }}" alt="">
+					<img src="{{ asset('img/formacioncv.png') }}" alt="">
 					Formacion academica
 				</div>
 				<div class="cuer">
@@ -55,7 +55,7 @@
 			</div>
 			<div class="cuadro">
 				<div class="cabe">
-					<img src="{{ asset('img/otros.png') }}" alt="">
+					<img src="{{ asset('img/otroscv.png') }}" alt="">
 					Otros estudios
 				</div>
 				<div class="cuer">
@@ -71,7 +71,7 @@
 		<div class="cuadros">
 			<div class="cuadro der">
 				<div class="cabe">
-					<img src="{{ asset('img/otros.png') }}" alt="">
+					<img src="{{ asset('img/experienciacv.png') }}" alt="">
 					Experiencia profesional
 				</div>
 				<div class="cuer">
@@ -86,7 +86,7 @@
 			</div>
 			<div class="cuadro">
 				<div class="cabe">
-					<img src="{{ asset('img/otros.png') }}" alt="">
+					<img src="{{ asset('img/idiomacv.png') }}" alt="">
 					Idioma
 				</div>
 				<div class="cuer">
@@ -99,7 +99,7 @@
 		<div class="cuadros">
 			<div class="cuadro der">
 				<div class="cabe">
-					<img src="{{ asset('img/otros.png') }}" alt="">
+					<img src="{{ asset('img/datoscv.png') }}" alt="">
 					Otros datos de interes
 				</div>
 				<div class="cuer">
@@ -108,8 +108,8 @@
 			</div>
 			<div class="cuadro">
 				<div class="cabe">
-					<img src="{{ asset('img/otros.png') }}" alt="">
-					Referencias
+					<img src="{{ asset('img/competenciacv.png') }}" alt="">
+					Competencias
 				</div>
 				<div class="cuer">
 					<p>{{ $user->usuariootro->idioma}} {{ $user->usuariootro->nivel_dominio }}</p>
@@ -128,9 +128,6 @@
 	</div>
 
 	<div class="footer">
-		<img src="{{ asset('img/logo.png') }}" alt="" class="logo">
-		<h2 class="slogan">¡Más Empleos , Mas Servicios!</h2>
-		<div class="clear"></div>
 		<p class="direccion">Plaza Bolonia Modulo B5 Nicaragua </p>
 	</div>
 </body>

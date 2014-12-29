@@ -455,74 +455,7 @@
 					    <div class="col-sm-10">
 					    	{{ Form::textarea('habilidad', Input::old('habilidad'), array('class' => 'form-control', 'placeholder'=> 'Habilidades tecnicas')) }}	
 					    </div>
-					</div>
-			{{-- 	<div class="form-group">	
-					    <div class="col-sm-5">
-					    	<select class="form-control" name="base_datos" >
-								 <option selected="selected" class="s">Base de Datos</option>
-								 <option value="Access">Access</option>				
-								 <option value="AS400">AS400</option>	
-								 <option value="Dbase">Dbase</option>				
-								 <option value="Hiberate">Hiberate</option>				
-								 <option value="Informix">Informix</option>	
-							</select> 
-					    </div>
-					    <div class="col-sm-5">
-					    	<select class="form-control" name="frameworks" >
-								 <option selected="selected" class="s">FrameWorks</option>
-								 <option value=".net Framework (2.0+)">.net Framework (2.0+)</option>				
-								 <option value="Django">Django</option>	
-								 <option value="Laravel">Laravel</option>				
-								 <option value="Ruby on Rails">Ruby on Rails</option>				
-								 <option value="Otros">Otros</option>	
-							</select> 
-					    </div>					    
-					</div>
-					<div class="form-group">	
-					    <div class="col-sm-5">
-					    	<select class="form-control" name="lenguajes_programacion" >
-								 <option selected="selected" class="s">Lenguaje de Programacion</option>
-								 <option value=".Net">.Net</option>				
-								 <option value="android-SDK">android-SDK</option>	
-								 <option value="ASP">ASP</option>				
-								 <option value="C">C</option>				
-								 <option value="C++">C++</option>	
-							</select> 
-					    </div>
-					    <div class="col-sm-5">
-					    	<select class="form-control" name="programas_aplicacion" >
-								 <option selected="selected" class="s">Programas de Aplicación</option>
-								 <option value="Excel">Excel</option>				
-								 <option value="Internet">Internet</option>	
-								 <option value="Lotus Notes">Lotus Notes</option>				
-								 <option value="Power Point">Power Point</option>				
-								 <option value="Project">Project</option>	
-							</select> 
-					    </div>					    
-					</div>
-					<div class="form-group">	
-					    <div class="col-sm-5">
-					    	<select class="form-control" name="programas_diseno" >
-								 <option selected="selected" class="s">Programas de Diseño</option>
-								 <option value="After Effects">After Effects</option>				
-								 <option value="AutoCad">AutoCad</option>	
-								 <option value="Corel Draw">Corel Draw</option>				
-								 <option value="Flash">Flash</option>				
-								 <option value="FreeHand">FreeHand</option>	
-							</select> 
-					    </div>
-					    <div class="col-sm-5">
-					    	<select class="form-control" name="sistemas_operativos" >
-								 <option selected="selected" class="s">Sistemas Operativos</option>
-								 <option value="Linux">Linux</option>				
-								 <option value="MAC">MAC</option>	
-								 <option value="Ms DOS">Ms DOS</option>				
-								 <option value="Solaris">Solaris</option>				
-								 <option value="Unix">Unix</option>	
-							</select> 
-					    </div>					    
-					</div>
-			--}}		
+					</div>	
 				</div>
 			</div>	
 			<h3 class="divider"></h3>
