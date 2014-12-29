@@ -59,14 +59,19 @@ Route::group(array('prefix' => 'perfil'), function () {
 	Route::post('update/expectativa/{id}','CandidatosController@updateexpectativa');
 	Route::post('update/experiencia/{iduser}/{idexper}','CandidatosController@updateexperiencia');
 	Route::post('update/academica/{iduser}/{idacade}','CandidatosController@updateacademica');
-	Route::post('update/otros/{id}','CandidatosController@updateotros');	
-
+	Route::post('update/otros/{id}','CandidatosController@updateotros');
 	Route::post('update/avatar/{id}','CandidatosController@updateavatar');
-
 	Route::post('login', 'CandidatosController@login');
-
-
 	Route::get('logout', 'CandidatosController@getLogout');
+
+	Route::get('cv/{username}', function($username){
+		$user = User::where('username', $username)->first();
+
+		//return View::make('usuario.cv')->with('user', $user);
+
+		$html = View::make("usuario.cv")->with('user', $user);
+    	return PDF::load($html, 'A4', 'portrait')->download('MAGECSA-CV');
+	});
 });
 
 /*
