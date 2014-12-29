@@ -65,12 +65,19 @@ Route::group(array('prefix' => 'perfil'), function () {
 	Route::get('logout', 'CandidatosController@getLogout');
 
 	Route::get('cv/{username}', function($username){
-		$user = User::where('username', $username)->first();
+		if(Auth::check()){
+			$user = User::where('username', $username)->first();
 
-		//return View::make('usuario.cv')->with('user', $user);
-
-		$html = View::make("usuario.cv")->with('user', $user);
-    	return PDF::load($html, 'A4', 'portrait')->show();
+			if(Auth::user()->id == $user->id){
+				//return View::make('usuario.cv')->with('user', $user);
+				$html = View::make("usuario.cv")->with('user', $user);
+		    	return PDF::load($html, 'A4', 'portrait')->show();
+		    }else{
+		    	return Redirect::to('/');
+		    }
+		}else{
+			return Redirect::to('/');
+		}  	
 	});
 });
 
@@ -92,49 +99,3 @@ Route::group(array('prefix' => 'perfil'), function () {
 	Route::post('usuariosadmin/save', array('uses' => 'UsuariosAdminController@save'));
 	Route::post('usuariosadmin/update/{id}', array('uses' => 'UsuariosAdminController@update'));
 });
-
- /*
-Route::get('insert', function(){
-	$user = new User();
-	$userdato = new UsuarioDato();
-	$userhab = new UsuarioHabilidad();
-	$userhab2 = new UsuarioHabilidad();
-
-	$user->username = 'norwingc';
-	$user->password = '12345';
-	$user->role = 0;
-	
-
-	$userdato->nombres = 'Norwin Scott';
-	$userdato->apellidos = 'Guerrero Cruz';
-	$userdato->fecha_nacimiento = 'fecha';
-	
-	$userhab->base_datos = "mysql";
-	$userhab->programas_diseno = "corel";
-
-	$userhab2->base_datos = "sql";
-	$userhab2->programas_diseno = "photo";
-
-
-
-	$user->save();
-	$user->usuariodato()->save($userdato);
-	$user->usuariohabilidad()->save($userhab);
-	$user->usuariohabilidad()->save($userhab2);
-
-
-	return 'bien';
-});
-
-Route::get('ver',function(){
-	$user = User::find(1);
-	$aux = "";
-
-	$datos = $user->usuariodato;
-	$hab = $user->usuariohabilidad;
-
-	foreach ($hab as $value) {
-		echo $value->base_datos;
-		echo $value->id .'<br>';
-	}
-*/	

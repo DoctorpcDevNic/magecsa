@@ -132,15 +132,15 @@
 							</select> 
 					    </div>											
 					    <div class="col-sm-5">
-					    	{{ Form::text('no_identificacion', Input::old('no_identificacion'), array('class' => 'form-control', 'placeholder'=> '*No. Identificacion')) }}	
+					    	{{ Form::text('no_identificacion', Input::old('no_identificacion'), array('class' => 'form-control cedula', 'placeholder'=> '*No. Identificacion')) }}	
 					    </div>
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					    	{{ Form::text('convencional', Input::old('convencional'), array('class' => 'form-control', 'placeholder'=> '*Telefono de Casa', 'id' => 'convencional')) }}	
+					    	{{ Form::text('convencional', Input::old('convencional'), array('class' => 'form-control convencional', 'placeholder'=> '*Telefono de Casa', 'id' => 'convencional')) }}	
 					    </div>											
 					    <div class="col-sm-5">
-					    	{{ Form::text('celular', Input::old('celular'), array('class' => 'form-control', 'placeholder'=> '*Telefono Celular', 'id' => 'celular')) }}	
+					    	{{ Form::text('celular', Input::old('celular'), array('class' => 'form-control celular', 'placeholder'=> '*Telefono Celular', 'id' => 'celular')) }}	
 					    </div>
 					</div>
 					<div class="form-group">	
@@ -451,10 +451,44 @@
 					    </div>					    
 					</div>
 					<h3 class="subtitul">Habilidades Tecnicas</h3>
-					<div class="form-group">						
-					    <div class="col-sm-10">
-					    	{{ Form::textarea('habilidad', Input::old('habilidad'), array('class' => 'form-control', 'placeholder'=> 'Habilidades tecnicas')) }}	
-					    </div>
+					<div class="form-group">
+					 	<div class="col-sm-5">	
+					 		{{ Form::text('habilidad1', Input::old('habilidad1'), array('class' => 'form-control', 'placeholder'=> '*Hablilidades')) }}						
+					 	</div>
+					    <div class="col-sm-5">
+					    	<select class="form-control" name="nivel_dominio1" >
+								 <option selected="selected" class="s">Nivel de Dominio </option>
+								 <option value="Basico">Basico</option>				
+								 <option value="Intermedio">Intermedio</option>	
+								 <option value="Avanzado">Avanzado</option>	
+							</select> 
+					    </div>		
+					</div>
+					<div class="form-group">
+					 	<div class="col-sm-5">	
+					 		{{ Form::text('habilidad2', Input::old('habilidad2'), array('class' => 'form-control', 'placeholder'=> '*Hablilidades')) }}						
+					 	</div>
+					    <div class="col-sm-5">
+					    	<select class="form-control" name="nivel_dominio2" >
+								 <option selected="selected" class="s">Nivel de Dominio </option>
+								 <option value="Basico">Basico</option>				
+								 <option value="Intermedio">Intermedio</option>	
+								 <option value="Avanzado">Avanzado</option>
+							</select> 
+					    </div>		
+					</div>
+					<div class="form-group">
+					 	<div class="col-sm-5">	
+					 		{{ Form::text('habilidad3', Input::old('habilidad3'), array('class' => 'form-control', 'placeholder'=> '*Hablilidades')) }}						
+					 	</div>
+					    <div class="col-sm-5">
+					    	<select class="form-control" name="nivel_dominio3" >
+								 <option selected="selected" class="s">Nivel de Dominio </option>
+								 <option value="Basico">Basico</option>				
+								 <option value="Intermedio">Intermedio</option>	
+								 <option value="Avanzado">Avanzado</option>	
+							</select> 
+					    </div>		
 					</div>	
 				</div>
 			</div>	

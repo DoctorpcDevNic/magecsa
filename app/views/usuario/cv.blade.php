@@ -59,10 +59,9 @@
 					Otros estudios
 				</div>
 				<div class="cuer">
-					@foreach($user->usuarioeducacion()->get() as $value)
-						<?php $fecha = explode("-",$value->fecha_finalizacion); ?>
-						<p>{{ $fecha[0] }} {{ $value->titulo }} por {{ $value->instituto }}</p>
-					@endforeach	
+					<p>{{$user->usuariootro->habilidad1 }} - {{ $user->usuariootro->nivel_dominio1 }}</p>
+					<p>{{$user->usuariootro->habilidad2 }} - {{ $user->usuariootro->nivel_dominio2 }}</p>
+					<p>{{$user->usuariootro->habilidad3 }} - {{ $user->usuariootro->nivel_dominio3 }}</p>
 				</div>	
 			</div>					
 		</div>
@@ -80,7 +79,7 @@
 							$fecha_inicio = explode("-",$value->fecha_inicio);
 							$fecha_fin = explode("-",$value->fecha_fin);
 						?>
-						<p>{{ $fecha_inicio[0] }} - {{ $fecha_fin[0] }} {{$value->funciones}}</p>
+						<p>{{ $fecha_inicio[0] }} - {{ $fecha_fin[0] }} {{$value->funciones}} / {{ $value->nombre_empresa }}</p>
 					@endforeach
 				</div>
 			</div>
@@ -103,7 +102,10 @@
 					Otros datos de interes
 				</div>
 				<div class="cuer">
-					<p>Habilidades: {{ $user->usuariootro->habilidad }}</p>
+					<p>Vehiculo: @if($user->usuariodato->vehiculo == 1) no @else si @endif</p>
+					<p>Licencia: {{$user->usuariodato->categoria_licencia}} </p>
+					<p>Epectativa Salarial: {{$user->usuarioexpectativa()->first()->expectativa_salarial}}  </p>
+					<p>Disponibilidad: {{$user->usuarioexpectativa()->first()->interes_laboral}} </p>
 				</div>
 			</div>
 			<div class="cuadro">
@@ -112,7 +114,7 @@
 					Competencias
 				</div>
 				<div class="cuer">
-					<p>{{ $user->usuariootro->idioma}} {{ $user->usuariootro->nivel_dominio }}</p>
+					<p>{{ $user->usuariodato->objetivo}} </p>
 				</div>	
 			</div>
 		</div>
@@ -128,7 +130,7 @@
 	</div>
 
 	<div class="footer">
-		<p class="direccion">Plaza Bolonia Modulo B5 Nicaragua </p>
+		<p class="direccion">Plaza Bolonia Modulo L5 / Telefono: 2266-5793 / info@magecsa.com.ni / www.masempleosyservicios.com.ni </p>
 	</div>
 </body>
 </html>

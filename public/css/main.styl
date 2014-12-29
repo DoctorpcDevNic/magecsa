@@ -356,17 +356,21 @@ textarea
 			.formu
 				margin-top 2em	
 		.perfilpublico
-			background gray
+			background #008592
 			padding 5px
-			margin 0 -15px
-			.row
+			margin 1em -15px
+			position relative
+			.row				
 				padding 0
 				margin 0
+				.col-xs-2
+					margin 0
+					padding 0
 				.avatarpf
 					img
 						width 100%
 				.nombre
-					color verde
+					color white
 					padding 0
 					margin 0
 					text-align center
@@ -375,6 +379,7 @@ textarea
 					color amarillo	
 					text-align center
 			.infopf
+				
 				.row
 					padding 0
 					margin 0	
@@ -382,9 +387,32 @@ textarea
 						.cabe							
 							img
 								width 100%
+							p
+								color white	
 						p
 							color white	
 							font-size 15px	
+			.pie
+				background verde
+				text-align center
+				margin-left -5px
+				margin-right -5px
+				margin-bottom -5px
+				a
+					color white !important
+				div					
+					display inline-block
+					img
+						width 60px	
+			.triangulo
+				background white				
+				position absolute
+				right 0
+				top 0				
+				border-bottom 50px solid azul
+				border-right 50px solid transparent
+				
+			    
 
 	.login
 		.titul
@@ -677,6 +705,7 @@ footer
 					margin-top 1em
 					.row
 						.info
+							margin-bottom 1em
 							.cabe
 								img
 									width 75px
@@ -684,8 +713,7 @@ footer
 									display block
 									float left
 								p
-									font-size 20px
-									color azul
+									font-size 20px									
 									text-transform uppercase
 							span
 								border-right 2px solid white
@@ -695,10 +723,16 @@ footer
 								bottom 0
 								margin 0 12px
 							p
-								margin 0
-								font-size 18px		
+								margin 0							
 							.exbd
-								clear both															
+								clear both
+								p
+									color amarillo	
+				.pie
+					text-align right
+					padding 5px
+					div
+						margin 0 10px																		
 		.login
 			.titul				
 				display block
@@ -865,11 +899,14 @@ footer
 					.row
 						.col-xs-3
 							padding-left 15px
-							padding-rigth 15px	
+							padding-right 15px	
 						.info
 							.cabe
 								p
-									font-size 23px												
+									font-size 23px	
+							.exbd
+								p
+									font-size 18px													
 								
 					 	
 

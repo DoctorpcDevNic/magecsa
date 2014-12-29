@@ -101,8 +101,18 @@ function main(){
 			$(this).attr('selected', 'selected');
 		}
 	});
-	$( "#nivel_dominio option" ).each(function(){
-		if($('#nivel_dominio').data('select') == $(this).val()){
+	$( "#nivel_dominio1 option" ).each(function(){
+		if($('#nivel_dominio1').data('select') == $(this).val()){
+			$(this).attr('selected', 'selected');
+		}
+	});
+	$( "#nivel_dominio2 option" ).each(function(){
+		if($('#nivel_dominio2').data('select') == $(this).val()){
+			$(this).attr('selected', 'selected');
+		}
+	});
+	$( "#nivel_dominio3 option" ).each(function(){
+		if($('#nivel_dominio3').data('select') == $(this).val()){
 			$(this).attr('selected', 'selected');
 		}
 	});
@@ -111,12 +121,40 @@ function main(){
 		$('#ModalAvatar').modal('show'); 
 	});
 
-	
-
-	
-
 	$('#submitexpectativas').click(function(){
 		$('#areasseleccionadas').val($('#pp').html());
 	});
+
+	tam();
+
+}
+
+function tam(){
+	
+
+	var fa = $("#fa").height();
+	var ht = $("#ht").height();
+	var di = $("#di").height();
+	var ep = $("#ep").height();
+
+	console.log($("#fa").height());
+	console.log($("#ht").height());
+	console.log($("#di").height());
+	console.log($("#ep").height());
+
+	var may = 0;
+
+	if(fa >= ht && fa >= di && fa >= ep){
+		may = fa;
+	}else if(ht >= fa && ht >= di && ht >= ep){
+		may = ht;
+	}else if(di >= fa && di >= di && di >= ep){
+		may = di;
+	}else{
+		may = ep;
+	}
+	console.log(may);
+
+	$(".infomain .perfil .perfilpublico .infopf .row .info").css('height', may);
 }
 

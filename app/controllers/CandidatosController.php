@@ -77,7 +77,12 @@ class CandidatosController extends BaseController {
 
 		$userotro->idioma = Input::get('idioma');
 		$userotro->nivel_dominio = Input::get('nivel_dominio');
-		$userotro->habilidad = Input::get('habilidad');
+		$userotro->habilidad = Input::get('habilidad1');
+		$userotro->habilidad = Input::get('nivel_dominio1');
+		$userotro->habilidad = Input::get('habilidad2');
+		$userotro->habilidad = Input::get('nivel_dominio2');
+		$userotro->habilidad = Input::get('habilidad3');
+		$userotro->habilidad = Input::get('nivel_dominio3');
 
 		/*	
 		$userhab->base_datos = Input::get('base_datos');
@@ -309,7 +314,12 @@ class CandidatosController extends BaseController {
 
 			$userotro->idioma = Input::get('idioma');
 			$userotro->nivel_dominio = Input::get('nivel_dominio');
-			$userotro->habilidad = Input::get('habilidad');
+			$userotro->habilidad1 = Input::get('habilidad1');
+			$userotro->nivel_dominio1 = Input::get('nivel_dominio1');
+			$userotro->habilidad2 = Input::get('habilidad2');
+			$userotro->nivel_dominio2 = Input::get('nivel_dominio2');
+			$userotro->habilidad3 = Input::get('habilidad3');
+			$userotro->nivel_dominio3 = Input::get('nivel_dominio3');
 
 			$user->usuariootro()->save($userotro);
 				

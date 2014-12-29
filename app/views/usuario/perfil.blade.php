@@ -3,21 +3,22 @@
 <div class="perfil">	
 
 	<div class="perfilpublico">
+		<div class="triangulo"></div>
 		<div class="row">
-			<div class="col-xs-3 avatarpf">
+			<div class="col-xs-2 avatarpf">
 				<img src="{{ asset('img/upload/' . $user->usuariodato->foto) }}" alt="">
 			</div>
-			<div class="col-xs-9">
+			<div class="col-xs-10">
 				<p class="nombre">{{ $user->usuariodato->nombres ." ". $user->usuariodato->apellidos  }}</p>
 				<p class="objetivo">{{ $user->usuariodato->objetivo }}</p>
 			</div>
 		</div>	
-		<div class="infopf">
+		<div class="infopf">			
 			<div class="row">
-				<div class="col-xs-3 info">
+				<div class="col-xs-3 info" id="fa">
 					<div class="cabe">
 						<img src="{{ asset('img/educacion.png') }}" alt="">
-						<p class="computer">Formacion Academica</p>
+						<p class="computer">FORMACION ACADEMICA</p>
 					</div>
 					<div class="exbd">
 						@foreach($user->usuarioeducacion()->get() as $value)
@@ -26,10 +27,10 @@
 					</div>	
 					<span></span>
 				</div>
-					<div class="col-xs-3 info">
+				<div class="col-xs-3 info" id="ht">
 					<div class="cabe">
-						<img src="{{ asset('img/experiencia.png') }}" alt="">
-						<p class="computer">Experiencia Profecional</p>
+						<img src="{{ asset('img/otros.png') }}" alt="">
+						<p class="computer">HABILIDADES TECNICAS</p>
 					</div>
 					<div class="exbd">
 						@foreach($user->usuarioexperiencia()->get() as $value)
@@ -38,35 +39,53 @@
 					</div>	
 					<span></span>
 				</div>
-				<div class="col-xs-3 info">
+				<div class="col-xs-3 info" id="di">
 					<div class="cabe">
 						<img src="{{ asset('img/datospersonales.png') }}" alt="">
-						<p class="computer">Otros datos de interes</p>
+						<p class="computer">OTROS DATOS DE INTERES</p>
 					</div>
 					<div class="exbd">
+						<p> Licencia : {{ $user->usuariodato->categoria_licencia }} </p>
+						<p>Vehiculo: @if($user->usuariodato->estado_civil == 0) no @else si @endif</p>
 						<?php 
 							$fecha = UsuarioDato::where('usuario_id', $user->id)->first(); 
 							list($Y,$m,$d) = explode("-",$fecha->fecha_nacimiento);
 							$fecha = date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y ;
-						 ?>
-						<p>{{ $fecha }} años</p>
-						<p>{{ $user->usuariodato->estado_civil }}</p>
-						<p>Vehiculo: @if($user->usuariodato->estado_civil == 0) no @else si @endif</p>
-						{{-- <p> Licencia : {{ $user->usuariodato->categoria_licencia }} </p> --}}
+						 ?>	
+						 <p>{{ $user->usuariodato->departamento }}, {{ $user->usuariodato->nacionalidad }}</p>
+						<p>{{ $fecha }} años</p>						
+						
 					</div>
 					<span></span>
 				</div>
-				<div class="col-xs-3 info">
+				<div class="col-xs-3 info" id="ep">
 					<div class="cabe">
-						<img src="{{ asset('img/bd.png') }}" alt="">
-						<p class="computer">Nacionalidad</p>
+						<img src="{{ asset('img/experiencia.png') }}" alt="">
+						<p class="computer">EXPERIENCIA PROFECIONAL</p>
 					</div>
 					<div class="exbd">
-						<p>{{ $user->usuariodato->nacionalidad . ", " . $user->usuariodato->departamento }}</p>
+						@foreach($user->usuarioexperiencia()->get() as $value )
+							<p>{{ $value->nombre_empresa }} - {{ $value->puesto }}</p>
+						@endforeach
 					</div>	
 				</div>
 			</div>				
 		</div>
+		<div class="pie">
+			<div>
+				<a href="{{ URL::to('perfil/cv/'. $user->username) }}">
+					<img src="{{ asset('img/cvdescarga.png') }}" alt="">
+					DESCARGAR CURRICULUM
+				</a>
+			</div>
+			<div>
+				<a href="#">
+					<img src="{{ asset('img/seleccv.png') }}" alt="">
+					SELECCIONAR CANDIDATO
+				</a>
+			</div>
+		</div>
+		<div class="clear"></div>
 	</div>
 
 	<div class="col-xs-8 mobil avatar">
@@ -180,6 +199,7 @@
 									<div class="form-group">						
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="estado_civil" data-select='{{$user->usuariodato->estado_civil}}' id="estadocivil">									    		
+												<option selected="selected" class="s">Estado Civil</option>
 												<option value="Soltero">Soltero</option>				
 												<option value="Casado">Casado</option>				
 												<option value="Union libre">Union libre</option>				
@@ -192,12 +212,14 @@
 									<div class="form-group">						
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="genero" data-select='{{$user->usuariodato->genero}}' id="genero">												 
+												 <option selected="selected" class="s">*Genero</option>
 												 <option value="Femenino">Femenino</option>				
 												 <option value="Masculino">Masculino</option>				
 											</select> 
 									    </div>									
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="departamento" data-select='{{$user->usuariodato->departamento}}' id="departamento">												
+												 <option selected="selected" class="s">*Departamento</option>
 												 <option value="Managua">Managua</option>				
 												 <option value="Granada">Granada</option>				
 											</select> 
@@ -206,6 +228,7 @@
 									<div class="form-group">						
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="tipo_identificacion" data-select='{{$user->usuariodato->tipo_identificacion}}' id="tipo_identificacion">
+												 <option selected="selected" class="s">*Tipo de Identiﬁcacion </option>	
 												 <option value="Cedula">Cedula</option>				
 												 <option value="Pasaporte">Pasaporte</option>				
 												 <option value="Cedula de Residencia">Cedula de Residencia</option>				
@@ -226,6 +249,7 @@
 									<div class="form-group">	
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="vehiculo" data-select='{{$user->usuariodato->vehiculo}}' id="vehiculo">
+												 <option selected="selected" class="s">Posees Vehiculo </option>
 												 <option value="0">Si</option>				
 												 <option value="1">No</option>	
 											</select> 
@@ -280,6 +304,7 @@
 									<div class="form-group">	
 									    <div class="col-sm-5 ">
 									    	<select class="form-control" name="interes_laboral" data-select='{{$user->usuarioexpectativa()->first()->interes_laboral}}' id="interes_laboral">
+												 <option selected="selected" class="s">*Nivel de Interes Laboral</option>
 												 <option value="Permanente">Permanente</option>				
 												 <option value="Temporal">Temporal</option>	
 												 <option value="Busqueda Activa">Busqueda Activa</option>	
@@ -290,6 +315,7 @@
 									    </div>
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="expectativa_salarial" data-select='{{$user->usuarioexpectativa()->first()->expectativa_salarial}}' id="expectativa_salarial">
+												<option selected="selected" class="s">*Expectativa Salarial Mensual </option>
 												<option value="menos de 200">menos de 200</option>				
 												<option value="0-200">0-200</option>	
 												<option value="201-300 "> 201-300</option>	
@@ -332,6 +358,7 @@
 									    {{-- here --}}	
 									    	<input type="hidden" name="areasseleccionadas" id="areasseleccionadas">								    	
 									    	<select class="form-control" name="areas_interes" data-select='{{$user->usuarioexpectativa()->first()->areas_interes}}' id="areas_interes">												 
+												 <option selected="selected" class="s">Areas de Interes </option>
 												 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>				
 												 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
 												 <option value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad</option>	
@@ -573,10 +600,44 @@
 									    </div>					    
 									</div>
 									<h3 class="subtitul">Habilidades Tecnicas</h3>
-									<div class="form-group">						
-								    	<div class="col-sm-10">
-									    	{{ Form::textarea('habilidad', Input::old('habilidad') ? Input::old(): $user->usuariootro->habilidad, array('class' => 'form-control', 'placeholder'=> 'Habilidades tecnicas')) }}	
-									    </div>
+									<div class="form-group">
+									 	<div class="col-sm-5">	
+									 		{{ Form::text('habilidad1', Input::old('habilidad1') ? Input::old() : $user->usuariootro->habilidad1, array('class' => 'form-control', 'placeholder'=> '*Hablilidades')) }}						
+									 	</div>
+									    <div class="col-sm-5">
+									    	<select class="form-control" name="nivel_dominio1" data-select='{{$user->usuariootro->nivel_dominio1}}' id="nivel_dominio1">
+												 <option selected="selected" class="s">Nivel de Dominio </option>
+												 <option value="Basico">Basico</option>				
+												 <option value="Intermedio">Intermedio</option>	
+												 <option value="Avanzado">Avanzado</option>	
+											</select> 
+									    </div>		
+									</div>
+									<div class="form-group">
+									 	<div class="col-sm-5">	
+									 		{{ Form::text('habilidad2', Input::old('habilidad2') ? Input::old() : $user->usuariootro->habilidad2, array('class' => 'form-control', 'placeholder'=> '*Hablilidades')) }}						
+									 	</div>
+									    <div class="col-sm-5">
+									    	<select class="form-control" name="nivel_dominio2" data-select='{{$user->usuariootro->nivel_dominio2}}' id="nivel_dominio2">
+												 <option selected="selected" class="s">Nivel de Dominio </option>
+												 <option value="Basico">Basico</option>				
+												 <option value="Intermedio">Intermedio</option>	
+												 <option value="Avanzado">Avanzado</option>	
+											</select> 
+									    </div>		
+									</div>
+									<div class="form-group">
+									 	<div class="col-sm-5">	
+									 		{{ Form::text('habilidad3', Input::old('habilidad3') ? Input::old() : $user->usuariootro->habilidad3, array('class' => 'form-control', 'placeholder'=> '*Hablilidades')) }}						
+									 	</div>
+									    <div class="col-sm-5">
+									    	<select class="form-control" name="nivel_dominio3" data-select='{{$user->usuariootro->nivel_dominio3}}' id="nivel_dominio3">
+												 <option selected="selected" class="s">Nivel de Dominio </option>
+												 <option value="Basico">Basico</option>				
+												 <option value="Intermedio">Intermedio</option>	
+												 <option value="Avanzado">Avanzado</option>	
+											</select> 
+									    </div>		
 									</div>	
 									<div class="form-group">
 										{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				

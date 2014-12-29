@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-12-2014 a las 07:21:27
+-- Tiempo de generación: 30-12-2014 a las 00:36:31
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -269,7 +269,12 @@ CREATE TABLE IF NOT EXISTS `usuariosotros` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idioma` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nivel_dominio` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `habilidad` text COLLATE utf8_unicode_ci NOT NULL,
+  `habilidad1` text COLLATE utf8_unicode_ci NOT NULL,
+  `nivel_dominio1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `habilidad2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nivel_dominio2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `habilidad3` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nivel_dominio3` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `usuario_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -280,9 +285,9 @@ CREATE TABLE IF NOT EXISTS `usuariosotros` (
 -- Volcado de datos para la tabla `usuariosotros`
 --
 
-INSERT INTO `usuariosotros` (`id`, `idioma`, `nivel_dominio`, `habilidad`, `usuario_id`, `created_at`, `updated_at`) VALUES
-(1, 'Aleman', 'Intermedio', 'laravel, HTML', 1, '2014-12-20 13:02:35', '2014-12-28 11:37:37'),
-(2, 'Aleman', 'Intermedio', 'laravel, HTML', 2, '2014-12-20 13:02:35', '2014-12-28 11:37:37');
+INSERT INTO `usuariosotros` (`id`, `idioma`, `nivel_dominio`, `habilidad1`, `nivel_dominio1`, `habilidad2`, `nivel_dominio2`, `habilidad3`, `nivel_dominio3`, `usuario_id`, `created_at`, `updated_at`) VALUES
+(1, 'Idioma', 'Nivel de Dominio', 'laravel', 'Avanzado', 'HTML', 'Avanzado', 'PHP', 'Avanzado', 1, '2014-12-20 13:02:35', '2014-12-30 05:35:13'),
+(2, 'Aleman', 'Intermedio', 'laravel, HTML', '', '', '', '', '', 2, '2014-12-20 13:02:35', '2014-12-28 11:37:37');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

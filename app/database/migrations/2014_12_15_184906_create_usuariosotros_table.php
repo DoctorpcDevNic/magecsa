@@ -17,7 +17,12 @@ class CreateUsuariosotrosTable extends Migration {
 			$table->increments('id');
 			$table->string('idioma');
 			$table->string('nivel_dominio');
-			$table->text('habilidad');	
+			$table->string('habilidad1');
+			$table->string('nivel_dominio1');	
+			$table->string('habilidad2');
+			$table->string('nivel_dominio2');	
+			$table->string('habilidad3');	
+			$table->string('nivel_dominio3');
 			$table->integer('usuario_id');		
 			$table->timestamps();
 		});
