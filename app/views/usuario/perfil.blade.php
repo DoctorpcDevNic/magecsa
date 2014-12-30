@@ -282,12 +282,12 @@
 									    <div class="col-sm-10">
 									    	{{ Form::textarea('objetivo', Input::old('objetivo') ? Input::old(): $user->usuariodato->objetivo, array('class' => 'form-control', 'placeholder'=> '*Escribe aqui tus objetivos')) }}	
 									    </div>
-									</div>
-									<div class="form-group">								
-										{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis')) }}				
-									</div>
-								{{ Form::close() }}	
-							</div>	
+									</div>								
+								</div>
+								<div class="form-group">								
+									{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis')) }}				
+								</div>
+							{{ Form::close() }}			
 						</div>
 					</div>
 					{{-- Expectativa --}}
@@ -392,8 +392,7 @@
 									    </div>					    
 									</div>
 								</div>
-								<div class="form-group">
-									{{-- <a href="" id="addexpectativa" class="btn btn-primary">Agregar Area De Interes</a> --}}								
+								<div class="form-group">									
 									{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
 								</div>
 							{{ Form::close() }}
@@ -486,16 +485,21 @@
 										    <div class="col-sm-5">
 										    	{{ Form::text('email_contacto', Input::old('email_contacto'), array('class' => 'form-control', 'placeholder'=> 'E-mail de Contacto')) }}	
 										    </div>
-										</div>
-										<div class="form-group">
-											{{-- <a href="" id="addexpectativa" class="btn btn-primary">Agregar Area De Interes</a> --}}								
-											{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
-										</div>
+										</div>										
+									</div>
+									<div class="form-group">											
+										{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
 									</div>
 								{{ Form::close() }}	
 								<div class="divider"></div>
 							</div>
 						@endforeach()
+						@if($user->usuarioexperiencia()->count() == 3)
+						@else						
+							<div class="add">
+								<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addexperiencia">Agregar Experiencia Laboral </a>
+							</div>
+						@endif	
 					</div>
 					{{-- Fromacion Academica --}}
 					<div class="tab-pane" id="formacion">
@@ -558,15 +562,20 @@
 										    	{{ Form::input('date','fecha_finalizacion', Input::old('fecha_finalizacion') ? Input::old(): $value->fecha_finalizacion, array('class' => 'form-control')) }}	
 										    </div>
 										</div>
-										<div class="form-group">
-											{{-- <a href="" id="addexpectativa" class="btn btn-primary">Agregar Area De Interes</a> --}}								
-											{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
-										</div>
+									</div>
+									<div class="form-group">											
+										{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
 									</div>
 								{{ Form::close() }}	
 								<div class="divider"></div>
 							</div>
-						@endforeach	
+						@endforeach
+						@if($user->usuarioeducacion()->count() == 3)
+						@else						
+							<div class="add">
+								<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addeducacion">Agregar Formacion Academica  </a>
+							</div>
+						@endif		
 					</div>
 					{{-- OTROS ESTUDIOS --}}
 					<div class="tab-pane" id="otros">
@@ -640,10 +649,10 @@
 												 <option value="Avanzado">Avanzado</option>	
 											</select> 
 									    </div>		
-									</div>	
-									<div class="form-group">
-										{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
-									</div>
+									</div>									
+								</div>
+								<div class="form-group">
+									{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
 								</div>
 							{{ Form::close() }}	
 						</div>			
@@ -681,6 +690,183 @@
 	    </div>
 	  </div>
 	</div>
+
+	{{-- Modal --}}
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="addexperiencia">
+ 		<div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		    	<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Experiencia Profecional</h4>
+     			</div>
+      			<div class="modal-body">
+      				{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
+      				<div class="categoria experiencia">
+      					{{ Form::open(array('url' => 'perfil/add/experiencia/' .  $user->id , 'class' => 'form-horizontal')) }}
+	      					<div class="campo col-sm-offset-2">
+	      						<div class="form-group">						
+								    <div class="col-sm-5">
+								    	{{ Form::text('nombre_empresa', Input::old('nombre_empresa'), array('class' => 'form-control', 'placeholder'=> '*Nombre de la Empresa')) }}	
+								    </div>
+								    <div class="col-sm-5">
+								    	<select class="form-control" name="actividad_empresa" >
+											 <option selected="selected" class="s">*Actividad de la Empresa</option>
+											 <option value="Aduana|Agencia Aduaneras">Aduana|Agencia Aduaneras</option>				
+											 <option value="Agencia de Empleo|Reclutamiento">Agencia de Empleo|Reclutamiento</option>	
+											 <option value="Agricola|Ganadera">Agricola|Ganadera</option>	
+											 <option value="Agroindustrial">Agroindustrial</option>	
+											 <option value="Arquitectura|Diseño|Decoracion">Arquitectura|Diseño|Decoracion</option>									 
+										</select> 
+								    </div>					    
+								</div>
+								<div class="form-group">						
+								    <div class="col-sm-5">
+								    	{{ Form::text('telefono_empresa', Input::old('telefono_empresa'), array('class' => 'form-control convencional', 'placeholder'=> '*Tefono de Empresa')) }}	
+								    </div>
+								    <div class="col-sm-5">
+								    	<select class="form-control" name="area" >
+											 <option selected="selected" class="s">*Area Funcional</option>
+											 <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>				
+											 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>	
+											 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
+											 <option value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad</option>	
+											 <option value="Puestos Profesionales">Puestos Profesionales</option>									 
+										</select> 
+								    </div>					    
+								</div>
+								<div class="form-group">						
+								    <div class="col-sm-6 col-sm-offset-2">
+								    	{{ Form::text('puesto', Input::old('puesto'), array('class' => 'form-control', 'placeholder'=> '*Puesto o Cargo Desempeñado')) }}	
+								    </div>
+								</div>
+								
+								<div class="form-group">
+									<div class="col-sm-5 ">
+										<h3 class="subtitul" style="width: 100%">Fecha Inicio</h3>				
+								    	{{ Form::input('date','fecha_inicio', Input::old('fecha_inicio'), array('class' => 'form-control')) }}	
+								    </div>
+									<div class="col-sm-5 ">
+										<h3 class="subtitul" style="width: 100%">Fecha Fin</h3>				
+								    	{{ Form::input('date','fecha_fin', Input::old('fecha_fin'), array('class' => 'form-control')) }}	
+								    </div>
+								</div>
+								<div class="form-group">						
+								    <div class="col-sm-10">
+								    	{{ Form::textarea('logros', Input::old('logros'), array('class' => 'form-control', 'placeholder'=> 'Logros')) }}	
+								    </div>
+								</div>
+								<div class="form-group">						
+								    <div class="col-sm-10">
+								    	{{ Form::textarea('funciones', Input::old('funciones'), array('class' => 'form-control', 'placeholder'=> '*Descripcion breve de principales funciones en el puesto')) }}	
+								    </div>
+								</div>
+								<div class="form-group">	
+								    <div class="col-sm-5">
+								    	<select class="form-control" name="superior" >
+											 <option selected="selected" class="s">Contactar Superior </option>
+											 <option value="0">Si</option>				
+											 <option value="1">No</option>	
+										</select> 
+								    </div>			
+								    <div class="col-sm-5">
+								    	{{ Form::text('nombre_contacto', Input::old('nombre_contacto'), array('class' => 'form-control', 'placeholder'=> '*Nombre de Contacto')) }}	
+								    </div>
+								</div>
+								<div class="form-group">						
+								    <div class="col-sm-5">
+								    	{{ Form::text('telefono_contacto', Input::old('telefono_contacto'), array('class' => 'form-control', 'placeholder'=> '*Telefono de Contacto')) }}	
+								    </div>			
+								    <div class="col-sm-5">
+								    	{{ Form::text('email_contacto', Input::old('email_contacto'), array('class' => 'form-control', 'placeholder'=> 'E-mail de Contacto')) }}	
+								    </div>
+								</div>
+								<div class="modal-footer">
+							    	<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+					        		<button type="submit" class="btn btn-success">Guardar Cambios</button>
+						      	</div>
+	      					</div>
+	      				{{ Form::close() }}	
+      				</div>
+     			</div>      			
+		    </div>
+	  	</div>
+	</div>
+
+	{{-- Modal --}}
+
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="addeducacion">
+ 		<div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		    	<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Formacion Academinca</h4>
+     			</div>
+      			<div class="modal-body">
+      				{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
+      				<div class="categoria experiencia">
+      					{{ Form::open(array('url' => 'perfil/add/educacion/' .  $user->id , 'class' => 'form-horizontal')) }}
+	      					<div class="campo col-sm-offset-2">	
+								<div class="form-group">	
+								    <div class="col-sm-5">
+								    	<select class="form-control" name="nivel_academico" >
+											 <option selected="selected" class="s">*Nivel Academico </option>
+											 <option value="Primaria">Primaria</option>				
+											 <option value="Bachillerato Secundaria">Bachillerato Secundaria</option>	
+											 <option value="Estudiante Universitario">Estudiante Universitario</option>				
+											 <option value="Tecnico Medio">Tecnico Medio</option>				
+											 <option value="Tecnico Superior">Tecnico Superior</option>				
+											 <option value="Egresado|Pensum Cerrado">Egresado|Pensum Cerrado</option>				
+											 <option value="Licenciatura">Licenciatura</option>				
+											 <option value="Ingenieria">Ingenieria</option>				
+											 <option value="Postgrado">Postgrado</option>				
+											 <option value="Maestria">Maestria</option>				
+											 <option value="Doctorado">Doctorado</option>				
+											 <option value="Sin Estudios Formales">Sin Estudios Formales</option>				
+										</select> 
+								    </div>	
+								    <div class="col-sm-5">
+								    	<select class="form-control" name="instituto" >
+											 <option selected="selected" class="s">*Institucion </option>
+											 <option value="Ave Maria University">Ave Maria University</option>				
+											 <option value="Universidad Americana">Universidad Americana</option>	
+											 <option value="Universidad Catolica">Universidad Catolica</option>				
+											 <option value="Universidad Centroamericana">Universidad Centroamericana</option>				
+											 <option value="Universidad de Centroamericana de Ciencias Empresariales ">Universidad de Centroamericana de Ciencias Empresariales </option>				
+											 <option value="Universidad de Ciencias Comerciales">Universidad de Ciencias Comerciales</option>				
+											 <option value="Universidad Iberoamericana de Ciencia y Tecnologia">Universidad Iberoamericana de Ciencia y Tecnologia</option>				
+											 <option value="Universidad Nacional Agraria">Universidad Nacional Agraria</option>				
+											 <option value="Universidad Nacional Autonoma de Nicaragua">Universidad Nacional Autonoma de Nicaragua</option>				
+											 <option value="Universidad Nacional de Ingenieria">Universidad Nacional de Ingenieria</option>				
+											 <option value="Universidad Politecnica de Nicaragua">Universidad Politecnica de Nicaragua</option>				
+											 <option value="U. de las Regiones Autonomas de la Costa Caribe Nicaraguense">U. de las Regiones Autonomas de la Costa Caribe Nicaraguense</option>				
+											 <option value="Instituto Centroamericano de Administracion de Empresas">SInstituto Centroamericano de Administracion de Empresas</option>				
+											 <option value="Otras Instituciones">Otras Instituciones</option>	
+										</select> 
+								    </div>		
+								</div>
+								<div class="form-group">
+									<div class="col-sm-6 col-sm-offset-2">
+								    	{{ Form::text('titulo', Input::old('titulo'), array('class' => 'form-control', 'placeholder'=> '*Titulo')) }}	
+								    </div>    
+								</div>
+								<h3 class="subtitul">Año de Finalizacion</h3>
+								<div class="form-group">						
+								    <div class="col-sm-6 col-sm-offset-2">
+								    	{{ Form::input('date','fecha_finalizacion', Input::old('fecha_finalizacion'), array('class' => 'form-control')) }}	
+								    </div>
+								</div>
+								<div class="modal-footer">
+							    	<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+					        		<button type="submit" class="btn btn-success">Guardar Cambios</button>
+						      	</div> 
+	      					</div>
+	      				{{ Form::close() }}	
+      				</div>
+     			</div>      			
+		    </div>
+	  	</div>
+	</div>
+
 
 </div>
 @stop

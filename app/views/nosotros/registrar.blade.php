@@ -280,7 +280,7 @@
 				</div>	
 			</div>
 			{{-- experiencia profecional --}}	
-			<div class="categoria expectativa">
+			<div class="categoria experiencia">
 				<h3 class="titulother">
 					<img src="{{ asset('img/experiencia.png') }}" alt="" class="computer">
 					EXPERIENCIA PROFESIONAL

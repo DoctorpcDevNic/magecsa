@@ -147,6 +147,99 @@ class CandidatosController extends BaseController {
 		}
 	}	
 
+	/**
+	 * [addexperiencia description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
+	public function addexperiencia($id){
+		$user = User::find($id);
+
+		if(Auth::user()->id == $id){	
+
+			$rules = array(				
+				'nombre_empresa' => 'required',
+				'actividad_empresa' => 'required',
+				'area' => 'required',
+				'puesto' => 'required',
+				'fecha_inicio' => 'required',
+				'fecha_fin' => 'required',
+				'funciones' => 'required',
+			);
+
+			$message = array(
+				'required' => 'El campo :attribute es requerido',				
+			);
+
+			$validator = Validator::make(Input::all(), $rules, $message);
+
+			if($validator->fails()){
+				return Redirect::back()->withErrors($validator);
+			}else{
+
+				$userexper = new UsuarioExperiencia();				
+
+				$userexper->nombre_empresa = Input::get('nombre_empresa');
+				$userexper->actividad_empresa = Input::get('actividad_empresa');
+				$userexper->telefono_empresa = Input::get('telefono_empresa');
+				$userexper->area = Input::get('area');
+				$userexper->puesto = Input::get('puesto');
+				$userexper->fecha_inicio = Input::get('fecha_inicio');
+				$userexper->fecha_fin = Input::get('fecha_fin');
+				$userexper->logros = Input::get('logros');
+				$userexper->funciones = Input::get('funciones');
+
+
+				$user->usuarioexperiencia()->save($userexper);
+
+				Session::flash('message', 'Usuario Modificado');
+				return Redirect::back();
+			}
+		}else{
+
+			return Redirect::to('/');
+		}	
+	}
+
+	public function addeducacion($id){
+		$user = User::find($id);
+
+		if(Auth::user()->id == $id){	
+
+			$rules = array(				
+				'nivel_academico' => 'required',
+				'titulo' => 'required',
+				'instituto' => 'required',
+			);
+
+			$message = array(
+				'required' => 'El campo :attribute es requerido',				
+			);
+
+			$validator = Validator::make(Input::all(), $rules, $message);
+
+			if($validator->fails()){
+				return Redirect::back()->withErrors($validator);
+			}else{
+
+				$usereduca = new UsuarioEducacion();				
+
+				$usereduca->nivel_academico = Input::get('nivel_academico');
+				$usereduca->titulo = Input::get('titulo');
+				$usereduca->instituto = Input::get('instituto');
+				$usereduca->fecha_finalizacion = Input::get('fecha_finalizacion');
+
+				$user->usuarioeducacion()->save($usereduca);
+
+				Session::flash('message', 'Usuario Modificado');
+				return Redirect::back();
+			}	
+
+		}else{
+			return Redirect::to('/');	
+		}	
+	}
+
 
 	/**
 	 * [updatedatoscuenta description]
@@ -425,6 +518,11 @@ class CandidatosController extends BaseController {
 		}
 	}
 
+	/**
+	 * [updateotros description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
 	public function updateotros($id){
 		$user = User::find($id);
 
@@ -544,6 +642,14 @@ class CandidatosController extends BaseController {
 		}else{
 			return true;
 		}
+	}
+
+	private function generarCodigo($longitud) {
+		$key = '';
+		$pattern = '1234567890abcdefghijklmnopqrstuvwxyz';
+		$max = strlen($pattern)-1;
+		for($i=0;$i < $longitud;$i++) $key .= $pattern{mt_rand(0,$max)};
+		return $key;
 	}
 }
 ?>	

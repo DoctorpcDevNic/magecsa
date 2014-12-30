@@ -64,6 +64,10 @@ Route::group(array('prefix' => 'perfil'), function () {
 	Route::post('login', 'CandidatosController@login');
 	Route::get('logout', 'CandidatosController@getLogout');
 
+	Route::post('add/experiencia/{id}','CandidatosController@addexperiencia');
+	Route::post('add/educacion/{id}','CandidatosController@addeducacion');
+	
+
 	Route::get('cv/{username}', function($username){
 		if(Auth::check()){
 			$user = User::where('username', $username)->first();
