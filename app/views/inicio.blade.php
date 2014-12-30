@@ -21,11 +21,20 @@
 				</a>
 			</div>
 			<div class="col-md-3 col-xs-3">
-				<a href="{{ URL::to('Registrar') }}">
-					<img src="{{ asset('img/inscribete.png') }}" class="img-responsive">
-					<hr>
-					<h2>Registrate</h2>
-				</a>
+        @if(Auth::check())
+          <a href="{{ URL::to('Perfil/'. Auth::user()->username) }}">
+            <img src="{{ asset('img/inscribete.png') }}" class="img-responsive">
+            <hr>
+            <h2>Registrate</h2>
+          </a>
+        @else
+          <a href="{{ URL::to('Registrar') }}">
+            <img src="{{ asset('img/inscribete.png') }}" class="img-responsive">
+            <hr>
+            <h2>Registrate</h2>
+          </a>
+        @endif
+				
 			</div>
 			<div class="col-md-3 col-xs-3">
 				<a href="">

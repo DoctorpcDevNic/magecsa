@@ -493,6 +493,7 @@
 										</div>
 									</div>
 								{{ Form::close() }}	
+								<div class="divider"></div>
 							</div>
 						@endforeach()
 					</div>
@@ -563,6 +564,7 @@
 										</div>
 									</div>
 								{{ Form::close() }}	
+								<div class="divider"></div>
 							</div>
 						@endforeach	
 					</div>

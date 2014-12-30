@@ -33,6 +33,7 @@
 	</div>
 
 	<div class="campos">
+		{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
 		{{ Form::open(array('url' => 'candidato/save', 'class' => 'form-horizontal')) }}
 			<div class="categoria cuenta">
 				<img src="{{ asset('img/user.png') }}" alt="" class="computer img-user">
