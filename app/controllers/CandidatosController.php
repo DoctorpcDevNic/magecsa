@@ -622,6 +622,25 @@ class CandidatosController extends BaseController {
 		return Redirect::to('/');
 	}
 
+	public function rememberpass(){
+		$seleccionado = Input::get('tipo');
+		$nombre = Input::get('nombre');
+
+		if($seleccionado == 'username'){
+			$user = User::where('username', $seleccionado);
+
+			return Redirect::to('login');
+
+		}else{
+			$userdato = UsuarioDato::where('email', $seleccionado)->first();
+
+			$user = $userdato->usuario_id;
+
+			return Redirect::to('login');
+
+		}
+	}
+
 	/**
 	 * [validateFormsLogin description]
 	 * @param  array  $inputs [description]

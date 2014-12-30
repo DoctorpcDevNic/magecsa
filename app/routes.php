@@ -49,6 +49,10 @@ Route::get('login', function(){
 	return View::make('usuario.login');
 });
 
+Route::get('recuperar/contraseña', function(){
+	return View::make('usuario.remember');
+});
+
 Route::post('candidato/save', array('uses' => 'CandidatosController@save'));
 
 Route::get('Perfil/{username}', 'CandidatosController@viewPerfil');
@@ -83,6 +87,8 @@ Route::group(array('prefix' => 'perfil'), function () {
 			return Redirect::to('/');
 		}  	
 	});
+
+	Route::post('rememberpass', 'CandidatosController@rememberpass');
 });
 
 /*

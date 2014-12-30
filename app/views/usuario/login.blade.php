@@ -19,7 +19,7 @@
 			</div>
 			<div class="form-group dow">
 				<button class="btn btn-primary btn-lg btn-block">Iniciar Sesion</button>
-				<span><a href="http://doctorpc.com.ni/" target="new">Olvide mi contraseña</a></span><br>
+				<span><a href="{{ URL::to('recuperar/contraseña') }}" target="new">Olvide mi contraseña</a></span><br>
 				<span><a href="http://doctorpc.com.ni/" target="new">Registro de usuario</a></span>
 			</div>
 		{{ Form::close() }}  
