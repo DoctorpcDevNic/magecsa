@@ -60,72 +60,39 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="{{ asset( 'img/vacantephone.png') }}" alt="..."  class="mobil">
-            <img src="{{ asset( 'img/vacante.png') }}" alt="..."  class="computer imgslider">
-            <div class="infovacante">
-              <h3 class="fecha">
-                4 de Diciembre
-              </h3>
-              <div class="descripcion">
-                <p class="aplican">Finanzas | Contabilidad | Auditoría</p>
-                <p class="lugar">Panamá Ciudad Panamá </p>
-                <p class="bold computer">Requisitos</p>
-                <ul class="requisitos computer">
-                  <li>-Licenciatura en contabilidad, auditoría, banca, finanzas o carreras afines. </li>
-                  <li>Inglés nivel avanzado. </li>
-                  <li>-Experiencia en auditoría interna(deseable)</li>
-                </ul>
+          <?php 
+            $count = 0;
+           ?>
+          @foreach($vacantes as $value)
+            @if($count == 0)
+              <div class="item active">
+            <?php $count++; ?>
+            @else
+              <div class="item">
+            @endif
+              
+                <img src="{{ asset( 'img/vacantephone.png') }}" alt="..."  class="mobil">
+                <img src="{{ asset( 'img/vacante.png') }}" alt="..."  class="computer imgslider">
+                <div class="infovacante">
+                  <h3 class="fecha">
+                    {{$value->fecha}}
+                  </h3>
+                  <div class="descripcion">
+                  <?php 
+                    $expresionregular = "/(^.{0,100})(\W+.*$)/"; 
+                          $cadena = ($value->cuerpo); 
+                          $reemplazo = "\${1}";
+                   ?> 
+                   <p>{{ preg_replace($expresionregular, $reemplazo, $cadena) }}...</p>
+                  </div>
+                </div>
+                <div class="logo_slider">
+                  <img src="{{ asset('img/upload/'.$value->logo) }}">
+                </div>      
               </div>
-            </div>
-            <div class="logo_slider">
-              <img src="{{ asset('img/claro-logo.png') }}">
-            </div>      
-          </div>
-          <div class="item">
-            <img src="{{ asset( 'img/vacantephone.png') }}" alt="..."  class="mobil">
-            <img src="{{ asset( 'img/vacante.png') }}" alt="..."  class="computer imgslider">
-            <div class="infovacante">
-              <h3 class="fecha">
-                4 de Diciembre
-              </h3>
-              <div class="descripcion">
-                <p class="aplican">Finanzas | Contabilidad | Auditoría</p>
-                <p class="lugar">Panamá Ciudad Panamá </p>
-                <p class="bold computer">Requisitos</p>
-                <ul class="requisitos computer">
-                  <li>-Licenciatura en contabilidad, auditoría, banca, finanzas o carreras afines. </li>
-                  <li>Inglés nivel avanzado. </li>
-                  <li>-Experiencia en auditoría interna(deseable)</li>
-                </ul>
-              </div>
-              <div class="logo_slider">
-                <img src="{{ asset('img/claro-logo.png') }}">
-              </div>  
-            </div>
-          </div>
-          <div class="item">
-            <img src="{{ asset( 'img/vacantephone.png') }}" alt="..."  class="mobil">
-            <img src="{{ asset( 'img/vacante.png') }}" alt="..."  class="computer imgslider">
-            <div class="infovacante">
-              <h3 class="fecha">
-                4 de Diciembre
-              </h3>
-              <div class="descripcion">
-                <p class="aplican">Finanzas | Contabilidad | Auditoría</p>
-                <p class="lugar">Panamá Ciudad Panamá </p>
-                <p class="bold computer">Requisitos</p>
-                <ul class="requisitos computer">
-                  <li>-Licenciatura en contabilidad, auditoría, banca, finanzas o carreras afines. </li>
-                  <li>Inglés nivel avanzado. </li>
-                  <li>-Experiencia en auditoría interna(deseable)</li>
-                </ul>
-              </div>
-              <div class="logo_slider">
-                <img src="{{ asset('img/claro-logo.png') }}">
-              </div>  
-            </div>
-          </div>          
+
+
+          @endforeach                
         </div>
          <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">

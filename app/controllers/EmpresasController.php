@@ -49,7 +49,6 @@ class EmpresasController extends BaseController {
 
 		}else{
 			return Redirect::back()->withErrors($this->validateForms(Input::all()))->withInput();
-
 		}
 	}
 

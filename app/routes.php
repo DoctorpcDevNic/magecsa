@@ -13,7 +13,8 @@
 
 Route::get('/', function()
 {
-	return View::make('inicio');
+	$vacantes = Vacante::all();
+	return View::make('inicio')->with('vacantes', $vacantes);
 });
 
 Route::get('Nosotros', function()
@@ -119,4 +120,15 @@ Route::group(array('prefix' => 'perfil'), function () {
 
 		return View::make('admin.candidato')->with('user', $user);
 	});
+
+
+	Route::get('vacantes', function(){
+		$vacantes = Vacante::all();
+		return View::make('admin.vacantes')->with('vacantes', $vacantes);
+	});
+	Route::get('vacante/update/{id}', 'VacantesController@viewUpdate');
+	Route::post('vacante/save', 'VacantesController@save');
+	Route::post('vacante/update/{id}', 'VacantesController@update');
+
+
 });

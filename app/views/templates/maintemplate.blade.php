@@ -90,7 +90,7 @@
 			                    	<i class="glyphicon glyphicon-list-alt"></i><br>
 			                    	Nuestros Servicios 
 			                    </a>
-			                    <ul class="dropdown-menu submenu" role="menu" style="width:102% !important">
+			                    <ul class="dropdown-menu submenu" role="menu" style="width:auto !important">
 			                      <li><a href="{{ URL::to('/') }}">Reclutamiento y Selección de personal </a></li>
 			                      <li><a href="{{ URL::to('/') }}">Evaluacion de Personal </a></li>       
 			                      <li><a href="{{ URL::to('/') }}">Capacitacion </a></li>                     

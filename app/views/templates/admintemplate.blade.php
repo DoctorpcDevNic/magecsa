@@ -13,16 +13,15 @@
 
     <!-- Bootstrap Core CSS -->
     {{ HTML::style('css/bootstrap.min.css') }}
-    {{ HTML::style('css/dataTables.bootstrap.css') }}
-
-   
-
+    {{ HTML::style('css/dataTables.bootstrap.css') }} 
    
     <!-- MetisMenu CSS -->
     {{ HTML::style('css/metisMenu.min.css') }}
    
     <!-- Custom CSS -->
     {{ HTML::style('css/sb-admin-2.css') }}
+    {{ HTML::style('css/admin.css') }}
+    {{ HTML::style('css/summernote.css') }}
 
     <!-- Custom Fonts -->
     {{ HTML::style('css/font-awesome.min.css') }}
@@ -150,7 +149,7 @@
                         </li>
                         {{-- Vacantes --}}
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> Vacantes</a>
+                            <a href="{{ URL::to('administrador/vacantes') }}"><i class="fa fa-edit fa-fw"></i> Vacantes</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
@@ -207,11 +206,13 @@
     <!-- Metis Menu Plugin JavaScript -->
     {{ HTML::script('js/metisMenu.min.js') }}
     {{ HTML::script('js/jquery.dataTables.min.js') }}
+    {{ HTML::script('js/summernote.min.js') }}
+    {{ HTML::script('js/summernote-es-ES.js') }}
+    
 
     <!-- Custom Theme JavaScript -->
     {{ HTML::script('js/sb-admin-2.js') }}
-
-     {{ HTML::script('js/dataTables.bootstrap.js') }}
+    {{ HTML::script('js/dataTables.bootstrap.js') }}
 
   
 
