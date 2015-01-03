@@ -137,10 +137,10 @@
                             <a href="#"><i class="fa fa-briefcase fa-fw"></i> Empresas<span class="fa arrow"></span></a>
                              <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Ver Empresas</a>
+                                    <a href="{{ URL::to('administrador/empresas') }}">Ver Empresas</a>
                                 </li>
                                 <li>
-                                    <a href="#">Empresas Interesadas</a>
+                                    <a href="{{ URl::to('administrador/empresas/solicitud') }}">Empresas Interesadas</a>
                                 </li>
                             </ul>
                         </li>
@@ -205,6 +205,8 @@
 
     <!-- Custom Theme JavaScript -->
     {{ HTML::script('js/sb-admin-2.js') }}
+
+    @yield('js')
 
 </body>
 

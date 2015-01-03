@@ -595,13 +595,13 @@ class CandidatosController extends BaseController {
 				);
 
 			if(Auth::attempt($userdata)){
-				if(Auth::user()->role_id == 0){
+				if(Auth::user()->role_id == 0){//admin
 					return Redirect::to('administrador');
-				}else if(Auth::user()->role_id == 1){
+				}else if(Auth::user()->role_id == 1){//empleado
 					return Redirect::to('administrador');
-				}else if(Auth::user()->role_id == 2){
-					return Redirect::to('administrador');
-				}else if(Auth::user()->role_id == 3){
+				}else if(Auth::user()->role_id == 2){//empresa					
+					return Redirect::to('MasServicios');
+				}else if(Auth::user()->role_id == 3){//candidato
 					return Redirect::to('Perfil/' . Auth::user()->username);
 				}
 			}else{

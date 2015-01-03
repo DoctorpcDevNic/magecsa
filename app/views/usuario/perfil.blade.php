@@ -148,7 +148,7 @@
 									</div>	
 									<div class="form-group">
 									    <div class="col-sm-6">
-									      {{ Form::password('password_confirmation', array('class' => 'form-control', 'placeholder'=> 'Confirmar Contraseña')) }}	
+									      {{ Form::password('password', array('class' => 'form-control', 'placeholder'=> 'Confirmar Contraseña')) }}	
 									    </div>
 									</div>	
 								</div>

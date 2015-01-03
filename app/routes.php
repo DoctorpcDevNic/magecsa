@@ -31,14 +31,11 @@ Route::get('MasServicios', function()
 	return View::make('nosotros.masservicios');
 });
 
+Route::post('save/empresas', 'EmpresasController@save');
+
 Route::get('test', function()
 {
 	return View::make('nosotros.test');
-});
-
-
-Route::get('login', function(){
-	return View::make('login');
 });
 
 Route::get('Registrar', function(){
@@ -108,4 +105,13 @@ Route::group(array('prefix' => 'perfil'), function () {
 	Route::get('usuariosadmin/delete/{id}', array('uses' => 'UsuariosAdminController@delete'));
 	Route::post('usuariosadmin/save', array('uses' => 'UsuariosAdminController@save'));
 	Route::post('usuariosadmin/update/{id}', array('uses' => 'UsuariosAdminController@update'));
+
+	Route::get('empresas', 'EmpresasController@view');
+	Route::get('empresas/update/{id}','EmpresasController@viewUpdate');	
+	Route::get('empresas/solicitud',function(){
+		$empresas = Empresa::all();
+		return View::make('admin.empresassolicitud')->with('empresas', $empresas);
+	});
+	Route::post('empresas/updateadmin/{id}','EmpresasController@updateadmin');	
+
 });
