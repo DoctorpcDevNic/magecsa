@@ -114,4 +114,9 @@ Route::group(array('prefix' => 'perfil'), function () {
 	});
 	Route::post('empresas/updateadmin/{id}','EmpresasController@updateadmin');	
 
+	Route::get('candidatos', function(){
+		$user = User::where('role_id', 3)->get();
+
+		return View::make('admin.candidato')->with('user', $user);
+	});
 });

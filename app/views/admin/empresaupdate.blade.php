@@ -16,16 +16,16 @@
 		<div class="form-group" id='puestos'>
 			<input type="hidden" id="valorespuesto" value="{{$empresa->puestos}}">	
 		    <div class="col-sm-4 col-xs-4">
-		    	<input type="checkbox" name="puestos[]" value="Aduana|Agencia Aduaneras">Aduana|Agencia Aduaneras<br>
-		    	<input type="checkbox" name="puestos[]" value="Agencia de Empleo|Reclutamiento">Agencia de Empleo|Reclutamiento<br>
+		    	<input type="checkbox" name="puestos[]" value="Mercadeo|Ventas">Mercadeo|Ventas<br>
+		    	<input type="checkbox" name="puestos[]" value="Banca|Servicios Financieros">Banca|Servicios Financieros<br>
 		    </div>	
 		     <div class="col-sm-4 col-xs-4">
-		    	<input type="checkbox" name="puestos[]" value="Agricola|Ganadera">Agricola|Ganadera<br>
-		    	<input type="checkbox" name="puestos[]" value="Agroindustrial">Agroindustrial<br>
+		    	<input type="checkbox" name="puestos[]" value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria<br>
+		    	<input type="checkbox" name="puestos[]" value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad<br>
 		    </div>	
 		     <div class="col-sm-4 col-xs-4">
-		    	<input type="checkbox" name="puestos[]" value="Arquitectura|Diseño|Decoracion">Arquitectura|Diseño|Decoracion<br>
-		    	<input type="checkbox" name="puestos[]" value="Automotriz">Automotriz<br>
+		    	<input type="checkbox" name="puestos[]" value="Puestos Profesionales">Puestos Profesionales<br>
+		    	<input type="checkbox" name="puestos[]" value="Administracion">Administracion<br>
 		    </div>	
 		</div>	
 		<div class="form-group">								

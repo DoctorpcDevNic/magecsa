@@ -13,6 +13,10 @@
 
     <!-- Bootstrap Core CSS -->
     {{ HTML::style('css/bootstrap.min.css') }}
+    {{ HTML::style('css/dataTables.bootstrap.css') }}
+
+   
+
    
     <!-- MetisMenu CSS -->
     {{ HTML::style('css/metisMenu.min.css') }}
@@ -129,7 +133,7 @@
                         </li>
                         {{-- candidatos --}}
                         <li>
-                            <a href="#"><i class="fa  fa-users fa-fw"></i> Candidatos</a>
+                            <a href="{{ URL::to('administrador/candidatos') }}"><i class="fa  fa-users fa-fw"></i> Candidatos</a>
 
                         </li>
                         {{-- Empresas --}}
@@ -202,9 +206,14 @@
 
     <!-- Metis Menu Plugin JavaScript -->
     {{ HTML::script('js/metisMenu.min.js') }}
+    {{ HTML::script('js/jquery.dataTables.min.js') }}
 
     <!-- Custom Theme JavaScript -->
     {{ HTML::script('js/sb-admin-2.js') }}
+
+     {{ HTML::script('js/dataTables.bootstrap.js') }}
+
+  
 
     @yield('js')
 
