@@ -1,4 +1,7 @@
 @extends('templates.maintemplate')
+@section('titulo')
+	Nosotros - Mas Empleos Y Servicios | MAGECSA
+@stop
 @section('contenido')	
 	<div class="nosotros">
 		<div class="headnosotros">

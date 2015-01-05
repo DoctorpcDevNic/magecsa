@@ -1,4 +1,7 @@
 @extends('templates.maintemplate')
+@section('titulo')
+	Login - Mas Empleos Y Servicios | MAGECSA
+@stop
 @section('contenido')
 	<div class="login">
 		<h3 class="titul">

@@ -1,4 +1,7 @@
 @extends('templates.maintemplate')
+@section('titulo')
+	Registrarse - Mas Empleos Y Servicios | MAGECSA
+@stop
 @section('contenido')
 
 @if(Session::has('message'))

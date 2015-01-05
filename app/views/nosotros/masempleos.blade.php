@@ -1,4 +1,7 @@
 @extends('templates.maintemplate')
+@section('titulo')
+	Mas Empleos - Mas Empleos Y Servicios | MAGECSA
+@stop
 @section('contenido')	
 <div class="masempleos">
 	@if(Session::has('message'))

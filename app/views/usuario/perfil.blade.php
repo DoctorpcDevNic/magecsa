@@ -1,4 +1,7 @@
 @extends('templates.maintemplate')
+@section('titulo')
+	Perfil {{ $user->username }} - Mas Empleos Y Servicios | MAGECSA
+@stop
 @section('contenido')
 <div class="perfil">	
 

@@ -1,4 +1,7 @@
 @extends('templates.maintemplate')
+@section('titulo')
+	Contacto - Mas Empleos Y Servicios | MAGECSA
+@stop
 @section('contenido')
 	<div class="contacto">
 		<h2 class="titul">Contáctenos</h2>

@@ -11,19 +11,6 @@
 |
 */
 
-Route::get('lol', function(){
-	$a = array(
-	    "one" => 1,
-	    "two" => 2,
-	    "three" => 3,
-	    "seventeen" => 17
-	);
-
-	foreach ($a as $k => $v) {
-	    echo "\$a[$k] => $v.\n";
-	}
-});
-
 Route::get('/', function()
 {
 	$vacantes = Vacante::all();
@@ -115,39 +102,40 @@ Route::group(array('prefix' => 'perfil'), function () {
 	2->empresas
 	3->candidato
 */
- Route::group(array('prefix' => 'administrador'), function () {
-	Route::get('/', function(){
-		$users = User::all();
-		return View::make('admin.admin')->with('usuarios', $users);
+Route::group(array('before' => 'auth'), function()
+{	
+	Route::group(array('prefix' => 'administrador', 'before' => 'roles:0-1,login' ), function () {
+		Route::get('/', function(){
+			$users = User::all();
+			return View::make('admin.admin')->with('usuarios', $users);
+		});
+
+		Route::get('usuariosadmin/update/{id}', array('uses' => 'UsuariosAdminController@viewUpdate'));
+		Route::get('usuariosadmin/delete/{id}', array('uses' => 'UsuariosAdminController@delete'));
+		Route::post('usuariosadmin/save', array('uses' => 'UsuariosAdminController@save'));
+		Route::post('usuariosadmin/update/{id}', array('uses' => 'UsuariosAdminController@update'));
+
+		Route::get('empresas', 'EmpresasController@view');
+		Route::get('empresas/update/{id}','EmpresasController@viewUpdate');	
+		Route::get('empresas/solicitud',function(){
+			$empresas = Empresa::all();
+			return View::make('admin.empresassolicitud')->with('empresas', $empresas);
+		});
+		Route::post('empresas/updateadmin/{id}','EmpresasController@updateadmin');	
+
+		Route::get('candidatos', function(){
+			$user = User::where('role_id', 3)->get();
+
+			return View::make('admin.candidato')->with('user', $user);
+		});
+
+
+		Route::get('vacantes', function(){
+			$vacantes = Vacante::all();
+			return View::make('admin.vacantes')->with('vacantes', $vacantes);
+		});
+		Route::get('vacante/update/{id}', 'VacantesController@viewUpdate');
+		Route::post('vacante/save', 'VacantesController@save');
+		Route::post('vacante/update/{id}', 'VacantesController@update');
 	});
-
-	Route::get('usuariosadmin/update/{id}', array('uses' => 'UsuariosAdminController@viewUpdate'));
-	Route::get('usuariosadmin/delete/{id}', array('uses' => 'UsuariosAdminController@delete'));
-	Route::post('usuariosadmin/save', array('uses' => 'UsuariosAdminController@save'));
-	Route::post('usuariosadmin/update/{id}', array('uses' => 'UsuariosAdminController@update'));
-
-	Route::get('empresas', 'EmpresasController@view');
-	Route::get('empresas/update/{id}','EmpresasController@viewUpdate');	
-	Route::get('empresas/solicitud',function(){
-		$empresas = Empresa::all();
-		return View::make('admin.empresassolicitud')->with('empresas', $empresas);
-	});
-	Route::post('empresas/updateadmin/{id}','EmpresasController@updateadmin');	
-
-	Route::get('candidatos', function(){
-		$user = User::where('role_id', 3)->get();
-
-		return View::make('admin.candidato')->with('user', $user);
-	});
-
-
-	Route::get('vacantes', function(){
-		$vacantes = Vacante::all();
-		return View::make('admin.vacantes')->with('vacantes', $vacantes);
-	});
-	Route::get('vacante/update/{id}', 'VacantesController@viewUpdate');
-	Route::post('vacante/save', 'VacantesController@save');
-	Route::post('vacante/update/{id}', 'VacantesController@update');
-
-
 });
