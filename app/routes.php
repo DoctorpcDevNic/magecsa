@@ -11,6 +11,19 @@
 |
 */
 
+Route::get('lol', function(){
+	$a = array(
+	    "one" => 1,
+	    "two" => 2,
+	    "three" => 3,
+	    "seventeen" => 17
+	);
+
+	foreach ($a as $k => $v) {
+	    echo "\$a[$k] => $v.\n";
+	}
+});
+
 Route::get('/', function()
 {
 	$vacantes = Vacante::all();
@@ -30,6 +43,11 @@ Route::get('Contactenos', function()
 Route::get('MasServicios', function()
 {
 	return View::make('nosotros.masservicios');
+});
+Route::get('MasEmpleos', function()
+{	
+	$vacantes = Vacante::paginate(2);	;
+	return View::make('nosotros.masempleos')->with('vacantes', $vacantes);
 });
 
 Route::post('save/empresas', 'EmpresasController@save');
@@ -87,6 +105,7 @@ Route::group(array('prefix' => 'perfil'), function () {
 	});
 
 	Route::post('rememberpass', 'CandidatosController@rememberpass');
+	Route::get('vacante/aplicar/{idvacante}/{iduser}', 'VacantesController@aplicarVacante');
 });
 
 /*

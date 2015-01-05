@@ -137,6 +137,7 @@ textarea
 		padding 1em	0	
 	
 	.vacante
+		position relative
 		h2
 			background azul
 			color white
@@ -155,10 +156,10 @@ textarea
 				width 100% !important
 						
 		.logo_slider
-			left 13px	
-			position absolute
-			top 20px
 			img
+				left 13px	
+				position absolute
+				top 20px
 				width 20% !important	
 		.infovacante
 			.fecha
@@ -168,16 +169,25 @@ textarea
 				top 8px
 		
 			.descripcion							
-				bottom 30px
-				font-size 10px
+				top 20px
+				font-size 12px
 				left 25%
 				position absolute
 				text-align center
+				h1
+				h2
+				h3
+				h4
 				p
 					margin 0
 					padding 0
+					font-size 10px !important
 				.aplican
-					font-weight bold	
+					font-weight bold
+		.aplicar
+			position absolute
+			bottom 0
+			left 60px			
 	.ubicacion
 		.titul
 			color verde	
@@ -468,8 +478,44 @@ textarea
 		textarea
 		select
 			border 1px solid azul
-			color azul								
-					
+			color azul	
+	.masempleos
+		margin-top 2em
+		.titul
+			color verde
+			text-align center
+			font-size 1.5em
+			i
+				padding 5px	
+		.vacantes
+			.vacante
+				position relative
+				background #008592
+				color white
+				padding 5px
+				margin-top 1em
+				.titul
+					color amarillo
+					text-align center
+					border-bottom 2px solid amarillo	
+					font-size 20px
+					margin auto
+					display block
+					width 80%
+				.triangulo
+					background white				
+					position absolute
+					right 0
+					top 0				
+					border-bottom 50px solid azultran
+					border-right 50px solid transparent	
+				.aplicarvac
+					text-align right
+					a
+					p
+						color white
+					a
+						text-decoration underline 								
 							
 .nav-tabs
 	border-bottom 0
@@ -505,19 +551,29 @@ footer
 						font-size 18px
 		.vacante
 			.logo_slider
-				left 25px
-				position absolute
-				top 37px
 				img
+					left 25px
+					position absolute
+					top 37px
 					width 15% !important	
 			.infovacante
 				.fecha
 					right 32px
 					top 25px	
 				.descripcion
-					bottom 65px	
-					font-size 18px
+					top 50px				
 					left 24%
+					h1
+					h2
+					h3
+					h4
+					p
+						font-size 24px !important
+					ul
+						font-size 18px	
+			.aplicar
+				bottom 20px
+				left 60%							
 		.nosotros	
 			.titul
 				font-size 30px
@@ -790,8 +846,26 @@ footer
 					background azul	
 					&:hover
 						background azultran	
-																
-									
+		
+		.masempleos
+			.titul
+				font-size 2em					
+				i
+					padding 10px	
+			.vacantes
+				.vacante
+					.titul	
+						font-size 1.2em	
+					.fecha
+						text-align center	
+						font-size 1.2em
+						position absolute
+						top 15%
+						right 10%
+					.descrip
+						padding 15px
+					.division
+						border-bottom 8px solid amarillo		
 																		
 	footer
 		padding-bottom 10px
@@ -817,8 +891,9 @@ footer
 	.infomain
 		.vacante
 			.logo_slider
-				left 60px
-				top 100px
+				img
+					left 60px
+					top 100px
 			.infovacante
 				.fecha					
 					font-size 22px
@@ -828,8 +903,12 @@ footer
 					-webkit-transform rotate(-10deg)
 				.descripcion
 					font-size 15px
-					left 27%	
+					left 30%	
 					text-align initial
+					top 27%
+			.aplicar
+				font-size 1.5em
+				bottom 30px	
 					
 	.nav-tabs
 		border-bottom 1px solid #ddd				
@@ -852,7 +931,12 @@ footer
 			.titul
 				font-size 1.5em	
 		hr
-			margin 15px 0 									
+			margin 15px 0 
+		.masempleos
+			.vacantes
+				.vacante
+					width 85%
+					margin 2em auto										
 					
 
 @media (min-width:1300px)	

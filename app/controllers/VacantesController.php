@@ -39,6 +39,23 @@ class VacantesController extends BaseController {
 		}	
 	}
 
+	public function aplicarVacante($idvacante, $iduser){
+
+		$vacanteusuario = new VacanteUsuario();
+		$vacanteusuario->vacante_id = $idvacante;
+		$vacanteusuario->usuario_id = $iduser;
+
+		$vacanteusuario->save();
+
+		Session::flash('message', 'Vacante Aplicada, revisa todas las vacantes en busca de ¡Mas Empleos!');
+		return Redirect::to('MasEmpleos');
+	}
+
+	/**
+	 * [update description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
 	public function update($id){
 
 		$rules = array(
