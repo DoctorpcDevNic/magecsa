@@ -9,8 +9,25 @@ azultran = rgba(69, 170, 187, .9)
     src: url('../fonts/Junction-webfont.ttf');    
 }
 
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(http://fonts.gstatic.com/s/lato/v11/UyBMtLsHKBKXelqf4x7VRQ.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(http://fonts.gstatic.com/s/lato/v11/7aC-Y4V2UPHQp-tqeekgkA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
 body
-	font-family Junction
+	font-family 'Lato'
 	font-size 18px
 	margin 0
 	padding 0
@@ -33,9 +50,9 @@ textarea
 			padding 5px
 			text-align center
 .logo
-	position absolute
-	top 55px
 	img
+		position absolute
+		top 55px
 		width 30%
 		
 .carousel-control.right
@@ -515,7 +532,57 @@ textarea
 					p
 						color white
 					a
-						text-decoration underline 								
+						text-decoration underline 
+	.reclutamiento	
+		margin-top 2em
+		.titul
+			background verde
+			color white
+			font-size 20px
+			img
+				width 50px	
+		.subtitul
+			margin-top 1em
+			color azul	
+		.etapas
+			.etapa
+				position relative
+				background azul
+				padding 5px
+				margin-bottom 1em
+				.tituletapa
+					color amarillo
+					text-align center
+					border-bottom 2px solid amarillo
+				.row	
+					color white	
+					.col-md-6
+						padding-top 10px
+					img
+						width 35px
+		.triangulo
+			background white				
+			position absolute
+			right 0
+			top 0				
+			border-bottom 50px solid rgba(69, 170, 187, .6)
+			border-right 50px solid transparent
+			z-index 9				
+	.evaluacion
+		.etapas
+			position relative
+			.etapa
+				color white				
+				.col-md-12
+					color white
+				img
+					width 50px
+			.etapaevaluacion
+				margin-bottom 0			
+									
+							
+						
+													
 							
 .nav-tabs
 	border-bottom 0
@@ -585,11 +652,11 @@ footer
 
 
 @media (min-width 768px)
-	.logo
-		left 12px
-		top 100px	
+	.logo	
 		img
-			width 40%
+			width 15%
+			left 12px
+			top 100px
 	.container-fluid
 		width 90%
 	.menumain
@@ -608,7 +675,7 @@ footer
 			i
 				font-size 25px	
 	.slidermain
-		margin-top 87px
+		margin-top 85px
 		.camera_caption 
 			div	
 				font-size 1.5em
@@ -936,7 +1003,51 @@ footer
 			.vacantes
 				.vacante
 					width 85%
-					margin 2em auto										
+					margin 2em auto	
+		.reclutamiento
+			.titul
+				font-size 1.5em
+				margin-left -5%
+				width 520px
+				img
+					width 80px
+					margin-left 6%
+			.subtitul
+				font-size 1.2em	
+			.etapas
+				.etapa
+					margin-bottom 2em
+					.tituletapa
+						width 615px	
+						font-size 1.5em
+						margin 20px auto 10px auto
+					.row
+						font-size 1.2em
+						img
+							width 50px
+		.evaluacion
+			.img-responsive
+				height 260px
+			.etapas				
+				.col-md-6
+					width 48%
+					margin 0 1%
+					
+				.etapa
+					.tituletapa
+						width 400px
+				.etapaevaluacion
+					margin-bottom 0
+					font-size 22px
+					padding-right 65px
+					padding-top 15px
+					img
+						width 70px		
+						
+						
+								
+				
+																							
 					
 
 @media (min-width:1300px)	
@@ -1031,7 +1142,25 @@ footer
 									font-size 23px	
 							.exbd
 								p
-									font-size 18px													
+									font-size 18px
+		.reclutamiento
+			.etapas
+				.etapa
+					.tituletapa
+						width 690px
+					.row
+						font-size 1.5em
+						img
+							width 60px
+							margin 5px	
+		.evaluacion
+			.etapas
+				font-size 1.2em
+				.etapa
+					.tituletapa
+						width 610px
+					img
+						width 60px																										
 								
 					 	
 

@@ -16,6 +16,7 @@
 		{{ HTML::style('css/bootstrap.vertical-tabs.min.css') }}	
 
 		{{ HTML::style('css/main.css') }}
+		{{ HTML::style('css/animate.css') }}
 
 		{{ HTML::style('css/camera.css') }}
 
@@ -91,9 +92,10 @@
 			                    	Nuestros Servicios 
 			                    </a>
 			                    <ul class="dropdown-menu submenu" role="menu" style="width:auto !important">
-			                      <li><a href="{{ URL::to('/') }}">Reclutamiento y Selección de personal </a></li>
-			                      <li><a href="{{ URL::to('/') }}">Evaluacion de Personal </a></li>       
-			                      <li><a href="{{ URL::to('/') }}">Capacitacion </a></li>                     
+			                      <li><a href="{{ URL::to('Reclutamiento') }}">Reclutamiento y Selección de personal </a></li>
+			                      <li><a href="{{ URL::to('Evaluacion#evaluacion') }}">Evaluacion de Personal </a></li>       
+			                      <li><a href="{{ URL::to('Evaluacion#filtro') }}">Filtro de CVs </a></li>  
+			                      <li><a href="{{ URL::to('Evaluacion#publicacion') }}">Publicación de Vacantes</a></li>                     
 			                      <li class="dropdown">
 				                  	<a href="#" class="dropdown-toggle" data-toggle="dropdown-menu"> Outsorcing </span></a>
 				                    <ul class="dropdown-menu submenu" role="menu">
@@ -101,8 +103,7 @@
 				                      <li><a href="{{ URL::to('/') }}"> Servicios de Limpieza </a></li>       
 				                      <li><a href="{{ URL::to('/') }}"> Digitalizacion de datos </a></li>                                     
 				                    </ul>
-					              </li> 
-			                      <li><a href="{{ URL::to('/') }}">Bolsa Inmobiliaria</a></li>                     
+					              </li>              
 			                    </ul>
 			                </li>
 			                <li><a href="{{URL::to('/')  }}">
@@ -155,8 +156,8 @@
     		<P>Todos Los Derechos Reservados</P>    		
     		<p class="hidden-md hidden-lg hidden-sm">Designed by <a href="">Doctor PC</a></p>
     		<ul class="hidden-xs">
-		        <li><a href="">Quienes somos</a> <span>|</span></li>
-		        <li><a href="">Contáctenos</a> <span>|</span></li>		       
+		        <li><a href="{{ URL::to('Nosotros') }}">Quienes somos</a> <span>|</span></li>
+		        <li><a href="{{ URL::to('Contactenos') }}">Contáctenos</a> <span>|</span></li>		       
 		        <li><a href="">Términos de Uso</a> <span>|</span></li>
 		        <li><a href="">Idioma</a> <span>|</span></li>
 		        <li>Designed by <a href="http://doctorpc.com.ni/" target="new">Doctor PC</a></li>
@@ -167,6 +168,7 @@
     	{{ HTML::script('js/vendor/jquery-1.11.1.min.js') }}        
       	{{ HTML::script('js/main.js') }}
       	{{ HTML::script('js/jquery.mask.min.js') }}
+      	{{ HTML::script('js/wow.js') }}
       	
 
       	{{ HTML::script('js/bootstrap.min.js') }}
@@ -211,6 +213,9 @@
 		    }  
 	    });
   	</script>
+  	<script>
+		new WOW().init();
+	</script>
 		
 	@yield('js')	
     </body>

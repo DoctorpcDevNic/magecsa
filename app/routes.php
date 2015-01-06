@@ -31,18 +31,22 @@ Route::get('MasServicios', function()
 {
 	return View::make('nosotros.masservicios');
 });
+Route::get('Evaluacion', function()
+{
+	return View::make('nosotros.evaluacion');
+});
+
 Route::get('MasEmpleos', function()
 {	
 	$vacantes = Vacante::paginate(2);	;
 	return View::make('nosotros.masempleos')->with('vacantes', $vacantes);
 });
 
-Route::post('save/empresas', 'EmpresasController@save');
-
-Route::get('test', function()
-{
-	return View::make('nosotros.test');
+Route::get('Reclutamiento', function(){
+	return View::make('nosotros.reclutamiento');
 });
+
+Route::post('save/empresas', 'EmpresasController@save');
 
 Route::get('Registrar', function(){
 	return View::make('nosotros.registrar');
@@ -51,6 +55,8 @@ Route::get('Registrar', function(){
 Route::get('login', function(){
 	return View::make('usuario.login');
 });
+Route::post('perfil/login', 'CandidatosController@login');
+Route::post('perfil/rememberpass', 'CandidatosController@rememberpass');
 
 Route::get('recuperar/contraseña', function(){
 	return View::make('usuario.remember');
@@ -60,7 +66,7 @@ Route::post('candidato/save', array('uses' => 'CandidatosController@save'));
 
 Route::get('Perfil/{username}', 'CandidatosController@viewPerfil');
 
-Route::group(array('prefix' => 'perfil'), function () {
+Route::group(array('prefix' => 'perfil', 'before' => 'auth'), function () {
 	Route::post('update/datoscuenta/{id}','CandidatosController@updatedatoscuenta');
 	Route::post('update/datospersonales/{id}','CandidatosController@updatedatospersonales');	
 	Route::post('update/expectativa/{id}','CandidatosController@updateexpectativa');
@@ -68,15 +74,14 @@ Route::group(array('prefix' => 'perfil'), function () {
 	Route::post('update/academica/{iduser}/{idacade}','CandidatosController@updateacademica');
 	Route::post('update/otros/{id}','CandidatosController@updateotros');
 	Route::post('update/avatar/{id}','CandidatosController@updateavatar');
-	Route::post('login', 'CandidatosController@login');
+	
 	Route::get('logout', 'CandidatosController@getLogout');
 
 	Route::post('add/experiencia/{id}','CandidatosController@addexperiencia');
 	Route::post('add/educacion/{id}','CandidatosController@addeducacion');
 	
 
-	Route::get('cv/{username}', function($username){
-		if(Auth::check()){
+	Route::get('cv/{username}', function($username){		
 			$user = User::where('username', $username)->first();
 
 			if(Auth::user()->id == $user->id){
@@ -86,12 +91,7 @@ Route::group(array('prefix' => 'perfil'), function () {
 		    }else{
 		    	return Redirect::to('/');
 		    }
-		}else{
-			return Redirect::to('/');
-		}  	
-	});
-
-	Route::post('rememberpass', 'CandidatosController@rememberpass');
+	});	
 	Route::get('vacante/aplicar/{idvacante}/{iduser}', 'VacantesController@aplicarVacante');
 });
 
