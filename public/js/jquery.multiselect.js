@@ -29,7 +29,7 @@
     options: {
       header: true,
       height: 175,
-      minWidth: 360,
+      minWidth: 342,
       classes: '',
       checkAllText: 'Seleccionar todos',
       uncheckAllText: 'Deseleccionar',

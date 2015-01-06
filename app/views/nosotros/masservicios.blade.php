@@ -5,7 +5,6 @@
 @section('contenido')
 <div class="masservicios">
 	<div role="tabpanel">
-
 	  <!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist" id="tabservicios">
 		  	@if(Auth::check())
@@ -33,7 +32,7 @@
 				    	<p>Bienvenido a la base de datos mas aplia, facil y eﬁciente con potencial 100 %  nicaragüense, acontinuacion podra hacer un  ﬁltro según sus necesidades de búsqueda para obtener a su candidato deseado, de igual manera le recordamos nuestros servicios directos de Reclutamiento, Selección y Evaluación de Personal, gracias por unirte a esta  gran familia.</p>				    	
 				    </div>
 				    <div role="tabpanel" class="tab-pane" id="vacante">
-				    	vacante
+				    	<h2 class="titul">Comuniquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contactenos</a></h2>
 				    </div>		
 		  		@else
 		  			<div role="tabpanel" class="tab-pane active" id="registroempresa">
@@ -118,7 +117,7 @@
 				    	</div>
 				    </div>
 				    <div role="tabpanel" class="tab-pane" id="vacante">
-				    	vacante
+				    	<h2 class="titul">Comuniquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contactenos</a></h2>
 				    </div>	
 		  		@endif
 		  	@else
