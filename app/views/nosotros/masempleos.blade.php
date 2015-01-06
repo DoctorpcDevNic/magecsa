@@ -21,20 +21,25 @@
 					{{ $value->cuerpo }}
 				</div>
 				<div class="aplicarvac">
-					<?php 
-						$vacanteusuario = VacanteUsuario::where('vacante_id', $value->id)->get();	
-						$count = 0;					
-					 ?>
-					 @foreach($vacanteusuario as $key)
-						@if($key->usuario_id == Auth::user()->id )
-							<?php $count++; ?>
+					@if(Auth::check())
+						<?php 
+							$vacanteusuario = VacanteUsuario::where('vacante_id', $value->id)->get();	
+							$count = 0;					
+						 ?>
+						 @foreach($vacanteusuario as $key)
+							@if($key->usuario_id == Auth::user()->id )
+								<?php $count++; ?>
+							@endif
+						@endforeach
+						@if($count == 0)
+							<a href="{{  URL::to('perfil/vacante/aplicar/'. $value->id .'/' . Auth::user()->id) }}"><i class="fa fa-check"></i>Aplicar a la vacante</a>						
+						@else
+							<p>Ya aplico a esta vacante</p>						
 						@endif
-					@endforeach
-					@if($count == 0)
-						<a href="{{  URL::to('perfil/vacante/aplicar/'. $value->id .'/' . Auth::user()->id) }}"><i class="fa fa-check"></i>Aplicar a la vacante</a>						
 					@else
-						<p>Ya aplico a esta vacante</p>						
+						<a href="{{  URL::to('login') }}"><i class="fa fa-check"></i>Aplicar a la vacante</a>						
 					@endif
+					
 				</div>
 				<div class="division"></div>
 			</div>

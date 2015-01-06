@@ -38,7 +38,7 @@ Route::get('Evaluacion', function()
 
 Route::get('MasEmpleos', function()
 {	
-	$vacantes = Vacante::paginate(2);	;
+	$vacantes = Vacante::paginate(6);	;
 	return View::make('nosotros.masempleos')->with('vacantes', $vacantes);
 });
 
