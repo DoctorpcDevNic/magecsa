@@ -139,8 +139,8 @@ class UsuariosAdminController extends BaseController {
 			'email' => 'required',	
 			'cargo' => 'required',	
 			'username' => 'unique:usuarios|required|min:4',			
-			'password' => 'confirmed|required|between:6,12',
-			'password_confirmation' => 'required|between:6,12'	
+			'password' => 'confirmed|required|between:6,100',
+			'password_confirmation' => 'required|between:6,100'	
 			);
 		$message = array(
 			'required' => 'El campo :attribute es requerido',

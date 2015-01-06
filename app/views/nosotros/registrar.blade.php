@@ -182,7 +182,7 @@
 					<div class="form-group">	
 					    <div class="col-sm-4 col-xs-4">
 					    	<input type="checkbox" name="categoria_licencia[]" value="Motocicleta">Motocicleta<br>
-					    	<input type="checkbox" name="categoria_licencia[]" value="Profecional">Profecional<br>
+					    	<input type="checkbox" name="categoria_licencia[]" value="Profecional">Profesional<br>
 					    </div>	
 					     <div class="col-sm-4 col-xs-4">
 					    	<input type="checkbox" name="categoria_licencia[]" value="Vehiculo liviano">Vehiculo liviano<br>
@@ -531,7 +531,7 @@
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					    	{{ Form::text('telefono_empresa', Input::old('telefono_empresa'), array('class' => 'form-control', 'placeholder'=> '*Tefono de Empresa')) }}	
+					    	{{ Form::text('telefono_empresa', Input::old('telefono_empresa'), array('class' => 'form-control convencional', 'placeholder'=> '*Tefono de Empresa')) }}	
 					    </div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="area" >
@@ -679,7 +679,14 @@
 								 <option value="Arabe">Arabe</option>	
 								 <option value="Cantones">Cantones</option>				
 								 <option value="Chino - Mandarin">Chino - Mandarin</option>				
-								 <option value="Español">Español</option>	
+								 <option value="Español">Español</option>
+								 <option value="Frances">Frances</option>
+								 <option value="Ingles">Ingles</option>
+								 <option value="Italiano">Italiano</option>	
+								 <option value="Japones">Japones</option>	
+								 <option value="Portugues">Portugues</option>	
+								 <option value="Ruso">Ruso</option>	
+								 <option value="Taiwanes">Taiwanes</option>	
 							</select> 
 					    </div>
 					    <div class="col-sm-5">

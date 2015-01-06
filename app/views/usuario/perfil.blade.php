@@ -838,7 +838,14 @@
 												 <option value="Arabe">Arabe</option>	
 												 <option value="Cantones">Cantones</option>				
 												 <option value="Chino - Mandarin">Chino - Mandarin</option>				
-												 <option value="Español">Español</option>	
+												 <option value="Español">Español</option>
+												 <option value="Frances">Frances</option>
+												 <option value="Ingles">Ingles</option>
+												 <option value="Italiano">Italiano</option>	
+												 <option value="Japones">Japones</option>	
+												 <option value="Portugues">Portugues</option>	
+												 <option value="Ruso">Ruso</option>	
+												 <option value="Taiwanes">Taiwanes</option>		
 											</select> 
 									    </div>
 									    <div class="col-sm-5">

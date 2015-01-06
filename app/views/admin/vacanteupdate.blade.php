@@ -66,7 +66,7 @@
                         $user = User::where('id', $value->usuario_id)->first();
                      ?>
             		<tr>
-            			<td><a href="{{ URL::to('Perfil/'. $value->username )}}" target="new">{{ $user->usuariodato->nombres }}</a> </td>
+            			<td><a href="{{ URL::to('Perfil/'. $user->username )}}" target="new">{{ $user->usuariodato->nombres }}</a> </td>
 
             			<td>
             				@foreach($user->usuarioexperiencia()->get() as $key)

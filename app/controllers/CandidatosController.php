@@ -30,7 +30,7 @@ class CandidatosController extends BaseController {
 			'username' => 'unique:usuarios|required',
 			'password' => 'confirmed|required',
 			'password_confirmation' => 'required',
-			'nombre' => 'required',
+			'nombres' => 'required',
 			'apellidos' => 'required',
 			'fecha_nacimiento' => 'required',
 			'estado_civil' => 'required',
@@ -118,12 +118,12 @@ class CandidatosController extends BaseController {
 
 			$userotro->idioma = Input::get('idioma');
 			$userotro->nivel_dominio = Input::get('nivel_dominio');
-			$userotro->habilidad = Input::get('habilidad1');
-			$userotro->habilidad = Input::get('nivel_dominio1');
-			$userotro->habilidad = Input::get('habilidad2');
-			$userotro->habilidad = Input::get('nivel_dominio2');
-			$userotro->habilidad = Input::get('habilidad3');
-			$userotro->habilidad = Input::get('nivel_dominio3');
+			$userotro->habilidad1 = Input::get('habilidad1');
+			$userotro->nivel_dominio1 = Input::get('nivel_dominio1');
+			$userotro->habilidad2 = Input::get('habilidad2');
+			$userotro->nivel_dominio2 = Input::get('nivel_dominio2');
+			$userotro->habilidad3 = Input::get('habilidad3');
+			$userotro->nivel_dominio3 = Input::get('nivel_dominio3');
 
 			/*	
 			$userhab->base_datos = Input::get('base_datos');
@@ -302,7 +302,7 @@ class CandidatosController extends BaseController {
 		if(Auth::user()->id == $id){	
 
 			$rules = array(
-				'nombre' => 'required',
+				'nombres' => 'required',
 				'apellidos' => 'required',
 				'fecha_nacimiento' => 'required',
 				'estado_civil' => 'required',
@@ -671,5 +671,4 @@ class CandidatosController extends BaseController {
 		return $key;
 	}
 }
-?>	
-	
+?>		

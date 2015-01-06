@@ -40,15 +40,19 @@ class VacantesController extends BaseController {
 	}
 
 	public function aplicarVacante($idvacante, $iduser){
+		if(Auth::user()->role_id == 0){
+			Session::flash('message', 'Tu usuario no puede aplicar a esta vacante');
+			return Redirect::to('MasEmpleos');
+		}else{
+			$vacanteusuario = new VacanteUsuario();
+			$vacanteusuario->vacante_id = $idvacante;
+			$vacanteusuario->usuario_id = $iduser;
 
-		$vacanteusuario = new VacanteUsuario();
-		$vacanteusuario->vacante_id = $idvacante;
-		$vacanteusuario->usuario_id = $iduser;
+			$vacanteusuario->save();
 
-		$vacanteusuario->save();
-
-		Session::flash('message', 'Vacante Aplicada, revisa todas las vacantes en busca de ¡Mas Empleos!');
-		return Redirect::to('MasEmpleos');
+			Session::flash('message', 'Vacante Aplicada, revisa todas las vacantes en busca de ¡Mas Empleos!');
+			return Redirect::to('MasEmpleos');
+		}
 	}
 
 	/**
