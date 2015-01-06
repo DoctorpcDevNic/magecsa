@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-01-2015 a las 06:19:59
+-- Tiempo de generación: 06-01-2015 a las 06:53:11
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -71,7 +71,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2014_12_19_004907_create_usuariosadmin_table', 1),
 ('2015_01_02_214151_create_empresas_table', 2),
 ('2015_01_03_013830_create_vacantes_table', 2),
-('2015_01_03_013831_create_vacantes_table', 3);
+('2015_01_03_013831_create_vacantes_table', 3),
+('2015_01_05_185616_create_vacantesusuarios_table', 4);
 
 -- --------------------------------------------------------
 
@@ -95,10 +96,10 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `username`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'norwingc', '$2y$10$b2ixtYETW7sODUhX03QpruKTZc.SR2rtSTdzciD1ya1Oowa8qSkDS', 3, 'Z6097gwRrX4mnczYngnzaL0kNxmzWHChLoHn08x6kyT7JF8RUE22VmBYN0PZ', '2014-12-20 13:02:35', '2014-12-30 07:46:55'),
+(1, 'norwingc', '$2y$10$b2ixtYETW7sODUhX03QpruKTZc.SR2rtSTdzciD1ya1Oowa8qSkDS', 3, 'CKp5xyWGl0cRENkTvpKMdeCxVwvN6RMvIE9TF2Bq6JWrTgC3u43GulocRcMf', '2014-12-20 13:02:35', '2015-01-06 03:39:01'),
 (2, 'norwingc1', '$2y$10$b2ixtYETW7sODUhX03QpruKTZc.SR2rtSTdzciD1ya1Oowa8qSkDS', 3, 'N5e0QsgxThMD415Jm6Lf2kuv46RPXfFWDOd8nEf1Tcqs7juKvHfhDkaO2Ixn', '2014-12-20 13:02:35', '2014-12-26 07:20:37'),
 (3, 'claro', '$2y$10$YkDpN3q.YW92b4d5jwMN4Ofr4ohjryTVJlsdnAEMF9xMtJ1OzulGS', 2, 'ARLR4YfOgGsYJcj7qo1pIwcMFGEf1HlxNPdnl9IZmANaqIUSAu96ym7RrMPf', '2015-01-03 05:50:03', '2015-01-03 06:21:47'),
-(4, 'admin', '$2y$10$o5e85SBYjLjje8cZZvdrruJjJvZeu21mzwNxHJrq2FRWW6ZPNnl6G', 0, '', '2015-01-03 06:04:39', '2015-01-03 06:04:39'),
+(4, 'admin', '$2y$10$o5e85SBYjLjje8cZZvdrruJjJvZeu21mzwNxHJrq2FRWW6ZPNnl6G', 0, 'ts6oOQoXONX5qEY6kJsRyqg33JbnI7ppyfPNpIBDaEeQ9AUbIEoAVY0RDz5G', '2015-01-03 06:04:39', '2015-01-06 03:46:55'),
 (5, 'claro', '$2y$10$YkDpN3q.YW92b4d5jwMN4Ofr4ohjryTVJlsdnAEMF9xMtJ1OzulGS', 2, '', '2015-01-03 07:33:25', '2015-01-03 07:33:25');
 
 -- --------------------------------------------------------
@@ -353,6 +354,29 @@ INSERT INTO `vacantes` (`id`, `titulo`, `fecha`, `cuerpo`, `logo`, `created_at`,
 (2, 'Se busca', '2015-01-02', '<h3>funciones</h3><ul><li>comer</li><li>dormir</li><li>developer</li><li>php</li></ul>', 'Se buscaclaro-logo.png', '2015-01-03 10:41:23', '2015-01-03 10:46:11'),
 (3, 'Se busca', '2015-01-02', '<h3>funciones</h3><ul><li>comer</li><li>dormir</li><li>developer</li></ul>', 'Se buscaclaro-logo.png', '2015-01-03 10:41:50', '2015-01-03 10:41:50'),
 (4, 'Se busca', '2015-01-02', '<h3>funciones</h3><ul><li>comer</li><li>dormir</li><li>developer</li></ul>', 'Se buscaclaro-logo.png', '2015-01-03 10:42:02', '2015-01-03 10:42:02');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vacantesusuarios`
+--
+
+CREATE TABLE IF NOT EXISTS `vacantesusuarios` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `vacante_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `vacantesusuarios`
+--
+
+INSERT INTO `vacantesusuarios` (`id`, `vacante_id`, `usuario_id`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, '2015-01-06 01:48:32', '2015-01-06 01:48:32'),
+(2, 3, 1, '2015-01-06 02:30:59', '2015-01-06 02:30:59');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
