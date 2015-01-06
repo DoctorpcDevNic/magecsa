@@ -92,7 +92,7 @@
 			                    	Nuestros Servicios 
 			                    </a>
 			                    <ul class="dropdown-menu submenu" role="menu" style="width:auto !important">
-			                      <li><a href="{{ URL::to('Reclutamiento') }}">Reclutamiento y Selección de personal </a></li>
+			                      <li><a href="{{ URL::to('Reclutamiento') }}">Busqueda y Selección de personal </a></li>
 			                      <li><a href="{{ URL::to('Evaluacion#evaluacion') }}">Evaluacion de Personal </a></li>       
 			                      <li><a href="{{ URL::to('Evaluacion#filtro') }}">Filtro de CVs </a></li>  
 			                      <li><a href="{{ URL::to('Evaluacion#publicacion') }}">Publicación de Vacantes</a></li>                     
@@ -102,6 +102,7 @@
 				                      <li><a href="{{ URL::to('/') }}"> Administacion de Personal y Nomina </a></li>
 				                      <li><a href="{{ URL::to('/') }}"> Servicios de Limpieza </a></li>       
 				                      <li><a href="{{ URL::to('/') }}"> Digitalizacion de datos </a></li>                                     
+				                      <li><a href="{{ URL::to('/') }}"> Bienes Raices</a></li>                                     
 				                    </ul>
 					              </li>              
 			                    </ul>

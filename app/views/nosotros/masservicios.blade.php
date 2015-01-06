@@ -103,20 +103,19 @@
 				    	<h2 class="titul">Busqueda de cantidatos registrados</h2>
 				    	<div class="login">
 				    		{{ Form::open(array('url' => 'perfil/login', 'class' => 'form col-md-6 col-sm-offset-3')) }}
-			<div class="form-group">
-				{{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'placeholder'=> 'Username')) }} 
-			</div> 
-			<div class="form-group">
-				{{ Form::password('password', array('class' => 'form-control', 'placeholder'=> 'Password')) }}  
-			</div>
-			<div class="form-group dow">
-				<button class="btn btn-primary btn-lg btn-block">Iniciar Sesion</button>
-				<span><a href="{{ URL::to('recuperar/contraseña') }}" target="new">Olvide mi contraseña</a></span><br>
-				<span><a href="http://doctorpc.com.ni/" target="new">Registro de usuario</a></span>
-			</div>
-		{{ Form::close() }}  
+								<div class="form-group">
+									{{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'placeholder'=> 'Username')) }} 
+								</div> 
+								<div class="form-group">
+									{{ Form::password('password', array('class' => 'form-control', 'placeholder'=> 'Password')) }}  
+								</div>
+								<div class="form-group dow">
+									<button class="btn btn-primary btn-lg btn-block">Iniciar Sesion</button>
+									<span><a href="{{ URL::to('recuperar/contraseña') }}" target="new">Olvide mi contraseña</a></span><br>
+									<span><a href="{{ URL::to('MasServicios') }}">Registro de Empresa</a></span>
+								</div>
+							{{ Form::close() }}  
 				    	</div>
-				    	
 				    </div>
 				    <div role="tabpanel" class="tab-pane" id="vacante">
 				    	vacante
@@ -188,11 +187,24 @@
 		   		</div>
 			    <div role="tabpanel" class="tab-pane" id="busquedacandidato">
 			    	<h2 class="titul">Busqueda de cantidatos registrados</h2>
-			    	<p>no ve</p>
-			    	
+			    	<div class="login">
+			    		{{ Form::open(array('url' => 'perfil/login', 'class' => 'form col-md-6 col-sm-offset-3')) }}
+							<div class="form-group">
+								{{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'placeholder'=> 'Username')) }} 
+							</div> 
+							<div class="form-group">
+								{{ Form::password('password', array('class' => 'form-control', 'placeholder'=> 'Password')) }}  
+							</div>
+							<div class="form-group dow">
+								<button class="btn btn-primary btn-lg btn-block">Iniciar Sesion</button>
+								<span><a href="{{ URL::to('recuperar/contraseña') }}">Olvide mi contraseña</a></span><br>
+								<span><a href="{{ URL::to('MasServicios') }}">Registro de Empresa</a></span>
+							</div>
+						{{ Form::close() }}  
+			    	</div>
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="vacante">
-			    	vacante
+			    	<h2 class="titul">Comuniquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contactenos</a></h2>
 			    </div>	
 		  	@endif 
 		</div>
