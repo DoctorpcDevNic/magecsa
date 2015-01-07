@@ -12,21 +12,13 @@
 			<div class="triangulo computer"></div>
 			<h3 class="tituletapa wow bounceInRight">Etapa 1: Búsqueda de Profesionales</h3>
 			<div class="row">
-<<<<<<< HEAD
+
 				<div class="col-md-6 wow bounceInLeft"><img src="{{ asset('img/definicionperfil.png') }}" alt="">Deﬁnición del Perﬁl del Puesto</div>
 				<div class="col-md-6 wow bounceInLeft"><img src="{{ asset('img/evaluacion.png') }}" alt="">Filtros de Aplicaciones</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6 wow bounceInRight"><img src="{{ asset('img/publicacion.png') }}" alt="">Publicación de la Vacante</div>
-				<div class="col-md-6 wow bounceInRight"><img src="{{ asset('img/preselecion.png') }}" alt="">Preselección de CVS</div>
-=======
-				<div class="col-md-6 wow bounceInLeft"><img src="{{ asset('img/definicionperfil.png') }}" alt="">Definición del Perﬁl del Puesto</div>
-				<div class="col-md-6 wow bounceInLeft"><img src="{{ asset('img/filtroapp.png') }}" alt="">Filtros de Aplicaciones</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 wow bounceInRight"><img src="{{ asset('img/preselecion.png') }}" alt="">Publicación de la Vacante</div>
-				<div class="col-md-6 wow bounceInRight"><img src="{{ asset('img/publicacion.png') }}" alt="">Pre selección de CVS</div>
->>>>>>> origin/master
+				<div class="col-md-6 wow bounceInRight"><img src="{{ asset('img/preselecion.png') }}" alt="">Preselección de CVS</div>				
 			</div>
 		</div>
 		<div class="etapa">

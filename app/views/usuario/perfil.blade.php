@@ -102,11 +102,7 @@
 			      	<li><a href="#datospersonales" data-toggle="tab">Datos Personales</a></li>
 			      	<li><a href="#expectativa" data-toggle="tab">Expectativa Laboral</a></li>
 			      	<li><a href="#experiencia" data-toggle="tab">Experiencia Profesional</a></li>
-<<<<<<< HEAD
-			      	<li><a href="#formacion" data-toggle="tab">Formacion Academica</a></li>
-=======
 			      	<li><a href="#formacion" data-toggle="tab">Formación Académica</a></li>
->>>>>>> origin/master
 			      	<li><a href="#otros" data-toggle="tab">Otros Estudios</a></li>	      	
 				</ul>		
 			</div>
@@ -122,11 +118,7 @@
 			     	<li><a href="#datospersonales" data-toggle="tab">Datos Personales</a></li>
 			      	<li><a href="#expectativa" data-toggle="tab">Expectativa Laboral</a></li>
 			      	<li><a href="#experiencia" data-toggle="tab">Experiencia Profesional</a></li>
-<<<<<<< HEAD
-			      	<li><a href="#formacion" data-toggle="tab">Formacion Academica</a></li>
-=======
 			      	<li><a href="#formacion" data-toggle="tab">Formación Académica</a></li>
->>>>>>> origin/master
 			      	<li><a href="#otros" data-toggle="tab">Otros Estudios</a></li>	      	
 			    </ul>
 			</div>
@@ -293,11 +285,7 @@
 										<input type="hidden" id="valoreslicencia" value="{{$user->usuariodato->categoria_licencia}}">	
 									    <div class="col-sm-4 col-xs-4">
 									    	<input type="checkbox" name="categoria_licencia[]" value="Motocicleta">Motocicleta<br>
-<<<<<<< HEAD
 									    	<input type="checkbox" name="categoria_licencia[]" value="Profesional">Profesional<br>
-=======
-									    	<input type="checkbox" name="categoria_licencia[]" value="Profecional">Profesional<br>
->>>>>>> origin/master
 									    </div>	
 									     <div class="col-sm-4 col-xs-4">
 									    	<input type="checkbox" name="categoria_licencia[]" value="Vehiculo liviano">Vehículo liviano<br>

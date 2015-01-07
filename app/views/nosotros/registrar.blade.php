@@ -273,12 +273,8 @@
 					    </div>	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="areas_interes" >
-<<<<<<< HEAD
-								 <option selected="selected" class="s">Areas de Interes </option>
+								 <option selected="selected" class="s">Áreas de Interés </option>									
 								 <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>
-=======
-								 <option selected="selected" class="s">Áreas de Interés </option>
->>>>>>> origin/master
 								 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>				
 								 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
 								 <option value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad</option>	
