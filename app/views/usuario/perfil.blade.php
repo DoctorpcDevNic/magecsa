@@ -24,7 +24,7 @@
 						<p class="computer">FORMACION ACADEMICA</p>
 					</div>
 					<div class="exbd">
-						@foreach($user->usuarioeducacion()->get() as $value)
+						@foreach($user->usuarioeducacion()->orderBy('id', 'desc')->get() as $value)
 							<p>{{$value->titulo}}</p>
 						@endforeach
 					</div>	
@@ -36,7 +36,7 @@
 						<p class="computer">HABILIDADES TECNICAS</p>
 					</div>
 					<div class="exbd">
-						@foreach($user->usuarioexperiencia()->get() as $value)
+						@foreach($user->usuarioexperiencia()->orderBy('id', 'desc')->get() as $value)
 							<p>{{$value->funciones}}</p>
 						@endforeach
 					</div>	
@@ -67,7 +67,7 @@
 						<p class="computer">EXPERIENCIA PROFESIONAL</p>
 					</div>
 					<div class="exbd">
-						@foreach($user->usuarioexperiencia()->get() as $value )
+						@foreach($user->usuarioexperiencia()->orderBy('id', 'desc')->get() as $value )
 							<p>{{ $value->nombre_empresa }} - {{ $value->puesto }}</p>
 						@endforeach
 					</div>	
@@ -607,7 +607,7 @@
 							<img src="{{ asset('img/experiencia.png') }}" alt="" class="computer">
 							Experiencia Profesional
 						</h3>
-						@foreach($user->usuarioexperiencia()->get() as $value)	
+						@foreach($user->usuarioexperiencia()->orderBy('id', 'desc')->get() as $value)	
 							<div class="formu">
 								{{ Form::open(array('url' => 'perfil/update/experiencia/' .  $user->id .'/' .$value->id, 'class' => 'form-horizontal')) }}
 									<div class="campo col-sm-offset-1">
@@ -751,7 +751,7 @@
 							<img src="{{ asset('img/educacion.png') }}" alt="" class="computer">
 							Formacion Academinca
 						</h3>
-						@foreach($user->usuarioeducacion()->get() as $value)
+						@foreach($user->usuarioeducacion()->orderBy('id', 'desc')->get() as $value)
 							<div class="formu">
 								{{ Form::open(array('url' => 'perfil/update/academica/' .  $user->id .'/' .$value->id, 'class' => 'form-horizontal')) }}
 									<div class="campo col-sm-offset-2">								

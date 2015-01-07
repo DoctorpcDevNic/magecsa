@@ -100,10 +100,9 @@
 			                      <li class="dropdown">
 				                  	<a href="#" class="dropdown-toggle" data-toggle="dropdown-menu"> Outsorcing </span></a>
 				                    <ul class="dropdown-menu submenu" role="menu">
-				                      <li><a href="{{ URL::to('/') }}"> Administacion de Personal y Nomina </a></li>
-				                      <li><a href="{{ URL::to('/') }}"> Servicios de Limpieza </a></li>       
-				                      <li><a href="{{ URL::to('/') }}"> Digitalizacion de datos </a></li>                                     
-				                      <li><a href="{{ URL::to('/') }}"> Bienes Raices</a></li>                                     
+				                      <li><a href="{{ URL::to('/') }}"> Administacion de Personal</a></li>
+				                      <li><a href="{{ URL::to('/') }}"> Administración de Nómina</a></li>
+				                      <li><a href="{{ URL::to('/') }}"> Servicio Administrativos </a></li>                              
 				                    </ul>
 					              </li>              
 			                    </ul>

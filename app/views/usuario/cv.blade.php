@@ -9,7 +9,7 @@
 	
 	<div class="cabe">
 		<img src="{{ asset('img/logocv.png') }}" alt="" class="logo">
-		<h2 class="slogan">¡Más Empleos , Mas Servicios!</h2>
+		<h2 class="slogan">¡M&aacute;s Empleos , Mas Servicios!</h2>
 
 		<div class="cuadroder">
 			<div class="azul"></div>
@@ -44,10 +44,10 @@
 			<div class="cuadro der">
 				<div class="cabe">
 					<img src="{{ asset('img/formacioncv.png') }}" alt="">
-					Formación académica
+					Formación Acade&eacute;mica
 				</div>
 				<div class="cuer">
-					@foreach($user->usuarioeducacion()->get() as $value)
+					@foreach($user->usuarioeducacion()->orderBy('id', 'desc')->get() as $value)
 						<?php $fecha = explode("-",$value->fecha_finalizacion); ?>
 						<p>{{ $fecha[0] }} {{ $value->titulo }} por {{ $value->instituto }}</p>
 					@endforeach
@@ -56,7 +56,7 @@
 			<div class="cuadro">
 				<div class="cabe">
 					<img src="{{ asset('img/otroscv.png') }}" alt="">
-					Otros estudios
+					Otros Estudios
 				</div>
 				<div class="cuer">
 					<p>{{$user->usuariootro->habilidad1 }} - {{ $user->usuariootro->nivel_dominio1 }}</p>
@@ -71,10 +71,10 @@
 			<div class="cuadro der">
 				<div class="cabe">
 					<img src="{{ asset('img/experienciacv.png') }}" alt="">
-					Experiencia profesional
+					Experiencia Profesional
 				</div>
 				<div class="cuer">
-					@foreach($user->usuarioexperiencia()->get() as $value)
+					@foreach($user->usuarioexperiencia()->orderBy('id', 'desc')->get() as $value)
 						<?php 
 							$fecha_inicio = explode("-",$value->fecha_inicio);
 							$fecha_fin = explode("-",$value->fecha_fin);
@@ -99,7 +99,7 @@
 			<div class="cuadro der">
 				<div class="cabe">
 					<img src="{{ asset('img/datoscv.png') }}" alt="">
-					Otros datos de interés
+					Otros Datos de Inter&eacute;s
 				</div>
 				<div class="cuer">
 					<p>Vehículo: @if($user->usuariodato->vehiculo == 1) no @else si @endif</p>

@@ -65,7 +65,7 @@ class CandidatosController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules, $message);
 
 		if($validator->fails()){
-			return Redirect::back()->withErrors($validator);
+			return Redirect::back()->withErrors($validator)->withInput();
 		}else{
 
 			$user->username = Input::get('username');
@@ -174,7 +174,7 @@ class CandidatosController extends BaseController {
 			$validator = Validator::make(Input::all(), $rules, $message);
 
 			if($validator->fails()){
-				return Redirect::back()->withErrors($validator);
+				return Redirect::back()->withErrors($validator)->withInput();
 			}else{
 
 				$userexper = new UsuarioExperiencia();				
@@ -219,7 +219,7 @@ class CandidatosController extends BaseController {
 			$validator = Validator::make(Input::all(), $rules, $message);
 
 			if($validator->fails()){
-				return Redirect::back()->withErrors($validator);
+				return Redirect::back()->withErrors($validator)->withInput();
 			}else{
 
 				$usereduca = new UsuarioEducacion();				
@@ -274,7 +274,7 @@ class CandidatosController extends BaseController {
 			$validator = Validator::make(Input::all(), $rules, $message);
 
 			if ($validator->fails()){				
-				return Redirect::back()->withErrors($validator);
+				return Redirect::back()->withErrors($validator)->withInput();
 			}else{
 
 				$user->username = Input::get('username');
@@ -324,7 +324,7 @@ class CandidatosController extends BaseController {
 			$validator = Validator::make(Input::all(), $rules, $message);
 
 			if($validator->fails()){
-				return Redirect::back()->withErrors($validator);
+				return Redirect::back()->withErrors($validator)->withInput();
 			}else{
 
 				$userdato = UsuarioDato::where('usuario_id', $id)->first();
@@ -383,7 +383,7 @@ class CandidatosController extends BaseController {
 			$validator = Validator::make(Input::all(), $rules, $message);
 
 			if($validator->fails()){
-				return Redirect::back()->withErrors($validator);
+				return Redirect::back()->withErrors($validator)->withInput();
 			}else{
 
 
@@ -434,7 +434,7 @@ class CandidatosController extends BaseController {
 			$validator = Validator::make(Input::all(), $rules, $message);
 
 			if($validator->fails()){
-				return Redirect::back()->withErrors($validator);
+				return Redirect::back()->withErrors($validator)->withInput();
 			}else{
 
 				$userexper = UsuarioExperiencia::where('usuario_id', $iduser)->get();
@@ -491,7 +491,7 @@ class CandidatosController extends BaseController {
 			$validator = Validator::make(Input::all(), $rules, $message);
 
 			if($validator->fails()){
-				return Redirect::back()->withErrors($validator);
+				return Redirect::back()->withErrors($validator)->withInput();
 			}else{
 
 				$usereduca = UsuarioEducacion::where('usuario_id', $iduser)->get();

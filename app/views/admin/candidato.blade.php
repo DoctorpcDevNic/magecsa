@@ -13,6 +13,7 @@
                 <th>Area de interes</th>
                	<th>Genero</th>
                	<th>Vehiculo</th>
+                <th>Edad</th>
                	<th>Nivel Academico</th>
                	<th>Habilidad</th>
                	<th>Idioma</th>
@@ -33,6 +34,14 @@
             				@else si
             				@endif
             			</td>
+                        <th>
+                            <?php 
+                                $fecha = UsuarioDato::where('usuario_id', $value->id)->first(); 
+                                list($Y,$m,$d) = explode("-",$fecha->fecha_nacimiento);
+                                $fecha = date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y ;
+                             ?>
+                             {{ $fecha }}
+                        </th>
             			<td>
 							@foreach($value->usuarioeducacion()->get() as $key)
             					{{ $key->nivel_academico }},  

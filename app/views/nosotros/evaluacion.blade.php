@@ -37,8 +37,8 @@
 			<img src="{{ asset('img/oportunidad.png') }}" alt="" class="img-responsive">
 		</div>
 	</div>
-
-	<h3 class="titul wow bounceInDown" id="publicacion"><img src="{{ asset('img/publivacante.png') }}" alt="">Publicación de Vacantes</h3>
+	<div id="publicacion" style="height:80px"></div>
+	<h3 class="titul wow bounceInDown"><img src="{{ asset('img/publivacante.png') }}" alt="">Publicación de Vacantes</h3>
 	<p class="subtitul wow bounceInUp">Nuestro servicio de Publicación de Vacante le permite Publicar sus ofertas en <a href="{{ URL::to('/')}}" style="text-decoration: underline">www.masempleosyservicios.com.ni</a> con los siguientes beneficios:</p>
 	<div class="etapas wow lightSpeedIn">
 		<div class="triangulo computer"></div>
