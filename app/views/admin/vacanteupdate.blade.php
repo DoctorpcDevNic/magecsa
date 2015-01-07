@@ -53,10 +53,10 @@
 		 <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Area de interes</th>
+                <th>Área de interés</th>
                	<th>Genero</th>
-               	<th>Vehiculo</th>
-               	<th>Nivel Academico</th>
+               	<th>Vehículo</th>
+               	<th>Nivel Académico</th>
                	<th>Habilidad</th>
                	<th>Idioma</th>
             </tr>

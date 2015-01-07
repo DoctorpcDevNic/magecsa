@@ -28,7 +28,7 @@
 		{{-- mision --}}
 		<div class="mision" id="Mision">
 			<h3 class="titul">
-				Mision<br>
+				Misión<br>
 				<span>Como Lo vamos hacer</span>
 			</h3>
 			<img src="{{ asset('img/mision.jpg') }}" alt="">
@@ -43,7 +43,7 @@
 		{{-- vision --}}
 		<div class="vision" id="Vision">
 			<h3 class="titul">
-				Vision<br>
+				Visión<br>
 				<span>Lo que queremos hacer</span>
 			</h3>
 			<img src="{{ asset('img/vision.jpg') }}" alt="">

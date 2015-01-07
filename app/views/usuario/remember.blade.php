@@ -5,7 +5,7 @@
 		<i class="fa fa-unlock-alt computer"></i>Recuperar Contraseña
 	</h3>
 	<div class="alert alert-danger col-md-8 col-sm-offset-2" role="alert">
-  		se enviara un correo electronico con la nueva contraseña de inicio de sesion
+  		se enviara un correo electrónico con la nueva contraseña de inicio de sesión
 	</div>
 
 	@if(Session::has('message'))
@@ -17,7 +17,7 @@
 	{{ Form::open(array('url' => 'perfil/rememberpass', 'class' => 'form-horizontal col-md-6 col-sm-offset-3')) }}
 		<div class="form-group">
 			<select class="form-control" name="tipo">
-				<option selected="selected" class="s">Recuerar con</option>
+				<option selected="selected" class="s">Recuperar con</option>
 				<option value="username">Nombre de usuario</option>				
 				<option value="email">Email</option>	
 			</select>

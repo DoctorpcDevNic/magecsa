@@ -49,7 +49,7 @@
 					</div>
 					<div class="exbd">
 						<p> Licencia : {{ $user->usuariodato->categoria_licencia }} </p>
-						<p>Vehiculo: @if($user->usuariodato->estado_civil == 0) no @else si @endif</p>
+						<p>Vehículo: @if($user->usuariodato->estado_civil == 0) no @else si @endif</p>
 						<?php 
 							$fecha = UsuarioDato::where('usuario_id', $user->id)->first(); 
 							list($Y,$m,$d) = explode("-",$fecha->fecha_nacimiento);
@@ -64,7 +64,7 @@
 				<div class="col-xs-3 info" id="ep">
 					<div class="cabe">
 						<img src="{{ asset('img/experiencia.png') }}" alt="">
-						<p class="computer">EXPERIENCIA PROFECIONAL</p>
+						<p class="computer">EXPERIENCIA PROFESIONAL</p>
 					</div>
 					<div class="exbd">
 						@foreach($user->usuarioexperiencia()->get() as $value )
@@ -101,8 +101,8 @@
 					<li class="active"><a href="#datoscuenta" data-toggle="tab">Datos De la Cuenta</a></li>
 			      	<li><a href="#datospersonales" data-toggle="tab">Datos Personales</a></li>
 			      	<li><a href="#expectativa" data-toggle="tab">Expectativa Laboral</a></li>
-			      	<li><a href="#experiencia" data-toggle="tab">Experiencia Profecional</a></li>
-			      	<li><a href="#formacion" data-toggle="tab">Formacion Academica</a></li>
+			      	<li><a href="#experiencia" data-toggle="tab">Experiencia Profesional</a></li>
+			      	<li><a href="#formacion" data-toggle="tab">Formación Académica</a></li>
 			      	<li><a href="#otros" data-toggle="tab">Otros Estudios</a></li>	      	
 				</ul>		
 			</div>
@@ -117,8 +117,8 @@
 			      	<li class="active"><a href="#datoscuenta" data-toggle="tab">Datos De la Cuenta</a></li>
 			     	<li><a href="#datospersonales" data-toggle="tab">Datos Personales</a></li>
 			      	<li><a href="#expectativa" data-toggle="tab">Expectativa Laboral</a></li>
-			      	<li><a href="#experiencia" data-toggle="tab">Experiencia Profecional</a></li>
-			      	<li><a href="#formacion" data-toggle="tab">Formacion Academica</a></li>
+			      	<li><a href="#experiencia" data-toggle="tab">Experiencia Profesional</a></li>
+			      	<li><a href="#formacion" data-toggle="tab">Formación Académica</a></li>
 			      	<li><a href="#otros" data-toggle="tab">Otros Estudios</a></li>	      	
 			    </ul>
 			</div>
@@ -246,7 +246,7 @@
 									<div class="form-group">						
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="tipo_identificacion" data-select='{{$user->usuariodato->tipo_identificacion}}' id="tipo_identificacion">
-												 <option selected="selected" class="s">*Tipo de Identiﬁcacion </option>	
+												 <option selected="selected" class="s">*Tipo de Identiﬁcación </option>	
 												 <option value="Cedula">Cedula</option>				
 												 <option value="Pasaporte">Pasaporte</option>				
 												 <option value="Cedula de Residencia">Cedula de Residencia</option>				
@@ -280,16 +280,16 @@
 											</select> 
 									    </div>					    
 									</div>
-									<h3 class="subtitul">Categoria de Licencia</h3>
+									<h3 class="subtitul">Categoría de Licencia</h3>
 									<div class="form-group" id='licencia'>
 										<input type="hidden" id="valoreslicencia" value="{{$user->usuariodato->categoria_licencia}}">	
 									    <div class="col-sm-4 col-xs-4">
 									    	<input type="checkbox" name="categoria_licencia[]" value="Motocicleta">Motocicleta<br>
-									    	<input type="checkbox" name="categoria_licencia[]" value="Profecional">Profecional<br>
+									    	<input type="checkbox" name="categoria_licencia[]" value="Profecional">Profesional<br>
 									    </div>	
 									     <div class="col-sm-4 col-xs-4">
-									    	<input type="checkbox" name="categoria_licencia[]" value="Vehiculo liviano">Vehiculo liviano<br>
-									    	<input type="checkbox" name="categoria_licencia[]" value="Vehiculo pesado">Vehiculo pesado<br>
+									    	<input type="checkbox" name="categoria_licencia[]" value="Vehiculo liviano">Vehículo liviano<br>
+									    	<input type="checkbox" name="categoria_licencia[]" value="Vehiculo pesado">Vehículo pesado<br>
 									    </div>	
 									     <div class="col-sm-4 col-xs-4">
 									    	<input type="checkbox" name="categoria_licencia[]" value="Sin licencia">Sin licencia<br>
@@ -322,7 +322,7 @@
 									<div class="form-group">	
 									    <div class="col-sm-5 ">
 									    	<select class="form-control" name="interes_laboral" data-select='{{$user->usuarioexpectativa()->first()->interes_laboral}}' id="interes_laboral">
-												 <option selected="selected" class="s">*Nivel de Interes Laboral</option>
+												 <option selected="selected" class="s">*Nivel de Interés Laboral</option>
 												 <option value="Permanente">Permanente</option>				
 												 <option value="Temporal">Temporal</option>	
 												 <option value="Busqueda Activa">Busqueda Activa</option>	
@@ -363,7 +363,7 @@
 									<div class="form-group">	
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="ubicacion_laboral" data-select='{{$user->usuarioexpectativa()->first()->ubicacion_laboral}}' id="ubicacion_laboral">
-												 <option selected="selected" class="s">Ubicacion de interes laboral</option>
+												 <option selected="selected" class="s">Ubicación de interés laboral</option>
 												 <option value="Atlantico Norte (RAAN)">Atlantico Norte (RAAN)</option>				
 												 <option value="Atlantico Sur (RAAS)">Atlantico Sur (RAAS)</option>	
 												 <option value="Boaco">Boaco</option>				
@@ -387,7 +387,7 @@
 									    {{-- here --}}	
 									    	<input type="hidden" name="areasseleccionadas" id="areasseleccionadas">								    	
 									    	<select class="form-control" name="areas_interes" data-select='{{$user->usuarioexpectativa()->first()->areas_interes}}' id="areas_interes">												 
-												 <option selected="selected" class="s">Areas de Interes </option>
+												 <option selected="selected" class="s">Áreas de Interés </option>
 												 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>				
 												 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
 												 <option value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad</option>	
@@ -412,7 +412,7 @@
 									<div class="form-group">	
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="puesto_interes" data-select='{{$user->usuarioexpectativa()->first()->puesto_interes}}' id="puesto_interes">
-												 <option selected="selected" class="s">Puestos de Interes </option>
+												 <option selected="selected" class="s">Puestos de Interés </option>
 												 <option value="Ejecutivos de Ventas">Ejecutivos de Ventas</option>				
 												 <option value="Vendedor|Rutero">Vendedor|Rutero</option>	
 												 <option value="Jefe de Ventas|Supervisor">Jefe de Ventas|Supervisor</option>	
@@ -758,7 +758,7 @@
 										<div class="form-group">	
 										    <div class="col-sm-5">
 										    	<select class="form-control nivel_academico" name="nivel_academico" data-select='{{ $value->nivel_academico}}'>
-													 <option selected="selected" class="s">*Nivel Academico </option>
+													 <option selected="selected" class="s">*Nivel Académico </option>
 													 <option value="Primaria">Primaria</option>				
 													 <option value="Bachillerato Secundaria">Bachillerato Secundaria</option>	
 													 <option value="Estudiante Universitario">Estudiante Universitario</option>				
@@ -946,7 +946,7 @@
 		    <div class="modal-content">
 		    	<div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="myModalLabel">Experiencia Profecional</h4>
+			        <h4 class="modal-title" id="myModalLabel">Experiencia Profesional</h4>
      			</div>
       			<div class="modal-body">
       				{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
@@ -1089,7 +1089,7 @@
 		    <div class="modal-content">
 		    	<div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="myModalLabel">Formacion Academinca</h4>
+			        <h4 class="modal-title" id="myModalLabel">Formación Académica</h4>
      			</div>
       			<div class="modal-body">
       				{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
@@ -1139,7 +1139,7 @@
 								    	{{ Form::text('titulo', Input::old('titulo'), array('class' => 'form-control', 'placeholder'=> '*Titulo')) }}	
 								    </div>    
 								</div>
-								<h3 class="subtitul">Año de Finalizacion</h3>
+								<h3 class="subtitul">Año de Finalización</h3>
 								<div class="form-group">						
 								    <div class="col-sm-6 col-sm-offset-2">
 								    	{{ Form::input('date','fecha_finalizacion', Input::old('fecha_finalizacion'), array('class' => 'form-control')) }}	
