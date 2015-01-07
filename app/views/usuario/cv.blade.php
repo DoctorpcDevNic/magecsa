@@ -30,8 +30,8 @@
 			<p>Fecha de nacimiento : <span class="res">{{ $fecha[2]."/" . $fecha[1] . "/" . $fecha[0] }}</span></p> 
 			<p>Nacionalidad : <span class="res">{{ $user->usuariodato->nacionalidad }}</span></p>
 			<p>Estado civil : <span class="res">{{ $user->usuariodato->estado_civil }}</span></p>
-			<p>Direccion : <span class="res">{{ $user->usuariodato->direccion }}</span></p>
-			<p>Telefonos : <span class="res">{{ $user->usuariodato->convencional . " / " . $user->usuariodato->celular }}</span></p>
+			<p>Dirección : <span class="res">{{ $user->usuariodato->direccion }}</span></p>
+			<p>Teléfonos : <span class="res">{{ $user->usuariodato->convencional . " / " . $user->usuariodato->celular }}</span></p>
 			<p>E-mail : <span class="res">{{ $user->usuariodato->email }}</span></p>
 		</div>
 	</div>
@@ -44,7 +44,7 @@
 			<div class="cuadro der">
 				<div class="cabe">
 					<img src="{{ asset('img/formacioncv.png') }}" alt="">
-					Formacion academica
+					Formación académica
 				</div>
 				<div class="cuer">
 					@foreach($user->usuarioeducacion()->get() as $value)
@@ -99,12 +99,12 @@
 			<div class="cuadro der">
 				<div class="cabe">
 					<img src="{{ asset('img/datoscv.png') }}" alt="">
-					Otros datos de interes
+					Otros datos de interés
 				</div>
 				<div class="cuer">
-					<p>Vehiculo: @if($user->usuariodato->vehiculo == 1) no @else si @endif</p>
+					<p>Vehículo: @if($user->usuariodato->vehiculo == 1) no @else si @endif</p>
 					<p>Licencia: {{$user->usuariodato->categoria_licencia}} </p>
-					<p>Epectativa Salarial: {{$user->usuarioexpectativa()->first()->expectativa_salarial}}  </p>
+					<p>Expectativa Salarial: {{$user->usuarioexpectativa()->first()->expectativa_salarial}}  </p>
 					<p>Disponibilidad: {{$user->usuarioexpectativa()->first()->interes_laboral}} </p>
 				</div>
 			</div>

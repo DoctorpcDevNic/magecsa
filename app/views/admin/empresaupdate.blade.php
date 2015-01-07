@@ -12,7 +12,7 @@
 
 <div class="opcion">
 	{{ Form::open(array('url' => 'administrador/empresas/updateadmin/' .  $empresa->id, 'class' => 'form-horizontal')) }}
-		<h2 class="titul">Ociones elegidas</h2>
+		<h2 class="titul">Opciones elegidas</h2>
 		<div class="form-group" id='puestos'>
 			<input type="hidden" id="valorespuesto" value="{{$empresa->puestos}}">	
 		    <div class="col-sm-4 col-xs-4">
@@ -25,7 +25,7 @@
 		    </div>	
 		     <div class="col-sm-4 col-xs-4">
 		    	<input type="checkbox" name="puestos[]" value="Puestos Profesionales">Puestos Profesionales<br>
-		    	<input type="checkbox" name="puestos[]" value="Administracion">Administracion<br>
+		    	<input type="checkbox" name="puestos[]" value="Administracion">Administración<br>
 		    </div>	
 		</div>	
 		<div class="form-group">								

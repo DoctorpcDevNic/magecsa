@@ -13,12 +13,12 @@
 				    <li role="presentation"><a href="#vacante" aria-controls="messages" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Publicar Vacantes</a></li>	   
 		  		@else
 			  		<li role="presentation" class="active"><a href="#registroempresa" aria-controls="home" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Registre su empresa</a></li>
-				    <li role="presentation"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Busqueda por candidato</a></li>
+				    <li role="presentation"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Búsqueda por candidato</a></li>
 				    <li role="presentation"><a href="#vacante" aria-controls="messages" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Publicar Vacantes</a></li>	   
 		  		@endif
 		  	@else
 			    <li role="presentation" class="active"><a href="#registroempresa" aria-controls="home" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Registre su empresa</a></li>
-			    <li role="presentation"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Busqueda por candidato</a></li>
+			    <li role="presentation"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Búsqueda por candidato</a></li>
 			    <li role="presentation"><a href="#vacante" aria-controls="messages" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Publicar Vacantes</a></li>	   
 		    @endif
 		</ul>
@@ -28,11 +28,11 @@
 		  	@if(Auth::check())
 		  		@if(Auth::user()->role_id == 2)	  
 		  			<div role="tabpanel" class="tab-pane" id="busquedacandidato">
-				    	<h2 class="titul">Busqueda de cantidatos registrados</h2>
-				    	<p>Bienvenido a la base de datos mas aplia, facil y eﬁciente con potencial 100 %  nicaragüense, acontinuacion podra hacer un  ﬁltro según sus necesidades de búsqueda para obtener a su candidato deseado, de igual manera le recordamos nuestros servicios directos de Reclutamiento, Selección y Evaluación de Personal, gracias por unirte a esta  gran familia.</p>				    	
+				    	<h2 class="titul">Búsqueda de candidatos registrados</h2>
+				    	<p>Bienvenido a la base de datos mas amplia, fácil y eficiente con potencial 100 %  nicaragüense, a continuación podrá hacer un  filtro según sus necesidades de búsqueda para obtener a su candidato deseado, de igual manera le recordamos nuestros servicios directos de Reclutamiento, Selección y Evaluación de Personal, gracias por unirte a esta  gran familia.</p>				    	
 				    </div>
 				    <div role="tabpanel" class="tab-pane" id="vacante">
-				    	<h2 class="titul">Comuniquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contactenos</a></h2>
+				    	<h2 class="titul">Comuníquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contáctenos</a></h2>
 				    </div>		
 		  		@else
 		  			<div role="tabpanel" class="tab-pane active" id="registroempresa">
@@ -117,7 +117,7 @@
 				    	</div>
 				    </div>
 				    <div role="tabpanel" class="tab-pane" id="vacante">
-				    	<h2 class="titul">Comuniquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contactenos</a></h2>
+				    	<h2 class="titul">Comuníquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contáctenos</a></h2>
 				    </div>	
 		  		@endif
 		  	@else
@@ -185,7 +185,7 @@
 					</div>	
 		   		</div>
 			    <div role="tabpanel" class="tab-pane" id="busquedacandidato">
-			    	<h2 class="titul">Busqueda de cantidatos registrados</h2>
+			    	<h2 class="titul">Búsqueda de candidatos registrados</h2>
 			    	<div class="login">
 			    		{{ Form::open(array('url' => 'perfil/login', 'class' => 'form col-md-6 col-sm-offset-3')) }}
 							<div class="form-group">
@@ -195,7 +195,7 @@
 								{{ Form::password('password', array('class' => 'form-control', 'placeholder'=> 'Password')) }}  
 							</div>
 							<div class="form-group dow">
-								<button class="btn btn-primary btn-lg btn-block">Iniciar Sesion</button>
+								<button class="btn btn-primary btn-lg btn-block">Iniciar Sesión</button>
 								<span><a href="{{ URL::to('recuperar/contraseña') }}">Olvide mi contraseña</a></span><br>
 								<span><a href="{{ URL::to('MasServicios') }}">Registro de Empresa</a></span>
 							</div>
@@ -203,7 +203,7 @@
 			    	</div>
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="vacante">
-			    	<h2 class="titul">Comuniquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contactenos</a></h2>
+			    	<h2 class="titul">Comuníquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contáctenos</a></h2>
 			    </div>	
 		  	@endif 
 		</div>

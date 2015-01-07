@@ -10,14 +10,14 @@
 				<a href="{{ URL::to('MasEmpleos') }}">
 					<img src="{{ asset('img/oportunidad.png') }}" class="img-responsive">
 					<hr>
-					<h2>Mas empleos</h2>
+					<h2>Más empleos</h2>
 				</a>	
 			</div>
 			<div class="col-md-3 col-xs-3">
 				<a href="{{ URL::to('MasServicios') }}">
 					<img src="{{ asset('img/capacitaciones.png') }}" class="img-responsive">
 					<hr>
-					<h2>Mas servicios</h2>
+					<h2>Más servicios</h2>
 				</a>
 			</div>
 			<div class="col-md-3 col-xs-3">
@@ -127,7 +127,7 @@
 	<div class="clear"></div>
 
 	<div class="ubicacion">
-		<h2 class="titul">Nuestra ubicacion en el mapa</h2>
+		<h2 class="titul">Nuestra ubicación en el mapa</h2>
 		<hr>
 		<div id="mapas" class="mapa"></div>
 	</div>

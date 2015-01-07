@@ -26,7 +26,7 @@
 			<div class="icono col-xs-3">
 				<img src="{{ asset('img/flecha.png') }}" alt="" class="flecha computer">
 				<img src="{{ asset('img/cv.png') }}" alt="" class="img-responsive">
-				<p>3. Envias tu CV</p>
+				<p>3. Envías tu CV</p>
 			</div>
 			<div class="icono col-xs-3">
 				<img src="{{ asset('img/bienvenido.png') }}" alt="" class="img-responsive">
@@ -144,10 +144,10 @@
 					<div class="form-group">						
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="tipo_identificacion" >
-								 <option selected="selected" class="s">*Tipo de Identiﬁcacion </option>
-								 <option value="Cedula">Cedula</option>				
+								 <option selected="selected" class="s">*Tipo de Identificación </option>
+								 <option value="Cedula">Cédula</option>				
 								 <option value="Pasaporte">Pasaporte</option>				
-								 <option value="Cedula de Residencia">Cedula de Residencia</option>				
+								 <option value="Cedula de Residencia">Cédula de Residencia</option>				
 							</select> 
 					    </div>											
 					    <div class="col-sm-5">
@@ -165,7 +165,7 @@
 					<div class="form-group">	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="vehiculo" >
-								 <option selected="selected" class="s">Posees Vehiculo </option>
+								 <option selected="selected" class="s">Posees Vehículo </option>
 								 <option value="0">Si</option>				
 								 <option value="1">No</option>	
 							</select> 
@@ -178,15 +178,15 @@
 							</select> 
 					    </div>					    
 					</div>
-					<h3 class="subtitul">Categoria de Licencia</h3>
+					<h3 class="subtitul">Categoría de Licencia</h3>
 					<div class="form-group">	
 					    <div class="col-sm-4 col-xs-4">
 					    	<input type="checkbox" name="categoria_licencia[]" value="Motocicleta">Motocicleta<br>
 					    	<input type="checkbox" name="categoria_licencia[]" value="Profesional">Profesional<br>
 					    </div>	
 					     <div class="col-sm-4 col-xs-4">
-					    	<input type="checkbox" name="categoria_licencia[]" value="Vehiculo liviano">Vehiculo liviano<br>
-					    	<input type="checkbox" name="categoria_licencia[]" value="Vehiculo pesado">Vehiculo pesado<br>
+					    	<input type="checkbox" name="categoria_licencia[]" value="Vehiculo liviano">Vehículo liviano<br>
+					    	<input type="checkbox" name="categoria_licencia[]" value="Vehiculo pesado">Vehículo pesado<br>
 					    </div>	
 					     <div class="col-sm-4 col-xs-4">
 					    	<input type="checkbox" name="categoria_licencia[]" value="Sin licencia">Sin licencia<br>
@@ -210,10 +210,10 @@
 					<div class="form-group">	
 					    <div class="col-sm-5 ">
 					    	<select class="form-control" name="interes_laboral" >
-								 <option selected="selected" class="s">*Nivel de Interes Laboral</option>
+								 <option selected="selected" class="s">*Nivel de Interés Laboral</option>
 								 <option value="Permanente">Permanente</option>				
 								 <option value="Temporal">Temporal</option>	
-								 <option value="Busqueda Activa">Busqueda Activa</option>	
+								 <option value="Busqueda Activa">Búsqueda Activa</option>	
 								 <option value="Disponibilidad Inmediata">Disponibilidad Inmediata</option>	
 								 <option value="Pasantia">Pasantia</option>	
 								 <option value="Por proyecto">Por proyecto</option>	
@@ -251,7 +251,7 @@
 					<div class="form-group">	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="ubicacion_laboral" >
-								 <option selected="selected" class="s">Ubicacion de interes laboral</option>
+								 <option selected="selected" class="s">Ubicación de interés laboral</option>
 								 <option value="Atlantico Norte (RAAN)">Atlantico Norte (RAAN)</option>				
 								 <option value="Atlantico Sur (RAAS)">Atlantico Sur (RAAS)</option>	
 								 <option value="Boaco">Boaco</option>				
@@ -273,8 +273,12 @@
 					    </div>	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="areas_interes" >
+<<<<<<< HEAD
 								 <option selected="selected" class="s">Areas de Interes </option>
 								 <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>
+=======
+								 <option selected="selected" class="s">Áreas de Interés </option>
+>>>>>>> origin/master
 								 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>				
 								 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
 								 <option value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad</option>	
@@ -299,7 +303,7 @@
 					<div class="form-group">	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="puesto_interes" >
-								 <option selected="selected" class="s">Puestos de Interes </option>
+								 <option selected="selected" class="s">Puestos de Interés </option>
 								 <option value="Ejecutivos de Ventas">Ejecutivos de Ventas</option>				
 								 <option value="Vendedor|Rutero">Vendedor|Rutero</option>	
 								 <option value="Jefe de Ventas|Supervisor">Jefe de Ventas|Supervisor</option>	
@@ -503,7 +507,7 @@
 								 <option value="Automotriz">Automotriz</option>	
 								 <option value="Auditoria">Auditoria</option>	
 								 <option value="Bancos|Financieras">Bancos|Financieras</option>	
-								 <option value="Bienes Raices">Bienes Raices</option>	
+								 <option value="Bienes Raices">Bienes Raíces</option>	
 								 <option value="Bufete de Abogado">Bufete de Abogado</option>	
 								 <option value="Call Center">Call Center</option>	
 								 <option value="Comercial|Mayorista|Minorista">Comercial|Mayorista|Minorista</option>	
@@ -542,7 +546,7 @@
 								 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
 								 <option value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad</option>	
 								 <option value="Puestos Profesionales">Puestos Profesionales</option>
-								 <option value="Administracion">Administracion</option>
+								 <option value="Administracion">Administración</option>
 								 <option value="Informatica|Internet">Informatica|Internet</option>
 								 <option value="Telecomunicaciones">Telecomunicaciones</option>
 								 <option value="Operaciones|Logistica">Operaciones|Logistica</option>
@@ -617,7 +621,7 @@
 					<div class="form-group">	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="nivel_academico" >
-								 <option selected="selected" class="s">*Nivel Academico </option>
+								 <option selected="selected" class="s">*Nivel Académico </option>
 								 <option value="Primaria">Primaria</option>				
 								 <option value="Bachillerato Secundaria">Bachillerato Secundaria</option>	
 								 <option value="Estudiante Universitario">Estudiante Universitario</option>				
@@ -643,10 +647,10 @@
 								 <option value="Universidad de Ciencias Comerciales">Universidad de Ciencias Comerciales</option>				
 								 <option value="Universidad Iberoamericana de Ciencia y Tecnologia">Universidad Iberoamericana de Ciencia y Tecnologia</option>				
 								 <option value="Universidad Nacional Agraria">Universidad Nacional Agraria</option>				
-								 <option value="Universidad Nacional Autonoma de Nicaragua">Universidad Nacional Autonoma de Nicaragua</option>				
-								 <option value="Universidad Nacional de Ingenieria">Universidad Nacional de Ingenieria</option>				
-								 <option value="Universidad Politecnica de Nicaragua">Universidad Politecnica de Nicaragua</option>				
-								 <option value="U. de las Regiones Autonomas de la Costa Caribe Nicaraguense">U. de las Regiones Autonomas de la Costa Caribe Nicaraguense</option>				
+								 <option value="Universidad Nacional Autonoma de Nicaragua">Universidad Nacional Autónoma de Nicaragua</option>				
+								 <option value="Universidad Nacional de Ingenieria">Universidad Nacional de Ingeniería</option>				
+								 <option value="Universidad Politecnica de Nicaragua">Universidad Politécnica de Nicaragua</option>				
+								 <option value="U. de las Regiones Autonomas de la Costa Caribe Nicaraguense">U. de las Regiones Autonomas de la Costa Caribe Nicaragüense</option>				
 								 <option value="Instituto Centroamericano de Administracion de Empresas">SInstituto Centroamericano de Administracion de Empresas</option>				
 								 <option value="Otras Instituciones">Otras Instituciones</option>	
 							</select> 
@@ -701,7 +705,7 @@
 							</select> 
 					    </div>					    
 					</div>
-					<h3 class="subtitul">Habilidades Tecnicas</h3>
+					<h3 class="subtitul">Habilidades Técnicas</h3>
 					<div class="form-group">
 					 	<div class="col-sm-5">	
 					 		{{ Form::text('habilidad1', Input::old('habilidad1'), array('class' => 'form-control', 'placeholder'=> '*Hablilidades')) }}						
@@ -709,7 +713,7 @@
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="nivel_dominio1" >
 								 <option selected="selected" class="s">Nivel de Dominio </option>
-								 <option value="Basico">Basico</option>				
+								 <option value="Basico">Básico</option>				
 								 <option value="Intermedio">Intermedio</option>	
 								 <option value="Avanzado">Avanzado</option>	
 							</select> 
@@ -722,7 +726,7 @@
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="nivel_dominio2" >
 								 <option selected="selected" class="s">Nivel de Dominio </option>
-								 <option value="Basico">Basico</option>				
+								 <option value="Basico">Básico</option>				
 								 <option value="Intermedio">Intermedio</option>	
 								 <option value="Avanzado">Avanzado</option>
 							</select> 
@@ -735,7 +739,7 @@
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="nivel_dominio3" >
 								 <option selected="selected" class="s">Nivel de Dominio </option>
-								 <option value="Basico">Basico</option>				
+								 <option value="Basico">Básico</option>				
 								 <option value="Intermedio">Intermedio</option>	
 								 <option value="Avanzado">Avanzado</option>	
 							</select> 
@@ -745,7 +749,7 @@
 			</div>	
 			<h3 class="divider"></h3>
 			<div class="alert alert-danger" role="alert">
-			  <p class="alert-link" style="text-align:center">LEER; Al darle registrar, esta aceptando los terminos y condiciones de nuestra, Politicas de privacidad</a>
+			  <p class="alert-link" style="text-align:center">LEER; Al darle registrar, esta aceptando los terminos y condiciones de nuestra, Políticas de privacidad</a>
 			</div>
 			<div class="form-group">								
 					{{ Form::submit('Crear Cuenta' , array('class'=> 'btn btn-primary regis')) }}				

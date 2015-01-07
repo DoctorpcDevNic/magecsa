@@ -17,7 +17,7 @@
 				<td>Nombre</td>
 				<td>Actividad</td>
 				<td>Pagina</td>								
-				<td>Telefono</td>
+				<td>Teléfono</td>
 				<td>Email</td>	
 				<td>Acciones</td>															
 			</tr>

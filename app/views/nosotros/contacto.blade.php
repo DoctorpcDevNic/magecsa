@@ -48,7 +48,7 @@
 		{{ Form::close() }}
 	</div>
 	<div class="ubicacion">
-		<h2 class="titul">Nuestra ubicacion en el mapa</h2>
+		<h2 class="titul">Nuestra ubicación en el mapa</h2>
 		<hr>
 		<div id="mapas" class="mapa"></div>
 	</div>

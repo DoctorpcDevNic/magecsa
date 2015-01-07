@@ -10,22 +10,31 @@
 	<div class="etapas">
 		<div class="etapa">
 			<div class="triangulo computer"></div>
-			<h3 class="tituletapa wow bounceInRight">Etapa1: Búsqueda de Profesionales</h3>
+			<h3 class="tituletapa wow bounceInRight">Etapa 1: Búsqueda de Profesionales</h3>
 			<div class="row">
+<<<<<<< HEAD
 				<div class="col-md-6 wow bounceInLeft"><img src="{{ asset('img/definicionperfil.png') }}" alt="">Deﬁnición del Perﬁl del Puesto</div>
 				<div class="col-md-6 wow bounceInLeft"><img src="{{ asset('img/evaluacion.png') }}" alt="">Filtros de Aplicaciones</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6 wow bounceInRight"><img src="{{ asset('img/publicacion.png') }}" alt="">Publicación de la Vacante</div>
 				<div class="col-md-6 wow bounceInRight"><img src="{{ asset('img/preselecion.png') }}" alt="">Preselección de CVS</div>
+=======
+				<div class="col-md-6 wow bounceInLeft"><img src="{{ asset('img/definicionperfil.png') }}" alt="">Definición del Perﬁl del Puesto</div>
+				<div class="col-md-6 wow bounceInLeft"><img src="{{ asset('img/filtroapp.png') }}" alt="">Filtros de Aplicaciones</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 wow bounceInRight"><img src="{{ asset('img/preselecion.png') }}" alt="">Publicación de la Vacante</div>
+				<div class="col-md-6 wow bounceInRight"><img src="{{ asset('img/publicacion.png') }}" alt="">Pre selección de CVS</div>
+>>>>>>> origin/master
 			</div>
 		</div>
 		<div class="etapa">
 			<div class="triangulo computer"></div>
-			<h3 class="tituletapa wow bounceInLeft">Etapa2: Evaluación y Selección de Profesionales</h3>
+			<h3 class="tituletapa wow bounceInLeft">Etapa 2: Evaluación y Selección de Profesionales</h3>
 			<div class="row">
 				<div class="col-md-6 wow bounceInDown"><img src="{{ asset('img/psicometrica.png') }}" alt="">Evaluación Psicométrica y Psicotécnicas</div>
-				<div class="col-md-6 wow bounceInDown"><img src="{{ asset('img/seleccv.png') }}" alt="">Veriﬁcación de Referencias</div>
+				<div class="col-md-6 wow bounceInDown"><img src="{{ asset('img/seleccv.png') }}" alt="">Verificación de Referencias</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6 wow bounceInUp"><img src="{{ asset('img/reclutador.png') }}" alt="">Entrevistas Reclutador - Candidatos Preseleccionados</div>
@@ -34,7 +43,7 @@
 		</div>
 		<div class="etapa">
 			<div class="triangulo computer"></div>
-			<h3 class="tituletapa wow bounceInRight">Etapa3: Contratación</h3>
+			<h3 class="tituletapa wow bounceInRight">Etapa 3: Contratación</h3>
 			<div class="row">
 				<div class="col-md-6 wow fadeInUp"><img src="{{ asset('img/cvdescarga.png') }}" alt="">Informe Final de Resultados de Candidatos Seleccionados</div>
 				<div class="col-md-6 wow fadeInUp"><img src="{{ asset('img/propuesta.png') }}" alt="">Propuesta Laboral a Candidato Seleccionado</div>
