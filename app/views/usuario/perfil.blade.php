@@ -64,7 +64,7 @@
 				<div class="col-xs-3 info" id="ep">
 					<div class="cabe">
 						<img src="{{ asset('img/experiencia.png') }}" alt="">
-						<p class="computer">EXPERIENCIA PROFECIONAL</p>
+						<p class="computer">EXPERIENCIA PROFESIONAL</p>
 					</div>
 					<div class="exbd">
 						@foreach($user->usuarioexperiencia()->get() as $value )
@@ -101,7 +101,7 @@
 					<li class="active"><a href="#datoscuenta" data-toggle="tab">Datos De la Cuenta</a></li>
 			      	<li><a href="#datospersonales" data-toggle="tab">Datos Personales</a></li>
 			      	<li><a href="#expectativa" data-toggle="tab">Expectativa Laboral</a></li>
-			      	<li><a href="#experiencia" data-toggle="tab">Experiencia Profecional</a></li>
+			      	<li><a href="#experiencia" data-toggle="tab">Experiencia Profesional</a></li>
 			      	<li><a href="#formacion" data-toggle="tab">Formacion Academica</a></li>
 			      	<li><a href="#otros" data-toggle="tab">Otros Estudios</a></li>	      	
 				</ul>		
@@ -117,7 +117,7 @@
 			      	<li class="active"><a href="#datoscuenta" data-toggle="tab">Datos De la Cuenta</a></li>
 			     	<li><a href="#datospersonales" data-toggle="tab">Datos Personales</a></li>
 			      	<li><a href="#expectativa" data-toggle="tab">Expectativa Laboral</a></li>
-			      	<li><a href="#experiencia" data-toggle="tab">Experiencia Profecional</a></li>
+			      	<li><a href="#experiencia" data-toggle="tab">Experiencia Profesional</a></li>
 			      	<li><a href="#formacion" data-toggle="tab">Formacion Academica</a></li>
 			      	<li><a href="#otros" data-toggle="tab">Otros Estudios</a></li>	      	
 			    </ul>
@@ -285,7 +285,7 @@
 										<input type="hidden" id="valoreslicencia" value="{{$user->usuariodato->categoria_licencia}}">	
 									    <div class="col-sm-4 col-xs-4">
 									    	<input type="checkbox" name="categoria_licencia[]" value="Motocicleta">Motocicleta<br>
-									    	<input type="checkbox" name="categoria_licencia[]" value="Profecional">Profecional<br>
+									    	<input type="checkbox" name="categoria_licencia[]" value="Profesional">Profesional<br>
 									    </div>	
 									     <div class="col-sm-4 col-xs-4">
 									    	<input type="checkbox" name="categoria_licencia[]" value="Vehiculo liviano">Vehiculo liviano<br>
@@ -599,13 +599,13 @@
 							{{ Form::close() }}
 						</div>
 					</div>
-					{{-- Experiencia Profecional --}}
+					{{-- Experiencia Profesional --}}
 					<div class="tab-pane" id="experiencia">
 						{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
 					
 						<h3 class="titulother">
 							<img src="{{ asset('img/experiencia.png') }}" alt="" class="computer">
-							Experiencia Profecional
+							Experiencia Profesional
 						</h3>
 						@foreach($user->usuarioexperiencia()->get() as $value)	
 							<div class="formu">
@@ -946,7 +946,7 @@
 		    <div class="modal-content">
 		    	<div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="myModalLabel">Experiencia Profecional</h4>
+			        <h4 class="modal-title" id="myModalLabel">Experiencia Profesional</h4>
      			</div>
       			<div class="modal-body">
       				{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}

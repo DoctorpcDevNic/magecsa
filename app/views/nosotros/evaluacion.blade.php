@@ -3,8 +3,9 @@
 	Evaluacion de personal - Mas Empleos Y Servicios | MAGECSA
 @stop
 @section('contenido')
-<div class="reclutamiento evaluacion">
-	<h3 class="titul wow bounceInDown" id="evaluacion"><img src="{{ asset('img/evaluacion.png') }}" alt="">Evaluación de Personal</h3>
+<div id="evaluacion" style="height:80px"></div>
+<div class="reclutamiento evaluacion" >
+	<h3 class="titul wow bounceInDown" ><img src="{{ asset('img/evaluacion.png') }}" alt="">Evaluación de Personal</h3>
 	<p class="subtitul">MAGECSA le ofrece a su empresa el servicio de Evaluación de Personal a través de una herramienta de autoevaluación que nos permite identificar los rasgos del Comportamiento, Personalidad e Inteligencia del individuo para desempeñar el puesto.</p>
 
 	<div class="etapas">
@@ -23,10 +24,11 @@
 				<div class="col-md-12 wow fadeInDown"><img src="{{ asset('img/presentacionreporte.png') }}" alt="">Presentación de Reportes Individuales de cada test psicométrico aplicado.</div>
 				<div class="col-md-12 wow fadeInDown"><img src="{{ asset('img/prestresumen.png') }}" alt="">Presentación de Resumen Ejecutivo de la adecuación de la persona al puesto</div>
 			</div>
-		</div>	
+		</div>
 	</div>
 
-	<h3 class="titul wow bounceInDown" style="margin-top: 3em" id="filtro"><img src="{{ asset('img/filtrocv.png') }}" alt="">Filtro de CVs</h3>
+	<div id="filtro" style="height:50px"></div>
+	<h3 class="titul wow bounceInDown" style="margin-top: 3em" ><img src="{{ asset('img/filtrocv.png') }}" alt="">Filtro de CVs</h3>
 	<div class="row">
 		<div class="col-md-6">
 			<p class="subtitul wow bounceInRight">MAGECSA le ofrece a su empresa el servicio de Evaluación de Personal a través de una herramienta de autoevaluación que nos permite identificar los rasgos del Comportamiento, Personalidad e Inteligencia del individuo para desempeñar el puesto.</p>	

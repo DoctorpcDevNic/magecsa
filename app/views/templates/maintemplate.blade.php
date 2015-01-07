@@ -73,7 +73,8 @@
 		      					<a href="{{ URL::to('/') }}">
 		      					<i class="glyphicon glyphicon-home"></i><br>
 		      						Inicio
-		      					</a></li>
+		      					</a>
+		      				</li>
 		      				<li class="dropdown">
 			                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
 			                    	<i class="glyphicon glyphicon-user"></i><br>
@@ -91,7 +92,7 @@
 			                    	<i class="glyphicon glyphicon-list-alt"></i><br>
 			                    	Nuestros Servicios 
 			                    </a>
-			                    <ul class="dropdown-menu submenu" role="menu" style="width:auto !important">
+			                    <ul class="dropdown-menu submenu" role="menu">
 			                      <li><a href="{{ URL::to('Reclutamiento') }}">Busqueda y Selección de personal </a></li>
 			                      <li><a href="{{ URL::to('Evaluacion#evaluacion') }}">Evaluacion de Personal </a></li>       
 			                      <li><a href="{{ URL::to('Evaluacion#filtro') }}">Filtro de CVs </a></li>  
@@ -114,28 +115,37 @@
 			                <li><a href="{{URL::to('Contactenos')  }}">
 			                	<i class="glyphicon glyphicon-envelope"></i><br>
 			                	Contactenos
-			                </a></li>  
-			                <li class="dropdown">
-			                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-			                    	<i class="glyphicon glyphicon-list-alt"></i><br>
-			                    	Perfil 
-			                    </a>
-			                    <ul class="dropdown-menu submenu" role="menu">
-			                    	@if(Auth::check())
-			                    		@if(Auth::user()->role_id == 2)
-			                    			<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
-			                    		@elseif(Auth::user()->role_id == 0 || Auth::user()->role_id == 1 )	
-				                    		<li><a href="{{ URL::to('administrador') }}">Ver perfil</a></li>       
-				                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
-				                      	@else
-				                      		<li><a href="{{ URL::to('Perfil/'. Auth::user()->username) }}">Ver perfil</a></li>       
-				                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
-				                      	@endif	
-			                    	@else
-			                    		<li><a href="{{ URL::to('login') }}">Iniciar Sesion</a></li>
-			                    	@endif        
-			                    </ul>
-			                </li>
+			                </a></li> 
+			                @if(Auth::check()) 
+				                <li class="dropdown">
+				                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+				                    	<i class="glyphicon glyphicon-list-alt"></i><br>
+				                    	Perfil 
+				                    </a>
+				                    <ul class="dropdown-menu submenu" role="menu">
+				                    	@if(Auth::check())
+				                    		@if(Auth::user()->role_id == 2)
+				                    			<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
+				                    		@elseif(Auth::user()->role_id == 0 || Auth::user()->role_id == 1 )	
+					                    		<li><a href="{{ URL::to('administrador') }}">Ver perfil</a></li>       
+					                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
+					                      	@else
+					                      		<li><a href="{{ URL::to('Perfil/'. Auth::user()->username) }}">Ver perfil</a></li>       
+					                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
+					                      	@endif	
+				                    	@else
+				                    		<li><a href="{{ URL::to('login') }}">Iniciar Sesion</a></li>
+				                    	@endif        
+				                    </ul>
+				                </li>
+			                @else
+			                	<li class="activemenu">
+			      					<a href="{{ URL::to('login') }}">
+			      					<i class="glyphicon glyphicon-list-alt"></i><br>
+			      						Iniciar Sesion
+			      					</a>
+			      				</li>
+			                @endif
 		      			</ul>
 		      		</div>
 		      	</div>		

@@ -182,7 +182,7 @@
 					<div class="form-group">	
 					    <div class="col-sm-4 col-xs-4">
 					    	<input type="checkbox" name="categoria_licencia[]" value="Motocicleta">Motocicleta<br>
-					    	<input type="checkbox" name="categoria_licencia[]" value="Profecional">Profesional<br>
+					    	<input type="checkbox" name="categoria_licencia[]" value="Profesional">Profesional<br>
 					    </div>	
 					     <div class="col-sm-4 col-xs-4">
 					    	<input type="checkbox" name="categoria_licencia[]" value="Vehiculo liviano">Vehiculo liviano<br>
@@ -274,6 +274,7 @@
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="areas_interes" >
 								 <option selected="selected" class="s">Areas de Interes </option>
+								 <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>
 								 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>				
 								 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
 								 <option value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad</option>	
@@ -480,7 +481,7 @@
 					</div>
 				</div>	
 			</div>
-			{{-- experiencia profecional --}}	
+			{{-- experiencia profesional --}}	
 			<div class="categoria experiencia">
 				<h3 class="titulother">
 					<img src="{{ asset('img/experiencia.png') }}" alt="" class="computer">
