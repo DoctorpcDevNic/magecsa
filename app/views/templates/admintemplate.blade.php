@@ -21,8 +21,7 @@
     <!-- Custom CSS -->
     {{ HTML::style('css/sb-admin-2.css') }}
     {{ HTML::style('css/admin.css') }}
-    {{ HTML::style('css/summernote.css') }}
-
+   
     <!-- Custom Fonts -->
     {{ HTML::style('css/font-awesome.min.css') }}
     
@@ -206,8 +205,6 @@
     <!-- Metis Menu Plugin JavaScript -->
     {{ HTML::script('js/metisMenu.min.js') }}
     {{ HTML::script('js/jquery.dataTables.min.js') }}
-    {{ HTML::script('js/summernote.min.js') }}
-    {{ HTML::script('js/summernote-es-ES.js') }}
     
 
     <!-- Custom Theme JavaScript -->

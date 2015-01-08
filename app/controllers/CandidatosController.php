@@ -70,6 +70,7 @@ class CandidatosController extends BaseController {
 
 			$user->username = Input::get('username');
 			$user->password =  Hash::make(Input::get('password'));
+			$user->enable = 1;
 			$user->role_id = 3;
 
 			$userdato->nombres = Input::get('nombres');

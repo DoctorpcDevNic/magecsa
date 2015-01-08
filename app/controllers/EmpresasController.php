@@ -62,7 +62,11 @@ class EmpresasController extends BaseController {
 		return View::make('admin.empresaupdate')->with('empresa', $empresa);
 	}	
 
-
+	/**
+	 * [updateadmin description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
 	public function updateadmin($id){
 		$user = New User();
 		$empresa = Empresa::find($id);
@@ -73,12 +77,29 @@ class EmpresasController extends BaseController {
 
 		$puestos = implode(',',$_POST['puestos']); 
 		$empresa->puestos = $puestos;
-		$empresa->activo = 1;
 
 		$user->save();
 		$user->usuarioempresa()->save($empresa);
 
-		Session::flash('message', 'Empresa Activada y puestos agregados exitosamente');
+		Session::flash('message', 'Puestos agregados exitosamente');
+		return Redirect::back();
+	}
+
+	public function activo($id){
+		$empresa = Empresa::find($id);
+		$msj = '';
+
+		if($empresa->activo == 0){
+			$empresa->activo = 1;
+			$msj = 'Empresa Habilitada';
+		}else{
+			$empresa->activo = 0;
+			$msj = 'Empresa Deshabilitada';
+		}
+
+		$empresa->save();
+
+		Session::flash('message', $msj);
 		return Redirect::back();
 	}
 

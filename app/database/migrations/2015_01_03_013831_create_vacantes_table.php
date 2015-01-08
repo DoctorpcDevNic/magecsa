@@ -17,8 +17,12 @@ class CreateVacantesTable extends Migration {
 			$table->increments('id');
 			$table->string('titulo');
 			$table->string('fecha');
-			$table->text('cuerpo');
+			$table->text('departamento');
+			$table->text('requisitos');
+			$table->text('descripcion');			
+			$table->text('area_interes');
 			$table->string('logo');
+			$table->boolean('enable');//0->no; 1->si
 			$table->timestamps();
 		});
 	}

@@ -22,7 +22,10 @@ class VacantesController extends BaseController {
 			$vacante = new Vacante();
 			$vacante->titulo = Input::get('titulo');
 			$vacante->fecha = Input::get('fecha');
-			$vacante->cuerpo = Input::get('cuerpo');
+			$vacante->departamento = Input::get('departamento');
+			$vacante->requisitos = Input::get('requisitos');
+			$vacante->descripcion = Input::get('descripcion');
+			$vacante->area_interes = Input::get('area_interes');
 
 			if(Input::hasFile('archivo')) {			
 		       	Input::file('archivo')->move('img/upload', Input::get('titulo') . Input::file("archivo")->getClientOriginalName());
@@ -65,7 +68,10 @@ class VacantesController extends BaseController {
 		$rules = array(
 			'titulo' => 'required|min:2',
 			'fecha' => 'required',
-			'cuerpo' => 'required'						
+			'departamento' => 'required',
+			'requisitos' => 'required',
+			'descripcion' => 'required',
+			'area_interes' => 'required'							
 		);
 		$message = array(
 			'required' => 'El campo :attribute es requerido',
@@ -82,14 +88,19 @@ class VacantesController extends BaseController {
 			$vacante = Vacante::find($id);
 			$vacante->titulo = Input::get('titulo');
 			$vacante->fecha = Input::get('fecha');
-			$vacante->cuerpo = Input::get('cuerpo');
+			$vacante->departamento = Input::get('departamento');
+			$vacante->requisitos = Input::get('requisitos');
+			$vacante->descripcion = Input::get('descripcion');
+			$vacante->area_interes = Input::get('area_interes');
 
 			if(Input::hasFile('archivo')) {			
 		       	Input::file('archivo')->move('img/upload', Input::get('titulo') . Input::file("archivo")->getClientOriginalName());
 		       	$file = Input::get('titulo') . Input::file("archivo")->getClientOriginalName();
 
 		       	$vacante->logo = $file;
-			}			
+			}	
+
+			$vacante->enable = Input::get('enable');		
 
 			$vacante->save();
 
@@ -107,7 +118,10 @@ class VacantesController extends BaseController {
 		$rules = array(
 			'titulo' => 'required|min:2',
 			'fecha' => 'required',
-			'cuerpo' => 'required',	
+			'departamento' => 'required',
+			'requisitos' => 'required',
+			'descripcion' => 'required',
+			'area_interes' => 'required',	
 			'archivo' => 'required'					
 		);
 		$message = array(

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Curriculum {{ $user->usuariodato->nombres }}</title>	
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/cv.css') }}">  
 </head>

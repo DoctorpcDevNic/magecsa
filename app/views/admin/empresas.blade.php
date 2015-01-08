@@ -41,6 +41,7 @@
 								<ul class="dropdown-menu" role="menu">									
 									<li><a href="{{ URL::to('administrador/empresas/update/'. $value->id) }}">Modificar Empresa</a></li>
 									<li class="divider"></li>
+									<li><a href="{{ URL::to('administrador/empresas/activo/'. $value->id) }}">@if($value->activo == 0) Habilitar Empresa @else Deshabilitar Empresa @endif</a></li>
 									<li><a href="{{ URL::to('administrador/empresas/delete/'. $value->id) }}">Borrar Empresa</a></li>
 								</ul>
 							</div>

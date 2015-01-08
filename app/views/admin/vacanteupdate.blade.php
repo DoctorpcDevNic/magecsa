@@ -11,28 +11,96 @@
 @endif
 <div class="addvacantes">
 {{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
-	{{ Form::open(array('url' => 'administrador/vacante/update/' .$vacante->id , 'files' => true, 'class' => 'form-horizontal col-sm-offset-2')) }}
+	{{ Form::open(array('url' => 'administrador/vacante/update/' .$vacante->id , 'files' => true, 'class' => 'form-horizontal col-sm-offset-1')) }}
 		<div class="form-group">
-			{{ Form::label('titulo', 'Titulo de la vacante', array('class' => 'col-sm-3 control-label')) }}
-			<div class="col-sm-6">
-				{{ Form::text('titulo', Input::old('titulo') ? Input::old(): $vacante->titulo,  array('class' => 'form-control', 'placeholder'=> 'Titulo de la vacante')) }}	
-			</div>
-		</div>
-		<div class="form-group">
-			{{ Form::label('fecha', 'Fecha', array('class' => 'col-sm-3 control-label')) }}
-			<div class="col-sm-6">
-				{{ Form::input('date', 'fecha', Input::old('fecha') ? Input::old(): $vacante->fecha, array('class' => 'form-control')) }}	
-			</div>
-		</div>
-		<div class="form-group" style="width: 90%">
-			{{ Form::textarea('cuerpo', Input::old('cuerpo')? Input::old(): $vacante->cuerpo, array('class' => 'form-control', 'placeholder'=> 'Titulo de la vacante', 'id' => 'summernote')) }}	
-		</div>	
-		<div class="form-group">
-			{{ Form::label('logo', 'Logo', array('class' => 'col-sm-3 control-label')) }}
-			<div class="col-sm-6">
-				{{ Form::file('archivo') }}
-			</div>
-		</div>
+            {{ Form::label('titulo', 'Titulo de la vacante', array('class' => 'col-sm-3 control-label')) }}
+            <div class="col-sm-6">
+                {{ Form::text('titulo', Input::old('titulo') ? Input::old(): $vacante->titulo, array('class' => 'form-control', 'placeholder'=> 'Titulo de la vacante')) }}  
+            </div>
+        </div>
+        <div class="form-group">
+            {{ Form::label('fecha', 'Fecha', array('class' => 'col-sm-3 control-label')) }}
+            <div class="col-sm-6">
+                {{ Form::input('date', 'fecha', Input::old('fecha') ? Input::old(): $vacante->fecha, array('class' => 'form-control')) }}   
+            </div>
+        </div>
+        <div class="form-group">
+            {{ Form::label('departamento', 'Departamento', array('class' => 'col-sm-3 control-label')) }}
+            <div class="col-sm-6">
+                <select class="form-control" name="departamento" data-select="{{ $vacante->departamento }}" id="departamento">                    
+                     <option value="Atlantico Norte (RAAN)">Atlantico Norte (RAAN)</option>              
+                     <option value="Atlantico Sur (RAAS)">Atlantico Sur (RAAS)</option> 
+                     <option value="Boaco">Boaco</option>               
+                     <option value="Carazo">Carazo</option>             
+                     <option value="Chinandega">Chinandega</option>             
+                     <option value="Chontales">Chontales</option>               
+                     <option value="Esteli">Esteli</option>             
+                     <option value="Granada">Granada</option>               
+                     <option value="Jinotega">Jinotega</option>             
+                     <option value="Leon">Leon</option>                         
+                     <option value="Madriz">Madriz</option>                         
+                     <option value="Managua">Managua</option>                           
+                     <option value="Masaya">Masaya</option>                         
+                     <option value="Matagalpa">Matagalpa</option>                           
+                     <option value="Nueva Segovia">Nueva Segovia</option>                           
+                     <option value="Rio San Juan">Rio San Juan</option>                         
+                     <option value="Rivas">Rivas</option>       
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ Form::label('requisitos', 'Requisitos', array('class' => 'col-sm-3 control-label')) }}
+            <div class="col-sm-6">
+                {{ Form::textarea('requisitos', Input::old('requisitos') ? Input::old(): $vacante->requisitos, array('class' => 'form-control')) }}  
+            </div>
+        </div>
+        <div class="form-group">
+            {{ Form::label('descripcion', 'Descripcion', array('class' => 'col-sm-3 control-label')) }}
+            <div class="col-sm-6">
+                {{ Form::textarea('descripcion', Input::old('descripcion') ? Input::old(): $vacante->descripcion, array('class' => 'form-control')) }}    
+            </div>
+        </div>
+        <div class="form-group">
+            {{ Form::label('area_interes', 'Area de Interes', array('class' => 'col-sm-3 control-label')) }}
+            <div class="col-sm-6">
+                <select class="form-control" name="area_interes" data-select="{{ $vacante->area_interes }}" id="area_interes">
+                    <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>
+                    <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>                
+                    <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>  
+                    <option value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad</option>    
+                    <option value="Puestos Profesionales">Puestos Profesionales</option>    
+                    <option value="Administracion">Administracion</option>  
+                    <option value="Informatica|Internet">Informatica|Internet</option>  
+                    <option value="Telecomunicaciones">Telecomunicaciones</option>  
+                    <option value="Operaciones|Logistica">Operaciones|Logistica</option>    
+                    <option value="Almacenamiento">Almacenamiento</option>  
+                    <option value="Mantenimiento">Mantenimiento</option>    
+                    <option value="Publicidad|Comunicaciones">Publicidad|Comunicaciones</option>    
+                    <option value="Servicios">Servicios</option>    
+                    <option value="Call Center">Call Center</option>    
+                    <option value="Restaurantes">Restaurantes</option>  
+                    <option value="Recursos Humanos">Recursos Humanos</option>  
+                    <option value="Compras">Compras</option>
+                    <option value="Salud">Salud</option>
+                    <option value="Apoyo de Oficina">Apoyo de Oficina</option>      
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ Form::label('logo', 'Logo', array('class' => 'col-sm-3 control-label')) }}
+            <div class="col-sm-6">
+                {{ Form::file('archivo') }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ Form::label('enable', 'Habilitar', array('class' => 'col-sm-3 control-label')) }}
+            <div class="col-sm-6">
+               <select name="enable" class="form-control" data-select="{{ $vacante->enable }}" id="enable">
+                    <option value="1">Habilitar</option>  
+                    <option value="0">Deshabilitar</option>  
+               </select> 
+            </div>
+        </div>
 		<div class="form-group" style="margin-top: 2em">								
 			{{ Form::submit('Modificar Vacante' , array('class'=> 'btn btn-primary regis', 'style' => 'padding:20px; font-size: 18px ')) }}				
 		</div>
@@ -108,28 +176,29 @@
 
 @stop
 @section('js')
-<script type="text/javascript">
-	 $('#summernote').summernote({
-	 	 height: 300,
-	 	 lang: 'es-ES',
-	 	  toolbar: [
-		    //[groupname, [button list]]
-		     
-		    ['style', ['style', 'bold', 'italic', 'underline', 'clear']],
-		    ['font', ['strikethrough']],
-		    ['fontsize', ['fontsize']],
-		    ['color', ['color']],
-		    ['para', ['ul', 'ol', 'paragraph']],
-		    ['height', ['height']],
-		  ]
-	 });
-</script>
 <script type="text/javascript">	
     $('#candidatos').dataTable({
     	"language": {
             "url": "http://cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Spanish.json"
         }
     });	
+</script>
+<script type="text/javascript">
+    $("#area_interes option" ).each(function(){
+        if($('#area_interes').data('select') == $(this).val()){
+            $(this).attr('selected', 'selected');
+        }
+    });
+     $("#departamento option" ).each(function(){
+        if($('#departamento').data('select') == $(this).val()){
+            $(this).attr('selected', 'selected');
+        }
+    });
+     $("#enable option" ).each(function(){
+        if($('#enable').data('select') == $(this).val()){
+            $(this).attr('selected', 'selected');
+        }
+    });
 </script>
 @stop
 

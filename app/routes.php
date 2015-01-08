@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	$vacantes = Vacante::all();
+	$vacantes = Vacante::where('enable', 1)->get();
 	return View::make('inicio')->with('vacantes', $vacantes);
 });
 
@@ -122,6 +122,7 @@ Route::group(array('before' => 'auth'), function()
 			return View::make('admin.empresassolicitud')->with('empresas', $empresas);
 		});
 		Route::post('empresas/updateadmin/{id}','EmpresasController@updateadmin');	
+		Route::get('empresa/activo/{id}', 'EmpresasController@activo');
 
 		Route::get('candidatos', function(){
 			$user = User::where('role_id', 3)->get();

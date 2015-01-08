@@ -48,17 +48,38 @@
 				<div class="campo col-sm-offset-4">
 					<div class="form-group">						
 					    <div class="col-sm-6">
-					      {{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'placeholder'=> 'Usuario')) }}	
+					      {{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'placeholder'=> 'Usuario')) }}						       
+					    </div>
+					    <div class="col-sm-4">
+					    	@if( $errors->has('username') )					    		
+				            	@foreach($errors->get('username') as $error )
+				                	<span class="error">* {{ $error }}</span>
+				             	@endforeach
+				          	@endif
 					    </div>
 					</div>	
 					<div class="form-group">
 					    <div class="col-sm-6">
 					      {{ Form::password('password', array('class' => 'form-control', 'placeholder'=> 'Contraseña')) }}	
 					    </div>
+					    <div class="col-sm-4">
+					    	@if( $errors->has('password') )					    		
+				            	@foreach($errors->get('password') as $error )
+				                	<span class="error">* {{ $error }}</span>
+				             	@endforeach
+				          	@endif
+					    </div>
 					</div>	
 					<div class="form-group">
 					    <div class="col-sm-6">
 					      {{ Form::password('password_confirmation', array('class' => 'form-control', 'placeholder'=> 'Confirmar Contraseña')) }}	
+					    </div>
+					    <div class="col-sm-4">
+					    	@if( $errors->has('password_confirmation') )					    		
+				            	@foreach($errors->get('password_confirmation') as $error )
+				                	<span class="error">* {{ $error }}</span>
+				             	@endforeach
+				          	@endif
 					    </div>
 					</div>	
 				</div>
@@ -73,6 +94,11 @@
 					<div class="form-group">						
 					    <div class="col-sm-5">
 					      {{ Form::text('nombres', Input::old('nombres'), array('class' => 'form-control', 'placeholder'=> '*Nombres')) }}	
+					      @if( $errors->has('nombres') )					    		
+				            	@foreach($errors->get('nombres') as $error )
+				                	<span class="error">* {{ $error }}</span>
+				             	@endforeach
+				          	@endif
 					    </div>										
 					    <div class="col-sm-5">
 					      {{ Form::text('apellidos', Input::old('apellidos'), array('class' => 'form-control', 'placeholder'=> '*Apellidos')) }}	

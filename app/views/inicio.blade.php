@@ -96,15 +96,13 @@
                     {{ $fecha[2]."/" . $fecha[1] . "/" . $fecha[0] }}
                   </h3>
                   <div class="descripcion">
-                  <?php 
-                      $expresionregular = "/(^.{0,100})(\W+.*$)/"; 
-                      $cadena = ($value->cuerpo); 
-                      $reemplazo = "\${1}";
-                   ?> 
-                   <p>{{ preg_replace($expresionregular, $reemplazo, $cadena) }}...</p>
+                   <p><i class="fa fa-bullhorn"></i> {{ $value->titulo }}</p>
+                   <p><i class="fa fa-map-marker"></i>{{ $value->departamento }}</p>
+                   <p><i class="fa fa-info-circle"></i>{{ substr($value->requisitos, 0, 30); }}...</p>
+                   <p><i class="fa fa-info"></i> {{ substr($value->descripcion, 0, 80); }}... <a href="#">Leer Mas</a></p>
                   </div>
                 </div>
-                <div class="logo_slider">
+                <div class="logo_slider computer">
                   <img src="{{ asset('img/upload/'.$value->logo) }}">
                 </div>      
               </div>

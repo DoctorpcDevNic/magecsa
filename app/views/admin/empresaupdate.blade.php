@@ -18,14 +18,27 @@
 		    <div class="col-sm-4 col-xs-4">
 		    	<input type="checkbox" name="puestos[]" value="Mercadeo|Ventas">Mercadeo|Ventas<br>
 		    	<input type="checkbox" name="puestos[]" value="Banca|Servicios Financieros">Banca|Servicios Financieros<br>
-		    </div>	
-		     <div class="col-sm-4 col-xs-4">
 		    	<input type="checkbox" name="puestos[]" value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria<br>
 		    	<input type="checkbox" name="puestos[]" value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad<br>
-		    </div>	
-		     <div class="col-sm-4 col-xs-4">
 		    	<input type="checkbox" name="puestos[]" value="Puestos Profesionales">Puestos Profesionales<br>
-		    	<input type="checkbox" name="puestos[]" value="Administracion">Administración<br>
+		    	<input type="checkbox" name="puestos[]" value="Administracion">Administracion<br>
+		    	<input type="checkbox" name="puestos[]" value="Informatica|Internet">Informatica|Internet<br>
+		    </div>	
+		     <div class="col-sm-4 col-xs-4">		    	
+		    	<input type="checkbox" name="puestos[]" value="Telecomunicaciones">Telecomunicaciones<br>
+		    	<input type="checkbox" name="puestos[]" value="Operaciones|Logistica">Operaciones|Logistica<br>
+		    	<input type="checkbox" name="puestos[]" value="Almacenamiento">Almacenamiento<br>
+		    	<input type="checkbox" name="puestos[]" value="Mantenimiento">Mantenimiento<br>
+		    	<input type="checkbox" name="puestos[]" value="Publicidad|Comunicaciones">Publicidad|Comunicaciones<br>
+		    	<input type="checkbox" name="puestos[]" value="Servicios">Servicios<br>
+		    </div>	
+		     <div class="col-sm-4 col-xs-4">		    	
+		    	<input type="checkbox" name="puestos[]" value="Call Center">Call Center<br>
+		    	<input type="checkbox" name="puestos[]" value="Restaurantes">Restaurantes<br>
+		    	<input type="checkbox" name="puestos[]" value="Recursos Humanos">Recursos Humanos<br>
+		    	<input type="checkbox" name="puestos[]" value="Compras">Compras<br>
+		    	<input type="checkbox" name="puestos[]" value="Salud">Salud<br>
+		    	<input type="checkbox" name="puestos[]" value="Apoyo de Oficina">Apoyo de Oficina<br>
 		    </div>	
 		</div>	
 		<div class="form-group">								
