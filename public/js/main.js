@@ -7,7 +7,7 @@ function main(){
 
 	$('.convencional').mask('0000-0000');
 	$('.celular').mask('0000-0000');	
-	$('.cedula').mask('000-000000-000S');	
+	$('.cedula').mask('000-000000-0000S');	
 
 
 	$( "#estadocivil option" ).each(function(){

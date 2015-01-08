@@ -7,6 +7,26 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>@yield('titulo')</title> 
+        <meta name="description" content="MAGECSA, somos una empresa joven en Gestión de Talento Humano, con enfoque de brindar servicios de solución óptima a las áreas Administrativas y de Factor Humano con una base de talento en línea y plataformas de evaluación automatizadas de manera íntegra, oportuna y confidencial. Contamos con profesionales calificados con amplia experiencia en todos los procesos y buenas prácticas de Recursos Humanos.">
+
+		<meta name="keywords" content="MAGECSA, Mas empleos y servicios, empleos Nicaragua, Empleos, Vacantes, Curriculum, Profesionales, Trabajos, Reclutamiento, Evaluacion de personal, Outsourcing, Boaco, Carazo, Chinandega, Chontales, Estelí, Granada, Jinotega, Leon, Madriz, Managua, Masaya, Matagalpa, Nueva Segovia, RAAN, RAAS, Rio San Juan, Rivas"/>
+
+		<!-- Twitter Card data -->
+		<meta name="twitter:title" content="@yield('titulo')">
+		<meta name="twitter:card" content="MAGECSA, somos una empresa joven en Gestión de Talento Humano, con enfoque de brindar servicios de solución óptima a las áreas Administrativas y de Factor Humano con una base de talento en línea y plataformas de evaluación automatizadas de manera íntegra, oportuna y confidencial. Contamos con profesionales calificados con amplia experiencia en todos los procesos y buenas prácticas de Recursos Humanos.">
+		<meta name="twitter:site" content="MAGECSA">
+
+		<meta name="twitter:description" content="MAGECSA, somos una empresa joven en Gestión de Talento Humano, con enfoque de brindar servicios de solución óptima a las áreas Administrativas y de Factor Humano con una base de talento en línea y plataformas de evaluación automatizadas de manera íntegra, oportuna y confidencial. Contamos con profesionales calificados con amplia experiencia en todos los procesos y buenas prácticas de Recursos Humanos.">
+		<meta name="twitter:creator" content="MAGECSA">
+		<meta name="twitter:image" content="{{ asset('img/logocv.png') }}">
+
+		<!-- Open Graph data -->
+		<meta property="og:title" content="@yield('titulo')" />
+		<meta property="og:url" content="{{Request::url()}}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="{{ asset('img/logocv.png') }}" />
+		<meta property="og:description" content="MAGECSA, somos una empresa joven en Gestión de Talento Humano, con enfoque de brindar servicios de solución óptima a las áreas Administrativas y de Factor Humano con una base de talento en línea y plataformas de evaluación automatizadas de manera íntegra, oportuna y confidencial. Contamos con profesionales calificados con amplia experiencia en todos los procesos y buenas prácticas de Recursos Humanos." /> 
+		<meta property="og:site_name" content="¡Más Empleos, Más Servicios!" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">

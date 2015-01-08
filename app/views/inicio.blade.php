@@ -2,7 +2,6 @@
 @section('titulo')
 	Mas Empleos Y Servicios | MAGECSA
 @stop
-
 @section('contenido')
 	<div class="menuother">
 		<div class="row">
