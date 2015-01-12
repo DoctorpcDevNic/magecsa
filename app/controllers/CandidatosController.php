@@ -40,7 +40,7 @@ class CandidatosController extends BaseController {
 			'no_identificacion' => 'required',
 			'departamento' => 'required',
 			'direccion' => 'required',
-			'email' => 'required',
+			'email' => 'required|unique',
 			'objetivo' => 'required',
 			'interes_laboral' => 'required',
 			'expectativa_salarial' => 'required',
@@ -58,7 +58,7 @@ class CandidatosController extends BaseController {
 
 		$message = array(
 			'required' => 'El campo :attribute es requerido',
-			'unique' => 'El nombre de usuario ya esta en uso'	
+			'unique' => 'El :attribute ya esta en uso'	
 		);
 
 
@@ -628,19 +628,72 @@ class CandidatosController extends BaseController {
 		$nombre = Input::get('nombre');
 
 		if($seleccionado == 'username'){
-			$user = User::where('username', $seleccionado);
+			$user = User::where('username', $nombre)->first();
 
-			return Redirect::to('login');
+			if($user->count() == 0){
+				Session::flash('message', 'Usuario no encontrado');
+				return Redirect::back();
+			}else{
 
+				//mail
+
+				$user->remember_pass = $this->generarCodigo(40);
+				$user->save();
+
+				Session::flash('message', 'La nueva contraseña fue enviada a su email');
+				return Redirect::to('login');
+			}		
+
+		}elseif($seleccionado == 'email'){
+			$userdato = UsuarioDato::where('email', $nombre)->first();
+			if($userdato){
+
+				//mail
+
+				$user = $userdato->usuario_id;
+				return Redirect::to('login');
+			}else{
+				Session::flash('message', 'Email no encontrado');
+				return Redirect::back();
+			}
 		}else{
-			$userdato = UsuarioDato::where('email', $seleccionado)->first();
-
-			$user = $userdato->usuario_id;
-
-			return Redirect::to('login');
-
+			return Redirect::back();
 		}
 	}
+
+	/**
+	 * [newpass description]
+	 * @return [type] [description]
+	 */
+	public function newpass(){
+		$rules = array(				
+			'password' => 'confirmed|required',
+			'password_confirmation' => 'required'	
+		);
+
+		$message = array(
+			'required' => 'El campo :attribute es requerido',	
+			'confirmed' => 'Las contraseñas no coinciden'			
+		);
+
+		$validator = Validator::make(Input::all(), $rules, $message);
+
+		if($validator->fails()){
+			return Redirect::back()->withErrors($validator);
+		}else{
+		
+			$id = Input::get('id_usuario');
+			$user = User::find($id);
+
+			$user->password = Hash::make(Input::get('password'));	
+
+			$user->save();
+
+			Session::flash('message', 'Contraseña cambiada puede iniciar sesion');
+			return Redirect::to('login');
+		}	
+	}
+
 
 	/**
 	 * [validateFormsLogin description]
@@ -666,7 +719,7 @@ class CandidatosController extends BaseController {
 
 	private function generarCodigo($longitud) {
 		$key = '';
-		$pattern = '1234567890abcdefghijklmnopqrstuvwxyz';
+		$pattern = '1234567890abcdefghijklmnopqrstuvwxyz$&@#ABCDEFGHIJKLMNOPQRSTUVWXYZ.';
 		$max = strlen($pattern)-1;
 		for($i=0;$i < $longitud;$i++) $key .= $pattern{mt_rand(0,$max)};
 		return $key;

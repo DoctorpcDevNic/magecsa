@@ -3,12 +3,17 @@
 	Contacto - Mas Empleos Y Servicios | MAGECSA
 @stop
 @section('contenido')
+
+@if(Session::has('message'))
+	<div class="alert alert-info">{{ Session::get('message') }}</div>
+@endif
+
 	<div class="contacto">
 		<h2 class="titul">Contáctenos</h2>
 		
  		{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
 
-		{{ Form::open(array('url' => '', 'class' => 'form-horizontal')) }}
+		{{ Form::open(array('url' => 'Contacto/send', 'class' => 'form-horizontal')) }}
 			<div class="form-group">
 				{{ Form::label('nombre', 'Nombre y Apellido', array('class' => 'col-sm-3 control-label')) }}
 				<div class="col-sm-8">
@@ -24,13 +29,13 @@
 			<div class="form-group">
 				{{ Form::label('email', 'Correo Electronico', array('class' => 'col-sm-3 control-label')) }}
 				<div class="col-sm-8">
-					{{ Form::text('email', Input::old('email'), array('class' => 'form-control', 'placeholder'=> 'Correo Electronico')) }}	
+					{{ Form::input('email','email', Input::old('email'), array('class' => 'form-control', 'placeholder'=> 'Correo Electronico')) }}	
 				</div>
 			</div>
 			<div class="form-group">
 				{{ Form::label('telefono', 'Telefono', array('class' => 'col-sm-3 control-label')) }}
 				<div class="col-sm-8">
-					{{ Form::text('telefono', Input::old('telefono'), array('class' => 'form-control', 'placeholder'=> 'Telefono')) }}	
+					{{ Form::text('telefono', Input::old('telefono'), array('class' => 'form-control convencional', 'placeholder'=> 'Telefono')) }}	
 				</div>
 			</div>	
 			<div class="form-group">

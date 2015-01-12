@@ -10,7 +10,6 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
 Route::get('/', function()
 {
 	$vacantes = Vacante::where('enable', 1)->get();
@@ -51,6 +50,53 @@ Route::get('Reclutamiento', function(){
 Route::get('Clientes', function(){
 	return View::make('nosotros.clientes');
 });
+
+Route::post('Contacto/send', function(){
+	$rules = array(
+		'nombre' => 'required',
+		'razon' => 'required',
+		'email' => 'required',
+		'telefono' => 'required',
+		'mensaje' => 'required',
+		);
+	$message = array(
+		'required' => 'el campo :attribute es requierido'
+		);
+
+	$validator = Validator::make(Input::all(), $rules, $message);
+
+	if($validator->fails()){
+		return Redirect::back()->withErrors($validator)->withInput();
+	}else{
+		/*
+		$data = array(
+			'nombre' => Input::get('nombre'),
+			'razon' => Input::get('razon'),
+			'email' => Input::get('email'),
+			'telefono' => Input::get('telefono'),
+			'mensaje' => Input::get('mensaje'),
+			);
+			
+			
+		Mail::send('emails.contact', $data, function($message){
+		    $message->to('info@magecsa.com', 'MAGECSA')->subject('info contacto');
+		});
+	*/
+		$contacto = new Mensaje();
+		$contacto->nombre = Input::get('nombre');
+		$contacto->razon = Input::get('razon');
+		$contacto->email = Input::get('email');
+		$contacto->telefono = Input::get('telefono');
+		$contacto->mensaje = Input::get('mensaje');
+
+		$contacto->save();
+
+		Session::flash('message', 'Mensaje Enviado');
+		return Redirect::back();
+	}	
+});
+
+
 Route::post('save/empresas', 'EmpresasController@save');
 
 Route::get('Registrar', function(){
@@ -66,6 +112,16 @@ Route::post('perfil/rememberpass', 'CandidatosController@rememberpass');
 Route::get('recuperar/contraseña', function(){
 	return View::make('usuario.remember');
 });
+Route::get('login/nueva/contraseña/{cadena}', function($cadena){
+	$user = User::where('remember_pass', $cadena)->first();
+	if(!$user){
+		return  Redirect::to('/');
+	}else{
+		return View::make('usuario.newpass')->with('user', $user);	
+	}
+	
+});
+Route::post('login/nueva/contraseña', 'CandidatosController@newpass');
 
 Route::post('candidato/save', array('uses' => 'CandidatosController@save'));
 

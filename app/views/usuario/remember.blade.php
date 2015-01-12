@@ -7,9 +7,8 @@
 	<div class="alert alert-danger col-md-8 col-sm-offset-2" role="alert">
   		se enviara un correo electrónico con la nueva contraseña de inicio de sesión
 	</div>
-
 	@if(Session::has('message'))
-		<div class="alert alert-info">{{ Session::get('message') }}</div>
+		<div class="alert alert-info col-md-8 col-sm-offset-2">{{ Session::get('message') }}</div>
 	@endif
 
 	{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}    
