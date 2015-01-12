@@ -5,17 +5,17 @@
 @section('contenido')
 <div id="evaluacion" style="height:80px"></div>
 <div class="reclutamiento evaluacion" >
-	<h3 class="titul wow bounceInDown" ><img src="{{ asset('img/evaluacion.png') }}" alt="">Evaluación de Personal</h3>
+	<h3 class="titul wow bounceInDown" ><img src="{{ asset('img/psicometrica.png') }}" alt="">Evaluación de Personal</h3>
 	<p class="subtitul">MAGECSA le ofrece a su empresa el servicio de Evaluación de Personal a través de una herramienta de autoevaluación que nos permite identificar los rasgos del Comportamiento, Personalidad e Inteligencia del individuo para desempeñar el puesto.</p>
 
 	<div class="etapas">
 		<div class="row">
-			<div class="etapa col-md-6" style=" height: 350px">
+			<div class="etapa col-md-6" style=" height: 318px">
 				<div class="triangulo computer"></div>
 				<h3 class="tituletapa wow bounceInRight">Etapa 1: Evaluación de Profesionales</h3>
 				<div class="col-md-12 wow fadeInUp"><img src="{{ asset('img/deficinion.png') }}" alt="">Definición de Evaluaciones a aplicar según Perﬁl y nivel del Puesto</div>
 				<div class="col-md-12 wow fadeInUp"><img src="{{ asset('img/envioonline.png') }}" alt="">Envío de Evaluaciones Online a Candidato</div>
-				<div class="col-md-12 wow fadeInUp"><img src="{{ asset('img/confirmacion.png') }}" alt="">Se conﬁrma con el candidato si recibió las Evaluaciones</div>
+				<div class="col-md-12 wow fadeInUp"><img src="{{ asset('img/confirmacion.png') }}" alt="">Confirmar con el candidato el recibo de las Evaluaciones</div>
 			</div>
 			<div class="etapa col-md-6">
 				<div class="triangulo computer"></div>
@@ -31,7 +31,7 @@
 	<h3 class="titul wow bounceInDown" style="margin-top: 3em" ><img src="{{ asset('img/filtrocv.png') }}" alt="">Filtro de CVs</h3>
 	<div class="row">
 		<div class="col-md-6">
-			<p class="subtitul wow bounceInRight">MAGECSA le ofrece a su empresa el servicio de Evaluación de Personal a través de una herramienta de autoevaluación que nos permite identificar los rasgos del Comportamiento, Personalidad e Inteligencia del individuo para desempeñar el puesto.</p>	
+			<p class="subtitul wow bounceInRight">A través de nuestra base de Talento en MAGECSA realizamos un análisis y comparación de los candidatos con el perfil del puesto a fin de presentar una terna de profesionales idóneos para el éxito de su organización</p>	
 		</div>
 		<div class="col-md-6">
 			<img src="{{ asset('img/oportunidad.png') }}" alt="" class="img-responsive">

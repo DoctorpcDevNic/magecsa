@@ -102,8 +102,8 @@
 			                    </a>
 			                    <ul class="dropdown-menu submenu" role="menu">
 			                      <li><a href="{{ URL::to('Nosotros#QuinesSomos') }}">Quienes Somos</a></li>
-			                      <li><a href="{{ URL::to('Nosotros#Vision') }}">Visión</a></li>       
-			                      <li><a href="{{ URL::to('Nosotros#Mision') }}">Mision</a></li>                     
+			                      <li><a href="{{ URL::to('Nosotros#Mision') }}">Mision</a></li> 
+			                      <li><a href="{{ URL::to('Nosotros#Vision') }}">Visión</a></li> 
 			                      <li><a href="{{ URL::to('Nosotros#Valores') }}">Valores</a></li>                     
 			                    </ul>
 			                </li>
@@ -113,21 +113,21 @@
 			                    	Nuestros Servicios 
 			                    </a>
 			                    <ul class="dropdown-menu submenu" role="menu">
-			                      <li><a href="{{ URL::to('Reclutamiento') }}">Busqueda y Selección de personal </a></li>
+			                      <li><a href="{{ URL::to('Reclutamiento') }}">Busqueda y Selección de Personal </a></li>
 			                      <li><a href="{{ URL::to('Evaluacion#evaluacion') }}">Evaluacion de Personal </a></li>       
 			                      <li><a href="{{ URL::to('Evaluacion#filtro') }}">Filtro de CVs </a></li>  
 			                      <li><a href="{{ URL::to('Evaluacion#publicacion') }}">Publicación de Vacantes</a></li>                     
 			                      <li class="dropdown">
 				                  	<a href="#" class="dropdown-toggle" data-toggle="dropdown-menu"> Outsorcing </span></a>
 				                    <ul class="dropdown-menu submenu" role="menu">
-				                      <li><a href="{{ URL::to('/') }}"> Administacion de Personal</a></li>
-				                      <li><a href="{{ URL::to('/') }}"> Administración de Nómina</a></li>
-				                      <li><a href="{{ URL::to('/') }}"> Servicio Administrativos </a></li>                              
+				                      <li><a href="{{ URL::to('Outsorcing#AdministracionPersonal') }}"> Administacion de Personal</a></li>
+				                      <li><a href="{{ URL::to('Outsorcing#AdministracionNomina') }}"> Administración de Nómina</a></li>
+				                      <li><a href="{{ URL::to('Outsorcing#ServiciosAdministrativos') }}"> Servicio Administrativos </a></li>                              
 				                    </ul>
 					              </li>              
 			                    </ul>
 			                </li>
-			                <li><a href="{{URL::to('/')  }}">
+			                <li><a href="{{URL::to('Clientes')  }}">
 			                	<i class="glyphicon glyphicon-briefcase"></i><br>
 			                	Clientes 
 			                </a></li>  
@@ -230,6 +230,7 @@
 			        height: '30%',   
 			        pagination: false,       
 			      });
+
 		    }else if($(window).width() < 1024){
 		    	jQuery('#camera_wrap_1').camera({        
 			        height: '45%',   

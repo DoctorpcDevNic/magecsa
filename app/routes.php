@@ -35,6 +35,9 @@ Route::get('Evaluacion', function()
 {
 	return View::make('nosotros.evaluacion');
 });
+Route::get('Outsorcing', function(){
+	return View::make('nosotros.outsorcing');
+});
 
 Route::get('MasEmpleos', function()
 {	
@@ -45,7 +48,9 @@ Route::get('MasEmpleos', function()
 Route::get('Reclutamiento', function(){
 	return View::make('nosotros.reclutamiento');
 });
-
+Route::get('Clientes', function(){
+	return View::make('nosotros.clientes');
+});
 Route::post('save/empresas', 'EmpresasController@save');
 
 Route::get('Registrar', function(){

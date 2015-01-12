@@ -8,10 +8,11 @@
 			<img src="{{ asset('img/logo.png') }}" alt="" class="logonosotros computer">
 			<h2 class="encabezado">¡Mas empleos, Mas servicios!</h2>
 		</div>	
+		<div id="QuinesSomos" style="height:80px"></div>
 		{{-- quienes somos --}}
-		<div class="quienes" id="QuinesSomos">
+		<div class="quienes">
 			<h3 class="titul">
-				¿Quines Somos?<br>
+				¿Quienes Somos?<br>
 				<span>Conoce acerca de nosotros</span>
 			</h3>
 			<img src="{{ asset('img/quienes.jpg') }}" alt="">
@@ -24,9 +25,9 @@
 				<img src="{{ asset('img/flechaabajo.png') }}" alt="">
 			</div>
 		</div>
-
+		<div id="Mision" style="height:80px"></div>
 		{{-- mision --}}
-		<div class="mision" id="Mision">
+		<div class="mision" >
 			<h3 class="titul">
 				Misión<br>
 				<span>Como Lo vamos hacer</span>
@@ -39,9 +40,9 @@
 				<img src="{{ asset('img/flechaderecha.png') }}" alt="">
 			</div>
 		</div>
-
+		<div id="Vision" style="height:80px"></div>	
 		{{-- vision --}}
-		<div class="vision" id="Vision">
+		<div class="vision">
 			<h3 class="titul">
 				Visión<br>
 				<span>Lo que queremos hacer</span>
@@ -54,9 +55,9 @@
 				<img src="{{ asset('img/flechaderecha.png') }}" alt="">
 			</div>
 		</div>
-
+		<div id="Valores" style="height:80px"></div>		
 		{{-- valores --}}
-		<div class="valores" id="Valores">
+		<div class="valores">
 			<h3 class="titul">
 				Valores<br>
 				<span>Lo que regirá nuestra cultura de servicios</span>

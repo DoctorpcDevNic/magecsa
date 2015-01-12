@@ -29,7 +29,7 @@
 				<div class="col-md-6 wow bounceInDown"><img src="{{ asset('img/seleccv.png') }}" alt="">Verificación de Referencias</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 wow bounceInUp"><img src="{{ asset('img/reclutador.png') }}" alt="">Entrevistas Reclutador - Candidatos Preseleccionados</div>
+				<div class="col-md-6 wow bounceInUp"><img src="{{ asset('img/reclutador.png') }}" alt=""><p>Entrevistas Reclutador - Candidatos Preseleccionados</p></div>
 				<div class="col-md-6 wow bounceInUp"><img src="{{ asset('img/datoscuenta.png') }}" alt="">Presentación de Candidatos Seleccionados</div>
 			</div>
 		</div>
