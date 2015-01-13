@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-01-2015 a las 06:53:11
+-- Tiempo de generación: 13-01-2015 a las 05:32:23
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -47,6 +47,32 @@ CREATE TABLE IF NOT EXISTS `empresas` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `mensajes`
+--
+
+CREATE TABLE IF NOT EXISTS `mensajes` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `razon` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `telefono` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `mensaje` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `mensajes`
+--
+
+INSERT INTO `mensajes` (`id`, `nombre`, `razon`, `email`, `telefono`, `mensaje`, `created_at`, `updated_at`) VALUES
+(1, 'Norwin Guerrero ', 'DoctorPC', 'norwingc_war@outlook.com', '5461-3213', 'este es un msj', '2015-01-13 01:52:10', '2015-01-13 01:52:10'),
+(2, 'Norwin Guerrero ', 'DoctorPC', 'norwingc_war@outlook.com', '3213-2132', 'este es un msjs', '2015-01-13 08:59:36', '2015-01-13 08:59:36');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `migrations`
 --
 
@@ -69,10 +95,35 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2014_12_15_184906_create_usuariosotros_table', 1),
 ('2014_12_15_185121_create_usuarioshabilidades_table', 1),
 ('2014_12_19_004907_create_usuariosadmin_table', 1),
-('2015_01_02_214151_create_empresas_table', 2),
-('2015_01_03_013830_create_vacantes_table', 2),
-('2015_01_03_013831_create_vacantes_table', 3),
-('2015_01_05_185616_create_vacantesusuarios_table', 4);
+('2015_01_02_214151_create_empresas_table', 1),
+('2015_01_03_013831_create_vacantes_table', 2),
+('2015_01_05_185616_create_vacantesusuarios_table', 2),
+('2015_01_12_181242_create_mensajes_table', 3),
+('2015_01_13_022430_create_slider_table', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `slider`
+--
+
+CREATE TABLE IF NOT EXISTS `slider` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `imagen` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `slider`
+--
+
+INSERT INTO `slider` (`id`, `imagen`, `descripcion`, `created_at`, `updated_at`) VALUES
+(1, '0emprendedores.jpg', '"Tu oportunidad de crecer profesionalmente es hoy, bienvenido a nuestro equipo"', '2015-01-13 08:54:43', '2015-01-13 08:54:43'),
+(2, '1emprendedores.jpg', '"Tu oportunidad de crecer"', '2015-01-13 08:56:06', '2015-01-13 08:56:06'),
+(3, '2emprendedores.jpg', '"Tu oportunidad de crecer profesionalmente es hoy, bienvenido a nuestro equipo"', '2015-01-13 08:56:57', '2015-01-13 08:56:57');
 
 -- --------------------------------------------------------
 
@@ -85,22 +136,20 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `role_id` int(11) NOT NULL,
+  `enable` tinyint(1) NOT NULL,
+  `remember_pass` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `username`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'norwingc', '$2y$10$b2ixtYETW7sODUhX03QpruKTZc.SR2rtSTdzciD1ya1Oowa8qSkDS', 3, 'CKp5xyWGl0cRENkTvpKMdeCxVwvN6RMvIE9TF2Bq6JWrTgC3u43GulocRcMf', '2014-12-20 13:02:35', '2015-01-06 03:39:01'),
-(2, 'norwingc1', '$2y$10$b2ixtYETW7sODUhX03QpruKTZc.SR2rtSTdzciD1ya1Oowa8qSkDS', 3, 'N5e0QsgxThMD415Jm6Lf2kuv46RPXfFWDOd8nEf1Tcqs7juKvHfhDkaO2Ixn', '2014-12-20 13:02:35', '2014-12-26 07:20:37'),
-(3, 'claro', '$2y$10$YkDpN3q.YW92b4d5jwMN4Ofr4ohjryTVJlsdnAEMF9xMtJ1OzulGS', 2, 'ARLR4YfOgGsYJcj7qo1pIwcMFGEf1HlxNPdnl9IZmANaqIUSAu96ym7RrMPf', '2015-01-03 05:50:03', '2015-01-03 06:21:47'),
-(4, 'admin', '$2y$10$o5e85SBYjLjje8cZZvdrruJjJvZeu21mzwNxHJrq2FRWW6ZPNnl6G', 0, 'ts6oOQoXONX5qEY6kJsRyqg33JbnI7ppyfPNpIBDaEeQ9AUbIEoAVY0RDz5G', '2015-01-03 06:04:39', '2015-01-06 03:46:55'),
-(5, 'claro', '$2y$10$YkDpN3q.YW92b4d5jwMN4Ofr4ohjryTVJlsdnAEMF9xMtJ1OzulGS', 2, '', '2015-01-03 07:33:25', '2015-01-03 07:33:25');
+INSERT INTO `usuarios` (`id`, `username`, `password`, `role_id`, `enable`, `remember_pass`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', '$2y$10$xg650ljBlnnzqHSjeSIjuudxdE.oKdTvw2UGh8m8fhT.0zMEJRcEq', 0, 1, 'z7J7OnDIDD$sMTUDVdgsrn3wcROAUMCyJqduAqD$', 'U9vNVZJ1wXGUbSX2V9xIpyNpvtaR8O8KptyAyFNLp28uM0O9qgraQ85axg75', '0000-00-00 00:00:00', '2015-01-13 10:04:53');
 
 -- --------------------------------------------------------
 
@@ -125,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `usuariosadmin` (
 --
 
 INSERT INTO `usuariosadmin` (`id`, `nombres`, `apellidos`, `email`, `cargo`, `usuario_id`, `created_at`, `updated_at`) VALUES
-(1, 'Norwin Scott', 'Guerrero Cruz', 'norwingc_war@outlook.com', 'Gerente', 4, '2015-01-03 06:04:39', '2015-01-03 06:04:39');
+(1, 'admin', 'admin', 'admin@admin.com', 'Gerente', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -174,15 +223,7 @@ CREATE TABLE IF NOT EXISTS `usuariosdatos` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `usuariosdatos`
---
-
-INSERT INTO `usuariosdatos` (`id`, `nombres`, `apellidos`, `fecha_nacimiento`, `estado_civil`, `genero`, `nacionalidad`, `tipo_identificacion`, `no_identificacion`, `departamento`, `direccion`, `convencional`, `celular`, `email`, `vehiculo`, `categoria_licencia`, `disponible_viajar`, `foto`, `objetivo`, `usuario_id`, `created_at`, `updated_at`) VALUES
-(1, 'Norwin Scott', 'Guerrero Cruz', '1992-05-19', 'Union libre', 'Masculino', 'Nicaragua', 'Cedula', '001-190592-001C', 'Managua', 'managua', '2280-6259', '8474-8716', 'norwingc_war@outlook.com', 1, 'Vehiculo liviano,Vehiculo pesado', '0', 'norwingcbullTerrierAmericano.jpeg', 'bien fasfasdf', 1, '2014-12-20 13:02:35', '2014-12-27 10:22:04'),
-(2, 'Norwin Scott', 'Guerrero Cruz', '1992-05-19', 'Union libre', 'Masculino', 'Nicaragua', 'Cedula', '001-190592-001C', 'Managua', 'managua', '2280-6259', '8474-8716', 'norwingc_war@outlook.com', 1, 'Vehiculo liviano,Vehiculo pesado', '0', 'norwingcbullTerrierAmericano.jpeg', 'bien fasfasdf', 2, '2014-12-20 13:02:35', '2014-12-27 10:22:04');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -200,17 +241,7 @@ CREATE TABLE IF NOT EXISTS `usuarioseducacion` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
-
---
--- Volcado de datos para la tabla `usuarioseducacion`
---
-
-INSERT INTO `usuarioseducacion` (`id`, `nivel_academico`, `titulo`, `instituto`, `fecha_finalizacion`, `usuario_id`, `created_at`, `updated_at`) VALUES
-(1, 'Sin Estudios Formales', 'PhD3', 'Ave Maria University', '2014-12-06', 1, '2014-12-20 13:02:35', '2014-12-30 07:41:03'),
-(2, 'Doctorado', 'Ingenieria de sistemas', 'Ave Maria University', '2014-12-06', 1, '2014-12-20 13:02:35', '2014-12-29 02:22:57'),
-(3, 'Doctorado', 'Ingenieria de sistemas', 'Ave Maria University', '2014-12-06', 2, '2014-12-20 13:02:35', '2014-12-29 02:22:57'),
-(4, 'Doctorado', 'shadow of mordor', 'Universidad Nacional de Ingenieria', '20014-12-31', 1, '2014-12-30 07:37:59', '2014-12-30 07:37:59');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -230,14 +261,7 @@ CREATE TABLE IF NOT EXISTS `usuariosexpectativas` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `usuariosexpectativas`
---
-
-INSERT INTO `usuariosexpectativas` (`id`, `interes_laboral`, `expectativa_salarial`, `ubicacion_laboral`, `areas_interes`, `puesto_interes`, `horario`, `usuario_id`, `created_at`, `updated_at`) VALUES
-(1, 'Busqueda Activa', '5701-6000', 'Boaco', 'Puestos Profesionales, Administracion, Informatica|Internet', 'Promotor de Ventas|Impulsador|Display', 'Por Temporada', 1, '2014-12-20 13:02:35', '2014-12-28 10:58:09');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -260,17 +284,7 @@ CREATE TABLE IF NOT EXISTS `usuariosexperiencias` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
-
---
--- Volcado de datos para la tabla `usuariosexperiencias`
---
-
-INSERT INTO `usuariosexperiencias` (`id`, `nombre_empresa`, `actividad_empresa`, `telefono_empresa`, `area`, `puesto`, `fecha_inicio`, `fecha_fin`, `logros`, `funciones`, `usuario_id`, `created_at`, `updated_at`) VALUES
-(1, 'DoctorPC1', 'Aduana|Agencia Aduaneras', '6546-4654', 'Mercadeo|Ventas', 'senior dev', '2014-12-05', '2014-12-07', 'ffffee', 'qqqqee', 1, '2014-12-20 13:02:35', '2014-12-30 06:33:54'),
-(2, 'DoctorPC2', 'Aduana|Agencia Aduaneras', '6546-4654', 'Produccion|Ingenieria|Calidad', 'senior dev', '2014-12-05', '2014-12-07', 'ffffee', 'qqqqee', 1, '2014-12-20 13:02:35', '2014-12-30 06:35:08'),
-(3, 'DoctorPC2', 'Aduana|Agencia Aduaneras', '6546-4654', 'Banca|Servicios Financieros', 'senior dev', '2014-12-05', '2014-12-07', 'ffffee', 'qqqqee', 2, '2014-12-20 13:02:35', '2014-12-28 11:09:35'),
-(4, 'DoctorPC', 'Agencia de Empleo|Reclutamiento', '4563-2132', 'Banca|Servicios Financieros', 'JEFE DE DESARROLLO', '222222-02-22', '275760-05-06', 'NADA', 'NADA', 1, '2014-12-30 07:28:30', '2014-12-30 07:28:30');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -290,14 +304,7 @@ CREATE TABLE IF NOT EXISTS `usuarioshabilidades` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `usuarioshabilidades`
---
-
-INSERT INTO `usuarioshabilidades` (`id`, `base_datos`, `frameworks`, `lenguajes_programacion`, `programas_aplicacion`, `programas_diseno`, `sistemas_operativos`, `usuario_id`, `created_at`, `updated_at`) VALUES
-(1, 'Access', 'Laravel', 'ASP', 'Excel', 'Flash', 'Linux', 1, '2014-12-20 13:02:35', '2014-12-20 13:02:35');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -309,7 +316,7 @@ CREATE TABLE IF NOT EXISTS `usuariosotros` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idioma` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nivel_dominio` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `habilidad1` text COLLATE utf8_unicode_ci NOT NULL,
+  `habilidad1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nivel_dominio1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `habilidad2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nivel_dominio2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -319,15 +326,7 @@ CREATE TABLE IF NOT EXISTS `usuariosotros` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `usuariosotros`
---
-
-INSERT INTO `usuariosotros` (`id`, `idioma`, `nivel_dominio`, `habilidad1`, `nivel_dominio1`, `habilidad2`, `nivel_dominio2`, `habilidad3`, `nivel_dominio3`, `usuario_id`, `created_at`, `updated_at`) VALUES
-(1, 'Idioma', 'Nivel de Dominio', 'laravel', 'Avanzado', 'HTML', 'Avanzado', 'PHP', 'Avanzado', 1, '2014-12-20 13:02:35', '2014-12-30 05:35:13'),
-(2, 'Aleman', 'Intermedio', 'laravel, HTML', '', '', '', '', '', 2, '2014-12-20 13:02:35', '2014-12-28 11:37:37');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -339,21 +338,24 @@ CREATE TABLE IF NOT EXISTS `vacantes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `titulo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fecha` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `cuerpo` text COLLATE utf8_unicode_ci NOT NULL,
+  `departamento` text COLLATE utf8_unicode_ci NOT NULL,
+  `requisitos` text COLLATE utf8_unicode_ci NOT NULL,
+  `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
+  `area_interes` text COLLATE utf8_unicode_ci NOT NULL,
   `logo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `enable` tinyint(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `vacantes`
 --
 
-INSERT INTO `vacantes` (`id`, `titulo`, `fecha`, `cuerpo`, `logo`, `created_at`, `updated_at`) VALUES
-(2, 'Se busca', '2015-01-02', '<h3>funciones</h3><ul><li>comer</li><li>dormir</li><li>developer</li><li>php</li></ul>', 'Se buscaclaro-logo.png', '2015-01-03 10:41:23', '2015-01-03 10:46:11'),
-(3, 'Se busca', '2015-01-02', '<h3>funciones</h3><ul><li>comer</li><li>dormir</li><li>developer</li></ul>', 'Se buscaclaro-logo.png', '2015-01-03 10:41:50', '2015-01-03 10:41:50'),
-(4, 'Se busca', '2015-01-02', '<h3>funciones</h3><ul><li>comer</li><li>dormir</li><li>developer</li></ul>', 'Se buscaclaro-logo.png', '2015-01-03 10:42:02', '2015-01-03 10:42:02');
+INSERT INTO `vacantes` (`id`, `titulo`, `fecha`, `departamento`, `requisitos`, `descripcion`, `area_interes`, `logo`, `enable`, `created_at`, `updated_at`) VALUES
+(1, 'Programador', '2015-01-07', 'Managua', 'PHP, HTML, CSS', 'que sepa programar, tener amplios conocimientos en HTML y CSS. Buenas pracitcas en programacion', 'Informatica|Internet', 'Programadorlogo.png', 1, '2015-01-08 10:17:22', '2015-01-08 10:54:54'),
+(2, 'Prueba', '2015-01-12', 'Managua', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, magni nisi. Aut voluptas maiores, excepturi in ipsam fuga, exercitationem incidunt fugiat fugit aliquam expedita illum! Sit maiores, delectus temporibus porro!', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, magni nisi. Aut voluptas maiores, excepturi in ipsam fuga, exercitationem incidunt fugiat fugit aliquam expedita illum! Sit maiores, delectus temporibus porro!', 'Administracion', 'Pruebalogo.png', 1, '2015-01-13 06:34:10', '2015-01-13 06:35:17');
 
 -- --------------------------------------------------------
 
@@ -368,15 +370,7 @@ CREATE TABLE IF NOT EXISTS `vacantesusuarios` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `vacantesusuarios`
---
-
-INSERT INTO `vacantesusuarios` (`id`, `vacante_id`, `usuario_id`, `created_at`, `updated_at`) VALUES
-(1, 2, 1, '2015-01-06 01:48:32', '2015-01-06 01:48:32'),
-(2, 3, 1, '2015-01-06 02:30:59', '2015-01-06 02:30:59');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
