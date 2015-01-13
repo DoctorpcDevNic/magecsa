@@ -510,20 +510,22 @@ input[type=checkbox]
 			color verde
 			text-align center
 			font-size 1.5em
+			a
+				color verde
+				text-decoration underline
 			i
 				padding 5px	
 		.vacantes
 			.vacante
 				position relative
-				background #008592
-				color white
+				color verde
 				padding 5px
 				margin-top 1em
+				box-shadow 4px 3px 10px #888888
 				.titul
-					color amarillo
 					text-align center
 					border-bottom 2px solid amarillo	
-					font-size 20px
+					font-size 25px
 					margin auto
 					display block
 					width 80%
@@ -534,11 +536,18 @@ input[type=checkbox]
 					top 0				
 					border-bottom 50px solid azultran
 					border-right 50px solid transparent	
+				.descrip
+					padding 10px
+					p
+						color verde
+						i
+							padding 5px
+						
 				.aplicarvac
 					text-align right
 					a
 					p
-						color white
+						color verde
 					a
 						text-decoration underline 
 	.reclutamiento
@@ -586,8 +595,16 @@ input[type=checkbox]
 				img
 					width 50px
 			.etapaevaluacion
-				margin-bottom 0							
-													
+				margin-bottom 0	
+	.vervacante	
+		.logo_vacante
+			img
+				width 40%
+				margin auto
+				display block
+		.fecha
+		.aplicarvac
+			text-align right							
 							
 .nav-tabs
 	border-bottom 0
@@ -927,15 +944,21 @@ footer
 			.vacantes
 				.vacante
 					.titul	
-						font-size 1.2em	
+						font-size 1.5em	
+						padding 10px 0px
 					.fecha
+						color verde
 						text-align center	
 						font-size 1.2em
 						position absolute
-						top 15%
+						top 20%
 						right 10%
 					.descrip
-						padding 15px
+						.logo_vacante
+							width 60%
+							margin auto
+							display block
+						
 					.division
 						border-bottom 8px solid amarillo		
 																		
@@ -1009,10 +1032,19 @@ footer
 		hr
 			margin 15px 0 
 		.masempleos
+			.titulos
+				width 85%
+				margin auto
 			.vacantes
 				.vacante
 					width 85%
-					margin 2em auto	
+					margin 3em auto	
+					.descrip
+						.col-sm-6
+							font-size 1.2em
+					.aplicarvac
+						a
+							font-size 1.2em
 		.reclutamiento
 			.titul
 				font-size 1.5em
@@ -1063,6 +1095,11 @@ footer
 					padding-top 50px
 					img
 						width 95px !important
+		.vervacante
+			width 80%
+			margin 2em auto
+			.aplicarvac
+				font-size 1.2em						
 
 @media (min-width:1300px)	
 	.menumain 

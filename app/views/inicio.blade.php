@@ -50,22 +50,22 @@
 	</div>
 
 	<div class="vacante">
-		<h2>Vacantes</h2>
+		<h2><a href="{{ URL::to('MasEmpleos') }}" style="text-decoration:underline; color:white">Vacantes</a></h2>
 
 		{{-- Slider Vacante Mobil --}}
 		
-    	
+  	 
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">      
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <?php 
-            $count = 0;
-           ?>
+        <div class="carousel-inner" role="listbox"> 
+         <?php 
+          $valor = 0;
+         ?>       
           @foreach($vacantes as $value)
-            @if($count == 0)
+            @if($valor == 0)
               <div class="item active">
-            <?php $count++; ?>
+            <?php $valor++; ?>
             @else
               <div class="item">
             @endif
@@ -99,7 +99,7 @@
                    <p><i class="fa fa-bullhorn"></i> {{ $value->titulo }}</p>
                    <p><i class="fa fa-map-marker"></i>{{ $value->departamento }}</p>
                    <p><i class="fa fa-info-circle"></i>{{ substr($value->requisitos, 0, 30); }}...</p>
-                   <p><i class="fa fa-info"></i> {{ substr($value->descripcion, 0, 80); }}... <a href="#">Leer Mas</a></p>
+                   <p><i class="fa fa-info"></i> {{ substr($value->descripcion, 0, 80); }}... <a href="{{ URL::to('Vacante/view/'. $value->id) }}">Leer Mas</a></p>
                   </div>
                 </div>
                 <div class="logo_slider computer">

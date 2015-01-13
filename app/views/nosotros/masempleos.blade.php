@@ -7,18 +7,27 @@
 	@if(Session::has('message'))
 		<div class="alert alert-info">{{ Session::get('message') }}</div>
 	@endif	
-
-	<h3 class="titul"><i class="fa fa-users"></i>Vacantes Disponibles</h3>
-
+	<div class="row titulos">
+		<h3 class="titul col-sm-6"><a href="{{ URL::to('MasEmpleos') }}"><i class="fa fa-users"></i>Vacantes Disponibles</a></h3>
+		<h3 class="titul col-sm-6"><a href="{{ URL::to('Vacante/Search/all') }}"><i class="fa fa-search"></i>Búsqueda por áreas de Interés</a></h3>
+	</div>
 	<div class="vacantes">
 		@foreach($vacantes as $value)
 			<div class="vacante">
-				<div class="triangulo"></div>
 				<h3 class="titul">{{$value->titulo}}</h3>
 				<?php $fecha = explode("-",$value->fecha); ?>
 				<p class="fecha computer"><i class="fa fa-calendar"></i> {{ $fecha[2]."/" . $fecha[1] . "/" . $fecha[0] }} </p>
 				<div class="descrip">
-					{{ $value->cuerpo }}
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="{{ asset('img/upload/'.$value->logo) }}" alt="" class="computer logo_vacante">
+						</div>
+						<div class="col-sm-6">
+		                   <p><i class="fa fa-map-marker"></i>{{ $value->departamento }}</p>
+		                   <p><i class="fa fa-info-circle"></i>{{ substr($value->requisitos, 0, 30); }}...</p>
+		                   <p><i class="fa fa-info"></i> {{ substr($value->descripcion, 0, 80); }}... <a href="{{ URL::to('Vacante/view/'. $value->id) }}">Leer Mas</a></p>
+						</div>		
+					</div>
 				</div>
 				<div class="aplicarvac">
 					@if(Auth::check())

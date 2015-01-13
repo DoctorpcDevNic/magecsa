@@ -40,8 +40,24 @@ Route::get('Outsorcing', function(){
 
 Route::get('MasEmpleos', function()
 {	
-	$vacantes = Vacante::paginate(6);	;
+	$vacantes = Vacante::paginate(6);
 	return View::make('nosotros.masempleos')->with('vacantes', $vacantes);
+});
+Route::get('Vacante/view/{id}', function($id){
+	$vacante = Vacante::find($id);
+	return View::make('nosotros.vacanteview')->with('vacante', $vacante);
+});
+Route::get('Vacante/Search/{tag}', function($tag){	
+	$vacantes = Vacante::all();
+	return View::make('nosotros.searchvacante')->with('vacantes', $vacantes);
+});
+Route::post('Vacante/Search/{find}', function($find){
+	if(Input::get('area_interes') == 'all'){
+		return Redirect::to('Vacante/Search/all');	
+	}else{
+		$vacantes = Vacante::where('area_interes', Input::get('area_interes'))->get();
+		return View::make('nosotros.searchvacante')->with('vacantes', $vacantes);
+	}	
 });
 
 Route::get('Reclutamiento', function(){
@@ -146,9 +162,18 @@ Route::group(array('prefix' => 'perfil', 'before' => 'auth'), function () {
 			$user = User::where('username', $username)->first();
 
 			if(Auth::user()->id == $user->id){
-				//return View::make('usuario.cv')->with('user', $user);
+				return View::make('usuario.cv')->with('user', $user);
 				$html = View::make("usuario.cv")->with('user', $user);
 		    	return PDF::load($html, 'A4', 'portrait')->show();
+
+				/*
+		    	require_once 'vendor/thujohn/pdf/src/Thujohn/dompdf/dompdf_config.inc.php';
+				$dompdf = new DOMPDF();
+				$dompdf->load_html($html, 'UTF-8');
+				$dompdf->set_paper('A4');
+				$dompdf->render();
+				file_put_contents('test.pdf', $dompdf->output());
+				*/
 		    }else{
 		    	return Redirect::to('/');
 		    }
