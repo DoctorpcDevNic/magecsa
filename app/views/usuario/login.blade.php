@@ -22,7 +22,7 @@
 			</div>
 			<div class="form-group dow">
 				<button class="btn btn-primary btn-lg btn-block">Iniciar Sesion</button>
-				<span><a href="{{ URL::to('recuperar/contraseña') }}" target="new">Olvide mi contraseña</a></span><br>
+				<span><a href="{{ URL::to('recuperar/password') }}" target="new">Olvide mi contraseña</a></span><br>
 				<span><a href="{{ URL::to('Registrar') }}">Registro de usuario</a></span>
 			</div>
 		{{ Form::close() }}  

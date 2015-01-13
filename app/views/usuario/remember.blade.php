@@ -26,7 +26,7 @@
 		</div>
 		<div class="form-group dow">
 			<button class="btn btn-primary btn-lg btn-block">Enviar</button>			
-			<span><a href="http://doctorpc.com.ni/" target="new">Registro de usuario</a></span>
+			<span><a href="{{ URL::to('Registro') }}" target="new">Registro de usuario</a></span>
 		</div>
 	{{ Form::close() }}  
 </div>

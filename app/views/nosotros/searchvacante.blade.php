@@ -41,7 +41,7 @@
 	{{ Form::close() }}
 
 	@if($vacantes->count() == 0)
-		<h3 class="titul" style="text-align:left; font-size:1.2em"><a href="{{ URL::to('MasEmpleos') }}" style="color:#337ab7">Seguir Viendo mas vacantes</a></h3>
+		<h3 class="titul" style="text-align:left; font-size:1.2em"><a href="{{ URL::to('Vacante/Search/all') }}" style="color:#337ab7">Seguir Buscando mas Vacantes</a></h3>
 		<h3 class="titul">No existen vacantes</h3>
 	@else
 		<div class="vacantes">

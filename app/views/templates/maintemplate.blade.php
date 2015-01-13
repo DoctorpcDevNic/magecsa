@@ -56,17 +56,14 @@
         <![endif]-->
         <header>
 	        <section class="slidermain">
+	        <?php $slider = Slider::all(); ?>
 				<div class="fluid_container">              
                 	<div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
-                    	<div data-src="{{ asset( 'img/emprendedores.jpg' )}}">
-	                        <div class="camera_caption fadeFromBottom">"Tu oportunidad de crecer profesionalmente es hoy, bienvenido a nuestro equipo"</div>		                        
-                      	</div>
-                      	<div data-src="{{ asset( 'img/emprendedores.jpg') }}">
-	                       <div class="camera_caption fadeFromBottom" >"Tu oportunidad de crecer profesionalmente es hoy, bienvenido a nuestro equipo"</div>		                        
-                      	</div>
-                      	<div data-src="{{ asset( 'img/emprendedores.jpg') }}">
-                      		<div class="camera_caption fadeFromBottom" >"Tu oportunidad de crecer profesionalmente es hoy, bienvenido a nuestro equipo"</div>		                        
-                      	</div>
+                		@foreach($slider as $value)
+	                    	<div data-src="{{ asset( 'img/upload/slider/'. $value->imagen )}}">
+		                        <div class="camera_caption fadeFromBottom">{{ $value->descripcion }}</div>		                        
+	                      	</div>
+                      	@endforeach
                   	</div>
             	</div>	
             	<div class="clear"></div>       	
@@ -102,8 +99,8 @@
 			                    </a>
 			                    <ul class="dropdown-menu submenu" role="menu">
 			                      <li><a href="{{ URL::to('Nosotros#QuinesSomos') }}">Quienes Somos</a></li>
-			                      <li><a href="{{ URL::to('Nosotros#Mision') }}">Mision</a></li> 
 			                      <li><a href="{{ URL::to('Nosotros#Vision') }}">Visión</a></li> 
+			                      <li><a href="{{ URL::to('Nosotros#Mision') }}">Mision</a></li> 			                     
 			                      <li><a href="{{ URL::to('Nosotros#Valores') }}">Valores</a></li>                     
 			                    </ul>
 			                </li>
@@ -188,7 +185,7 @@
     		<ul class="hidden-xs">
 		        <li><a href="{{ URL::to('Nosotros') }}">Quienes somos</a> <span>|</span></li>
 		        <li><a href="{{ URL::to('Contactenos') }}">Contáctenos</a> <span>|</span></li>		       
-		        <li><a href="">Términos de Uso</a> <span>|</span></li>
+		        <li><a href="">Politicas de privacidad</a> <span>|</span></li>
 		        <li><a href="">Idioma</a> <span>|</span></li>
 		        <li>Designed by <a href="http://doctorpc.com.ni/" target="new">Doctor PC</a></li>
 		      </ul>

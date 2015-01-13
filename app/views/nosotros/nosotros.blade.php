@@ -25,24 +25,9 @@
 				<img src="{{ asset('img/flechaabajo.png') }}" alt="">
 			</div>
 		</div>
-		<div id="Mision" style="height:80px"></div>
-		{{-- mision --}}
-		<div class="mision" >
-			<h3 class="titul">
-				Misión<br>
-				<span>Como Lo vamos hacer</span>
-			</h3>
-			<img src="{{ asset('img/mision.jpg') }}" alt="">
-			<div class="texto">
-				<p>Brindar a nuestros clientes y candidatos  servicios de atención  personalizada orientada a satisfacer sus necesidades con procesos de  calidad y efectividad.</p>
-			</div>
-			<div class="fechaderecha computer">
-				<img src="{{ asset('img/flechaderecha.png') }}" alt="">
-			</div>
-		</div>
-		<div id="Vision" style="height:80px"></div>	
-		{{-- vision --}}
-		<div class="vision">
+		<div id="Vision" style="height:80px"></div>
+		{{-- Vision --}}
+		<div class="vision" >
 			<h3 class="titul">
 				Visión<br>
 				<span>Lo que queremos hacer</span>
@@ -53,6 +38,21 @@
 			</div>
 			<div class="fechaderecha computer">
 				<img src="{{ asset('img/flechaderecha.png') }}" alt="">
+			</div>
+		</div>
+		<div id="Mision" style="height:80px"></div>	
+		{{-- Mision --}}
+		<div class="mision">
+			<h3 class="titul">
+				Misión<br>
+				<span>Como Lo vamos hacer</span>
+			</h3>
+			<img src="{{ asset('img/mision.jpg') }}" alt="">
+			<div class="texto">
+				<p>Brindar a nuestros clientes y candidatos  servicios de atención  personalizada orientada a satisfacer sus necesidades con procesos de  calidad y efectividad.</p>
+			</div>
+			<div class="fechaderecha computer">
+				<img src="{{ asset('img/flechaabajo.png') }}" alt="">
 			</div>
 		</div>
 		<div id="Valores" style="height:80px"></div>		

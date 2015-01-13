@@ -10,7 +10,7 @@
 
 	{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}    
 
-	{{ Form::open(array('url' => 'login/nueva/contraseña', 'class' => 'form-horizontal col-md-6 col-sm-offset-3')) }}
+	{{ Form::open(array('url' => 'login/nueva/password', 'class' => 'form-horizontal col-md-6 col-sm-offset-3')) }}
 		<div class="form-group">
 			<input type="hidden" value="{{ $user->id }}" name="id_usuario">
 			{{ Form::password('password' , array('class' => 'form-control', 'placeholder'=> 'Contraseña')) }}	

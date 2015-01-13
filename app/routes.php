@@ -12,8 +12,8 @@
 */
 Route::get('/', function()
 {
-	$vacantes = Vacante::where('enable', 1)->get();
-	return View::make('inicio')->with('vacantes', $vacantes);
+	$vacantes = Vacante::where('enable', 1)->get();	
+	return View::make('inicio', array('vacantes' => $vacantes));
 });
 
 Route::get('Nosotros', function()
@@ -84,7 +84,7 @@ Route::post('Contacto/send', function(){
 	if($validator->fails()){
 		return Redirect::back()->withErrors($validator)->withInput();
 	}else{
-		/*
+		
 		$data = array(
 			'nombre' => Input::get('nombre'),
 			'razon' => Input::get('razon'),
@@ -97,7 +97,7 @@ Route::post('Contacto/send', function(){
 		Mail::send('emails.contact', $data, function($message){
 		    $message->to('info@magecsa.com', 'MAGECSA')->subject('info contacto');
 		});
-	*/
+	
 		$contacto = new Mensaje();
 		$contacto->nombre = Input::get('nombre');
 		$contacto->razon = Input::get('razon');
@@ -125,10 +125,10 @@ Route::get('login', function(){
 Route::post('perfil/login', 'CandidatosController@login');
 Route::post('perfil/rememberpass', 'CandidatosController@rememberpass');
 
-Route::get('recuperar/contraseña', function(){
+Route::get('recuperar/password', function(){
 	return View::make('usuario.remember');
 });
-Route::get('login/nueva/contraseña/{cadena}', function($cadena){
+Route::get('login/nueva/password/{cadena}', function($cadena){
 	$user = User::where('remember_pass', $cadena)->first();
 	if(!$user){
 		return  Redirect::to('/');
@@ -137,7 +137,7 @@ Route::get('login/nueva/contraseña/{cadena}', function($cadena){
 	}
 	
 });
-Route::post('login/nueva/contraseña', 'CandidatosController@newpass');
+Route::post('login/nueva/password', 'CandidatosController@newpass');
 
 Route::post('candidato/save', array('uses' => 'CandidatosController@save'));
 
@@ -224,5 +224,12 @@ Route::group(array('before' => 'auth'), function()
 		Route::get('vacante/update/{id}', 'VacantesController@viewUpdate');
 		Route::post('vacante/save', 'VacantesController@save');
 		Route::post('vacante/update/{id}', 'VacantesController@update');
+
+		Route::get('slider', 'SliderController@view');
+		Route::get('slider/view/{id}', 'SliderController@viewupdate');
+		Route::get('slider/delete/{id}', 'SliderController@delete');
+		Route::post('slider/save', 'SliderController@save');
+		Route::post('slider/update/{id}', 'SliderController@update');
+		
 	});
 });

@@ -635,9 +635,17 @@ class CandidatosController extends BaseController {
 				return Redirect::back();
 			}else{
 
-				//mail
+				$codigo = $this->generarCodigo(40);
 
-				$user->remember_pass = $this->generarCodigo(40);
+				$data = array(
+					'email' => 'http://masempleosyservicios.com.ni/login/nueva/password/'.$codigo,
+					);				
+
+				Mail::send('emails.rememberpass', $data, function($message) use ($user){
+				    $message->to($user->usuariodato->email, 'MAGECSA')->subject('MAGECSA - Recuperar Contraseña');
+				});
+
+				$user->remember_pass = $codigo;
 				$user->save();
 
 				Session::flash('message', 'La nueva contraseña fue enviada a su email');
@@ -647,10 +655,24 @@ class CandidatosController extends BaseController {
 		}elseif($seleccionado == 'email'){
 			$userdato = UsuarioDato::where('email', $nombre)->first();
 			if($userdato){
-
-				//mail
-
 				$user = $userdato->usuario_id;
+
+
+				$codigo = $this->generarCodigo(40);
+
+				$data = array(
+					'email' => 'http://masempleosyservicios.com.ni/login/nueva/password/'.$codigo,
+					);				
+
+				Mail::send('emails.rememberpass', $data, function($message) use ($user){
+				    $message->to($user->usuariodato->email, 'MAGECSA')->subject('MAGECSA - Recuperar Contraseña');
+				});
+
+				$user->remember_pass = $codigo;
+				$user->save();
+
+				
+				Session::flash('message', 'La nueva contraseña fue enviada a su email');
 				return Redirect::to('login');
 			}else{
 				Session::flash('message', 'Email no encontrado');

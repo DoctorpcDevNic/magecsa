@@ -3,12 +3,11 @@
 	Contacto - Mas Empleos Y Servicios | MAGECSA
 @stop
 @section('contenido')
-
+	<div class="contacto">
 @if(Session::has('message'))
 	<div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
 
-	<div class="contacto">
 		<h2 class="titul">Contáctenos</h2>
 		
  		{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}

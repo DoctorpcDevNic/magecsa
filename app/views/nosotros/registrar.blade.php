@@ -771,7 +771,7 @@
 			</div>	
 			<h3 class="divider"></h3>
 			<div class="alert alert-danger" role="alert">
-			  <p class="alert-link" style="text-align:center">LEER; Al darle registrar, esta aceptando los terminos y condiciones de nuestra, Políticas de privacidad</a>
+			  <p class="alert-link" style="text-align:center">Al darle registrar, esta aceptando los terminos y condiciones de nuestra Políticas de privacidad y condiciones de uso</a>
 			</div>
 			<div class="form-group">								
 					{{ Form::submit('Crear Cuenta' , array('class'=> 'btn btn-primary regis')) }}				
