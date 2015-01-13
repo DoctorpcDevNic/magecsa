@@ -59,45 +59,24 @@
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
+                        <?php $mensajes = Mensaje::where('leido', 0)->get(); ?>
+                        @foreach($mensajes as $value)
+                            <li>
+                                <a href="{{ URL::to('administrador/mensajes/view/'. $value->id) }}">
+                                    <div>
+                                        <strong>{{$value->nombre}}</strong>
+                                        <span class="pull-right text-muted">
+                                            <em>{{ $value->created_at }}</em>
+                                        </span>
+                                    </div>
+                                    <div>{{ substr($value->mensaje, 0, 80); }}...</div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                        @endforeach    
                         <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
+                            <a class="text-center" href="{{ URL::to('administrador/mensajes') }}">
+                                <strong>Leer Todos los mensajes</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>

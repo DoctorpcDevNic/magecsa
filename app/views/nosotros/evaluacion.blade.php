@@ -43,8 +43,12 @@
 	<div class="etapas wow lightSpeedIn">
 		<div class="triangulo computer"></div>
 		<div class="etapa etapaevaluacion">
+			<img src="{{ asset('img/vacanteilimitadas.png') }}" alt="">
+			Publicar vacantes con espacio ilimitado de texto
+		</div>
+		<div class="etapa etapaevaluacion">
 			<img src="{{ asset('img/calendario.png') }}" alt="">
-			Publicar vacantes con espacio ilimitado de texto para publicar su Perﬁl del Puesto, hasta por 30 días
+			Periodo de Publicación de la vacanate por 30 dias
 		</div>
 		<div class="etapa etapaevaluacion">
 			<img src="{{ asset('img/pc.png') }}" alt="">
@@ -55,7 +59,5 @@
 			Publicación Confidencial, usted decide anunciar o no en la Vacante el nombre de su Empresa
 		</div>
 	</div>
-
-	
 </div>
 @stop

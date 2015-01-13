@@ -230,6 +230,17 @@ Route::group(array('before' => 'auth'), function()
 		Route::get('slider/delete/{id}', 'SliderController@delete');
 		Route::post('slider/save', 'SliderController@save');
 		Route::post('slider/update/{id}', 'SliderController@update');
+
+		Route::get('mensajes', function(){
+			$mensajes = Mensaje::orderBy('leido','asc')->get();
+			return View::make('admin.mensajes')->with('mensajes', $mensajes);
+		});
+		Route::get('mensajes/view/{id}', function($id){
+			$mensaje = Mensaje::find($id);
+			$mensaje->leido = 1;
+			$mensaje->save();
+			return View::make('admin.mensajesview')->with('mensaje', $mensaje);
+		});
 		
 	});
 });

@@ -4,9 +4,9 @@
 @stop
 @section('contenido')	
 <div class="reclutamiento">
+<p class="subtitul">En MAGECSA le ofrecemos un servicio de Reclutamiento y Selección de Personal adaptado al candidato más calificado que cumpla con las expectativas del perfil del puesto. Durante el proceso de búsqueda lo asesoramos en la definición de perfiles, evaluaciones, entrevistas y selección de candidato idóneo, en los diferentes puestos: Gerenciales, Mandos Medios, Operativos o de Especialización.</p>
 	<h3 class="titul wow bounceInDown"><img src="{{ asset('img/procesoreclutamiento.png') }}" alt="">Proceso de Reclutamiento</h3>
-	<p class="subtitul">En MAGECSA le ofrecemos un servicio de Reclutamiento y Selección de Personal adaptado al candidato más calificado que cumpla con las expectativas del perfil del puesto. Durante el proceso de búsqueda lo asesoramos en la definición de perfiles, evaluaciones, entrevistas y selección de candidato idóneo, en los diferentes puestos: Gerenciales, Mandos Medios, Operativos o de Especialización.</p>
-
+	
 	<div class="etapas">
 		<div class="etapa">
 			<div class="triangulo computer"></div>

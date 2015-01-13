@@ -25,11 +25,11 @@
 		<div class="triangulo computer"></div>
 		<div class="etapa etapaevaluacion">
 			<img src="{{ asset('img/recp.png') }}" alt="" style="float:left">
-			Recepción. Sabemos que la recepción es una de las partes más importantes de su empresa, para ello le ofrecemos el servicio de nuestro personal de recepción y atención telefónica el cual es cuidadosamente seleccionado atendiendo a distintos parámetros de formación y las características personales.
+			Recepción. Sabemos que la recepción es una de las partes más importantes de su empresa, para ello le ofrecemos el servicio de nuestro personal de recepción y atención telefónica el cual es cuidadosamente seleccionado atendiendo los distintos parámetros de formación y características personales.
 		</div>
 		<div class="etapa etapaevaluacion">
 			<img src="{{ asset('img/concejeria.png') }}" alt=""  style="float:left">
-			Conserjería. Brindamos un servicio de limpieza integral diseñado para cada cliente según sus necesidades específicas que satisfaga por requerimientos de cada lugar y área cumpliendo los estándares de calidad de su compañía y asumiendo por completo la responsabilidad del personal en su labor diaria.
+			Conserjería. Brindamos un servicio de limpieza integral diseñado para cada cliente, según sus necesidades específicas que satisfaga los requerimientos de cada lugar y área, cumpliendo los estándares de calidad de su compañía y asumiendo por completo la responsabilidad del personal en su labor diaria.
 		</div>
 		<div class="etapa etapaevaluacion" style="margin-bottom: 2em">
 			<img src="{{ asset('img/mensajeria.png') }}" alt=""  style="float:left">

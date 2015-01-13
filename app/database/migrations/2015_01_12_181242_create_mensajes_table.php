@@ -19,7 +19,8 @@ class CreateMensajesTable extends Migration {
 			$table->string('razon');
 			$table->string('email'); 
 			$table->string('telefono'); 
-			$table->text('mensaje'); 
+			$table->text('mensaje');
+			$table->boolean('leido');// 0->no; 1->si 
 			$table->timestamps();
 		});
 	}
