@@ -25,13 +25,13 @@
         <h1 class="page-header">Agregar Imagen</h1>
     </div>               
 </div>
-<div class="alert alert-danger" role="alert">Se recomienda que el tamaño de las imagenes no sobrepase 1mb </div>
+<div class="alert alert-danger" role="alert">Se recomienda que el tamaño de las imagenes no sobrepase 300kb con una resolucion de 2000px de ancho x 1000px de altura </div>
 {{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
 	{{ Form::open(array('url' => 'administrador/slider/save' , 'files' => true, 'class' => 'form-horizontal')) }}
 		<div class="form-group">
 			{{ Form::label('descripcion', 'Descripcion de la imagen', array('class' => 'col-sm-3 control-label')) }}
 			<div class="col-sm-6">
-				{{ Form::textarea('descripcion', Input::old('descripcion'), array('class' => 'form-control', 'placeholder'=> 'Titulo de la vacante')) }}	
+				{{ Form::textarea('descripcion', Input::old('descripcion'), array('class' => 'form-control', 'placeholder'=> 'Descripcion de la imagen')) }}	
 			</div>
 		</div>
 		<div class="form-group">
