@@ -21,7 +21,7 @@
 	<div class="aplicarvac">
 		@if(Auth::check())
 			<?php 
-				$vacanteusuario = VacanteUsuario::where('vacante_id', $value->id)->get();	
+				$vacanteusuario = VacanteUsuario::where('vacante_id', $vacante->id)->get();	
 				$count = 0;					
 			 ?>
 			 @foreach($vacanteusuario as $key)
@@ -30,7 +30,7 @@
 				@endif
 			@endforeach
 			@if($count == 0)
-				<a href="{{  URL::to('perfil/vacante/aplicar/'. $value->id .'/' . Auth::user()->id) }}"><i class="fa fa-check"></i>Aplicar a la vacante</a>						
+				<a href="{{  URL::to('perfil/vacante/aplicar/'. $vacante->id .'/' . Auth::user()->id) }}"><i class="fa fa-check"></i>Aplicar a la vacante</a>						
 			@else
 				<p>Ya aplico a esta vacante</p>						
 			@endif
