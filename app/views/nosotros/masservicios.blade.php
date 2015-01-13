@@ -7,29 +7,50 @@
 	<div role="tabpanel">
 	  <!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist" id="tabservicios">
-		  	@if(Auth::check())
-		  		@if(Auth::user()->role_id == 2)	  			
-				    <li role="presentation" class="active"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Busqueda por candidato</a></li>
-				    <li role="presentation"><a href="#vacante" aria-controls="messages" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Publicar Vacantes</a></li>	   
-		  		@else
-			  		<li role="presentation" class="active"><a href="#registroempresa" aria-controls="home" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Registre su empresa</a></li>
-				    <li role="presentation"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Búsqueda por candidato</a></li>
-				    <li role="presentation"><a href="#vacante" aria-controls="messages" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Publicar Vacantes</a></li>	   
-		  		@endif
-		  	@else
-			    <li role="presentation" class="active"><a href="#registroempresa" aria-controls="home" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Registre su empresa</a></li>
-			    <li role="presentation"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Búsqueda por candidato</a></li>
-			    <li role="presentation"><a href="#vacante" aria-controls="messages" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Publicar Vacantes</a></li>	   
-		    @endif
+		    <li role="presentation" class="active"><a href="#registroempresa" aria-controls="home" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Registre su empresa</a></li>
+		    <li role="presentation"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Búsqueda por candidato</a></li>
+		    <li role="presentation"><a href="#vacante" aria-controls="messages" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Publicar Vacantes</a></li>	   
 		</ul>
 
 	  	<!-- Tab panes -->
 		<div class="tab-content">
 		  	@if(Auth::check())
 		  		@if(Auth::user()->role_id == 2)	  
+		  			<div role="tabpanel" class="tab-pane active" id="registroempresa">
+		  				<h2 class="titul" style="color:#45aabb;text-align:center">Su empresa ya esta registrada</h2>
+		  			</div>
 		  			<div role="tabpanel" class="tab-pane" id="busquedacandidato">
 				    	<h2 class="titul">Búsqueda de candidatos registrados</h2>
 				    	<p>Bienvenido a la base de datos mas amplia, fácil y eficiente con potencial 100 %  nicaragüense, a continuación podrá hacer un  filtro según sus necesidades de búsqueda para obtener a su candidato deseado, de igual manera le recordamos nuestros servicios directos de Reclutamiento, Selección y Evaluación de Personal, gracias por unirte a esta  gran familia.</p>				    	
+
+
+				    	<?php 
+				    		$empresa = User::find(Auth::user()->id); 
+				    		$puestos = $empresa->puestos;
+				    		$user = User::where('role_id', 3)->get();
+				    	?>
+
+				    	<div>
+							<table class="table table-hover table-striped table-bordered" id="candidatos">
+								 <thead>
+						            <tr>
+						                <th>Nombre</th>
+						                <th>Area de interes</th>
+						               	<th>Genero</th>
+						               	<th>Vehiculo</th>
+						                <th>Edad</th>
+						               	<th>Nivel Academico</th>
+						               	<th>Habilidad</th>
+						               	<th>Idioma</th>
+						            </tr>
+						            <tbody>
+						            @foreach($user as $value )
+
+						            @endforeach
+						            </tbody>
+						        </thead>
+							</table>
+						</div>
 				    </div>
 				    <div role="tabpanel" class="tab-pane" id="vacante">
 				    	<h2 class="titul">Comuníquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contáctenos</a></h2>
@@ -71,7 +92,7 @@
 								<div class="form-group">
 									{{ Form::label('email', 'Email', array('class' => 'col-sm-3 control-label')) }}
 									<div class="col-sm-6">
-										{{ Form::text('email', Input::old('email'), array('class' => 'form-control', 'placeholder'=> 'Email')) }}	
+										{{ Form::input('email', 'email', Input::old('email'), array('class' => 'form-control', 'placeholder'=> 'Email')) }}	
 									</div>
 								</div>
 								<div class="form-group">
@@ -210,3 +231,13 @@
 	</div>
 </div>
 @stop
+@section('js')
+<script type="text/javascript">	
+    $('#candidatos').dataTable({
+    	"language": {
+            "url": "http://cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Spanish.json"
+        }
+    });	
+</script>
+@stop
+

@@ -34,6 +34,7 @@
 		{{ HTML::style('css/bootstrap.min.css') }}
 		{{ HTML::style('css/jquery.smartmenus.bootstrap.css') }}	
 		{{ HTML::style('css/bootstrap.vertical-tabs.min.css') }}	
+		{{ HTML::style('css/dataTables.bootstrap.css') }} 
 
 		{{ HTML::style('css/main.css') }}
 		{{ HTML::style('css/animate.css') }}
@@ -202,6 +203,8 @@
   		{{ HTML::script('js/jquery.smartmenus.min.js') }}
 		{{ HTML::script('js/jquery.smartmenus.bootstrap.min.js') }}
 
+		{{ HTML::script('js/jquery.dataTables.min.js') }}
+		{{ HTML::script('js/dataTables.bootstrap.js') }}
 
 		{{-- slider  Camera--}}	
 		

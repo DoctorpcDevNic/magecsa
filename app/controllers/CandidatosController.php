@@ -40,7 +40,7 @@ class CandidatosController extends BaseController {
 			'no_identificacion' => 'required',
 			'departamento' => 'required',
 			'direccion' => 'required',
-			'email' => 'required|unique',
+			'email' => 'required|unique:usuariosdatos',
 			'objetivo' => 'required',
 			'interes_laboral' => 'required',
 			'expectativa_salarial' => 'required',
@@ -62,10 +62,10 @@ class CandidatosController extends BaseController {
 		);
 
 
-		$validator = Validator::make(Input::all(), $rules, $message);
+		$validate = Validator::make(Input::all(), $rules, $message);
 
-		if($validator->fails()){
-			return Redirect::back()->withErrors($validator)->withInput();
+		if($validate->fails()){
+			return Redirect::back()->withErrors($validate)->withInput();
 		}else{
 
 			$user->username = Input::get('username');
@@ -141,7 +141,7 @@ class CandidatosController extends BaseController {
 			$user->usuarioexperiencia()->save($userexper);
 			$user->usuarioeducacion()->save($usereduca);
 			$user->usuariootro()->save($userotro);
-			$user->usuariohabilidad()->save($userhab);
+			//$user->usuariohabilidad()->save($userhab);
 
 			Session::flash('message', 'Usuario Agregado, ya puede iniciar sesion');
 			return Redirect::to('login');

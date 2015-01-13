@@ -77,6 +77,7 @@ class EmpresasController extends BaseController {
 
 		$puestos = implode(',',$_POST['puestos']); 
 		$empresa->puestos = $puestos;
+		$empresa->activo = 1;
 
 		$user->save();
 		$user->usuarioempresa()->save($empresa);

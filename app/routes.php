@@ -12,7 +12,7 @@
 */
 Route::get('/', function()
 {
-	$vacantes = Vacante::where('enable', 1)->get();	
+	$vacantes = Vacante::where('enable', 1)->orderBy('id', 'des')->get();	
 	return View::make('inicio', array('vacantes' => $vacantes));
 });
 
@@ -40,7 +40,7 @@ Route::get('Outsorcing', function(){
 
 Route::get('MasEmpleos', function()
 {	
-	$vacantes = Vacante::paginate(6);
+	$vacantes = Vacante::where('enable',1)->orderBy('id', 'des')->paginate(6);
 	return View::make('nosotros.masempleos')->with('vacantes', $vacantes);
 });
 Route::get('Vacante/view/{id}', function($id){
@@ -48,14 +48,14 @@ Route::get('Vacante/view/{id}', function($id){
 	return View::make('nosotros.vacanteview')->with('vacante', $vacante);
 });
 Route::get('Vacante/Search/{tag}', function($tag){	
-	$vacantes = Vacante::all();
+	$vacantes = Vacante::where('enable', 1)->orderBy('id', 'des')->get();
 	return View::make('nosotros.searchvacante')->with('vacantes', $vacantes);
 });
 Route::post('Vacante/Search/{find}', function($find){
 	if(Input::get('area_interes') == 'all'){
 		return Redirect::to('Vacante/Search/all');	
 	}else{
-		$vacantes = Vacante::where('area_interes', Input::get('area_interes'))->get();
+		$vacantes = Vacante::where('area_interes', Input::get('area_interes'))->where('enable',1)->orderBy('id', 'des')->get();
 		return View::make('nosotros.searchvacante')->with('vacantes', $vacantes);
 	}	
 });

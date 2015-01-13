@@ -163,6 +163,7 @@ class UsuariosAdminController extends BaseController {
 		$message = array(
 			'required' => 'El campo :attribute es requerido',			
 			);
+		
 		$validate = Validator::make($inputs, $rules, $message);
 
 		if($validate->fails()){

@@ -82,7 +82,7 @@ class VacantesController extends BaseController {
 
 
 		if($validate->fails()){
-			return Redirect::back()->withErrors($validator);
+			return Redirect::back()->withErrors($validate);
 		}else{
 
 			$vacante = Vacante::find($id);
