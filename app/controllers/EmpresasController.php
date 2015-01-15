@@ -117,7 +117,6 @@ class EmpresasController extends BaseController {
 			'pagina' => 'required',	
 			'telefono' => 'required',
 			'email' => 'required',
-			'archivo' => 'required',	
 			'username' => 'unique:usuarios|required|min:4',			
 			'password' => 'required|between:6,12'			
 		);

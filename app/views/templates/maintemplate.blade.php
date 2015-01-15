@@ -186,7 +186,7 @@
     		<ul class="hidden-xs">
 		        <li><a href="{{ URL::to('Nosotros') }}">Quienes somos</a> <span>|</span></li>
 		        <li><a href="{{ URL::to('Contactenos') }}">Contáctenos</a> <span>|</span></li>		       
-		        <li><a href="">Politicas de privacidad</a> <span>|</span></li>
+		        <li><a href="{{ asset('document/PoliticasDePrivacidad.pdf') }}" target="new">Politicas de privacidad</a> <span>|</span></li>
 		        <li><a href="">Idioma</a> <span>|</span></li>
 		        <li>Designed by <a href="http://doctorpc.com.ni/" target="new">Doctor PC</a></li>
 		      </ul>

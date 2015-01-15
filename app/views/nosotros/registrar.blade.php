@@ -104,7 +104,7 @@
 					      {{ Form::text('apellidos', Input::old('apellidos'), array('class' => 'form-control', 'placeholder'=> '*Apellidos')) }}	
 					    </div>
 					</div>
-					<h3 class="subtitul">Fecha de nacimiento</h3>
+					<h3 class="subtitul">Fecha de Nacimiento</h3>
 					<div class="form-group">						
 					    <div class="col-sm-6 col-sm-offset-2">
 					      {{ Form::input('date', 'fecha_nacimiento', Input::old('fecha_nacimiento'), array('class' => 'form-control')) }}	
@@ -112,15 +112,15 @@
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-10">
-					      {{ Form::textarea( 'direccion', Input::old('direccion'), array('class' => 'form-control','placeholder'=> '*Direccion', 'id' => 'textareainput')) }}	
+					      {{ Form::textarea( 'direccion', Input::old('direccion'), array('class' => 'form-control','placeholder'=> '*Dirección', 'id' => 'textareainput')) }}	
 					    </div>
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					      {{ Form::email( 'email', Input::old('email'), array('class' => 'form-control','placeholder'=> '*Correo Electronico')) }}	
+					      {{ Form::email( 'email', Input::old('email'), array('class' => 'form-control','placeholder'=> '*Correo Electrónico')) }}	
 					    </div>										
 					    <div class="col-sm-5">
-					      {{ Form::email( 'email_confirmation', Input::old('email_confirmation'), array('class' => 'form-control','placeholder'=> '*Comprovar Correo electronico')) }}	
+					      {{ Form::email( 'email_confirmation', Input::old('email_confirmation'), array('class' => 'form-control','placeholder'=> '*Comprobar Correo electronico')) }}	
 					    </div>
 					</div>
 					<div class="form-group">						
@@ -182,10 +182,10 @@
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					    	{{ Form::text('convencional', Input::old('convencional'), array('class' => 'form-control convencional', 'placeholder'=> '*Telefono de Casa', 'id' => 'convencional')) }}	
+					    	{{ Form::text('convencional', Input::old('convencional'), array('class' => 'form-control convencional', 'placeholder'=> '*Teléfono de Casa', 'id' => 'convencional')) }}	
 					    </div>											
 					    <div class="col-sm-5">
-					    	{{ Form::text('celular', Input::old('celular'), array('class' => 'form-control celular', 'placeholder'=> '*Telefono Celular', 'id' => 'celular')) }}	
+					    	{{ Form::text('celular', Input::old('celular'), array('class' => 'form-control celular', 'placeholder'=> '*Teléfono Celular', 'id' => 'celular')) }}	
 					    </div>
 					</div>
 					<div class="form-group">	
@@ -218,7 +218,7 @@
 					    	<input type="checkbox" name="categoria_licencia[]" value="Sin licencia">Sin licencia<br>
 					    </div>	
 					</div>
-					<h3 class="subtitul">Objetivos/Principales logros/Competencias</h3>
+					<h3 class="subtitul">Objetivos/Principales Logros/Competencias</h3>
 					<div class="form-group">						
 					    <div class="col-sm-10">
 					    	{{ Form::textarea('objetivo', Input::old('objetivo'), array('class' => 'form-control', 'placeholder'=> '*Escribe aqui tus objetivos')) }}	
@@ -608,7 +608,7 @@
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-10">
-					    	{{ Form::textarea('funciones', Input::old('funciones'), array('class' => 'form-control', 'placeholder'=> '*Descripcion breve de principales funciones en el puesto')) }}	
+					    	{{ Form::textarea('funciones', Input::old('funciones'), array('class' => 'form-control', 'placeholder'=> '*Descripción breve de principales funciones en el puesto')) }}	
 					    </div>
 					</div>
 					<div class="form-group">	
@@ -625,7 +625,7 @@
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					    	{{ Form::text('telefono_contacto', Input::old('telefono_contacto'), array('class' => 'form-control', 'placeholder'=> '*Telefono de Contacto')) }}	
+					    	{{ Form::text('telefono_contacto', Input::old('telefono_contacto'), array('class' => 'form-control', 'placeholder'=> '*Teléfono de Contacto')) }}	
 					    </div>			
 					    <div class="col-sm-5">
 					    	{{ Form::text('email_contacto', Input::old('email_contacto'), array('class' => 'form-control', 'placeholder'=> 'E-mail de Contacto')) }}	
@@ -660,7 +660,7 @@
 					    </div>	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="instituto" >
-								 <option selected="selected" class="s">*Institucion </option>
+								 <option selected="selected" class="s">*Institución </option>
 								 <option value="Ave Maria University">Ave Maria University</option>				
 								 <option value="Universidad Americana">Universidad Americana</option>	
 								 <option value="Universidad Catolica">Universidad Catolica</option>				
@@ -683,7 +683,7 @@
 					    	{{ Form::text('titulo', Input::old('titulo'), array('class' => 'form-control', 'placeholder'=> '*Titulo')) }}	
 					    </div>    
 					</div>
-					<h3 class="subtitul">Año de Finalizacion</h3>
+					<h3 class="subtitul">Año de Finalización</h3>
 					<div class="form-group">						
 					    <div class="col-sm-6 col-sm-offset-2">
 					    	{{ Form::input('date','fecha_finalizacion', Input::old('fecha_finalizacion'), array('class' => 'form-control')) }}	
@@ -730,7 +730,7 @@
 					<h3 class="subtitul">Habilidades Técnicas</h3>
 					<div class="form-group">
 					 	<div class="col-sm-5">	
-					 		{{ Form::text('habilidad1', Input::old('habilidad1'), array('class' => 'form-control', 'placeholder'=> '*Hablilidades')) }}						
+					 		{{ Form::text('habilidad1', Input::old('habilidad1'), array('class' => 'form-control', 'placeholder'=> '*Habilidades')) }}						
 					 	</div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="nivel_dominio1" >
@@ -771,10 +771,10 @@
 			</div>	
 			<h3 class="divider"></h3>
 			<div class="alert alert-danger" role="alert">
-			  <p class="alert-link" style="text-align:center">Al darle registrar, esta aceptando los terminos y condiciones de nuestra Políticas de privacidad y condiciones de uso</a>
+			  <p class="alert-link" style="text-align:center">Al registrarse, esta aceptando los términos y condiciones de nuestra <a href="{{ asset('document/PoliticasDePrivacidad.pdf') }}" target="new"a>Políticas de Privacidad</a> y <a href="{{ asset('document/CondicionesDeUso.pdf') }}" target="new">Condiciones de Uso</a></a>
 			</div>
 			<div class="form-group">								
-					{{ Form::submit('Crear Cuenta' , array('class'=> 'btn btn-primary regis')) }}				
+					{{ Form::submit('Registrar' , array('class'=> 'btn btn-primary regis')) }}				
 			</div>
 		{{ Form::close() }}	
 	</div>

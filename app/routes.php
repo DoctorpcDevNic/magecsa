@@ -244,3 +244,8 @@ Route::group(array('before' => 'auth'), function()
 		
 	});
 });
+
+App::missing(function($exception)
+{
+	return View::make('error');
+});

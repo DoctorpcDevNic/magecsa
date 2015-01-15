@@ -7,7 +7,7 @@
 	<div role="tabpanel">
 	  <!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist" id="tabservicios">
-		    <li role="presentation" class="active"><a href="#registroempresa" aria-controls="home" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Registre su empresa</a></li>
+		    <li role="presentation" class="active"><a href="#registroempresa" aria-controls="home" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Registre su Empresa</a></li>
 		    <li role="presentation"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Búsqueda por candidato</a></li>
 		    <li role="presentation"><a href="#vacante" aria-controls="messages" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Publicar Vacantes</a></li>	   
 		</ul>
@@ -17,7 +17,7 @@
 		  	@if(Auth::check())
 		  		@if(Auth::user()->role_id == 2)	  
 		  			<div role="tabpanel" class="tab-pane active" id="registroempresa">
-		  				<h2 class="titul" style="color:#45aabb;text-align:center">Su empresa ya esta registrada</h2>
+		  				<h2 class="titul" style="color:#45aabb;text-align:center">Su Empresa ya esta registrada</h2>
 		  			</div>
 		  			<div role="tabpanel" class="tab-pane" id="busquedacandidato">
 				    	<h2 class="titul">Búsqueda de candidatos registrados</h2>
@@ -66,15 +66,35 @@
 
 							{{ Form::open(array('url' => 'save/empresas' , 'files' => true, 'class' => 'form-horizontal col-sm-offset-2')) }}
 								<div class="form-group">
-									{{ Form::label('nombre', 'Nombre de la empresa', array('class' => 'col-sm-3 control-label')) }}
+									{{ Form::label('nombre', 'Nombre de la Empresa', array('class' => 'col-sm-3 control-label')) }}
 									<div class="col-sm-6">
-										{{ Form::text('nombre', Input::old('nombre'), array('class' => 'form-control', 'placeholder'=> 'Nombre de la empresa')) }}	
+										{{ Form::text('nombre', Input::old('nombre'), array('class' => 'form-control', 'placeholder'=> 'Nombre de la Empresa')) }}	
 									</div>
 								</div>
 								<div class="form-group">
-									{{ Form::label('actividad', 'Actividad de la empresa', array('class' => 'col-sm-3 control-label')) }}
+									{{ Form::label('actividad', 'Actividad de la Empresa', array('class' => 'col-sm-3 control-label')) }}
 									<div class="col-sm-6">
-										{{ Form::text('actividad', Input::old('actividad'), array('class' => 'form-control', 'placeholder'=> 'Actividad de la empresa')) }}	
+										<select class="form-control area" name="actividad" >
+											 <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>				
+											 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>	
+											 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
+											 <option value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad</option>	
+											 <option value="Puestos Profesionales">Puestos Profesionales</option>
+											 <option value="Administracion">Administracion</option>
+											 <option value="Informatica|Internet">Informatica|Internet</option>
+											 <option value="Telecomunicaciones">Telecomunicaciones</option>
+											 <option value="Operaciones|Logistica">Operaciones|Logistica</option>
+											 <option value="Almacenamiento">Almacenamiento</option>
+											 <option value="Mantenimiento">Mantenimiento</option>
+											 <option value="Publicidad|Comunicaciones">Publicidad|Comunicaciones</option>
+											 <option value="Servicios">Servicios</option>
+											 <option value="Call Center">Call Center</option>
+											 <option value="Restaurantes">Restaurantes</option>
+											 <option value="Recursos Humanos">Recursos Humanos</option>	
+											 <option value="Compras">Compras</option>
+											 <option value="Salud">Salud</option>
+											 <option value="Apoyo de Oficina">Apoyo de Oficina</option>										 
+										</select> 
 									</div>
 								</div>
 								<div class="form-group">
@@ -96,7 +116,7 @@
 									</div>
 								</div>
 								<div class="form-group">
-									{{ Form::label('logo', 'Logo de la empresa', array('class' => 'col-sm-3 control-label')) }}
+									{{ Form::label('logo', 'Logo de la Empresa', array('class' => 'col-sm-3 control-label')) }}
 									<div class="col-sm-6">
 										{{ Form::file('archivo') }}
 									</div>
@@ -127,7 +147,7 @@
 									{{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'placeholder'=> 'Username')) }} 
 								</div> 
 								<div class="form-group">
-									{{ Form::password('password', array('class' => 'form-control', 'placeholder'=> 'Password')) }}  
+									{{ Form::password('password', array('class' => 'form-control', 'placeholder'=> 'Contraseña')) }}  
 								</div>
 								<div class="form-group dow">
 									<button class="btn btn-primary btn-lg btn-block">Iniciar Sesion</button>
@@ -152,15 +172,35 @@
 
 						{{ Form::open(array('url' => 'save/empresas' , 'files' => true, 'class' => 'form-horizontal col-sm-offset-2')) }}
 							<div class="form-group">
-								{{ Form::label('nombre', 'Nombre de la empresa', array('class' => 'col-sm-3 control-label')) }}
+								{{ Form::label('nombre', 'Nombre de la Empresa', array('class' => 'col-sm-3 control-label')) }}
 								<div class="col-sm-6">
-									{{ Form::text('nombre', Input::old('nombre'), array('class' => 'form-control', 'placeholder'=> 'Nombre de la empresa')) }}	
+									{{ Form::text('nombre', Input::old('nombre'), array('class' => 'form-control', 'placeholder'=> 'Nombre de la Empresa')) }}	
 								</div>
 							</div>
 							<div class="form-group">
-								{{ Form::label('actividad', 'Actividad de la empresa', array('class' => 'col-sm-3 control-label')) }}
+								{{ Form::label('actividad', 'Actividad de la Empresa', array('class' => 'col-sm-3 control-label')) }}
 								<div class="col-sm-6">
-									{{ Form::text('actividad', Input::old('actividad'), array('class' => 'form-control', 'placeholder'=> 'Actividad de la empresa')) }}	
+									<select class="form-control area" name="actividad" >
+										 <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>				
+										 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>	
+										 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
+										 <option value="Produccion|Ingenieria|Calidad">Produccion|Ingenieria|Calidad</option>	
+										 <option value="Puestos Profesionales">Puestos Profesionales</option>
+										 <option value="Administracion">Administracion</option>
+										 <option value="Informatica|Internet">Informatica|Internet</option>
+										 <option value="Telecomunicaciones">Telecomunicaciones</option>
+										 <option value="Operaciones|Logistica">Operaciones|Logistica</option>
+										 <option value="Almacenamiento">Almacenamiento</option>
+										 <option value="Mantenimiento">Mantenimiento</option>
+										 <option value="Publicidad|Comunicaciones">Publicidad|Comunicaciones</option>
+										 <option value="Servicios">Servicios</option>
+										 <option value="Call Center">Call Center</option>
+										 <option value="Restaurantes">Restaurantes</option>
+										 <option value="Recursos Humanos">Recursos Humanos</option>	
+										 <option value="Compras">Compras</option>
+										 <option value="Salud">Salud</option>
+										 <option value="Apoyo de Oficina">Apoyo de Oficina</option>										 
+									</select> 
 								</div>
 							</div>
 							<div class="form-group">
@@ -182,7 +222,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								{{ Form::label('logo', 'Logo de la empresa', array('class' => 'col-sm-3 control-label')) }}
+								{{ Form::label('logo', 'Logo de la Empresa', array('class' => 'col-sm-3 control-label')) }}
 								<div class="col-sm-6">
 									{{ Form::file('archivo') }}
 								</div>
@@ -213,7 +253,7 @@
 								{{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'placeholder'=> 'Username')) }} 
 							</div> 
 							<div class="form-group">
-								{{ Form::password('password', array('class' => 'form-control', 'placeholder'=> 'Password')) }}  
+								{{ Form::password('password', array('class' => 'form-control', 'placeholder'=> 'Contraseña')) }}  
 							</div>
 							<div class="form-group dow">
 								<button class="btn btn-primary btn-lg btn-block">Iniciar Sesión</button>
