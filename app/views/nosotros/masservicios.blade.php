@@ -151,7 +151,7 @@
 								</div>
 								<div class="form-group dow">
 									<button class="btn btn-primary btn-lg btn-block">Iniciar Sesion</button>
-									<span><a href="{{ URL::to('recuperar/contraseña') }}" target="new">Olvide mi contraseña</a></span><br>
+									<span><a href="{{ URL::to('recuperar/password') }}" target="new">Olvide mi contraseña</a></span><br>
 									<span><a href="{{ URL::to('MasServicios') }}">Registro de Empresa</a></span>
 								</div>
 							{{ Form::close() }}  
@@ -257,7 +257,7 @@
 							</div>
 							<div class="form-group dow">
 								<button class="btn btn-primary btn-lg btn-block">Iniciar Sesión</button>
-								<span><a href="{{ URL::to('recuperar/contraseña') }}">Olvide mi contraseña</a></span><br>
+								<span><a href="{{ URL::to('recuperar/password') }}">Olvide mi contraseña</a></span><br>
 								<span><a href="{{ URL::to('MasServicios') }}">Registro de Empresa</a></span>
 							</div>
 						{{ Form::close() }}  

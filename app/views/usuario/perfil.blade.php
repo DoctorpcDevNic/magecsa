@@ -37,7 +37,7 @@
 					</div>
 					<div class="exbd">
 						@foreach($user->usuarioexperiencia()->orderBy('id', 'desc')->get() as $value)
-							<p>{{$value->funciones}}</p>
+							<p> &#8226; {{ substr($value->funciones,0,150) }}...</p>
 						@endforeach
 					</div>	
 					<span></span>

@@ -155,6 +155,6 @@ function tam(){
 	}
 	console.log(may);
 
-	$(".infomain .perfil .perfilpublico .infopf .row .info").css('height', may);
+	$(".infomain .perfil .perfilpublico .infopf .row .info").css('height', may+15);
 }
 
