@@ -45,7 +45,12 @@ Route::get('MasEmpleos', function()
 });
 Route::get('Vacante/view/{id}', function($id){
 	$vacante = Vacante::find($id);
-	return View::make('nosotros.vacanteview')->with('vacante', $vacante);
+	if($vacante && $vacante->enable == 1){
+		return View::make('nosotros.vacanteview')->with('vacante', $vacante);
+	}else{
+		return View::make('error');
+	}
+	
 });
 Route::get('Vacante/Search/{tag}', function($tag){	
 	$vacantes = Vacante::where('enable', 1)->orderBy('id', 'des')->get();
@@ -161,8 +166,8 @@ Route::group(array('prefix' => 'perfil', 'before' => 'auth'), function () {
 	Route::get('cv/{username}', function($username){		
 			$user = User::where('username', $username)->first();
 
-			if(Auth::user()->id == $user->id){
-				return View::make('usuario.cv')->with('user', $user);
+			if(Auth::user()->id == $user->id || Auth::user()->role_id == 0){
+			//	return View::make('usuario.cv')->with('user', $user);
 				$html = View::make("usuario.cv")->with('user', $user);
 		    	return PDF::load($html, 'A4', 'portrait')->show();
 
