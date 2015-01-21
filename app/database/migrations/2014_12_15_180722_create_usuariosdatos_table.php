@@ -27,7 +27,6 @@ class CreateUsuariosdatosTable extends Migration {
 			$table->text('direccion');
 			$table->string('convencional');
 			$table->string('celular');
-			$table->string('email');
 			$table->boolean('vehiculo');
 			$table->string('categoria_licencia');
 			$table->string('disponible_viajar');

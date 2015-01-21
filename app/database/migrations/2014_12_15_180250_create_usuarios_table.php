@@ -17,6 +17,7 @@ class CreateUsuariosTable extends Migration {
 			$table->increments('id');
 			$table->string('username');
 			$table->string('password');
+			$table->string('email');
 			$table->integer('role_id');
 			$table->boolean('enable');
 			$table->string('remember_pass');

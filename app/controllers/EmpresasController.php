@@ -20,6 +20,13 @@ class EmpresasController extends BaseController {
 
 		if($this->ValidateForms(Input::all()) === true){
 
+			$user = new User(); 
+			$user->username = Input::get('username');
+			$user->password = Hash::make(Input::get('password'));
+			$user->enable = 0;
+			$user->email = Input::get('email');
+			$user->role_id = 2;
+
 			$file = 'noimg.png';
 			$empresa = new Empresa();
 
@@ -27,8 +34,7 @@ class EmpresasController extends BaseController {
 			$empresa->actividad = Input::get('actividad');
 			$empresa->pagina = Input::get('pagina');
 			$empresa->telefono = Input::get('telefono');
-			$empresa->email = Input::get('email');
-
+			
 			if(Input::hasFile('archivo')) {
 				File::delete('img/upload/'. $empresa->logo);
 		       	Input::file('archivo')->move('img/upload', Input::get('nombre') . Input::file("archivo")->getClientOriginalName());
@@ -36,13 +42,9 @@ class EmpresasController extends BaseController {
 			}
 
 			$empresa->logo = $file;
-			$empresa->activo = 0;
 
-			$empresa->username = Input::get('username');
-			$empresa->password = Hash::make(Input::get('password'));
-
-
-			$empresa->save();
+			$user->save();
+			$user->usuarioempresa()->save($empresa);
 
 			Session::flash('message', 'Solicitud enviada, espere la respuesta del administrador');
 			return Redirect::back();
@@ -68,16 +70,13 @@ class EmpresasController extends BaseController {
 	 * @return [type]     [description]
 	 */
 	public function updateadmin($id){
-		$user = New User();
 		$empresa = Empresa::find($id);
-
-		$user->username = $empresa->username;
-		$user->password = $empresa->password;
-		$user->role_id = 2;
+		$user = User::where('id', $empresa->usuario_id)->first();
 
 		$puestos = implode(',',$_POST['puestos']); 
 		$empresa->puestos = $puestos;
-		$empresa->activo = 1;
+
+		$user->enable = 1;
 
 		$user->save();
 		$user->usuarioempresa()->save($empresa);
@@ -88,17 +87,18 @@ class EmpresasController extends BaseController {
 
 	public function activo($id){
 		$empresa = Empresa::find($id);
+		$user = User::where('id', $empresa->usuario_id)->first();
 		$msj = '';
 
-		if($empresa->activo == 0){
-			$empresa->activo = 1;
+		if($user->enable == 0){
+			$user->enable = 1;
 			$msj = 'Empresa Habilitada';
 		}else{
-			$empresa->activo = 0;
+			$user->enable = 0;
 			$msj = 'Empresa Deshabilitada';
 		}
 
-		$empresa->save();
+		$user->save();
 
 		Session::flash('message', $msj);
 		return Redirect::back();
@@ -116,7 +116,7 @@ class EmpresasController extends BaseController {
 			'actividad' => 'required|min:2',
 			'pagina' => 'required',	
 			'telefono' => 'required',
-			'email' => 'required',
+			'email' => 'required|unique:usuarios',
 			'username' => 'unique:usuarios|required|min:4',			
 			'password' => 'required|between:6,12'			
 		);

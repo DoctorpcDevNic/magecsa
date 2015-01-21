@@ -7,9 +7,9 @@
 	<div role="tabpanel">
 	  <!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist" id="tabservicios">
-		    <li role="presentation" class="active"><a href="#registroempresa" aria-controls="home" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Registre su Empresa</a></li>
-		    <li role="presentation"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Búsqueda por candidato</a></li>
-		    <li role="presentation"><a href="#vacante" aria-controls="messages" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i>Publicar Vacantes</a></li>	   
+		    <li role="presentation" class="active"><a href="#registroempresa" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-pencil-square-o"></i>Registre su Empresa</a></li>
+		    <li role="presentation"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-search"></i>Búsqueda por candidato</a></li>
+		    <li role="presentation"><a href="#vacante" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-bullhorn"></i>Publicar Vacantes</a></li>	   
 		</ul>
 
 	  	<!-- Tab panes -->
@@ -23,11 +23,12 @@
 				    	<h2 class="titul">Búsqueda de candidatos registrados</h2>
 				    	<p>Bienvenido a la base de datos mas amplia, fácil y eficiente con potencial 100 %  nicaragüense, a continuación podrá hacer un  filtro según sus necesidades de búsqueda para obtener a su candidato deseado, de igual manera le recordamos nuestros servicios directos de Reclutamiento, Selección y Evaluación de Personal, gracias por unirte a esta  gran familia.</p>				    	
 
+				    	<h2 class="titul" style="font-size:1.5em">Filtro de vacantes</h2>
 
 				    	<?php 
 				    		$empresa = User::find(Auth::user()->id); 
 				    		$puestos = $empresa->puestos;
-				    		$user = User::where('role_id', 3)->get();
+				    		$experiencias = UsuarioExperiencia::where('area', 'LIKE', $puestos)->get();
 				    	?>
 
 				    	<div>
@@ -44,8 +45,41 @@
 						               	<th>Idioma</th>
 						            </tr>
 						            <tbody>
-						            @foreach($user as $value )
-
+						            @foreach($experiencias as $value )
+						            	<?php $user = User::where('id', $value->usuario_id)->first(); ?>
+						            	<tr>
+						            		<td><a href="{{ URL::to('Perfil/'. $user->username )}}" target="new">{{ $user->usuariodato->nombres }}</a> </td>
+						            		<td>
+					            				@foreach($user->usuarioexperiencia()->get() as $key)
+					            					{{ $key->area }},  
+					            				@endforeach
+					            			</td>
+					            			<td>{{ $user->usuariodato->genero }} </td>
+					            			<td>
+					            				@if($user->usuariodato->vehiculo == 1) no
+					            				@else si
+					            				@endif
+					            			</td>
+					                         <td>
+					                            <?php 
+					                                $fecha = UsuarioDato::where('usuario_id', $user->id)->first(); 
+					                                list($Y,$m,$d) = explode("-",$fecha->fecha_nacimiento);
+					                                $fecha = date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y ;
+					                             ?>
+					                             {{ $fecha }}
+					                        </td>
+					            			<td>
+												@foreach($user->usuarioeducacion()->get() as $key)
+					            					{{ $key->nivel_academico }},  
+					            				@endforeach
+					            			</td>
+					            			<td>
+					            				{{ $user->usuariootro->habilidad1 }} ,
+					            				{{ $user->usuariootro->habilidad2 }} ,
+					            				{{ $user->usuariootro->habilidad3 }} 
+					            			</td>
+					            			<td>{{ $user->usuariootro->idioma }} </td>
+						            	</tr>
 						            @endforeach
 						            </tbody>
 						        </thead>

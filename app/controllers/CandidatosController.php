@@ -40,7 +40,7 @@ class CandidatosController extends BaseController {
 			'no_identificacion' => 'required',
 			'departamento' => 'required',
 			'direccion' => 'required',
-			'email' => 'required|unique:usuariosdatos',
+			'email' => 'required|unique:usuarios',
 			'objetivo' => 'required',
 			'interes_laboral' => 'required',
 			'expectativa_salarial' => 'required',
@@ -70,6 +70,7 @@ class CandidatosController extends BaseController {
 
 			$user->username = Input::get('username');
 			$user->password =  Hash::make(Input::get('password'));
+			$user->email = Input::get('email');
 			$user->enable = 1;
 			$user->role_id = 3;
 
@@ -85,7 +86,6 @@ class CandidatosController extends BaseController {
 			$userdato->direccion = Input::get('direccion');
 			$userdato->convencional = Input::get('convencional');
 			$userdato->celular = Input::get('celular');
-			$userdato->email = Input::get('email');
 			$userdato->vehiculo = Input::get('vehiculo');
 
 			$categorias = implode(',',$_POST['categoria_licencia']); 
@@ -313,7 +313,7 @@ class CandidatosController extends BaseController {
 				'no_identificacion' => 'required',
 				'departamento' => 'required',
 				'direccion' => 'required',
-				'email' => 'required',
+				'email' => 'required|unique:usuarios',
 				'objetivo' => 'required',
 			);
 
@@ -342,7 +342,6 @@ class CandidatosController extends BaseController {
 				$userdato->direccion = Input::get('direccion');
 				$userdato->convencional = Input::get('convencional');
 				$userdato->celular = Input::get('celular');
-				$userdato->email = Input::get('email');
 				$userdato->vehiculo = Input::get('vehiculo');
 
 				$categorias = implode(',',$_POST['categoria_licencia']); 
@@ -350,7 +349,9 @@ class CandidatosController extends BaseController {
 
 				$userdato->disponible_viajar = Input::get('disponible_viajar');
 				$userdato->objetivo = Input::get('objetivo');
-						
+
+				$user->email = Input::get('email');
+				$user->save();		
 				$user->usuariodato()->save($userdato);
 
 				Session::flash('message', 'Usuario Modificado');
@@ -600,8 +601,14 @@ class CandidatosController extends BaseController {
 					return Redirect::to('administrador');
 				}else if(Auth::user()->role_id == 1){//empleado
 					return Redirect::to('administrador');
-				}else if(Auth::user()->role_id == 2){//empresa					
-					return Redirect::to('MasServicios');
+				}else if(Auth::user()->role_id == 2){//empresa	
+					if(Auth::user()->enable == 1){
+						return Redirect::to('MasServicios');	
+					}else{
+						Session::flash('message', 'El administrador ya esta revisando su solicitud, se le comunicara cuando su usuario este activo');
+						return Redirect::to('login');
+					}				
+					
 				}else if(Auth::user()->role_id == 3){//candidato
 					return Redirect::to('Perfil/' . Auth::user()->username);
 				}
@@ -642,7 +649,7 @@ class CandidatosController extends BaseController {
 					);				
 
 				Mail::send('emails.rememberpass', $data, function($message) use ($user){
-				    $message->to($user->usuariodato->email, 'MAGECSA')->subject('MAGECSA - Recuperar Contraseña');
+				    $message->to($user->email, 'MAGECSA')->subject('MAGECSA - Recuperar Contraseña');
 				});
 
 				$user->remember_pass = $codigo;
@@ -653,11 +660,9 @@ class CandidatosController extends BaseController {
 			}		
 
 		}elseif($seleccionado == 'email'){
-			$userdato = UsuarioDato::where('email', $nombre)->first();
-			if($userdato){
-				$user = $userdato->usuario_id;
-
-
+			$user = User::where('email', $nombre)->first();
+			if($user){
+				
 				$codigo = $this->generarCodigo(40);
 
 				$data = array(
@@ -665,7 +670,7 @@ class CandidatosController extends BaseController {
 					);				
 
 				Mail::send('emails.rememberpass', $data, function($message) use ($user){
-				    $message->to($user->usuariodato->email, 'MAGECSA')->subject('MAGECSA - Recuperar Contraseña');
+				    $message->to($user->email, 'MAGECSA')->subject('MAGECSA - Recuperar Contraseña');
 				});
 
 				$user->remember_pass = $codigo;
@@ -741,7 +746,7 @@ class CandidatosController extends BaseController {
 
 	private function generarCodigo($longitud) {
 		$key = '';
-		$pattern = '1234567890abcdefghijklmnopqrstuvwxyz$&@#ABCDEFGHIJKLMNOPQRSTUVWXYZ.';
+		$pattern = '1234567890abcdefghijklmnopqrstuvwxyz$&@ABCDEFGHIJKLMNOPQRSTUVWXYZ.,';
 		$max = strlen($pattern)-1;
 		for($i=0;$i < $longitud;$i++) $key .= $pattern{mt_rand(0,$max)};
 		return $key;

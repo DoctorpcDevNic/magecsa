@@ -19,12 +19,8 @@ class CreateEmpresasTable extends Migration {
 			$table->string('actividad');
 			$table->string('pagina');
 			$table->string('telefono');
-			$table->string('email');
 			$table->string('logo');
 			$table->text('puestos');
-			$table->string('username');
-			$table->string('password');	
-			$table->integer('activo');	
 			$table->integer('usuario_id');		
 			$table->timestamps();
 		});

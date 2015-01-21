@@ -208,7 +208,7 @@ Route::group(array('before' => 'auth'), function()
 			return View::make('admin.empresassolicitud')->with('empresas', $empresas);
 		});
 		Route::post('empresas/updateadmin/{id}','EmpresasController@updateadmin');	
-		Route::get('empresa/activo/{id}', 'EmpresasController@activo');
+		Route::get('empresas/activo/{id}', 'EmpresasController@activo');
 
 		Route::get('candidatos', function(){
 			$user = User::where('role_id', 3)->get();

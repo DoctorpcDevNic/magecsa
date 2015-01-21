@@ -28,12 +28,12 @@ class UsuariosAdminController extends BaseController {
 			$user = new User();
 			$user->username = Input::get('username');
 			$user->password = Hash::make(Input::get('password'));	
+			$user->email = Input::get('email');
 			$user->role_id = Input::get('rol');
 
 			$useradmin = new UsuarioAdmin();
 			$useradmin->nombres = Input::get('nombres');
 			$useradmin->apellidos = Input::get('apellidos');
-			$useradmin->email = Input::get('email');
 			$useradmin->cargo = Input::get('cargo');
 
 			$user->save();
@@ -58,12 +58,12 @@ class UsuariosAdminController extends BaseController {
 			$user = User::find($id);
 			$user->username = Input::get('username');
 			$user->password = Hash::make(Input::get('password'));	
+			$user->email = Input::get('email');
 			$user->role_id = Input::get('rol');
 
 			$useradmin = UsuarioAdmin::where('usuario_id', $id)->first();
 			$useradmin->nombres = Input::get('nombres');
 			$useradmin->apellidos = Input::get('apellidos');
-			$useradmin->email = Input::get('email');
 			$useradmin->cargo = Input::get('cargo');
 
 			$user->save();
@@ -136,7 +136,7 @@ class UsuariosAdminController extends BaseController {
 		$rules = array(
 			'nombres' => 'required|min:2',
 			'apellidos' => 'required|min:2',
-			'email' => 'required',	
+			'email' => 'required|unique:usuarios',	
 			'cargo' => 'required',	
 			'username' => 'unique:usuarios|required|min:4',			
 			'password' => 'confirmed|required|between:6,100',

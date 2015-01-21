@@ -17,32 +17,31 @@
 			text-align: right;	
 		}
 		.social img{
-			width: 40px
+			width: 40px !important;
 		}
 		.footer{
-			color: white;
-			text-align:  center
+			color: white !important;
+			text-align:  center !important;
 		}
 		.footer p{
-			margin: 0;
+			margin: 0 !important;
 		}
 		.footer ul{
-			margin: 0;
+			margin: 0 !important;
 		}
 		.footer ul li{
-			list-style: none;
-			display: inline-block;
+			list-style: none !important;
+			display: inline-block !important;
 		}
 		.footer ul li a{
-			text-decoration: underline;
-			color: white;
-
+			text-decoration: underline !important;
+			color: white !important;
 		}
 
 	</style>
 </head>
 <body>
-	<table align="center" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;"> 
+	<table align="center" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; font-size:18px"> 
 		<tr> 
 			<td align="left" style="padding: 40px 0 30px 0;"> 
  				<img src="http://masempleosyservicios.com.ni/img/logo.png" alt="Creating Email Magic" width="130" height="130" style="display: block; float:left" /> 
@@ -50,28 +49,29 @@
 			</td> 
 		</tr> 
 		<tr> 
+			
 			<td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;" class="info"> 
-				<h2 style="color:#45aabb; text-align:center">Recuperar Contraseña <a href="http://masempleosyservicios.com.ni/Contactenos" target="new" style="text-decoration:underline; color:#45aabb; ">Contacto</a></h2>
+				<h2 style="color:#45aabb; text-align:center">Recuperar Contraseña </h2>
 				
 				<p>Correro enviado para recuperar contraseña. Si usted no ha pedido recuperar contraseña, omita este mensaje</p>
-				<p>Ingrese a este link para repuerar contraseña <a href="http://masempleosyservicios.com.ni/login/nueva/password/{{ $email }}" target="new">http://masempleosyservicios.com.ni/login/nueva/password/{{ $email }}</a></p>
+				<p>Ingrese a este link para repuerar contraseña <a href="{{ $email }}" target="new">{{ $email }}</a></p>
 				
 			</td> 
 		</tr> 
 		<tr> 
-			<td bgcolor="#61a75b" class="footer"> 
-	    		<p>Mas Empleos Y Servicios &copy; 2014 MAGECSA</p>
-	    		<P>Todos Los Derechos Reservados</P>    		
-	    		<ul>
-	    			<li><a href="http://masempleosyservicios.com.ni/">MAGECSA</a> <span>|</span></li>
-			        <li><a href="http://masempleosyservicios.com.ni/Nosotros">Quienes somos</a> <span>|</span></li>
-			        <li><a href="http://masempleosyservicios.com.ni/Contactenos">Contáctenos</a> <span>|</span></li>
-			        <li>Designed by <a href="http://doctorpc.com.ni/" target="new">Doctor PC</a></li>
+			<td bgcolor="#61a75b" class="footer" style="color: white !important;text-align:center !important;"> 
+	    		<p style="margin: 0 !important;">Mas Empleos Y Servicios &copy; 2014 MAGECSA</p>
+	    		<P style="margin: 0 !important;">Todos Los Derechos Reservados</P>    		
+	    		<ul style="margin: 0 !important;">
+	    			<li style="list-style: none !important;display: inline-block !important;"><a href="http://masempleosyservicios.com.ni/" style="text-decoration: underline !important;color: white !important;">MAGECSA</a> <span>|</span></li>
+			        <li style="list-style: none !important;display: inline-block !important;"><a href="http://masempleosyservicios.com.ni/Nosotros" style="text-decoration: underline !important;color: white !important;">Quienes somos</a> <span>|</span></li>
+			        <li style="list-style: none !important;display: inline-block !important;"><a href="http://masempleosyservicios.com.ni/Contactenos" style="text-decoration: underline !important;color: white !important;">Contáctenos</a> <span>|</span></li>
+			        <li style="list-style: none !important;display: inline-block !important;">Designed by <a href="http://doctorpc.com.ni/" target="new" style="text-decoration: underline !important;color: white !important;">Doctor PC</a></li>
 			     </ul> 
-			     <div class="social">
-	    			<a href=""><img src="http://masempleosyservicios.com.ni/img/facebooklogo.png" alt=""></a>
-	    			<a href=""><img src="http://masempleosyservicios.com.ni/img/twiter.png" alt=""></a>
-	    			<a href=""><img src="http://masempleosyservicios.com.ni/img/linkeding.png" alt=""></a>
+			     <div class="social" style="text-align: right;">
+	    			<a href=""><img src="http://masempleosyservicios.com.ni/img/facebooklogo.png" alt="" style="width: 40px !important;"></a>
+	    			<a href=""><img src="http://masempleosyservicios.com.ni/img/twiter.png" alt="" style="width: 40px !important;"></a>
+	    			<a href=""><img src="http://masempleosyservicios.com.ni/img/linkeding.png" alt="" style="width: 40px !important;"></a>
 	    		</div>
 			</td> 
 	 	</tr> 

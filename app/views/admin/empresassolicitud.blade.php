@@ -24,7 +24,8 @@
 		</thead>
 		<tbody>
 			@foreach($empresas as $value)
-				@if($value->activo == 0)
+			<?php $user = User::where('id', $value->usuario_id)->first(); ?>
+				@if($user->enable == 0)
 					<tr>
 						<td>{{ $value->nombre }}</td>					
 						<td>{{ $value->actividad }}</td>					

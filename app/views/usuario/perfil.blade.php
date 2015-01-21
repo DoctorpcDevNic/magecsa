@@ -75,18 +75,16 @@
 			</div>				
 		</div>
 		<div class="pie">
-			<div>
-				<a href="{{ URL::to('perfil/cv/'. $user->username) }}" target="new">
-					<img src="{{ asset('img/cvdescarga.png') }}" alt="">
-					DESCARGAR CURRICULUM
-				</a>
-			</div>
-			<div>
-				<a href="#">
-					<img src="{{ asset('img/seleccv.png') }}" alt="">
-					SELECCIONAR CANDIDATO
-				</a>
-			</div>
+			@if(Auth::check())
+				@if(Auth::user()->id == $user->id || Auth::user()->role_id == 0)
+				<div>
+					<a href="{{ URL::to('perfil/cv/'. $user->username) }}" target="new">
+						<img src="{{ asset('img/cvdescarga.png') }}" alt="">
+						DESCARGAR CURRICULUM
+					</a>
+				</div>
+				@endif
+			@endif
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -193,7 +191,7 @@
 									</div>
 									<div class="form-group">						
 									    <div class="col-sm-5">
-									      {{ Form::email( 'email', Input::old('email') ? Input::old(): $user->usuariodato->email, array('class' => 'form-control','placeholder'=> '*Correo Electronico')) }}	
+									      {{ Form::email( 'email', Input::old('email') ? Input::old(): $user->email, array('class' => 'form-control','placeholder'=> '*Correo Electronico')) }}	
 									    </div>										
 									    <div class="col-sm-5">
 									      {{ Form::email( 'email_confirmation', Input::old('email_confirmation'), array('class' => 'form-control','placeholder'=> '*Comprovar Correo electronico')) }}	

@@ -26,7 +26,7 @@
 					<tr>
 						<td>{{$value->nombre}}</td>					
 						<td>{{$value->email}}</td>					
-						<td>{{ $value->username }}</td>	
+						<td>{{$value->username }}</td>	
 						<td>
 							<a href="{{ URL::to('administrador/usuarios/del/'. $value->id .'') }}" class="btn btn-small btn-danger">Borrar Usuario</a>
 						</td>			
@@ -57,7 +57,7 @@
 				@if($value->role_id == 0)
 					<tr>
 						<td>{{ $value->usuarioadmin->nombres }}</td>					
-						<td>{{ $value->usuarioadmin->email }}</td>					
+						<td>{{ $value->email }}</td>					
 						<td>{{ $value->username }}</td>	
 						<td>{{ $value->usuarioadmin->cargo }}</td>
 						<td>Administrador</td>	
