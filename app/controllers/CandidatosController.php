@@ -566,8 +566,8 @@ class CandidatosController extends BaseController {
 
 			if(Input::hasFile('archivo')) {
 				File::delete('img/upload/'. $userdato->foto);
-		       	Input::file('archivo')->move('img/upload', Auth::user()->username . Input::file("archivo")->getClientOriginalName());
-		       	$file = Auth::user()->username . Input::file("archivo")->getClientOriginalName();
+		       	Input::file('archivo')->move('img/upload', 'avatar'.Auth::user()->username);
+		       	$file = 'avatar'.Auth::user()->username;
 
 		       	$userdato->foto = $file;
 		       	$user->usuariodato()->save($userdato);

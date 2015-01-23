@@ -49,7 +49,7 @@
 					</div>
 					<div class="exbd">
 						<p> Licencia : {{ $user->usuariodato->categoria_licencia }} </p>
-						<p>Vehículo: @if($user->usuariodato->estado_civil == 0) no @else si @endif</p>
+						<p>Vehículo: @if($user->usuariodato->vehiculo == 1) no @else si @endif</p>
 						<?php 
 							$fecha = UsuarioDato::where('usuario_id', $user->id)->first(); 
 							list($Y,$m,$d) = explode("-",$fecha->fecha_nacimiento);
@@ -108,7 +108,7 @@
 			<div class="col-xs-3 computer" style="margin-top: 2em"> 
 				<div class="avatar">
 					<img src="{{ asset('img/upload/' . $user->usuariodato->foto) }}" alt="" class="img-responsive">
-					<a href="#" class="btn btn-primary" id="cambiaravatar">Cambiar Avatar</a>
+					<a href="#" class="btn btn-primary" id="cambiaravatar">Cambiar Imagen de perfil</a>
 				</div>
 				
 			    <ul class="nav nav-tabs tabs-left">
@@ -319,15 +319,16 @@
 								<div class="campo col-sm-offset-1">
 									<div class="form-group">	
 									    <div class="col-sm-5 ">
-									    	<select class="form-control" name="interes_laboral" data-select='{{$user->usuarioexpectativa()->first()->interes_laboral}}' id="interes_laboral">
-												 <option selected="selected" class="s">*Nivel de Interés Laboral</option>
-												 <option value="Permanente">Permanente</option>				
-												 <option value="Temporal">Temporal</option>	
-												 <option value="Busqueda Activa">Busqueda Activa</option>	
-												 <option value="Disponibilidad Inmediata">Disponibilidad Inmediata</option>	
-												 <option value="Pasantia">Pasantia</option>	
-												 <option value="Por proyecto">Por proyecto</option>	
-											</select> 
+									    	{{ Form::select('interes_laboral', array(
+										    										'Permanente' => 'Permanente', 
+										    										'Temporal' => 'Temporal',
+										    										'Busqueda Activa' => 'Busqueda Activa',
+										    										'Disponibilidad Inmediata' => 'Disponibilidad Inmediata',
+										    										'Pasantia' => 'Pasantia',
+										    										'Por proyecto' => 'Por proyecto',	
+									    										), 
+									    		'$user->usuarioexpectativa()->first()->interes_laboral', array('class' => 'form-control'))
+									    	}}
 									    </div>
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="expectativa_salarial" data-select='{{$user->usuarioexpectativa()->first()->expectativa_salarial}}' id="expectativa_salarial">
@@ -830,31 +831,33 @@
 								<div class="campo col-sm-offset-2">
 									<div class="form-group">	
 									    <div class="col-sm-5">
-									    	<select class="form-control" name="idioma" data-select='{{$user->usuariootro->idioma}}' id="idioma">
-												 <option selected="selected" class="s">Idioma</option>
-												 <option value="Aleman">Aleman</option>				
-												 <option value="Arabe">Arabe</option>	
-												 <option value="Cantones">Cantones</option>				
-												 <option value="Chino - Mandarin">Chino - Mandarin</option>				
-												 <option value="Español">Español</option>
-												 <option value="Frances">Frances</option>
-												 <option value="Ingles">Ingles</option>
-												 <option value="Italiano">Italiano</option>	
-												 <option value="Japones">Japones</option>	
-												 <option value="Portugues">Portugues</option>	
-												 <option value="Ruso">Ruso</option>	
-												 <option value="Taiwanes">Taiwanes</option>		
-											</select> 
+									   		{{ Form::select('idioma', array(
+									    										'Aleman' => 'Aleman', 
+									    										'Arabe' => 'Arabe',
+									    										'Cantones' => 'Cantones',
+									    										'Chino - Mandarin' => 'Chino - Mandarin',
+									    										'Español' => 'Español',
+									    										'Frances' => 'Frances',
+									    										'Ingles' => 'Ingles',
+									    										'Italiano' => 'Italiano',
+									    										'Japones' => 'Japones',
+									    										'Portugues' => 'Portugues',
+									    										'Ruso' => 'Ruso',
+									    										'Taiwanes' => 'Taiwanes',										    										
+								    										), 
+									    		'$user->usuariootro->idioma', array('class' => 'form-control'))
+									    	}}
 									    </div>
 									    <div class="col-sm-5">
-									    	<select class="form-control" name="nivel_dominio" data-select='{{$user->usuariootro->nivel_dominio}}' id="nivel_dominio">
-												 <option selected="selected" class="s">Nivel de Dominio </option>
-												 <option value="Basico">Basico</option>				
-												 <option value="Intermedio">Intermedio</option>	
-												 <option value="Avanzado">Avanzado</option>				
-												 <option value="Nativo">Nativo</option>				
-												 <option value="Bilingüe">Bilingüe</option>	
-											</select> 
+										    {{ Form::select('nivel_dominio', array(
+								    										'Basico' => 'Basico', 
+								    										'Intermedio' => 'Intermedio',
+								    										'Avanzado' => 'Avanzado',
+								    										'Nativo' => 'Nativo',
+								    										'Bilingüe' => 'Bilingüe'								    																				    										
+							    											), 
+										    		'$user->usuariootro->nivel_dominio', array('class' => 'form-control'))
+										    }}
 									    </div>					    
 									</div>
 									<h3 class="subtitul">Habilidades Tecnicas</h3>

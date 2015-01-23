@@ -13,9 +13,14 @@
 			<img src="{{ asset('img/upload/'. $vacante->logo) }}" alt="">
 		</div>
 		<div class="col-md-6 col-xs-12 descrip_vacante">
-			<p><i class="fa fa-map-marker"></i>{{ $vacante->departamento }}</p>
-            <p><i class="fa fa-info-circle"></i>{{ $vacante->requisitos }}</p>
-            <p><i class="fa fa-info"></i> {{ $vacante->descripcion }} </p>
+			<p class="ic"><i class="fa fa-map-marker"></i> Ubicación</p>
+			<p>{{ $vacante->departamento }}</p>
+
+            <p class="ic"><i class="fa fa-graduation-cap"></i> Requisitos</p>
+            <p>{{ $vacante->requisitos }}</p>
+
+           	<p class="ic"><i class="fa fa-list-ol"></i> Descripcion</p>
+           	<p>{{ $vacante->descripcion }} </p>
 		</div>
 	</div>
 	<div class="aplicarvac">

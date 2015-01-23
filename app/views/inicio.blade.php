@@ -97,9 +97,9 @@
                   </h3>
                   <div class="descripcion">
                    <p><i class="fa fa-bullhorn"></i> {{ $value->titulo }}</p>
-                   <p><i class="fa fa-map-marker"></i>{{ $value->departamento }}</p>
-                   <p><i class="fa fa-info-circle"></i>{{ substr($value->requisitos, 0, 30); }}...</p>
-                   <p><i class="fa fa-info"></i> {{ substr($value->descripcion, 0, 80); }}... <a href="{{ URL::to('Vacante/view/'. $value->id) }}">Leer Mas</a></p>
+                   <p><i class="fa fa-map-marker" style="padding:0 14px"></i>{{ $value->departamento }}</p>
+                   <p><i class="fa fa-graduation-cap"></i>{{ substr($value->requisitos, 0, 30); }}...</p>
+                   <p><i class="fa fa-list-ol"></i> {{ substr($value->descripcion, 0, 80); }}... <a href="{{ URL::to('Vacante/view/'. $value->id) }}">Leer Mas</a></p>
                   </div>
                 </div>
                 <div class="logo_slider computer">
