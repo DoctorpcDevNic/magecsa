@@ -24,6 +24,7 @@ class CreateUsuariosexperienciasTable extends Migration {
 			$table->string('fecha_fin');
 			$table->text('logros');
 			$table->text('funciones');
+			$table->text('contacto');
 			$table->integer('usuario_id');
 			$table->timestamps();
 		});

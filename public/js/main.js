@@ -125,6 +125,19 @@ function main(){
 		$('#areasseleccionadas').val($('#pp').html());
 	});
 
+
+	if($('#superior').val() == 'Contactar Superior'){
+		$('.inabil').attr('disabled', 'disabled');
+	}
+	
+	$('#superior').change(function(){
+		if($(this).val() == '0'){
+			$('.inabil').attr('disabled', 'disabled');
+		}else{
+			$('.inabil').removeAttr('disabled');
+		}
+	});	
+
 	tam();
 
 }

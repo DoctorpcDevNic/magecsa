@@ -613,22 +613,22 @@
 					</div>
 					<div class="form-group">	
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="superior" >
+					    	<select class="form-control" name="superior" id="superior">
 								 <option selected="selected" class="s">Contactar Superior </option>
-								 <option value="0">Si</option>				
-								 <option value="1">No</option>	
+								 <option value="0">No</option>				
+								 <option value="1">Si</option>	
 							</select> 
 					    </div>			
 					    <div class="col-sm-5">
-					    	{{ Form::text('nombre_contacto', Input::old('nombre_contacto'), array('class' => 'form-control', 'placeholder'=> '*Nombre de Contacto')) }}	
+					    	{{ Form::text('nombre_contacto', Input::old('nombre_contacto'), array('class' => 'form-control inabil', 'placeholder'=> '*Nombre de Contacto')) }}	
 					    </div>
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					    	{{ Form::text('telefono_contacto', Input::old('telefono_contacto'), array('class' => 'form-control', 'placeholder'=> '*Teléfono de Contacto')) }}	
+					    	{{ Form::text('telefono_contacto', Input::old('telefono_contacto'), array('class' => 'form-control inabil', 'placeholder'=> '*Teléfono de Contacto')) }}	
 					    </div>			
 					    <div class="col-sm-5">
-					    	{{ Form::text('email_contacto', Input::old('email_contacto'), array('class' => 'form-control', 'placeholder'=> 'E-mail de Contacto')) }}	
+					    	{{ Form::text('email_contacto', Input::old('email_contacto'), array('class' => 'form-control inabil', 'placeholder'=> 'E-mail de Contacto')) }}	
 					    </div>
 					</div>
 				</div>

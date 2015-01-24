@@ -32,7 +32,7 @@
 			<p>Estado civil : <span class="res">{{ $user->usuariodato->estado_civil }}</span></p>
 			<p>Dirección : <span class="res">{{ $user->usuariodato->direccion }}</span></p>
 			<p>Teléfonos : <span class="res">{{ $user->usuariodato->convencional . " / " . $user->usuariodato->celular }}</span></p>
-			<p>E-mail : <span class="res">{{ $user->usuariodato->email }}</span></p>
+			<p>E-mail : <span class="res">{{ $user->email }}</span></p>
 		</div>
 	</div>
 	<div class="clear">

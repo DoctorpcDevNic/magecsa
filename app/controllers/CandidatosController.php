@@ -111,6 +111,14 @@ class CandidatosController extends BaseController {
 			$userexper->fecha_fin = Input::get('fecha_fin');
 			$userexper->logros = Input::get('logros');
 			$userexper->funciones = Input::get('funciones');
+			
+
+			if(Input::get('superior') == 1){//si hay
+				$contacto = new UsuarioContacto();
+				$contacto->nombre_contacto = Input::get('nombre_contacto');
+				$contacto->telefono_contacto = Input::get('telefono_contacto');
+				$contacto->email_contacto = Input::get('email_contacto');
+			}
 
 			$usereduca->nivel_academico = Input::get('nivel_academico');
 			$usereduca->titulo = Input::get('titulo');
@@ -139,6 +147,9 @@ class CandidatosController extends BaseController {
 			$user->usuariodato()->save($userdato);
 			$user->usuarioexpectativa()->save($userexpec);
 			$user->usuarioexperiencia()->save($userexper);
+			if(Input::get('superior') == 1){//si hay
+				$userexper->usuariocontacto()->save($contacto);
+			}
 			$user->usuarioeducacion()->save($usereduca);
 			$user->usuariootro()->save($userotro);
 			//$user->usuariohabilidad()->save($userhab);
@@ -456,9 +467,19 @@ class CandidatosController extends BaseController {
 				$userexper->fecha_fin = Input::get('fecha_fin');
 				$userexper->logros = Input::get('logros');
 				$userexper->funciones = Input::get('funciones');
+				$userexper->contacto = Input::get('superior');
 
+				if(Input::get('superior') == 1){//si hay
+					$contacto = new UsuarioContacto();
+					$contacto->nombre_contacto = Input::get('nombre_contacto');
+					$contacto->telefono_contacto = Input::get('telefono_contacto');
+					$contacto->email_contacto = Input::get('email_contacto');
+				}
 
 				$user->usuarioexperiencia()->save($userexper);
+				if(Input::get('superior') == 1){//si hay
+					$userexper->usuariocontacto()->save($contacto);
+				}
 
 				Session::flash('message', 'Usuario Modificado');
 				return Redirect::back();
@@ -719,6 +740,22 @@ class CandidatosController extends BaseController {
 			Session::flash('message', 'Contraseña cambiada puede iniciar sesion');
 			return Redirect::to('login');
 		}	
+	}
+
+	public function deleteexperiencia($id){
+		$experiencia = UsuarioExperiencia::find($id);
+
+		$experiencia->delete();
+		Session::flash('message', 'Experiencia Borrada');
+		return Redirect::back();
+	}
+
+	public function deleteeducacion($id){
+		$educacion = UsuarioEducacion::find($id);
+
+		$educacion->delete();
+		Session::flash('message', 'Educacion Borrada');
+		return Redirect::back();
 	}
 
 

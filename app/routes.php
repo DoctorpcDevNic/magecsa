@@ -160,7 +160,10 @@ Route::group(array('prefix' => 'perfil', 'before' => 'auth'), function () {
 	Route::get('logout', 'CandidatosController@getLogout');
 
 	Route::post('add/experiencia/{id}','CandidatosController@addexperiencia');
+	Route::get('del/experiencia/{id}','CandidatosController@deleteexperiencia');
+	
 	Route::post('add/educacion/{id}','CandidatosController@addeducacion');
+	Route::get('del/educacion/{id}','CandidatosController@deleteeducacion');
 	
 
 	Route::get('cv/{username}', function($username){		

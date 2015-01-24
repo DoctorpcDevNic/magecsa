@@ -132,7 +132,7 @@
 					
 						<h3 class="titulother">
 							<img src="{{ asset('img/datoscuenta.png') }}" alt="" class="computer">
-							Datos de la cuenta
+							Datos De la cuenta
 						</h3>
 						<div class="formu">
 							{{ Form::open(array('url' => 'perfil/update/datoscuenta/' . $user->id, 'class' => 'form-horizontal')) }}
@@ -709,27 +709,44 @@
 										</div>
 										<div class="form-group">	
 										    <div class="col-sm-5">
-										    	<select class="form-control" name="superior" >
-													 <option selected="selected" class="s">Contactar Superior </option>
-													 <option value="0">Si</option>				
-													 <option value="1">No</option>	
-												</select> 
+										    <input type="hidden" value="{{ $value->contacto }}">
+									    			{{ Form::select('superior', array(
+										    										'Contactar Superior' => 'Contactar Superior', 
+										    										'0' => 'No',
+										    										'1' => 'Si',												    										
+									    											), 
+											    		'$value->contacto', array('class' => 'form-control', 'id' => 'superior'))
+											    	}}
 										    </div>			
 										    <div class="col-sm-5">
-										    	{{ Form::text('nombre_contacto', Input::old('nombre_contacto'), array('class' => 'form-control', 'placeholder'=> '*Nombre de Contacto')) }}	
+										    	@if($value->contacto == 0)
+										    		{{ Form::text('nombre_contacto', Input::old('nombre_contacto'), array('class' => 'form-control inabil', 'placeholder'=> '*Nombre de Contacto')) }}	
+										    	@else
+										    		{{ Form::text('nombre_contacto', Input::old('nombre_contacto') ? Input::old() : $value->usuariocontacto->nombre_contacto, array('class' => 'form-control', 'placeholder'=> '*Nombre de Contacto')) }}	
+										    	@endif
 										    </div>
 										</div>
 										<div class="form-group">						
 										    <div class="col-sm-5">
-										    	{{ Form::text('telefono_contacto', Input::old('telefono_contacto'), array('class' => 'form-control', 'placeholder'=> '*Telefono de Contacto')) }}	
+										    	@if($value->contacto == 0)
+										    		{{ Form::text('telefono_contacto', Input::old('telefono_contacto'), array('class' => 'form-control inabil', 'placeholder'=> '*Telefono de Contacto')) }}	
+									    		@else
+									    			{{ Form::text('telefono_contacto', Input::old('telefono_contacto') ? Input::old() : $value->usuariocontacto->telefono_contacto , array('class' => 'form-control ', 'placeholder'=> '*Telefono de Contacto')) }}	
+									    		@endif
 										    </div>			
 										    <div class="col-sm-5">
-										    	{{ Form::text('email_contacto', Input::old('email_contacto'), array('class' => 'form-control', 'placeholder'=> 'E-mail de Contacto')) }}	
+										    	@if($value->contacto == 0)
+										    		{{ Form::text('email_contacto', Input::old('email_contacto'), array('class' => 'form-control ', 'placeholder'=> 'E-mail de Contacto')) }}	
+									    		@else
+									    			{{ Form::text('email_contacto', Input::old('email_contacto') ? Input::old() : $value->usuariocontacto->email_contacto, array('class' => 'form-control ', 'placeholder'=> 'E-mail de Contacto')) }}									
+									    		@endif
 										    </div>
 										</div>										
 									</div>
 									<div class="form-group">											
 										{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
+										<br>					
+										<a href="{{ URL::to('perfil/del/experiencia/'. $value->id) }}" class="btn btn-danger regis" style="background:#d9534f">Borrar Experiencia</a>
 									</div>
 								{{ Form::close() }}	
 								<div class="divider"></div>
@@ -806,6 +823,8 @@
 									</div>
 									<div class="form-group">											
 										{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis', 'id' => 'submitexpectativas')) }}				
+										<br>					
+										<a href="{{ URL::to('perfil/del/educacion/'. $value->id) }}" class="btn btn-danger regis" style="background:#d9534f">Borrar Educacion</a>
 									</div>
 								{{ Form::close() }}	
 								<div class="divider"></div>
@@ -1053,22 +1072,22 @@
 								</div>
 								<div class="form-group">	
 								    <div class="col-sm-5">
-								    	<select class="form-control" name="superior" >
+								    	<select class="form-control" name="superior" id="superior">
 											 <option selected="selected" class="s">Contactar Superior </option>
-											 <option value="0">Si</option>				
-											 <option value="1">No</option>	
+											 <option value="0">No</option>				
+											 <option value="1">Si</option>	
 										</select> 
 								    </div>			
 								    <div class="col-sm-5">
-								    	{{ Form::text('nombre_contacto', Input::old('nombre_contacto'), array('class' => 'form-control', 'placeholder'=> '*Nombre de Contacto')) }}	
+								    	{{ Form::text('nombre_contacto', Input::old('nombre_contacto'), array('class' => 'form-control inabil', 'placeholder'=> '*Nombre de Contacto')) }}	
 								    </div>
 								</div>
 								<div class="form-group">						
 								    <div class="col-sm-5">
-								    	{{ Form::text('telefono_contacto', Input::old('telefono_contacto'), array('class' => 'form-control', 'placeholder'=> '*Telefono de Contacto')) }}	
+								    	{{ Form::text('telefono_contacto', Input::old('telefono_contacto'), array('class' => 'form-control inabil', 'placeholder'=> '*Telefono de Contacto')) }}	
 								    </div>			
 								    <div class="col-sm-5">
-								    	{{ Form::text('email_contacto', Input::old('email_contacto'), array('class' => 'form-control', 'placeholder'=> 'E-mail de Contacto')) }}	
+								    	{{ Form::text('email_contacto', Input::old('email_contacto'), array('class' => 'form-control inabil', 'placeholder'=> 'E-mail de Contacto')) }}	
 								    </div>
 								</div>
 								<div class="modal-footer">

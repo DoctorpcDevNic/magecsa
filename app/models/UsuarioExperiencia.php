@@ -9,7 +9,7 @@
 		}
 
 		public function usuariocontacto(){
-			return $this->hasMany('UsuarioContacto', 'usuario_experiencia_id');
+			return $this->hasOne('UsuarioContacto', 'usuario_experiencia_id');
 		}
 	}
 ?>
