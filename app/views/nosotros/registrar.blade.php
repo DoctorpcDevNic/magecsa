@@ -139,14 +139,14 @@
 					<div class="form-group">						
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="genero" >
-								 <option selected="selected" class="s">*Genero</option>
+								 <option selected="selected" class="s" value="">*Genero</option>
 								 <option value="Femenino">Femenino</option>				
 								 <option value="Masculino">Masculino</option>				
 							</select> 
 					    </div>									
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="departamento" >
-								 <option selected="selected" class="s">*Departamento</option>
+								 <option selected="selected" class="s" value=" ">*Departamento</option>
 								 <option value="Atlantico Norte (RAAN)">Atlantico Norte (RAAN)</option>				
 								 <option value="Atlantico Sur (RAAS)">Atlantico Sur (RAAS)</option>	
 								 <option value="Boaco">Boaco</option>				
@@ -170,7 +170,7 @@
 					<div class="form-group">						
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="tipo_identificacion" >
-								 <option selected="selected" class="s">*Tipo de Identificación </option>
+								 <option selected="selected" class="s" value=" ">*Tipo de Identificación </option>
 								 <option value="Cedula">Cédula</option>				
 								 <option value="Pasaporte">Pasaporte</option>				
 								 <option value="Cedula de Residencia">Cédula de Residencia</option>				
@@ -191,14 +191,14 @@
 					<div class="form-group">	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="vehiculo" >
-								 <option selected="selected" class="s">Posees Vehículo </option>
+								 <option selected="selected" class="s" value=" ">Posees Vehículo </option>
 								 <option value="0">Si</option>				
 								 <option value="1">No</option>	
 							</select> 
 					    </div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="disponible_viajar" id="pr">
-								 <option selected="selected" class="s">Disponibilidad de Viajar </option>
+								 <option selected="selected" class="s" value=" ">Disponibilidad de Viajar </option>
 								 <option value="0">Si</option>				
 								 <option value="1">No</option>	
 							</select> 
@@ -236,7 +236,7 @@
 					<div class="form-group">	
 					    <div class="col-sm-5 ">
 					    	<select class="form-control" name="interes_laboral" >
-								 <option selected="selected" class="s">*Nivel de Interés Laboral</option>
+								 <option selected="selected" class="s" value=" ">*Nivel de Interés Laboral</option>
 								 <option value="Permanente">Permanente</option>				
 								 <option value="Temporal">Temporal</option>	
 								 <option value="Busqueda Activa">Búsqueda Activa</option>	
@@ -247,7 +247,7 @@
 					    </div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="expectativa_salarial" >
-								<option selected="selected" class="s">*Expectativa Salarial Mensual </option>
+								<option selected="selected" class="s" value=" ">*Expectativa Salarial Mensual </option>
 								<option value="menos de 200">menos de 200</option>				
 								<option value="0-200">0-200</option>	
 								<option value="201-300 "> 201-300</option>	
@@ -277,7 +277,7 @@
 					<div class="form-group">	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="ubicacion_laboral" >
-								 <option selected="selected" class="s">Ubicación de interés laboral</option>
+								 <option selected="selected" class="s" value=" ">Ubicación de interés laboral</option>
 								 <option value="Atlantico Norte (RAAN)">Atlantico Norte (RAAN)</option>				
 								 <option value="Atlantico Sur (RAAS)">Atlantico Sur (RAAS)</option>	
 								 <option value="Boaco">Boaco</option>				
@@ -299,7 +299,7 @@
 					    </div>	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="areas_interes" >
-								 <option selected="selected" class="s">Áreas de Interés </option>									
+								 <option selected="selected" class="s" value=" ">Áreas de Interés </option>									
 								 <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>
 								 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>				
 								 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
@@ -325,7 +325,7 @@
 					<div class="form-group">	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="puesto_interes" >
-								 <option selected="selected" class="s">Puestos de Interés </option>
+								 <option selected="selected" class="s" value=" ">Puestos de Interés </option>
 								 <option value="Ejecutivos de Ventas">Ejecutivos de Ventas</option>				
 								 <option value="Vendedor|Rutero">Vendedor|Rutero</option>	
 								 <option value="Jefe de Ventas|Supervisor">Jefe de Ventas|Supervisor</option>	
@@ -496,7 +496,7 @@
 					    </div>	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="horario" >
-								 <option selected="selected" class="s">Horario </option>
+								 <option selected="selected" class="s" value=" ">Horario </option>
 								 <option value="Diurno">Diurno</option>				
 								 <option value="Nocturno">Nocturno</option>	
 								 <option value="Horario Alternos">Horario Alternos</option>	
@@ -520,7 +520,7 @@
 					    </div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="actividad_empresa" >
-								 <option selected="selected" class="s">*Actividad de la Empresa</option>
+								 <option selected="selected" class="s" value=" ">*Actividad de la Empresa</option>
 								 <option value="Aduana|Agencia Aduaneras">Aduana|Agencia Aduaneras</option>				
 								 <option value="Agencia de Empleo|Reclutamiento">Agencia de Empleo|Reclutamiento</option>	
 								 <option value="Agricola|Ganadera">Agricola|Ganadera</option>	
@@ -562,7 +562,7 @@
 					    </div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="area" >
-								 <option selected="selected" class="s">*Area Funcional</option>
+								 <option selected="selected" class="s" value=" ">*Area Funcional</option>
 								 <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>				
 								 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>	
 								 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
@@ -614,7 +614,7 @@
 					<div class="form-group">	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="superior" id="superior">
-								 <option selected="selected" class="s">Contactar Superior </option>
+								 <option selected="selected" class="s" value=" ">Contactar Superior </option>
 								 <option value="0">No</option>				
 								 <option value="1">Si</option>	
 							</select> 
@@ -643,7 +643,7 @@
 					<div class="form-group">	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="nivel_academico" >
-								 <option selected="selected" class="s">*Nivel Académico </option>
+								 <option selected="selected" class="s" value=" ">*Nivel Académico </option>
 								 <option value="Primaria">Primaria</option>				
 								 <option value="Bachillerato Secundaria">Bachillerato Secundaria</option>	
 								 <option value="Estudiante Universitario">Estudiante Universitario</option>				
@@ -660,7 +660,7 @@
 					    </div>	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="instituto" >
-								 <option selected="selected" class="s">*Institución </option>
+								 <option selected="selected" class="s" value=" ">*Institución </option>
 								 <option value="Ave Maria University">Ave Maria University</option>				
 								 <option value="Universidad Americana">Universidad Americana</option>	
 								 <option value="Universidad Catolica">Universidad Catolica</option>				
@@ -701,7 +701,7 @@
 					<div class="form-group">	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="idioma" >
-								 <option selected="selected" class="s">Idioma</option>
+								 <option selected="selected" class="s" value=" ">Idioma</option>
 								 <option value="Aleman">Aleman</option>				
 								 <option value="Arabe">Arabe</option>	
 								 <option value="Cantones">Cantones</option>				
@@ -718,7 +718,7 @@
 					    </div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="nivel_dominio" >
-								 <option selected="selected" class="s">Nivel de Dominio </option>
+								 <option selected="selected" class="s" value=" ">Nivel de Dominio </option>
 								 <option value="Basico">Basico</option>				
 								 <option value="Intermedio">Intermedio</option>	
 								 <option value="Avanzado">Avanzado</option>				
@@ -734,7 +734,7 @@
 					 	</div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="nivel_dominio1" >
-								 <option selected="selected" class="s">Nivel de Dominio </option>
+								 <option selected="selected" class="s" value=" ">Nivel de Dominio </option>
 								 <option value="Basico">Básico</option>				
 								 <option value="Intermedio">Intermedio</option>	
 								 <option value="Avanzado">Avanzado</option>	
@@ -747,7 +747,7 @@
 					 	</div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="nivel_dominio2" >
-								 <option selected="selected" class="s">Nivel de Dominio </option>
+								 <option selected="selected" class="s" value=" ">Nivel de Dominio </option>
 								 <option value="Basico">Básico</option>				
 								 <option value="Intermedio">Intermedio</option>	
 								 <option value="Avanzado">Avanzado</option>
@@ -760,7 +760,7 @@
 					 	</div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="nivel_dominio3" >
-								 <option selected="selected" class="s">Nivel de Dominio </option>
+								 <option selected="selected" class="s" value=" ">Nivel de Dominio </option>
 								 <option value="Basico">Básico</option>				
 								 <option value="Intermedio">Intermedio</option>	
 								 <option value="Avanzado">Avanzado</option>	

@@ -227,14 +227,14 @@
 									<div class="form-group">						
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="genero" data-select='{{$user->usuariodato->genero}}' id="genero">												 
-												 <option selected="selected" class="s">*Genero</option>
+												 <option selected="selected" class="s" value=" ">*Genero</option>
 												 <option value="Femenino">Femenino</option>				
 												 <option value="Masculino">Masculino</option>				
 											</select> 
 									    </div>									
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="departamento" data-select='{{$user->usuariodato->departamento}}' id="departamento">												
-												 <option selected="selected" class="s">*Departamento</option>
+												 <option selected="selected" class="s" value=" ">*Departamento</option>
 												 <option value="Atlantico Norte (RAAN)">Atlantico Norte (RAAN)</option>				
 												 <option value="Atlantico Sur (RAAS)">Atlantico Sur (RAAS)</option>	
 												 <option value="Boaco">Boaco</option>				
@@ -258,7 +258,7 @@
 									<div class="form-group">						
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="tipo_identificacion" data-select='{{$user->usuariodato->tipo_identificacion}}' id="tipo_identificacion">
-												 <option selected="selected" class="s">*Tipo de Identiﬁcación </option>	
+												 <option selected="selected" class="s" value=" ">*Tipo de Identiﬁcación </option>	
 												 <option value="Cedula">Cedula</option>				
 												 <option value="Pasaporte">Pasaporte</option>				
 												 <option value="Cedula de Residencia">Cedula de Residencia</option>				
@@ -279,14 +279,14 @@
 									<div class="form-group">	
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="vehiculo" data-select='{{$user->usuariodato->vehiculo}}' id="vehiculo">
-												 <option selected="selected" class="s">Posees Vehiculo </option>
+												 <option selected="selected" class="s" value=" ">Posees Vehiculo </option>
 												 <option value="0">Si</option>				
 												 <option value="1">No</option>	
 											</select> 
 									    </div>
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="disponible_viajar" data-select='{{$user->usuariodato->disponible_viajar}}' id="disponible_viajar">
-												 <option selected="selected" class="s">Disponibilidad de Viajar </option>
+												 <option selected="selected" class="s" value=" ">Disponibilidad de Viajar </option>
 												 <option value="0">Si</option>				
 												 <option value="1">No</option>	
 											</select> 
@@ -346,7 +346,7 @@
 									    </div>
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="expectativa_salarial" data-select='{{$user->usuarioexpectativa()->first()->expectativa_salarial}}' id="expectativa_salarial">
-												<option selected="selected" class="s">*Expectativa Salarial Mensual </option>
+												<option selected="selected" class="s" value=" ">*Expectativa Salarial Mensual </option>
 												<option value="menos de 200">menos de 200</option>				
 												<option value="0-200">0-200</option>	
 												<option value="201-300 "> 201-300</option>	
@@ -865,24 +865,25 @@
 									<div class="form-group">	
 									    <div class="col-sm-5">
 									   		{{ Form::select('idioma', array(
-									    										'Aleman' => 'Aleman', 
-									    										'Arabe' => 'Arabe',
-									    										'Cantones' => 'Cantones',
-									    										'Chino - Mandarin' => 'Chino - Mandarin',
-									    										'Español' => 'Español',
-									    										'Frances' => 'Frances',
-									    										'Ingles' => 'Ingles',
-									    										'Italiano' => 'Italiano',
-									    										'Japones' => 'Japones',
-									    										'Portugues' => 'Portugues',
-									    										'Ruso' => 'Ruso',
-									    										'Taiwanes' => 'Taiwanes',										    										
-								    										), 
+								    										'Aleman' => 'Aleman', 
+								    										'Arabe' => 'Arabe',
+								    										'Cantones' => 'Cantones',
+								    										'Chino - Mandarin' => 'Chino - Mandarin',
+								    										'Español' => 'Español',
+								    										'Frances' => 'Frances',
+								    										'Ingles' => 'Ingles',
+								    										'Italiano' => 'Italiano',
+								    										'Japones' => 'Japones',
+								    										'Portugues' => 'Portugues',
+								    										'Ruso' => 'Ruso',
+								    										'Taiwanes' => 'Taiwanes',										    										
+							    											), 
 									    		'$user->usuariootro->idioma', array('class' => 'form-control'))
 									    	}}
 									    </div>
 									    <div class="col-sm-5">
 										    {{ Form::select('nivel_dominio', array(
+										    								' ' => 'Nivel de Dominio',
 								    										'Basico' => 'Basico', 
 								    										'Intermedio' => 'Intermedio',
 								    										'Avanzado' => 'Avanzado',
