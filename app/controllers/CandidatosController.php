@@ -41,16 +41,17 @@ class CandidatosController extends BaseController {
 			'departamento' => 'required',
 			'direccion' => 'required',
 			'email' => 'required|unique:usuarios',
-			'objetivo' => 'required',
+			'objetivo' => 'required|max:200',
 			'interes_laboral' => 'required',
 			'expectativa_salarial' => 'required',
 			'nombre_empresa' => 'required',
 			'actividad_empresa' => 'required',
 			'area' => 'required',
 			'puesto' => 'required',
+			'logros' => 'max:200',
 			'fecha_inicio' => 'required',
 			'fecha_fin' => 'required',
-			'funciones' => 'required',
+			'funciones' => 'required|max:200',
 			'nivel_academico' => 'required',
 			'titulo' => 'required',
 			'instituto' => 'required',			
@@ -58,7 +59,8 @@ class CandidatosController extends BaseController {
 
 		$message = array(
 			'required' => 'El campo :attribute es requerido',
-			'unique' => 'El :attribute ya esta en uso'	
+			'unique' => 'El :attribute ya esta en uso',
+			'max' => 'El campo :attribute tienen un limite de 200 caracteres'	
 		);
 
 
@@ -176,11 +178,12 @@ class CandidatosController extends BaseController {
 				'puesto' => 'required',
 				'fecha_inicio' => 'required',
 				'fecha_fin' => 'required',
-				'funciones' => 'required',
+				'funciones' => 'required|max:150',
 			);
 
 			$message = array(
-				'required' => 'El campo :attribute es requerido',				
+				'required' => 'El campo :attribute es requerido',	
+				'max' => 'El campo :attribute tienen un limite de 200 caracteres'				
 			);
 
 			$validator = Validator::make(Input::all(), $rules, $message);
@@ -435,13 +438,15 @@ class CandidatosController extends BaseController {
 				'actividad_empresa' => 'required',
 				'area' => 'required',
 				'puesto' => 'required',
+				'logros' => 'max:400',
 				'fecha_inicio' => 'required',
 				'fecha_fin' => 'required',
-				'funciones' => 'required',
+				'funciones' => 'required|max:400',
 			);
 
 			$message = array(
-				'required' => 'El campo :attribute es requerido',				
+				'required' => 'El campo :attribute es requerido',
+				'max' => 'El campo :attribute tienen un limite de 200 caracteres'					
 			);
 
 			$validator = Validator::make(Input::all(), $rules, $message);
@@ -587,8 +592,8 @@ class CandidatosController extends BaseController {
 
 			if(Input::hasFile('archivo')) {
 				File::delete('img/upload/'. $userdato->foto);
-		       	Input::file('archivo')->move('img/upload', 'avatar'.Auth::user()->username);
-		       	$file = 'avatar'.Auth::user()->username;
+		       	Input::file('archivo')->move('img/upload', 'avatar'.Auth::user()->username).'.jpg';
+		       	$file = 'avatar'.Auth::user()->username .'.jpg';
 
 		       	$userdato->foto = $file;
 		       	$user->usuariodato()->save($userdato);

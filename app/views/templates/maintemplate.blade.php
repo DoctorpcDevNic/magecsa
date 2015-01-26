@@ -181,7 +181,8 @@
     			<a href=""><img src="{{ asset('img/linkeding.png') }}" alt=""></a>
     		</div>
     		<p>Mas Empleos Y Servicios &copy; 2014 MAGECSA</p>
-    		<P>Todos Los Derechos Reservados</P>    		
+    		<p>Dirección: Plaza Bolonia Modulo L5, Telefono: 2266-5793</p> 
+    		<P>Todos Los Derechos Reservados</P>
     		<p class="hidden-md hidden-lg hidden-sm">Designed by <a href="">Doctor PC</a></p>
     		<ul class="hidden-xs">
 		        <li><a href="{{ URL::to('Nosotros') }}">Quienes somos</a> <span>|</span></li>

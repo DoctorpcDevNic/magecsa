@@ -36,9 +36,22 @@
 						<p class="computer">HABILIDADES TECNICAS</p>
 					</div>
 					<div class="exbd">
-						@foreach($user->usuarioexperiencia()->orderBy('id', 'desc')->get() as $value)
-							<p> &#8226; {{ substr($value->funciones,0,150) }}...</p>
-						@endforeach
+						<p>Idioma: {{ $user->usuariootro->idioma }} / {{ $user->usuariootro->nivel_dominio }}</p>
+						<p>Habilidades:</p>
+						@if($user->usuariootro->habilidad1 == '')
+						@else
+							<p><li style="color: #fbef44">{{ $user->usuariootro->habilidad1 }}</li></p>
+						@endif
+
+						@if($user->usuariootro->habilidad2 == '')
+						@else
+							<p><li style="color: #fbef44">{{ $user->usuariootro->habilidad2 }}</li></p>
+						@endif
+
+						@if($user->usuariootro->habilidad3 == '')
+						@else
+							<p><li style="color: #fbef44">{{ $user->usuariootro->habilidad3 }}</li></p>
+						@endif
 					</div>	
 					<span></span>
 				</div>
@@ -56,7 +69,8 @@
 							$fecha = date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y ;
 						 ?>	
 						 <p>{{ $user->usuariodato->departamento }}, {{ $user->usuariodato->nacionalidad }}</p>
-						<p>{{ $fecha }} años</p>						
+						<p>{{ $fecha }} años</p>	
+						<p>Expectativa Salarial Mensual: {{ $user->usuarioexpectativa()->first()->expectativa_salarial }}</p>					
 						
 					</div>
 					<span></span>
@@ -942,6 +956,8 @@
 	        <h4 class="modal-title" id="myModalLabel">Cambiar Avatar</h4>
 	      </div>
 	      <div class="modal-body">
+	      <div class="alert alert-danger" role="alert"> Para mejorar la experiencia en el CV, usar imagen con 600px de alto con 600px de altura </div>
+	     
 	        {{ Form::open(array('url' => 'perfil/update/avatar/' .  $user->id ,'files' => 'true', 'class' => 'form-horizontal')) }}
 	        	<div class="form-group">
 					{{ Form::label('imagen', 'Imagen', array('class' => 'col-sm-2 control-label')) }}
@@ -1198,3 +1214,4 @@ $(function(){
 });
 </script>
 @stop
+
