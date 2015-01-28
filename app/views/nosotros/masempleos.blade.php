@@ -23,9 +23,9 @@
 							<img src="{{ asset('img/upload/'.$value->logo) }}" alt="" class="computer logo_vacante">
 						</div>
 						<div class="col-sm-6">
-		                   <p><i class="fa fa-map-marker"></i>{{ $value->departamento }}</p>
-		                   <p><i class="fa fa-info-circle"></i>{{ substr($value->requisitos, 0, 30); }}...</p>
-		                   <p><i class="fa fa-info"></i> {{ substr($value->descripcion, 0, 80); }}... <a href="{{ URL::to('Vacante/view/'. $value->id) }}">Leer Mas</a></p>
+		                   <p><i class="fa fa-map-marker" style="padding:0 15px"></i>{{ $value->departamento }}</p>
+		                   <p><i class="fa fa-graduation-cap" style="padding-right:10px"></i>{{ substr($value->requisitos, 0, 30); }}...</p>
+		                  <p><i class="fa fa-list-ol" style="padding-right:10px"></i>{{ substr($value->descripcion, 0, 80); }}... <a href="{{ URL::to('Vacante/view/'. $value->id) }}">Leer Mas</a></p>
 						</div>		
 					</div>
 				</div>
