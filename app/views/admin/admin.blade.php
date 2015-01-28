@@ -24,11 +24,11 @@
 			@foreach($usuarios as $value)
 				@if($value->role_id == 1)
 					<tr>
-						<td>{{$value->nombre}}</td>					
+						<td>{{$value->usuarioadmin->nombres}}</td>					
 						<td>{{$value->email}}</td>					
 						<td>{{$value->username }}</td>	
 						<td>
-							<a href="{{ URL::to('administrador/usuarios/del/'. $value->id .'') }}" class="btn btn-small btn-danger">Borrar Usuario</a>
+							<a href="{{ URL::to('administrador/usuariosadmin/delete/'. $value->id .'') }}" class="btn btn-small btn-danger">Borrar Usuario</a>
 						</td>			
 						
 					</tr>

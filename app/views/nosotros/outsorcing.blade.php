@@ -14,11 +14,11 @@
 
 	<div id="AdministracionNomina" style="height:80px"></div>
 	<h3 class="titul wow bounceInRight"><img src="{{ asset('img/admnomina.png') }}" alt="">Administración de Nómina</h3>
-	<p class="subtitul">MAGECSA asume el proceso de elaboracion , contabilidad y pago de la nomina en nombre del cliente sin tener responsabilidad contractual ante las instituciones reguladoras , nos limitamos al proceso de la nomina.</p>
+	<p class="subtitul">MAGECSA asume el proceso de elaboración , contabilidad y pago de la nómina en nombre del cliente sin tener responsabilidad contractual ante las instituciones reguladoras , nos limitamos al proceso de la nómina.</p>
 
 	<div id="ServiciosAdministrativos" style="height:80px"></div>
 	<h3 class="titul wow bounceInLeft"><img src="{{ asset('img/servadmin.png') }}" alt="">Servicios Administrativos</h3>
-	<p class="subtitul">En MAGECSA le ofrecemos los servicios profesionales de forma oportuna, responsable y eficiente con el objetivo de apoyar a su gestion Administrativa bajo nuestra responsabilidad en las areas de:</p>
+	<p class="subtitul">En MAGECSA le ofrecemos los servicios profesionales de forma oportuna, responsable y eficiente con el objetivo de apoyar a su gestión Administrativa bajo nuestra responsabilidad en las areas de:</p>
 	
 
 	<div class="etapas wow lightSpeedIn">

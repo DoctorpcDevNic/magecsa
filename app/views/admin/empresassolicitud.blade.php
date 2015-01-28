@@ -31,7 +31,7 @@
 						<td>{{ $value->actividad }}</td>					
 						<td>{{ $value->pagina }}</td>	
 						<td>{{ $value->telefono }}</td>	
-						<td>{{ $value->email }}</td>
+						<td>{{ $user->email }}</td>
 						<td>
 							<div class="btn-group">
 								<button type="button" class="btn btn-warning  dropdown-toggle" data-toggle="dropdown" aria-expanded="false">

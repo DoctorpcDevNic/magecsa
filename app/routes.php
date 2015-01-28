@@ -217,6 +217,8 @@ Route::group(array('before' => 'auth'), function()
 		});
 		Route::post('empresas/updateadmin/{id}','EmpresasController@updateadmin');	
 		Route::get('empresas/activo/{id}', 'EmpresasController@activo');
+		Route::get('empresas/delete/{id}', 'EmpresasController@delete');
+
 
 		Route::get('candidatos', function(){
 			$user = User::where('role_id', 3)->get();

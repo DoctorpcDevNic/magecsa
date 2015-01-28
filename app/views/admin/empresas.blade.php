@@ -32,7 +32,7 @@
 						<td>{{ $value->actividad }}</td>					
 						<td>{{ $value->pagina }}</td>	
 						<td>{{ $value->telefono }}</td>	
-						<td>{{ $value->email }}</td>
+						<td>{{ $user->email }}</td>
 						<td>{{ $value->puestos }}</td>	
 						<td>
 							<div class="btn-group">

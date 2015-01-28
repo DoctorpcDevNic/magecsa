@@ -327,7 +327,7 @@ class CandidatosController extends BaseController {
 				'no_identificacion' => 'required',
 				'departamento' => 'required',
 				'direccion' => 'required',
-				'email' => 'required|unique:usuarios',
+				'email' => 'required',
 				'objetivo' => 'required',
 			);
 
@@ -663,7 +663,7 @@ class CandidatosController extends BaseController {
 		if($seleccionado == 'username'){
 			$user = User::where('username', $nombre)->first();
 
-			if($user->count() == 0){
+			if(!$user){
 				Session::flash('message', 'Usuario no encontrado');
 				return Redirect::back();
 			}else{

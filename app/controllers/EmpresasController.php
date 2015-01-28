@@ -85,6 +85,11 @@ class EmpresasController extends BaseController {
 		return Redirect::back();
 	}
 
+	/**
+	 * [activo description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
 	public function activo($id){
 		$empresa = Empresa::find($id);
 		$user = User::where('id', $empresa->usuario_id)->first();
@@ -101,6 +106,17 @@ class EmpresasController extends BaseController {
 		$user->save();
 
 		Session::flash('message', $msj);
+		return Redirect::back();
+	}
+
+	public function delete($id){
+		$empresa = Empresa::find($id);
+		$user = User::where('id', $empresa->usuario_id)->first();
+
+		$user->delete();
+		$empresa->delete();
+
+		Session::flash('message', 'Empresa Eliminada');
 		return Redirect::back();
 	}
 

@@ -120,7 +120,7 @@
 					      {{ Form::email( 'email', Input::old('email'), array('class' => 'form-control','placeholder'=> '*Correo Electrónico')) }}	
 					    </div>										
 					    <div class="col-sm-5">
-					      {{ Form::email( 'email_confirmation', Input::old('email_confirmation'), array('class' => 'form-control','placeholder'=> '*Comprobar Correo electronico')) }}	
+					      {{ Form::email( 'email_confirmation', Input::old('email_confirmation'), array('class' => 'form-control','placeholder'=> '*Comprobar Correo Electrónico')) }}	
 					    </div>
 					</div>
 					<div class="form-group">						
@@ -177,7 +177,7 @@
 							</select> 
 					    </div>											
 					    <div class="col-sm-5">
-					    	{{ Form::text('no_identificacion', Input::old('no_identificacion'), array('class' => 'form-control cedula', 'placeholder'=> '*No. Identificacion')) }}	
+					    	{{ Form::text('no_identificacion', Input::old('no_identificacion'), array('class' => 'form-control cedula', 'placeholder'=> '*No. Identificación')) }}	
 					    </div>
 					</div>
 					<div class="form-group">						
@@ -298,8 +298,8 @@
 							</select> 
 					    </div>	
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="areas_interes" >
-								 <option selected="selected" class="s" value=" ">Áreas de Interés </option>									
+					   		<input type="hidden" name="areasseleccionadas" id="areasseleccionadas">								    	
+					    	<select class="form-control" name="areas_interes" id="areas_interesR">
 								 <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>
 								 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>				
 								 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
@@ -562,7 +562,7 @@
 					    </div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="area" >
-								 <option selected="selected" class="s" value=" ">*Area Funcional</option>
+								 <option selected="selected" class="s" value=" ">*Área Funcional</option>
 								 <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>				
 								 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>	
 								 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
@@ -743,7 +743,7 @@
 					</div>
 					<div class="form-group">
 					 	<div class="col-sm-5">	
-					 		{{ Form::text('habilidad2', Input::old('habilidad2'), array('class' => 'form-control', 'placeholder'=> '*Hablilidades')) }}						
+					 		{{ Form::text('habilidad2', Input::old('habilidad2'), array('class' => 'form-control', 'placeholder'=> '*Habilidades')) }}						
 					 	</div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="nivel_dominio2" >
@@ -756,7 +756,7 @@
 					</div>
 					<div class="form-group">
 					 	<div class="col-sm-5">	
-					 		{{ Form::text('habilidad3', Input::old('habilidad3'), array('class' => 'form-control', 'placeholder'=> '*Hablilidades')) }}						
+					 		{{ Form::text('habilidad3', Input::old('habilidad3'), array('class' => 'form-control', 'placeholder'=> '*Habilidades')) }}						
 					 	</div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="nivel_dominio3" >
@@ -779,4 +779,22 @@
 		{{ Form::close() }}	
 	</div>
 </div>
+@stop
+@section('js')
+
+<script type="text/javascript">
+$(function(){
+	$("#areas_interesR").multiselect({
+		header: "Selecciona 3 Áreas de interes",
+		classes: 'width-select',
+		selectedList: 3,
+		click: function(e){
+	       if( $(this).multiselect("widget").find("input:checked").length > 3 ){	           
+	           return false;
+	       } 
+	   },
+	   multiple: true
+	});
+});
+</script>
 @stop

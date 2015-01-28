@@ -8,7 +8,7 @@
 	  <!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist" id="tabservicios">
 		    <li role="presentation" class="active"><a href="#registroempresa" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-pencil-square-o"></i>Registre su Empresa</a></li>
-		    <li role="presentation"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-search"></i>Búsqueda por candidato</a></li>
+		    <li role="presentation"><a href="#busquedacandidato" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-search"></i>Búsqueda por Candidato</a></li>
 		    <li role="presentation"><a href="#vacante" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-bullhorn"></i>Publicar Vacantes</a></li>	   
 		</ul>
 
@@ -20,7 +20,7 @@
 		  				<h2 class="titul" style="color:#45aabb;text-align:center">Su Empresa ya esta registrada</h2>
 		  			</div>
 		  			<div role="tabpanel" class="tab-pane" id="busquedacandidato">
-				    	<h2 class="titul">Búsqueda de candidatos registrados</h2>
+				    	<h2 class="titul">Búsqueda de Candidatos registrados</h2>
 				    	<p>Bienvenido a la base de datos mas amplia, fácil y eficiente con potencial 100 %  nicaragüense, a continuación podrá hacer un  filtro según sus necesidades de búsqueda para obtener a su candidato deseado, de igual manera le recordamos nuestros servicios directos de Reclutamiento, Selección y Evaluación de Personal, gracias por unirte a esta  gran familia.</p>				    	
 
 				    	<h2 class="titul" style="font-size:1.5em">Filtro de vacantes</h2>
@@ -87,7 +87,7 @@
 						</div>
 				    </div>
 				    <div role="tabpanel" class="tab-pane" id="vacante">
-				    	<h2 class="titul">Comuníquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contáctenos</a></h2>
+				    	<h2 class="titul">Comuníquese con el Administrador de la página <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contáctenos</a></h2>
 				    </div>		
 		  		@else
 		  			<div role="tabpanel" class="tab-pane active" id="registroempresa">
@@ -132,15 +132,15 @@
 									</div>
 								</div>
 								<div class="form-group">
-									{{ Form::label('pagina', 'Pagina Web', array('class' => 'col-sm-3 control-label')) }}
+									{{ Form::label('pagina', 'Página Web', array('class' => 'col-sm-3 control-label')) }}
 									<div class="col-sm-6">
-										{{ Form::text('pagina', Input::old('pagina'), array('class' => 'form-control', 'placeholder'=> 'Pagina Web')) }}	
+										{{ Form::text('pagina', Input::old('pagina'), array('class' => 'form-control', 'placeholder'=> 'Página Web')) }}	
 									</div>
 								</div>
 								<div class="form-group">
-									{{ Form::label('telefono', 'Telefono', array('class' => 'col-sm-3 control-label')) }}
+									{{ Form::label('telefono', 'Teléfono', array('class' => 'col-sm-3 control-label')) }}
 									<div class="col-sm-6">
-										{{ Form::text('telefono', Input::old('telefono'), array('class' => 'form-control convencional', 'placeholder'=> 'Telefono')) }}	
+										{{ Form::text('telefono', Input::old('telefono'), array('class' => 'form-control convencional', 'placeholder'=> 'Teléfono')) }}	
 									</div>
 								</div>
 								<div class="form-group">
@@ -192,7 +192,7 @@
 				    	</div>
 				    </div>
 				    <div role="tabpanel" class="tab-pane" id="vacante">
-				    	<h2 class="titul">Comuníquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contáctenos</a></h2>
+				    	<h2 class="titul">Comuníquese con el Administrador de la página <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contáctenos</a></h2>
 				    </div>	
 		  		@endif
 		  	@else
@@ -238,15 +238,15 @@
 								</div>
 							</div>
 							<div class="form-group">
-								{{ Form::label('pagina', 'Pagina Web', array('class' => 'col-sm-3 control-label')) }}
+								{{ Form::label('pagina', 'Página Web', array('class' => 'col-sm-3 control-label')) }}
 								<div class="col-sm-6">
-									{{ Form::text('pagina', Input::old('pagina'), array('class' => 'form-control', 'placeholder'=> 'Pagina Web')) }}	
+									{{ Form::text('pagina', Input::old('pagina'), array('class' => 'form-control', 'placeholder'=> 'Página Web')) }}	
 								</div>
 							</div>
 							<div class="form-group">
-								{{ Form::label('telefono', 'Telefono', array('class' => 'col-sm-3 control-label')) }}
+								{{ Form::label('telefono', 'Teléfono', array('class' => 'col-sm-3 control-label')) }}
 								<div class="col-sm-6">
-									{{ Form::text('telefono', Input::old('telefono'), array('class' => 'form-control convencional', 'placeholder'=> 'Telefono')) }}	
+									{{ Form::text('telefono', Input::old('telefono'), array('class' => 'form-control convencional', 'placeholder'=> 'Teléfono')) }}	
 								</div>
 							</div>
 							<div class="form-group">
@@ -298,7 +298,7 @@
 			    	</div>
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="vacante">
-			    	<h2 class="titul">Comuníquese con el Administrador de la pagina <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contáctenos</a></h2>
+			    	<h2 class="titul">Comuníquese con el Administrador de la página <a href="{{ URL::to('Contactenos') }}" style="color:  #61a75b; text-decoration:underline">Contáctenos</a></h2>
 			    </div>	
 		  	@endif 
 		</div>

@@ -12,7 +12,7 @@
 		{{-- quienes somos --}}
 		<div class="quienes">
 			<h3 class="titul">
-				¿Quienes Somos?<br>
+				¿Quiénes Somos?<br>
 				<span>Conoce acerca de nosotros</span>
 			</h3>
 			<img src="{{ asset('img/quienes.jpg') }}" alt="">
