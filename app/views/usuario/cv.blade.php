@@ -44,7 +44,7 @@
 			<div class="cuadro der">
 				<div class="cabe">
 					<img src="{{ asset('img/formacioncv.png') }}" alt="">
-					Formación Acade&eacute;mica
+					Formación Acad&eacute;mica
 				</div>
 				<div class="cuer">
 					@foreach($user->usuarioeducacion()->orderBy('id', 'desc')->get() as $value)
@@ -130,7 +130,7 @@
 	</div>
 
 	<div class="footer">
-		<p class="direccion">Plaza Bolonia Modulo L5 / Telefono: 2266-5793 / info@magecsa.com.ni / www.masempleosyservicios.com.ni </p>
+		<p class="direccion">Plaza Bolonia Modulo L-5 | Tel&eacute;fono: 2266-5793 | info@magecsa.com | www.masempleosyservicios.com.ni </p>
 	</div>
 </body>
 </html>

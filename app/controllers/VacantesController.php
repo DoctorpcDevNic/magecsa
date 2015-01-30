@@ -43,7 +43,7 @@ class VacantesController extends BaseController {
 	}
 
 	public function aplicarVacante($idvacante, $iduser){
-		if(Auth::user()->role_id == 0){
+		if(Auth::user()->role_id == 0 || Auth::user()->role_id == 1 || Auth::user()->role_id == 2){
 			Session::flash('message', 'Tu usuario no puede aplicar a esta vacante');
 			return Redirect::to('MasEmpleos');
 		}else{

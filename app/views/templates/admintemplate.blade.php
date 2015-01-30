@@ -49,17 +49,18 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{{ URL::to('/') }}">MAGECSA</a>
-                <a class="navbar-brand" href="#">Administrador</a>
+                <a class="navbar-brand" href="#">{{ Auth::user()->username }}</a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
+                @if(Auth::user()->role_id == 0)
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
-                        <?php $mensajes = Mensaje::where('leido', 0)->get(); ?>
+                        <?php $mensajes = Mensaje::where('leido', 0)->take(5)->get(); ?>
                         @foreach($mensajes as $value)
                             <li>
                                 <a href="{{ URL::to('administrador/mensajes/view/'. $value->id) }}">
@@ -83,13 +84,14 @@
                     </ul>
                     <!-- /.dropdown-messages -->
                 </li>
+                @endif
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuracion</a>
+                        <li><a href="{{ URL::to('administrador/usuariosadmin/update/'. Auth::user()->id) }}"><i class="fa fa-gear fa-fw"></i> Configuracion</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="{{ URL::to('perfil/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -105,6 +107,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         {{-- usuarios --}}
+                        @if(Auth::user()->role_id == 0)
                         <li>
                             <a href="{{ URL::to('administrador') }}"><i class="fa fa-user fa-fw"></i> Usuarios</a>
                         </li>
@@ -125,6 +128,7 @@
                                 </li>
                             </ul>
                         </li>
+                        @endif
                         {{-- Vacantes --}}
                         <li>
                             <a href="{{ URL::to('administrador/vacantes') }}"><i class="fa fa-edit fa-fw"></i> Vacantes</a>

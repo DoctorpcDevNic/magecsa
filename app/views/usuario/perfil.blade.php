@@ -96,6 +96,19 @@
 						<img src="{{ asset('img/cvdescarga.png') }}" alt="">
 						DESCARGAR CURRICULUM
 					</a>
+					@if(Auth::user()->role_id == 0)
+						@if($user->enable == 0)
+							<a href="{{ URL::to('perfil/habilitar/'. $user->id) }}" target="new" style="margin-left:20px">
+								<i class="fa fa-times"style="font-size: 2em; padding:0 8px"></i>
+								HABILITAR USUARIO
+							</a>
+						@else
+							<a href="{{ URL::to('perfil/habilitar/'. $user->id) }}" target="new" style="margin-left:20px">
+								<i class="fa fa-times"style="font-size: 2em; padding:0 8px"></i>
+								DESHABILITAR USUARIO
+							</a>
+						@endif	
+					@endif
 				</div>
 				@endif
 			@endif
@@ -818,7 +831,7 @@
 													 <option value="Universidad Nacional de Ingenieria">Universidad Nacional de Ingenieria</option>				
 													 <option value="Universidad Politecnica de Nicaragua">Universidad Politecnica de Nicaragua</option>				
 													 <option value="U. de las Regiones Autonomas de la Costa Caribe Nicaraguense">U. de las Regiones Autonomas de la Costa Caribe Nicaraguense</option>				
-													 <option value="Instituto Centroamericano de Administracion de Empresas">SInstituto Centroamericano de Administracion de Empresas</option>				
+													 <option value="Instituto Centroamericano de Administracion de Empresas">Instituto Centroamericano de Administracion de Empresas</option>				
 													 <option value="Otras Instituciones">Otras Instituciones</option>	
 												</select> 
 										    </div>		
@@ -1204,6 +1217,7 @@
 $(function(){
 	$("#areas_interes").multiselect({
 		header: "Selecciona 3 Areas de interes",
+		classes: 'width-select-perfil',
 		selectedList: 3,
 		click: function(e){
 	       if( $(this).multiselect("widget").find("input:checked").length > 3 ){	           

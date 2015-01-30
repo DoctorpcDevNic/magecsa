@@ -623,20 +623,29 @@ class CandidatosController extends BaseController {
 				);
 
 			if(Auth::attempt($userdata)){
-				if(Auth::user()->role_id == 0){//admin
-					return Redirect::to('administrador');
-				}else if(Auth::user()->role_id == 1){//empleado
-					return Redirect::to('administrador');
-				}else if(Auth::user()->role_id == 2){//empresa	
-					if(Auth::user()->enable == 1){
-						return Redirect::to('MasServicios');	
-					}else{
-						Session::flash('message', 'El administrador ya esta revisando su solicitud, se le comunicara cuando su usuario este activo');
-						return Redirect::to('login');
-					}				
-					
-				}else if(Auth::user()->role_id == 3){//candidato
-					return Redirect::to('Perfil/' . Auth::user()->username);
+
+				if(Auth::user()->enable == 1){//usuairo habilitado
+
+					if(Auth::user()->role_id == 0){//admin
+						return Redirect::to('administrador');
+					}else if(Auth::user()->role_id == 1){//empleado
+						return Redirect::to('administrador/vacantes');
+					}else if(Auth::user()->role_id == 2){//empresa	
+						if(Auth::user()->enable == 1){
+							return Redirect::to('MasServicios');	
+						}else{
+							Session::flash('message', 'El administrador ya esta revisando su solicitud, se le comunicara cuando su usuario este activo');
+							return Redirect::to('login');
+						}				
+						
+					}else if(Auth::user()->role_id == 3){//candidato
+						return Redirect::to('Perfil/' . Auth::user()->username);
+					}
+
+				}else{//usuario deshabilitado
+					Session::flash('message', 'El administrador ya esta revisando su solicitud, se le comunicara cuando su usuario este activo');
+					Auth::logout();
+					return Redirect::to('login');
 				}
 			}else{
 				Session::flash('message', 'Error al iniciar session');
@@ -647,6 +656,24 @@ class CandidatosController extends BaseController {
 		}	
 	}
 
+	/**
+	 * [habilitar description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
+	public function habilitar($id){
+		$user = User::find($id);
+
+		if($user->enable == 0){
+			$user->enable = 1;
+		}else{
+			$user->enable = 0; 
+		}
+
+		$user->save();
+
+		return Redirect::back();
+	}
 	/**
 	 * cierra session
 	 * @return [type]
@@ -747,6 +774,11 @@ class CandidatosController extends BaseController {
 		}	
 	}
 
+	/**
+	 * [deleteexperiencia description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
 	public function deleteexperiencia($id){
 		$experiencia = UsuarioExperiencia::find($id);
 
@@ -755,6 +787,11 @@ class CandidatosController extends BaseController {
 		return Redirect::back();
 	}
 
+	/**
+	 * [deleteeducacion description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
 	public function deleteeducacion($id){
 		$educacion = UsuarioEducacion::find($id);
 

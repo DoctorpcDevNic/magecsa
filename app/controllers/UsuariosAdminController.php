@@ -52,29 +52,60 @@ class UsuariosAdminController extends BaseController {
 	 * @param  [type] $id [description]
 	 * @return [type]     [description]
 	 */
-	public function update($id){
-		if($this->validateForms(Input::all()) === true){
+	public function update($id){	
 
-			$user = User::find($id);
-			$user->username = Input::get('username');
-			$user->password = Hash::make(Input::get('password'));	
-			$user->email = Input::get('email');
-			$user->role_id = Input::get('rol');
+		$user = User::find($id);
 
-			$useradmin = UsuarioAdmin::where('usuario_id', $id)->first();
-			$useradmin->nombres = Input::get('nombres');
-			$useradmin->apellidos = Input::get('apellidos');
-			$useradmin->cargo = Input::get('cargo');
-
-			$user->save();
-			$user->usuarioadmin()->save($useradmin);			
-
-			Session::flash('message', 'Usuario Modificado');
-			return Redirect::back();
-			
+		if($user->username == Input::get('username') || $user->email == Input::get('email')){
+			$rules = array(
+					'nombres' => 'required|min:2',
+					'apellidos' => 'required|min:2',
+					'email' => 'required',	
+					'cargo' => 'required',	
+					'username' => 'required|min:4',			
+					'password' => 'confirmed|required|between:4,100',
+					'password_confirmation' => 'required|between:4,100'	
+				);
 		}else{
-			return Redirect::back()->withErrors($this->validateForms(Input::all()))->withInput();
+			$rules = array(
+				'nombres' => 'required|min:2',
+				'apellidos' => 'required|min:2',
+				'email' => 'required|unique:usuarios',	
+				'cargo' => 'required',	
+				'username' => 'unique:usuarios|required|min:4',			
+				'password' => 'confirmed|required|between:4,100',
+				'password_confirmation' => 'required|between:4,100'	
+			);
+
 		}
+			$message = array(
+				'required' => 'El campo :attribute es requerido',
+				'unique' => 'El nombre de usuario ya esta en uso'			
+			);
+
+			$validator = Validator::make(Input::all(), $rules, $message);
+
+			if ($validator->fails()){				
+				return Redirect::back()->withErrors($validator)->withInput();
+			}else{
+
+				$user->username = Input::get('username');
+				$user->password = Hash::make(Input::get('password'));	
+				$user->email = Input::get('email');
+				$user->role_id = Input::get('rol');
+
+				$useradmin = UsuarioAdmin::where('usuario_id', $id)->first();
+				$useradmin->nombres = Input::get('nombres');
+				$useradmin->apellidos = Input::get('apellidos');
+				$useradmin->cargo = Input::get('cargo');
+
+				$user->save();
+				$user->usuarioadmin()->save($useradmin);			
+
+				Session::flash('message', 'Usuario Modificado');
+				return Redirect::back();
+		}	
+		
 	}
 
 	/**
@@ -139,8 +170,8 @@ class UsuariosAdminController extends BaseController {
 			'email' => 'required|unique:usuarios',	
 			'cargo' => 'required',	
 			'username' => 'unique:usuarios|required|min:4',			
-			'password' => 'confirmed|required|between:6,100',
-			'password_confirmation' => 'required|between:6,100'	
+			'password' => 'confirmed|required|between:4,100',
+			'password_confirmation' => 'required|between:4,100'	
 			);
 		$message = array(
 			'required' => 'El campo :attribute es requerido',

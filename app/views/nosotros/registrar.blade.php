@@ -673,7 +673,7 @@
 								 <option value="Universidad Nacional de Ingenieria">Universidad Nacional de Ingeniería</option>				
 								 <option value="Universidad Politecnica de Nicaragua">Universidad Politécnica de Nicaragua</option>				
 								 <option value="U. de las Regiones Autonomas de la Costa Caribe Nicaraguense">U. de las Regiones Autonomas de la Costa Caribe Nicaragüense</option>				
-								 <option value="Instituto Centroamericano de Administracion de Empresas">SInstituto Centroamericano de Administracion de Empresas</option>				
+								 <option value="Instituto Centroamericano de Administracion de Empresas">Instituto Centroamericano de Administracion de Empresas</option>				
 								 <option value="Otras Instituciones">Otras Instituciones</option>	
 							</select> 
 					    </div>		
@@ -771,7 +771,7 @@
 			</div>	
 			<h3 class="divider"></h3>
 			<div class="alert alert-danger" role="alert">
-			  <p class="alert-link" style="text-align:center">Al registrarse, esta aceptando los términos y condiciones de nuestra <a href="{{ asset('document/PoliticasDePrivacidad.pdf') }}" target="new"a>Políticas de Privacidad</a> y <a href="{{ asset('document/CondicionesDeUso.pdf') }}" target="new">Condiciones de Uso</a></a>
+			  <p class="alert-link" style="text-align:center">Al registrarse, esta aceptando los términos y condiciones de nuestra <a href="{{ asset('document/PoliticasDePrivacidad.pdf') }}" target="new"a>Política de Privacidad</a> y <a href="{{ asset('document/CondicionesDeUso.pdf') }}" target="new">Condiciones de Uso</a></a>
 			</div>
 			<div class="form-group">								
 					{{ Form::submit('Registrar' , array('class'=> 'btn btn-primary regis')) }}				

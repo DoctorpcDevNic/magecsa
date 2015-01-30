@@ -59,11 +59,11 @@
 				</div>	
 				<div class="form-group">
 					{{ Form::label('rol', 'Rol', array('class' => 'col-sm-2 control-label')) }}
-					<div class="col-sm-6">
-						<select class="form-control" name="rol">
+					<div class="col-sm-6">						
+						<select class="form-control" name="rol" id="rol" data-select="{{ $user->role_id }}">
 							<option value='0'> Administrador </option>
 							<option value='1'> Empleado </option>							
-						</select>
+						</select>				
 					</div>
 				</div>
 				<div class="form-group">
@@ -72,7 +72,14 @@
 					</div>	
 				</div>
 			{{ Form::close() }}
-</div>	
-
-
+</div>
+@stop
+@section('js')
+<script type="text/javascript">
+		$( "#rol option" ).each(function(){
+		if($('#rol').data('select') == $(this).val()){
+			$(this).attr('selected', 'selected');
+		}
+	});
+</script>
 @stop

@@ -164,7 +164,9 @@ Route::group(array('prefix' => 'perfil', 'before' => 'auth'), function () {
 	
 	Route::post('add/educacion/{id}','CandidatosController@addeducacion');
 	Route::get('del/educacion/{id}','CandidatosController@deleteeducacion');
-	
+
+	Route::get('habilitar/{id}','CandidatosController@habilitar');	
+
 
 	Route::get('cv/{username}', function($username){		
 			$user = User::where('username', $username)->first();
@@ -187,6 +189,7 @@ Route::group(array('prefix' => 'perfil', 'before' => 'auth'), function () {
 		    }
 	});	
 	Route::get('vacante/aplicar/{idvacante}/{iduser}', 'VacantesController@aplicarVacante');
+
 });
 
 /*
@@ -198,34 +201,49 @@ Route::group(array('prefix' => 'perfil', 'before' => 'auth'), function () {
 */
 Route::group(array('before' => 'auth'), function()
 {	
-	Route::group(array('prefix' => 'administrador', 'before' => 'roles:0-1,login' ), function () {
-		Route::get('/', function(){
-			$users = User::all();
-			return View::make('admin.admin')->with('usuarios', $users);
+	Route::group(array('prefix' => 'administrador', 'before' => 'roles:0-1,login' ), function () {		
+
+
+		Route::group(array('before' => 'roles:0,login'), function(){
+
+			Route::get('/', function(){
+				$users = User::all();
+				return View::make('admin.admin')->with('usuarios', $users);
+			});
+
+			Route::get('usuariosadmin/update/{id}', array('uses' => 'UsuariosAdminController@viewUpdate'));
+			Route::get('usuariosadmin/delete/{id}', array('uses' => 'UsuariosAdminController@delete'));
+			Route::post('usuariosadmin/save', array('uses' => 'UsuariosAdminController@save'));
+			Route::post('usuariosadmin/update/{id}', array('uses' => 'UsuariosAdminController@update'));
+
+			Route::get('empresas', 'EmpresasController@view');
+			Route::get('empresas/update/{id}','EmpresasController@viewUpdate');	
+			Route::get('empresas/solicitud',function(){
+				$empresas = Empresa::all();
+				return View::make('admin.empresassolicitud')->with('empresas', $empresas);
+			});
+			Route::post('empresas/updateadmin/{id}','EmpresasController@updateadmin');	
+			Route::get('empresas/activo/{id}', 'EmpresasController@activo');
+			Route::get('empresas/delete/{id}', 'EmpresasController@delete');
+
+
+			Route::get('candidatos', function(){
+				$user = User::where('role_id', 3)->get();
+
+				return View::make('admin.candidato')->with('user', $user);
+			});
+
+			Route::get('mensajes', function(){
+				$mensajes = Mensaje::orderBy('leido','asc')->get();
+				return View::make('admin.mensajes')->with('mensajes', $mensajes);
+			});
+			Route::get('mensajes/view/{id}', function($id){
+				$mensaje = Mensaje::find($id);
+				$mensaje->leido = 1;
+				$mensaje->save();
+				return View::make('admin.mensajesview')->with('mensaje', $mensaje);
+			});
 		});
-
-		Route::get('usuariosadmin/update/{id}', array('uses' => 'UsuariosAdminController@viewUpdate'));
-		Route::get('usuariosadmin/delete/{id}', array('uses' => 'UsuariosAdminController@delete'));
-		Route::post('usuariosadmin/save', array('uses' => 'UsuariosAdminController@save'));
-		Route::post('usuariosadmin/update/{id}', array('uses' => 'UsuariosAdminController@update'));
-
-		Route::get('empresas', 'EmpresasController@view');
-		Route::get('empresas/update/{id}','EmpresasController@viewUpdate');	
-		Route::get('empresas/solicitud',function(){
-			$empresas = Empresa::all();
-			return View::make('admin.empresassolicitud')->with('empresas', $empresas);
-		});
-		Route::post('empresas/updateadmin/{id}','EmpresasController@updateadmin');	
-		Route::get('empresas/activo/{id}', 'EmpresasController@activo');
-		Route::get('empresas/delete/{id}', 'EmpresasController@delete');
-
-
-		Route::get('candidatos', function(){
-			$user = User::where('role_id', 3)->get();
-
-			return View::make('admin.candidato')->with('user', $user);
-		});
-
 
 		Route::get('vacantes', function(){
 			$vacantes = Vacante::all();
@@ -239,18 +257,7 @@ Route::group(array('before' => 'auth'), function()
 		Route::get('slider/view/{id}', 'SliderController@viewupdate');
 		Route::get('slider/delete/{id}', 'SliderController@delete');
 		Route::post('slider/save', 'SliderController@save');
-		Route::post('slider/update/{id}', 'SliderController@update');
-
-		Route::get('mensajes', function(){
-			$mensajes = Mensaje::orderBy('leido','asc')->get();
-			return View::make('admin.mensajes')->with('mensajes', $mensajes);
-		});
-		Route::get('mensajes/view/{id}', function($id){
-			$mensaje = Mensaje::find($id);
-			$mensaje->leido = 1;
-			$mensaje->save();
-			return View::make('admin.mensajesview')->with('mensaje', $mensaje);
-		});
+		Route::post('slider/update/{id}', 'SliderController@update');	
 		
 	});
 });

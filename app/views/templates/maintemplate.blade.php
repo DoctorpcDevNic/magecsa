@@ -143,8 +143,11 @@
 				                    	@if(Auth::check())
 				                    		@if(Auth::user()->role_id == 2)
 				                    			<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
-				                    		@elseif(Auth::user()->role_id == 0 || Auth::user()->role_id == 1 )	
+				                    		@elseif(Auth::user()->role_id == 0 )	
 					                    		<li><a href="{{ URL::to('administrador') }}">Ver perfil</a></li>       
+					                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
+					                      	@elseif(Auth::user()->role_id == 1 )	
+					                    		<li><a href="{{ URL::to('administrador/vacantes') }}">Ver perfil</a></li>       
 					                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
 					                      	@else
 					                      		<li><a href="{{ URL::to('Perfil/'. Auth::user()->username) }}">Ver perfil</a></li>       
@@ -181,7 +184,7 @@
     			<a href=""><img src="{{ asset('img/linkeding.png') }}" alt=""></a>
     		</div>
     		<p>Mas Empleos Y Servicios &copy; 2014 MAGECSA</p>
-    		<p>Dirección: Plaza Bolonia Modulo L5, Telefono: 2266-5793</p> 
+    		<p>Dirección: Plaza Bolonia Modulo L5, Teléfono: 2266-5793</p> 
     		<P>Todos Los Derechos Reservados</P>
     		<p class="hidden-md hidden-lg hidden-sm">Designed by <a href="">Doctor PC</a></p>
     		<ul class="hidden-xs">

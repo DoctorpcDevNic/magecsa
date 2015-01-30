@@ -10,7 +10,7 @@
 	<div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
 
-<div class="table-responsive">
+<div>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -28,9 +28,20 @@
 						<td>{{$value->email}}</td>					
 						<td>{{$value->username }}</td>	
 						<td>
-							<a href="{{ URL::to('administrador/usuariosadmin/delete/'. $value->id .'') }}" class="btn btn-small btn-danger">Borrar Usuario</a>
-						</td>			
-						
+							
+							<div class="btn-group">
+								<button type="button" class="btn btn-warning  dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+									Acciones <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="{{ URL::to('administrador/usuariosadmin/update/'. $value->id) }}">Ver Usuario</a></li>
+									<li><a href="{{ URL::to('administrador/usuariosadmin/update/'. $value->id) }}">Modificar Usuario</a></li>
+									<li class="divider"></li>
+									<li><a href="{{ URL::to('administrador/usuariosadmin/delete/'. $value->id) }}">Borrar Usuario</a></li>
+								</ul>
+							</div>
+
+						</td>
 					</tr>
 				@endif	
 			@endforeach

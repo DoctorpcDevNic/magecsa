@@ -106,7 +106,7 @@
 		</div>
 	{{ Form::close() }}
 </div>
-
+@if(Auth::user()->role_id == 0)
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">Candidatos</h1>
@@ -173,6 +173,7 @@
         </thead>
 	</table>
 </div>
+@endif
 
 @stop
 @section('js')
