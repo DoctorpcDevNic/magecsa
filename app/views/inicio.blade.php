@@ -36,10 +36,10 @@
 				
 			</div>
 			<div class="col-md-3 col-xs-3">
-				<a href="">
+				<a href="{{ URL::to('BaseDatos') }}">
 					<img src="{{ asset('img/bd.png') }}" class="img-responsive">
 					<hr>
-					<h2>Base de datos </h2>
+					<h2>Base de Datos </h2>
 				</a>
 			</div>
 		</div>

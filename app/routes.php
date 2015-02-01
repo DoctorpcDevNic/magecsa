@@ -71,6 +71,10 @@ Route::get('Reclutamiento', function(){
 Route::get('Clientes', function(){
 	return View::make('nosotros.clientes');
 });
+Route::get('BaseDatos', function(){
+	return View::make('nosotros.basedatos');
+});
+
 
 Route::post('Contacto/send', function(){
 	$rules = array(
