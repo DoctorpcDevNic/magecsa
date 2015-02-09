@@ -110,6 +110,51 @@ class VacantesController extends BaseController {
 	}
 
 	/**
+	 * [viewSeleccionar description]
+	 * @param  [string] $username [description]
+	 * @param  [integer] $vacante  [description]
+	 * @return [type]           [description]
+	 */
+	public function viewSeleccionar($username, $vacante){
+		$user = User::where('username', $username)->first();
+		$vacante = Vacante::find($vacante);
+
+		return View::make('admin.seleccionar', array('user'=>$user, 'vacante'=>$vacante));	
+	
+	}
+
+	/**
+	 * [Seleccionar description]
+	 * @param [integer] $username [userid]
+	 * @param [integer] $vacante  [vacanteid]
+	 */
+	public function Seleccionar($username, $vacante){
+		$user = User::find($username);
+		$vacante = Vacante::find($vacante);
+	
+		$seleccionar = new VacanteSeleccionar();
+		$seleccionar->usuario_id = $user->id;
+		$seleccionar->vacante_id = $vacante->id;
+
+
+		$seleccionar->save();
+
+		return Redirect::back();
+	}
+
+	
+	public function quitar($username, $vacante){
+		$user = User::find($username);
+		$vacante = Vacante::find($vacante);
+	
+		$seleccionar = VacanteSeleccionar::where('usuario_id', $user->id)->where('vacante_id', $vacante->id)->first();		
+
+		$seleccionar->delete();
+
+		return Redirect::back();
+	}
+
+	/**
 	 * [validateForms description]
 	 * @param  array  $inputs [description]
 	 * @return [type]         [description]

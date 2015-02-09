@@ -43,7 +43,7 @@
 				<img src="{{ asset('img/contrasena.png') }}" alt="" class="computer img-contra">
 				<h3 class="titulother">
 					<img src="{{ asset('img/datoscuenta.png') }}" alt="" class="computer">
-					Datos de la cuenta
+					DATOS DE LA CUENTA
 				</h3>
 				<div class="campo col-sm-offset-4">
 					<div class="form-group">						
@@ -88,7 +88,7 @@
 			<div class="categoria personales ">
 				<h3 class="titulother">
 					<img src="{{ asset('img/datospersonales.png') }}" alt="" class="computer">
-					Datos Personales
+					DATOS PERSONALES
 				</h3>
 				<div class="campo col-sm-offset-2">
 					<div class="form-group">						
@@ -637,7 +637,7 @@
 			<div class="categoria educacion">
 				<h3 class="titulother">
 					<img src="{{ asset('img/educacion.png') }}" alt="" class="computer">
-					Educacion Academica
+					EDUACIÓN ACADÉMICA
 				</h3>
 				<div class="campo col-sm-offset-2">
 					<div class="form-group">	

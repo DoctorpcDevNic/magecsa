@@ -131,7 +131,7 @@
 			                </a></li>  
 			                <li><a href="{{URL::to('Contactenos')  }}">
 			                	<i class="glyphicon glyphicon-envelope"></i><br>
-			                	Contactenos
+			                	Contáctenos
 			                </a></li> 
 			                @if(Auth::check()) 
 				                <li class="dropdown">

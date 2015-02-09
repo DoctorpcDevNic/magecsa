@@ -262,6 +262,11 @@ Route::group(array('before' => 'auth'), function()
 		Route::get('slider/delete/{id}', 'SliderController@delete');
 		Route::post('slider/save', 'SliderController@save');
 		Route::post('slider/update/{id}', 'SliderController@update');	
+
+		Route::get('Perfil/{username}/vacante/{vacante}', 'VacantesController@viewSeleccionar');
+		Route::get('vacante/seleccionar/{user}/{vacante}', 'VacantesController@seleccionar');
+		Route::get('vacante/quitar/{user}/{vacante}', 'VacantesController@quitar');
+
 		
 	});
 });

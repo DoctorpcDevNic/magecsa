@@ -107,7 +107,8 @@
 								<i class="fa fa-times"style="font-size: 2em; padding:0 8px"></i>
 								DESHABILITAR USUARIO
 							</a>
-						@endif	
+						@endif
+							
 					@endif
 				</div>
 				@endif

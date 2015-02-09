@@ -117,7 +117,7 @@
 		$vacantes = VacanteUsuario::where('vacante_id', $vacante->id)->get();
 
 	 ?>
-	<table class="table table-hover table-striped table-bordered" id="candidatos">
+	<table class="table table-hover table-striped table-bordered candidatos">
 		 <thead>
             <tr>
                 <th>Nombre</th>
@@ -134,8 +134,12 @@
                     <?php 
                         $user = User::where('id', $value->usuario_id)->first();
                      ?>
-            		<tr>
-            			<td><a href="{{ URL::to('Perfil/'. $user->username )}}" target="new">{{ $user->usuariodato->nombres }}</a> </td>
+                     @if($user->enable == 0)
+                     <tr style="color:red">
+                     @else
+                     <tr>
+                     @endif            		
+            			<td><a href="{{ URL::to('administrador/Perfil/'. $user->username .'/vacante/'. $vacante->id . '' )}}" target="new">{{ $user->usuariodato->nombres }}</a> </td>
 
             			<td>
             				@foreach($user->usuarioexperiencia()->get() as $key)
@@ -173,12 +177,82 @@
         </thead>
 	</table>
 </div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Candidatos Ya Seleccionados</h1>
+    </div>               
+</div>
+<div>
+    <?php 
+        $seleccionar = VacanteSeleccionar::where('vacante_id', $vacante->id)->get();
+
+     ?>
+    <table class="table table-hover table-striped table-bordered candidatos" >
+         <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Área de interés</th>
+                <th>Genero</th>
+                <th>Vehículo</th>
+                <th>Edad</th>
+                <th>Nivel Académico</th>
+                <th>Habilidad</th>
+                <th>Idioma</th>
+            </tr>
+            <tbody>
+                @foreach($seleccionar as $value)
+                    <?php 
+                        $user = User::where('id', $value->usuario_id)->first();
+                     ?>
+                     @if($user->enable == 0)
+                     <tr style="color:red">
+                     @else
+                     <tr>
+                     @endif                 
+                        <td><a href="{{ URL::to('administrador/Perfil/'. $user->username .'/vacante/'. $vacante->id . '' )}}" target="new">{{ $user->usuariodato->nombres }}</a> </td>
+
+                        <td>
+                            @foreach($user->usuarioexperiencia()->get() as $key)
+                                {{ $key->area }},  
+                            @endforeach
+                        </td>
+                        <td>{{ $user->usuariodato->genero }} </td>
+                        <td>
+                            @if($user->usuariodato->vehiculo == 1) no
+                            @else si
+                            @endif
+                        </td>
+                         <th>
+                            <?php 
+                                $fecha = UsuarioDato::where('usuario_id', $user->id)->first(); 
+                                list($Y,$m,$d) = explode("-",$fecha->fecha_nacimiento);
+                                $fecha = date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y ;
+                             ?>
+                             {{ $fecha }}
+                        </th>
+                        <td>
+                            @foreach($user->usuarioeducacion()->get() as $key)
+                                {{ $key->nivel_academico }},  
+                            @endforeach
+                        </td>
+                        <td>
+                            {{ $user->usuariootro->habilidad1 }} ,
+                            {{ $user->usuariootro->habilidad2 }} ,
+                            {{ $user->usuariootro->habilidad3 }} 
+                        </td>
+                        <td>{{ $user->usuariootro->idioma }} </td>
+                    </tr>
+                @endforeach 
+            </tbody>
+        </thead>
+    </table>
+</div>
 @endif
 
 @stop
 @section('js')
 <script type="text/javascript">	
-    $('#candidatos').dataTable({
+    $('.candidatos').dataTable({
     	"language": {
             "url": "http://cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Spanish.json"
         }

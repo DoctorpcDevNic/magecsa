@@ -20,7 +20,12 @@
             </tr>
             <tbody>
             	@foreach($user as $value)
-            		<tr>
+                    @if($value->enable == 0)
+                    <tr style="color:red">
+                    @else
+                    <tr>
+                    @endif
+            		
             			<td><a href="{{ URL::to('Perfil/'. $value->username )}}" target="new">{{ $value->usuariodato->nombres }}</a> </td>
 
             			<td>

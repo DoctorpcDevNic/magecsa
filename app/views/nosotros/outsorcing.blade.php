@@ -10,7 +10,7 @@
 
 	<div id="AdministracionPersonal" style="height:80px"></div>
 	<h3 class="titul wow bounceInUp"><img src="{{ asset('img/admpersonal.png') }}" alt="">Administración de Personal</h3>
-	<p class="subtitul">Mediante este servicio MAGECSA provee empleados de forma permanente o temporal a su empresa , asumiendo la relacion contractual empleado-patrono , asignando el recurso idoneo según los perfiles definido para cada puesto y su cultura empresarial, realizando el proceso de Reclutamiento y Selección completo.</p>
+	<p class="subtitul">Mediante este servicio MAGECSA provee empleados de forma permanente o temporal a su empresa , asumiendo la relación contractual empleado-patrono , asignando el recurso idoneo según los perfiles definido para cada puesto y su cultura empresarial, realizando el proceso de Reclutamiento y Selección completo.</p>
 
 	<div id="AdministracionNomina" style="height:80px"></div>
 	<h3 class="titul wow bounceInRight"><img src="{{ asset('img/admnomina.png') }}" alt="">Administración de Nómina</h3>

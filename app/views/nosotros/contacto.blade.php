@@ -20,21 +20,21 @@
 				</div>
 			</div>
 			<div class="form-group">
-				{{ Form::label('razon', 'Razon Social', array('class' => 'col-sm-3 control-label')) }}
+				{{ Form::label('razon', 'Razón Social', array('class' => 'col-sm-3 control-label')) }}
 				<div class="col-sm-8">
-					{{ Form::text('razon', Input::old('razon'), array('class' => 'form-control', 'placeholder'=> 'Razon Social')) }}	
+					{{ Form::text('razon', Input::old('razon'), array('class' => 'form-control', 'placeholder'=> 'Razón Social')) }}	
 				</div>
 			</div>
 			<div class="form-group">
-				{{ Form::label('email', 'Correo Electronico', array('class' => 'col-sm-3 control-label')) }}
+				{{ Form::label('email', 'Correo Electrónico', array('class' => 'col-sm-3 control-label')) }}
 				<div class="col-sm-8">
-					{{ Form::input('email','email', Input::old('email'), array('class' => 'form-control', 'placeholder'=> 'Correo Electronico')) }}	
+					{{ Form::input('email','email', Input::old('email'), array('class' => 'form-control', 'placeholder'=> 'Correo Electrónico')) }}	
 				</div>
 			</div>
 			<div class="form-group">
-				{{ Form::label('telefono', 'Telefono', array('class' => 'col-sm-3 control-label')) }}
+				{{ Form::label('telefono', 'Teléfono', array('class' => 'col-sm-3 control-label')) }}
 				<div class="col-sm-8">
-					{{ Form::text('telefono', Input::old('telefono'), array('class' => 'form-control convencional', 'placeholder'=> 'Telefono')) }}	
+					{{ Form::text('telefono', Input::old('telefono'), array('class' => 'form-control convencional', 'placeholder'=> 'Teléfono')) }}	
 				</div>
 			</div>	
 			<div class="form-group">

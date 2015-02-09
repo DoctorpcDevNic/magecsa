@@ -30,6 +30,7 @@ class UsuariosAdminController extends BaseController {
 			$user->password = Hash::make(Input::get('password'));	
 			$user->email = Input::get('email');
 			$user->role_id = Input::get('rol');
+			$user->enable = 1;
 
 			$useradmin = new UsuarioAdmin();
 			$useradmin->nombres = Input::get('nombres');
