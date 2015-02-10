@@ -175,19 +175,9 @@ Route::group(array('prefix' => 'perfil', 'before' => 'auth'), function () {
 	Route::get('cv/{username}', function($username){		
 			$user = User::where('username', $username)->first();
 
-			if(Auth::user()->id == $user->id || Auth::user()->role_id == 0){
-			//	return View::make('usuario.cv')->with('user', $user);
+			if(Auth::user()->id == $user->id || Auth::user()->role_id == 0){			
 				$html = View::make("usuario.cv")->with('user', $user);
 		    	return PDF::load($html, 'A4', 'portrait')->show();
-
-				/*
-		    	require_once 'vendor/thujohn/pdf/src/Thujohn/dompdf/dompdf_config.inc.php';
-				$dompdf = new DOMPDF();
-				$dompdf->load_html($html, 'UTF-8');
-				$dompdf->set_paper('A4');
-				$dompdf->render();
-				file_put_contents('test.pdf', $dompdf->output());
-				*/
 		    }else{
 		    	return Redirect::to('/');
 		    }
@@ -265,9 +255,7 @@ Route::group(array('before' => 'auth'), function()
 
 		Route::get('Perfil/{username}/vacante/{vacante}', 'VacantesController@viewSeleccionar');
 		Route::get('vacante/seleccionar/{user}/{vacante}', 'VacantesController@seleccionar');
-		Route::get('vacante/quitar/{user}/{vacante}', 'VacantesController@quitar');
-
-		
+		Route::get('vacante/quitar/{user}/{vacante}', 'VacantesController@quitar');		
 	});
 });
 

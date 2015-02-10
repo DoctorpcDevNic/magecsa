@@ -148,7 +148,12 @@ class VacantesController extends BaseController {
 		return Redirect::back();
 	}
 
-	
+	/**
+	 * [quitar description]
+	 * @param  [type] $username [description]
+	 * @param  [type] $vacante  [description]
+	 * @return [type]           [description]
+	 */
 	public function quitar($username, $vacante){
 		$user = User::find($username);
 		$vacante = Vacante::find($vacante);

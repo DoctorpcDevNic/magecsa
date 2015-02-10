@@ -95,8 +95,7 @@ class CandidatosController extends BaseController {
 
 			$userdato->disponible_viajar = Input::get('disponible_viajar');
 			$userdato->objetivo = Input::get('objetivo');
-			//$userdato->foto = Input::get('foto');
-			
+					
 			$userexpec->interes_laboral = Input::get('interes_laboral');
 			$userexpec->expectativa_salarial = Input::get('expectativa_salarial');
 			$userexpec->ubicacion_laboral = Input::get('ubicacion_laboral');
@@ -135,15 +134,6 @@ class CandidatosController extends BaseController {
 			$userotro->nivel_dominio2 = Input::get('nivel_dominio2');
 			$userotro->habilidad3 = Input::get('habilidad3');
 			$userotro->nivel_dominio3 = Input::get('nivel_dominio3');
-
-			/*	
-			$userhab->base_datos = Input::get('base_datos');
-			$userhab->frameworks = Input::get('frameworks');
-			$userhab->lenguajes_programacion = Input::get('lenguajes_programacion');
-			$userhab->programas_aplicacion = Input::get('programas_aplicacion');
-			$userhab->programas_diseno = Input::get('programas_diseno');
-			$userhab->sistemas_operativos = Input::get('sistemas_operativos');
-			*/
 		
 			$user->save();
 			$user->usuariodato()->save($userdato);
@@ -153,8 +143,7 @@ class CandidatosController extends BaseController {
 				$userexper->usuariocontacto()->save($contacto);
 			}
 			$user->usuarioeducacion()->save($usereduca);
-			$user->usuariootro()->save($userotro);
-			//$user->usuariohabilidad()->save($userhab);
+			$user->usuariootro()->save($userotro);		
 
 			Session::flash('message', 'Usuario Agregado, ya puede iniciar sesion');
 			return Redirect::to('login');
@@ -586,29 +575,44 @@ class CandidatosController extends BaseController {
 		$file = 'no_img.png';
 		$user = User::find($id);
 
-		if(Auth::user()->id == $id){	
-			$userdato = UsuarioDato::where('usuario_id', $id)->first();
+		$rules= array(
+				'archivo'=> 'required|image|max:400',
+			);
+		$message = array(
+            'archivo.required' => 'La imagen no puede estar vacia.',
+            'archivo.image' => 'El archivo seleccionado no es correcto, asegurese de seleccionar un formato de archivo de imagen compatible (jpeg,bmp,png)',
+            'archivo.max' => 'La imagen es demasiado pesada, asegurese de no sobrepasar los 400kb',
+        );
+        $validador = Validator::make(Input::all(), $rules, $message);
 
-
-			if(Input::hasFile('archivo')) {
-				File::delete('img/upload/'. $userdato->foto);
-		       	Input::file('archivo')->move('img/upload', 'avatar'.Auth::user()->username).'.jpg';
-		       	$file = 'avatar'.Auth::user()->username .'.jpg';
-
-		       	$userdato->foto = $file;
-		       	$user->usuariodato()->save($userdato);
-
-		       	Session::flash('message', 'Usuario Modificado');
-				return Redirect::back();
-
-	     	}else{
-	     		Session::flash('message', 'No se encontro imagen');
-				return Redirect::back();
-	     	}			
-			
+		if($validador->fails()){
+			return Redirect::back()->withErrors($validador)->withInput();
 		}else{
-			return Redirect::to('/');
-		}
+
+			if(Auth::user()->id == $id){	
+				$userdato = UsuarioDato::where('usuario_id', $id)->first();
+
+
+				if(Input::hasFile('archivo')) {
+					File::delete('img/upload/'. $userdato->foto);
+			       	Input::file('archivo')->move('img/upload', 'avatar'.Auth::user()->username).'.jpg';
+			       	$file = 'avatar'.Auth::user()->username .'.jpg';
+
+			       	$userdato->foto = $file;
+			       	$user->usuariodato()->save($userdato);
+
+			       	Session::flash('message', 'Usuario Modificado');
+					return Redirect::back();
+
+		     	}else{
+		     		Session::flash('message', 'No se encontro imagen');
+					return Redirect::back();
+		     	}			
+				
+			}else{
+				return Redirect::to('/');
+			}
+		}	
 	}
 
 	/**
