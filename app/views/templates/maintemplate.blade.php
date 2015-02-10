@@ -95,7 +95,7 @@
 		      				</li>
 		      				<li class="dropdown">
 			                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-			                    	<i class="glyphicon glyphicon-user"></i><br>
+			                    	<i class="fa fa-users"></i><br>
 			                    	Nosotros 
 			                    </a>
 			                    <ul class="dropdown-menu submenu" role="menu">
@@ -154,15 +154,15 @@
 					                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
 					                      	@endif	
 				                    	@else
-				                    		<li><a href="{{ URL::to('login') }}">Iniciar Sesion</a></li>
+				                    		<li><a href="{{ URL::to('login') }}">Iniciar Sesión</a></li>
 				                    	@endif        
 				                    </ul>
 				                </li>
 			                @else
 			                	<li class="activemenu">
 			      					<a href="{{ URL::to('login') }}">
-			      					<i class="glyphicon glyphicon-list-alt"></i><br>
-			      						Iniciar Sesion
+			      					<i class="fa fa-user"></i><br>
+			      						Iniciar Sesión
 			      					</a>
 			      				</li>
 			                @endif
