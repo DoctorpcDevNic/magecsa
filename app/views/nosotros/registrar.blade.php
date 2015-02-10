@@ -558,7 +558,7 @@
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					    	{{ Form::text('telefono_empresa', Input::old('telefono_empresa'), array('class' => 'form-control convencional', 'placeholder'=> '*Tefono de Empresa')) }}	
+					    	{{ Form::text('telefono_empresa', Input::old('telefono_empresa'), array('class' => 'form-control convencional', 'placeholder'=> '*Teléfono de Empresa')) }}	
 					    </div>
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="area" >

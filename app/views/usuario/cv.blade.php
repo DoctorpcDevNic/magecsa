@@ -130,7 +130,7 @@
 	</div>
 
 	<div class="footer">
-		<p class="direccion">Plaza Bolonia Modulo L-5 | Tel&eacute;fono: 2266-5793 | info@magecsa.com | www.masempleosyservicios.com.ni </p>
+		<p class="direccion">Plaza Bolonia Modulo L-5 | Tel&eacute;fono: 2266-2709 | info@magecsa.com | www.masempleosyservicios.com.ni </p>
 	</div>
 </body>
 </html>

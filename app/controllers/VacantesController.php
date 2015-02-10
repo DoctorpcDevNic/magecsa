@@ -117,7 +117,13 @@ class VacantesController extends BaseController {
 	 */
 	public function viewSeleccionar($username, $vacante){
 		$user = User::where('username', $username)->first();
-		$vacante = Vacante::find($vacante);
+
+		if($vacante == 'todas'){
+			$vacante = Vacante::where('enable', 1)->get();
+		}else{
+			$vacante = Vacante::find($vacante);
+		}
+		
 
 		return View::make('admin.seleccionar', array('user'=>$user, 'vacante'=>$vacante));	
 	

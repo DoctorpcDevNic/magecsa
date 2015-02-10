@@ -142,16 +142,16 @@
 				                    <ul class="dropdown-menu submenu" role="menu">
 				                    	@if(Auth::check())
 				                    		@if(Auth::user()->role_id == 2)
-				                    			<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
+				                    			<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesión</a></li> 
 				                    		@elseif(Auth::user()->role_id == 0 )	
 					                    		<li><a href="{{ URL::to('administrador') }}">Ver perfil</a></li>       
-					                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
+					                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesión</a></li> 
 					                      	@elseif(Auth::user()->role_id == 1 )	
 					                    		<li><a href="{{ URL::to('administrador/vacantes') }}">Ver perfil</a></li>       
-					                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
+					                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesión</a></li> 
 					                      	@else
 					                      		<li><a href="{{ URL::to('Perfil/'. Auth::user()->username) }}">Ver perfil</a></li>       
-					                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesion</a></li> 
+					                      		<li><a href="{{ URL::to('perfil/logout') }}">Cerrar Sesión</a></li> 
 					                      	@endif	
 				                    	@else
 				                    		<li><a href="{{ URL::to('login') }}">Iniciar Sesión</a></li>
@@ -184,14 +184,13 @@
     			<a href=""><img src="{{ asset('img/linkeding.png') }}" alt=""></a>
     		</div>
     		<p>Mas Empleos Y Servicios &copy; 2014 MAGECSA</p>
-    		<p>Dirección: Plaza Bolonia Modulo L5, Teléfono: 2266-5793</p> 
+    		<p>Dirección: Plaza Bolonia Modulo L-5, Teléfono: 2266-2709</p> 
     		<P>Todos Los Derechos Reservados</P>
     		<p class="hidden-md hidden-lg hidden-sm">Designed by <a href="">Doctor PC</a></p>
     		<ul class="hidden-xs">
 		        <li><a href="{{ URL::to('Nosotros') }}">Quienes somos</a> <span>|</span></li>
 		        <li><a href="{{ URL::to('Contactenos') }}">Contáctenos</a> <span>|</span></li>		       
 		        <li><a href="{{ asset('document/PoliticasDePrivacidad.pdf') }}" target="new">Politicas de privacidad</a> <span>|</span></li>
-		        <li><a href="">Idioma</a> <span>|</span></li>
 		        <li>Designed by <a href="http://doctorpc.com.ni/" target="new">Doctor PC</a></li>
 		      </ul>
     	</footer>
