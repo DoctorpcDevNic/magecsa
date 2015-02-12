@@ -781,7 +781,6 @@
 </div>
 @stop
 @section('js')
-
 <script type="text/javascript">
 $(function(){
 	$("#areas_interesR").multiselect({
