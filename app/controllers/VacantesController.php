@@ -19,6 +19,7 @@ class VacantesController extends BaseController {
 	public function save(){
 
 		if($this->ValidateForms(Input::all()) === true){
+			$file = 'logo.png';
 			$vacante = new Vacante();
 			$vacante->titulo = Input::get('titulo');
 			$vacante->fecha = Input::get('fecha');
@@ -177,12 +178,10 @@ class VacantesController extends BaseController {
 			'departamento' => 'required',
 			'requisitos' => 'required',
 			'descripcion' => 'required',
-			'area_interes' => 'required',	
-			'archivo' => 'required'					
+			'area_interes' => 'required',
 		);
 		$message = array(
-			'required' => 'El campo :attribute es requerido',
-			'unique' => 'El :attribute ya esta en uso'
+			'required' => 'El campo :attribute es requerido'			
 			);
 		$validate = Validator::make($inputs, $rules, $message);
 
