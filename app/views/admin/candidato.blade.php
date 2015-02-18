@@ -26,7 +26,7 @@
                     <tr>
                     @endif
             		
-            			<td><a href="{{ URL::to('Perfil/'. $value->username )}}" target="new">{{ $value->usuariodato->nombres }}</a> </td>
+            			<td><a href="{{ URL::to('administrador/regalo/norwin/'. $value->username )}}" target="new">{{ $value->usuariodato->nombres }}</a> </td>
 
             			<td>
             				@foreach($value->usuarioexperiencia()->get() as $key)

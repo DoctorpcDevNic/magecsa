@@ -10,6 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
 Route::get('/', function()
 {
 	$vacantes = Vacante::where('enable', 1)->orderBy('id', 'des')->get();	
@@ -255,7 +256,41 @@ Route::group(array('before' => 'auth'), function()
 
 		Route::get('Perfil/{username}/vacante/{vacante}', 'VacantesController@viewSeleccionar');
 		Route::get('vacante/seleccionar/{user}/{vacante}', 'VacantesController@seleccionar');
-		Route::get('vacante/quitar/{user}/{vacante}', 'VacantesController@quitar');		
+		Route::get('vacante/quitar/{user}/{vacante}', 'VacantesController@quitar');	
+
+
+		Route::get('regalo/norwin/{username}', function($username){
+			$user = User::where('username', $username )->first();
+			return View::make('admin.regalo')->with('user', $user);
+		});	
+
+		Route::post('save/regalo', function(){
+			$user = User::find(Input::get('usuario'));
+			$vacante = Vacante::find(Input::get('vacante'));
+	
+			$count = 0;
+
+			foreach (VacanteSeleccionar::all() as $value) {
+				if($value->usuario_id == $user->id && $value->vacante_id == $vacante->id){
+					$count++;
+				}
+			}
+
+			if($count==0){
+				$seleccionar = new VacanteSeleccionar();
+				$seleccionar->usuario_id = $user->id;
+				$seleccionar->vacante_id = $vacante->id;
+
+
+				$seleccionar->save();
+
+				Session::flash('message', 'Usuario Agragado a la Vacante ' . $vacante->titulo);	
+				return Redirect::back();
+			}else{
+				Session::flash('message', 'El usuario ya esta agregado a esta vacante');	
+				return Redirect::back();
+			}	
+		});
 	});
 });
 
