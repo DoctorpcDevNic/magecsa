@@ -179,7 +179,7 @@
 
     	<footer>
     		<div class="social">
-    			<a href=""><img src="{{ asset('img/facebooklogo.png') }}" alt=""></a>
+    			<a href="https://www.facebook.com/magecsa"><img src="{{ asset('img/facebooklogo.png') }}" alt=""></a>
     			<a href=""><img src="{{ asset('img/twiter.png') }}" alt=""></a>
     			<a href=""><img src="{{ asset('img/linkeding.png') }}" alt=""></a>
     		</div>

@@ -9,7 +9,7 @@
 		<div class="triangulo"></div>
 		<div class="row">
 			<div class="col-xs-2 avatarpf">
-				<img src="{{ asset('img/upload/' . $user->usuariodato->foto) }}" alt="">
+				<img src="{{ asset('img/upload/' . $user->usuariodato->foto) }}" alt="avatar">
 			</div>
 			<div class="col-xs-10">
 				<p class="nombre">{{ $user->usuariodato->nombres ." ". $user->usuariodato->apellidos  }}</p>
@@ -118,7 +118,7 @@
 	</div>
 
 	<div class="col-xs-8 mobil avatar">
-		<img src="{{ asset('img/upload/' . $user->usuariodato->foto) }}" alt="" class="img-responsive">		
+		<img src="{{ asset('img/upload/' . $user->usuariodato->foto) }}" alt="avatar" class="img-responsive">		
 	</div>
 
 	@if(Auth::check() && Auth::user()->id == $user->id )		
@@ -135,7 +135,7 @@
 
 			<div class="col-xs-3 computer" style="margin-top: 2em"> 
 				<div class="avatar">
-					<img src="{{ asset('img/upload/' . $user->usuariodato->foto) }}" alt="" class="img-responsive">
+					<img src="{{ asset('img/upload/' . $user->usuariodato->foto) }}" alt="avatar" class="img-responsive">
 					<a href="#" class="btn btn-primary" id="cambiaravatar">Cambiar Imagen de perfil</a>
 				</div>
 				
