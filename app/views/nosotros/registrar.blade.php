@@ -218,10 +218,10 @@
 					    	<input type="checkbox" name="categoria_licencia[]" value="Sin licencia">Sin licencia<br>
 					    </div>	
 					</div>
-					<h3 class="subtitul">Objetivos/Principales Logros/Competencias</h3>
+					<h3 class="subtitul">Objetivos/Principales Logros/Competencias (200 caracteres maximo)</h3>
 					<div class="form-group">						
 					    <div class="col-sm-10">
-					    	{{ Form::textarea('objetivo', Input::old('objetivo'), array('class' => 'form-control', 'placeholder'=> '*Escribe aqui tus objetivos')) }}	
+					    	{{ Form::textarea('objetivo', Input::old('objetivo'), array('class' => 'form-control', 'placeholder'=> '*Escribe aqui tus objetivos', 'onkeypress' => 'if(this.value.length == 200){return false;}else{return toUpper(event,this);}')) }}
 					    </div>
 					</div>
 				</div>					
@@ -637,7 +637,7 @@
 			<div class="categoria educacion">
 				<h3 class="titulother">
 					<img src="{{ asset('img/educacion.png') }}" alt="" class="computer">
-					EDUACIÓN ACADÉMICA
+					FORMACIÓN ACADÉMICA
 				</h3>
 				<div class="campo col-sm-offset-2">
 					<div class="form-group">	
@@ -781,6 +781,11 @@
 </div>
 @stop
 @section('js')
+<script type="text/javascript">
+	
+
+</script>
+
 <script type="text/javascript">
 $(function(){
 	$("#areas_interesR").multiselect({
