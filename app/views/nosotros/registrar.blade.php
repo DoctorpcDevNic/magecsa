@@ -218,10 +218,10 @@
 					    	<input type="checkbox" name="categoria_licencia[]" value="Sin licencia">Sin licencia<br>
 					    </div>	
 					</div>
-					<h3 class="subtitul">Objetivos/Principales Logros/Competencias (200 caracteres maximo)</h3>
+					<h3 class="subtitul">Objetivos/Principales Logros</h3>
 					<div class="form-group">						
 					    <div class="col-sm-10">
-					    	{{ Form::textarea('objetivo', Input::old('objetivo'), array('class' => 'form-control', 'placeholder'=> '*Escribe aqui tus objetivos', 'onkeypress' => 'if(this.value.length == 200){return false;}else{return toUpper(event,this);}')) }}
+					    	{{ Form::textarea('objetivo', Input::old('objetivo'), array('class' => 'form-control', 'placeholder'=> '*Escribe aqui tus objetivos (Máximo 250 caracteres )', 'onkeypress' => 'if(this.value.length == 250){return false;}else{return toUpper(event,this);}')) }}
 					    </div>
 					</div>
 				</div>					
@@ -232,7 +232,8 @@
 					<img src="{{ asset('img/expectativa.png') }}" alt="" class="computer">
 					EXPECTATIVA LABORAL
 				</h3>
-				<div class="campo col-sm-offset-2">
+				<div class="campo col-sm-offset-2">				
+				<p class="subtitul">Importante: Al registrar tu usuario puedes editar  tu experiencia. Te invitamos a ingresar  tus últimas tres  experiencias que has tenido. Ten en consideración que algo que olvides dar a conocer puede provocar que no seas considerado para el puesto que tanto deseas.</p>
 					<div class="form-group">	
 					    <div class="col-sm-5 ">
 					    	<select class="form-control" name="interes_laboral" >
@@ -603,12 +604,12 @@
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-10">
-					    	{{ Form::textarea('logros', Input::old('logros'), array('class' => 'form-control', 'placeholder'=> 'Logros')) }}	
+					    	{{ Form::textarea('logros', Input::old('logros'), array('class' => 'form-control', 'placeholder'=> 'Logros (Máximo 250 caracteres )','onkeypress' => 'if(this.value.length == 250){return false;}else{return toUpper(event,this);}')) }}
 					    </div>
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-10">
-					    	{{ Form::textarea('funciones', Input::old('funciones'), array('class' => 'form-control', 'placeholder'=> '*Descripción breve de principales funciones en el puesto')) }}	
+					    	{{ Form::textarea('funciones', Input::old('funciones'), array('class' => 'form-control', 'placeholder'=> '*Descripción breve de principales funciones en el puesto (Máximo 250 caracteres )', 'onkeypress' => 'if(this.value.length == 250){return false;}else{return toUpper(event,this);}')) }}
 					    </div>
 					</div>
 					<div class="form-group">	
