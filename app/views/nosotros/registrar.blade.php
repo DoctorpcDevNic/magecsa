@@ -233,7 +233,7 @@
 					EXPECTATIVA LABORAL
 				</h3>
 				<div class="campo col-sm-offset-2">				
-				<p class="subtitul">Importante: Al registrar tu usuario puedes editar  tu experiencia. Te invitamos a ingresar  tus últimas tres  experiencias que has tenido. Ten en consideración que algo que olvides dar a conocer puede provocar que no seas considerado para el puesto que tanto deseas.</p>
+				
 					<div class="form-group">	
 					    <div class="col-sm-5 ">
 					    	<select class="form-control" name="interes_laboral" >
@@ -325,7 +325,7 @@
 					</div>
 					<div class="form-group">	
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="puesto_interes" >
+					    	<select class="form-control" name="puesto_interes" id="puesto_interes">
 								 <option selected="selected" class="s" value=" ">Puestos de Interés </option>
 								 <option value="Ejecutivos de Ventas">Ejecutivos de Ventas</option>				
 								 <option value="Vendedor|Rutero">Vendedor|Rutero</option>	
@@ -515,6 +515,7 @@
 					EXPERIENCIA PROFESIONAL
 				</h3>
 				<div class="campo col-sm-offset-2">
+				<p class="subtitul">Importante: Al registrar tu usuario,  te invitamos a actualizar tu perfil , ingresando  tus últimas tres experiencias labores considerando el máximo de los caracteres y los campos obligatorios.</p>
 					<div class="form-group">						
 					    <div class="col-sm-5">
 					    	{{ Form::text('nombre_empresa', Input::old('nombre_empresa'), array('class' => 'form-control', 'placeholder'=> '*Nombre de la Empresa')) }}	
@@ -782,9 +783,18 @@
 </div>
 @stop
 @section('js')
-<script type="text/javascript">
-	
-
+<script>
+    function ordenarSelect(id_componente)
+    {
+      var selectToSort = jQuery('#' + id_componente);
+      var optionActual = selectToSort.val();
+      selectToSort.html(selectToSort.children('option').sort(function (a, b) {
+        return a.text === b.text ? 0 : a.text < b.text ? -1 : 1;
+      })).val(optionActual);
+    }
+    $(document).ready(function () {
+      ordenarSelect('puesto_interes');
+    });
 </script>
 
 <script type="text/javascript">

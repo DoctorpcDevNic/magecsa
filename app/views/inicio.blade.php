@@ -21,11 +21,19 @@
 			</div>
 			<div class="col-md-3 col-xs-3">
         @if(Auth::check())
+        @if(Auth::user()->role_id == 0 || Auth::user()->role_id == 1)
+       	  <a href="{{ URL::to('administrador') }}">
+            <img src="{{ asset('img/inscribete.png') }}" class="img-responsive">
+            <hr>
+            <h2>Registrate</h2>
+          </a>
+        @else
           <a href="{{ URL::to('Perfil/'. Auth::user()->username) }}">
             <img src="{{ asset('img/inscribete.png') }}" class="img-responsive">
             <hr>
             <h2>Registrate</h2>
           </a>
+        @endif
         @else
           <a href="{{ URL::to('Registrar') }}">
             <img src="{{ asset('img/inscribete.png') }}" class="img-responsive">
