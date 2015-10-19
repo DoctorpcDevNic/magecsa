@@ -48,7 +48,7 @@
 				<div class="campo col-sm-offset-4">
 					<div class="form-group">						
 					    <div class="col-sm-6">
-					      {{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'placeholder'=> 'Usuario')) }}						       
+					      {{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'placeholder'=> 'Usuario', 'required')) }}						       
 					    </div>
 					    <div class="col-sm-4">
 					    	@if( $errors->has('username') )					    		
@@ -60,7 +60,7 @@
 					</div>	
 					<div class="form-group">
 					    <div class="col-sm-6">
-					      {{ Form::password('password', array('class' => 'form-control', 'placeholder'=> 'Contraseña')) }}	
+					      {{ Form::password('password', array('class' => 'form-control', 'placeholder'=> 'Contraseña', 'required')) }}			
 					    </div>
 					    <div class="col-sm-4">
 					    	@if( $errors->has('password') )					    		
@@ -72,7 +72,7 @@
 					</div>	
 					<div class="form-group">
 					    <div class="col-sm-6">
-					      {{ Form::password('password_confirmation', array('class' => 'form-control', 'placeholder'=> 'Confirmar Contraseña')) }}	
+					      {{ Form::password('password_confirmation', array('class' => 'form-control', 'placeholder'=> 'Confirmar Contraseña', 'required')) }}				
 					    </div>
 					    <div class="col-sm-4">
 					    	@if( $errors->has('password_confirmation') )					    		
@@ -93,7 +93,7 @@
 				<div class="campo col-sm-offset-2">
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					      {{ Form::text('nombres', Input::old('nombres'), array('class' => 'form-control', 'placeholder'=> '*Nombres')) }}	
+					      {{ Form::text('nombres', Input::old('nombres'), array('class' => 'form-control', 'placeholder'=> '*Nombres', 'required')) }}			
 					      @if( $errors->has('nombres') )					    		
 				            	@foreach($errors->get('nombres') as $error )
 				                	<span class="error">* {{ $error }}</span>
@@ -101,31 +101,31 @@
 				          	@endif
 					    </div>										
 					    <div class="col-sm-5">
-					      {{ Form::text('apellidos', Input::old('apellidos'), array('class' => 'form-control', 'placeholder'=> '*Apellidos')) }}	
+					      {{ Form::text('apellidos', Input::old('apellidos'), array('class' => 'form-control', 'placeholder'=> '*Apellidos', 'required')) }}			
 					    </div>
 					</div>
 					<h3 class="subtitul">Fecha de Nacimiento</h3>
 					<div class="form-group">						
 					    <div class="col-sm-6 col-sm-offset-2">
-					      {{ Form::input('date', 'fecha_nacimiento', Input::old('fecha_nacimiento'), array('class' => 'form-control')) }}	
+					      {{ Form::input('date', 'fecha_nacimiento', Input::old('fecha_nacimiento'), array('class' => 'form-control', 'required')) }}				
 					    </div>
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-10">
-					      {{ Form::textarea( 'direccion', Input::old('direccion'), array('class' => 'form-control','placeholder'=> '*Dirección', 'id' => 'textareainput')) }}	
+					      {{ Form::textarea( 'direccion', Input::old('direccion'), array('class' => 'form-control','placeholder'=> '*Dirección', 'id' => 'textareainput', 'required')) }}			
 					    </div>
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					      {{ Form::email( 'email', Input::old('email'), array('class' => 'form-control','placeholder'=> '*Correo Electrónico')) }}	
+					      {{ Form::email( 'email', Input::old('email'), array('class' => 'form-control','placeholder'=> '*Correo Electrónico', 'required')) }}			
 					    </div>										
 					    <div class="col-sm-5">
-					      {{ Form::email( 'email_confirmation', Input::old('email_confirmation'), array('class' => 'form-control','placeholder'=> '*Comprobar Correo Electrónico')) }}	
+					      {{ Form::email( 'email_confirmation', Input::old('email_confirmation'), array('class' => 'form-control','placeholder'=> '*Comprobar Correo Electrónico', 'required')) }}				
 					    </div>
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="estado_civil" >
+					    	<select class="form-control" name="estado_civil" required>
 								 <option selected="selected" class="s">Estado Civil</option>
 								 <option value="Soltero">Soltero</option>				
 								 <option value="Casado">Casado</option>				
@@ -133,19 +133,19 @@
 							</select> 
 					    </div>											
 					    <div class="col-sm-5">
-					    	{{ Form::text('nacionalidad', Input::old('nacionalidad'), array('class' => 'form-control', 'placeholder'=> '*Nacionalidad')) }}	
+					    	{{ Form::text('nacionalidad', Input::old('nacionalidad'), array('class' => 'form-control', 'placeholder'=> '*Nacionalidad', 'required')) }}				
 					    </div>
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="genero" >
+					    	<select class="form-control" name="genero" required>
 								 <option selected="selected" class="s" value="">*Genero</option>
 								 <option value="Femenino">Femenino</option>				
 								 <option value="Masculino">Masculino</option>				
 							</select> 
 					    </div>									
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="departamento" >
+					    	<select class="form-control" name="departamento" required>
 								 <option selected="selected" class="s" value=" ">*Departamento</option>
 								 <option value="Atlantico Norte (RAAN)">Atlantico Norte (RAAN)</option>				
 								 <option value="Atlantico Sur (RAAS)">Atlantico Sur (RAAS)</option>	
@@ -169,7 +169,7 @@
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="tipo_identificacion" >
+					    	<select class="form-control" name="tipo_identificacion" required>
 								 <option selected="selected" class="s" value=" ">*Tipo de Identificación </option>
 								 <option value="Cedula">Cédula</option>				
 								 <option value="Pasaporte">Pasaporte</option>				
@@ -177,27 +177,27 @@
 							</select> 
 					    </div>											
 					    <div class="col-sm-5">
-					    	{{ Form::text('no_identificacion', Input::old('no_identificacion'), array('class' => 'form-control cedula', 'placeholder'=> '*No. Identificación')) }}	
+					    	{{ Form::text('no_identificacion', Input::old('no_identificacion'), array('class' => 'form-control cedula', 'placeholder'=> '*No. Identificación', 'required')) }}				
 					    </div>
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					    	{{ Form::text('convencional', Input::old('convencional'), array('class' => 'form-control convencional', 'placeholder'=> '*Teléfono de Casa', 'id' => 'convencional')) }}	
+					    	{{ Form::text('convencional', Input::old('convencional'), array('class' => 'form-control convencional', 'placeholder'=> '*Teléfono de Casa', 'id' => 'convencional', 'required')) }}				
 					    </div>											
 					    <div class="col-sm-5">
-					    	{{ Form::text('celular', Input::old('celular'), array('class' => 'form-control celular', 'placeholder'=> '*Teléfono Celular', 'id' => 'celular')) }}	
+					    	{{ Form::text('celular', Input::old('celular'), array('class' => 'form-control celular', 'placeholder'=> '*Teléfono Celular', 'id' => 'celular', 'required')) }}				
 					    </div>
 					</div>
 					<div class="form-group">	
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="vehiculo" >
+					    	<select class="form-control" name="vehiculo" required>
 								 <option selected="selected" class="s" value=" ">Posees Vehículo </option>
 								 <option value="0">Si</option>				
 								 <option value="1">No</option>	
 							</select> 
 					    </div>
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="disponible_viajar" id="pr">
+					    	<select class="form-control" name="disponible_viajar" id="pr" required>
 								 <option selected="selected" class="s" value=" ">Disponibilidad de Viajar </option>
 								 <option value="0">Si</option>				
 								 <option value="1">No</option>	
@@ -217,13 +217,7 @@
 					     <div class="col-sm-4 col-xs-4">
 					    	<input type="checkbox" name="categoria_licencia[]" value="Sin licencia">Sin licencia<br>
 					    </div>	
-					</div>
-					<h3 class="subtitul">Objetivos/Principales Logros</h3>
-					<div class="form-group">						
-					    <div class="col-sm-10">
-					    	{{ Form::textarea('objetivo', Input::old('objetivo'), array('class' => 'form-control', 'placeholder'=> '*Escribe aqui tus objetivos (Máximo 250 caracteres )', 'onkeypress' => 'if(this.value.length == 250){return false;}else{return toUpper(event,this);}')) }}
-					    </div>
-					</div>
+					</div>					
 				</div>					
 			</div>
 			{{--  expectativa laboral --}}
@@ -236,7 +230,7 @@
 				
 					<div class="form-group">	
 					    <div class="col-sm-5 ">
-					    	<select class="form-control" name="interes_laboral" >
+					    	<select class="form-control" name="interes_laboral" required>
 								 <option selected="selected" class="s" value=" ">*Nivel de Interés Laboral</option>
 								 <option value="Permanente">Permanente</option>				
 								 <option value="Temporal">Temporal</option>	
@@ -247,7 +241,7 @@
 							</select> 
 					    </div>
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="expectativa_salarial" >
+					    	<select class="form-control" name="expectativa_salarial" required>
 								<option selected="selected" class="s" value=" ">*Expectativa Salarial Mensual </option>
 								<option value="menos de 200">menos de 200</option>				
 								<option value="0-200">0-200</option>	
@@ -277,7 +271,7 @@
 					</div>	
 					<div class="form-group">	
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="ubicacion_laboral" >
+					    	<select class="form-control" name="ubicacion_laboral" required>
 								 <option selected="selected" class="s" value=" ">Ubicación de interés laboral</option>
 								 <option value="Atlantico Norte (RAAN)">Atlantico Norte (RAAN)</option>				
 								 <option value="Atlantico Sur (RAAS)">Atlantico Sur (RAAS)</option>	
@@ -300,7 +294,7 @@
 					    </div>	
 					    <div class="col-sm-5">
 					   		<input type="hidden" name="areasseleccionadas" id="areasseleccionadas">								    	
-					    	<select class="form-control" name="areas_interes" id="areas_interesR">
+					    	<select class="form-control" name="areas_interes" id="areas_interesR" required>
 								 <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>
 								 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>				
 								 <option value="Finanza|Contabilidad|Auditoria">Finanza|Contabilidad|Auditoria</option>	
@@ -325,7 +319,7 @@
 					</div>
 					<div class="form-group">	
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="puesto_interes" id="puesto_interes">
+					    	<select class="form-control" name="puesto_interes" id="puesto_interes" required>
 								 <option selected="selected" class="s" value=" ">Puestos de Interés </option>
 								 <option value="Ejecutivos de Ventas">Ejecutivos de Ventas</option>				
 								 <option value="Vendedor|Rutero">Vendedor|Rutero</option>	
@@ -496,7 +490,7 @@
 							</select> 
 					    </div>	
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="horario" >
+					    	<select class="form-control" name="horario" required>
 								 <option selected="selected" class="s" value=" ">Horario </option>
 								 <option value="Diurno">Diurno</option>				
 								 <option value="Nocturno">Nocturno</option>	
@@ -518,10 +512,10 @@
 				<p class="subtitul">Importante: Al registrar tu usuario,  te invitamos a actualizar tu perfil , ingresando  tus últimas tres experiencias labores considerando el máximo de los caracteres y los campos obligatorios.</p>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					    	{{ Form::text('nombre_empresa', Input::old('nombre_empresa'), array('class' => 'form-control', 'placeholder'=> '*Nombre de la Empresa')) }}	
+					    	{{ Form::text('nombre_empresa', Input::old('nombre_empresa'), array('class' => 'form-control', 'placeholder'=> '*Nombre de la Empresa', 'required')) }}			
 					    </div>
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="actividad_empresa" >
+					    	<select class="form-control" name="actividad_empresa" required>
 								 <option selected="selected" class="s" value=" ">*Actividad de la Empresa</option>
 								 <option value="Aduana|Agencia Aduaneras">Aduana|Agencia Aduaneras</option>				
 								 <option value="Agencia de Empleo|Reclutamiento">Agencia de Empleo|Reclutamiento</option>	
@@ -560,10 +554,10 @@
 					</div>
 					<div class="form-group">						
 					    <div class="col-sm-5">
-					    	{{ Form::text('telefono_empresa', Input::old('telefono_empresa'), array('class' => 'form-control convencional', 'placeholder'=> '*Teléfono de Empresa')) }}	
+					    	{{ Form::text('telefono_empresa', Input::old('telefono_empresa'), array('class' => 'form-control convencional', 'placeholder'=> '*Teléfono de Empresa', 'required')) }}			
 					    </div>
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="area" >
+					    	<select class="form-control" name="area" required>
 								 <option selected="selected" class="s" value=" ">*Área Funcional</option>
 								 <option value="Mercadeo|Ventas">Mercadeo|Ventas</option>				
 								 <option value="Banca|Servicios Financieros">Banca|Servicios Financieros</option>	
@@ -589,34 +583,29 @@
 					</div>					
 					<div class="form-group">						
 					    <div class="col-sm-6 col-sm-offset-2">
-					    	{{ Form::text('puesto', Input::old('puesto'), array('class' => 'form-control', 'placeholder'=> '*Puesto o Cargo Desempeñado')) }}	
+					    	{{ Form::text('puesto', Input::old('puesto'), array('class' => 'form-control', 'placeholder'=> '*Puesto o Cargo Desempeñado', 'required')) }}				
 					    </div>
 					</div>
 					
 					<div class="form-group">
 						<div class="col-sm-5 ">
-							<h3 class="subtitul" style="width: 100%">Fecha Inicio</h3>				
-					    	{{ Form::input('date','fecha_inicio', Input::old('fecha_inicio'), array('class' => 'form-control')) }}	
+							<h3 class="subtitul" style="width: 100%">Fecha Inicio Labores</h3>				
+					    	{{ Form::input('date','fecha_inicio', Input::old('fecha_inicio'), array('class' => 'form-control', 'required')) }}			
 					    </div>
 						<div class="col-sm-5 ">
-							<h3 class="subtitul" style="width: 100%">Fecha Fin</h3>				
-					    	{{ Form::input('date','fecha_fin', Input::old('fecha_fin'), array('class' => 'form-control')) }}	
+							<h3 class="subtitul" style="width: 100%">Fecha Finalizo Labores</h3>				
+					    	{{ Form::input('date','fecha_fin', Input::old('fecha_fin'), array('class' => 'form-control', 'required')) }}			
 					    </div>
-					</div>
+					</div>					
 					<div class="form-group">						
 					    <div class="col-sm-10">
-					    	{{ Form::textarea('logros', Input::old('logros'), array('class' => 'form-control', 'placeholder'=> 'Logros (Máximo 250 caracteres )','onkeypress' => 'if(this.value.length == 250){return false;}else{return toUpper(event,this);}')) }}
-					    </div>
-					</div>
-					<div class="form-group">						
-					    <div class="col-sm-10">
-					    	{{ Form::textarea('funciones', Input::old('funciones'), array('class' => 'form-control', 'placeholder'=> '*Descripción breve de principales funciones en el puesto (Máximo 250 caracteres )', 'onkeypress' => 'if(this.value.length == 250){return false;}else{return toUpper(event,this);}')) }}
+					    	{{ Form::textarea('funciones', Input::old('funciones'), array('class' => 'form-control', 'placeholder'=> '*Descripción breve de principales funciones en el puesto (Máximo 500 caracteres )', 'onkeypress' => 'if(this.value.length == 500){return false;}else{return toUpper(event,this);}', 'required')) }}			
 					    </div>
 					</div>
 					<div class="form-group">	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="superior" id="superior">
-								 <option selected="selected" class="s" value=" ">Contactar Superior </option>
+								 <option selected="selected" class="s" value=" " required>Contactar Superior </option>
 								 <option value="0">No</option>				
 								 <option value="1">Si</option>	
 							</select> 
@@ -644,7 +633,7 @@
 				<div class="campo col-sm-offset-2">
 					<div class="form-group">	
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="nivel_academico" >
+					    	<select class="form-control" name="nivel_academico" required>
 								 <option selected="selected" class="s" value=" ">*Nivel Académico </option>
 								 <option value="Primaria">Primaria</option>				
 								 <option value="Bachillerato Secundaria">Bachillerato Secundaria</option>	
@@ -662,7 +651,7 @@
 					    </div>	
 					    <div class="col-sm-5">
 					    	<select class="form-control" name="instituto" >
-								 <option selected="selected" class="s" value=" ">*Institución </option>
+								 <option selected="selected" class="s" value=" " required>*Institución </option>
 								 <option value="Ave Maria University">Ave Maria University</option>				
 								 <option value="Universidad Americana">Universidad Americana</option>	
 								 <option value="Universidad Catolica">Universidad Catolica</option>				
@@ -682,13 +671,13 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-6 col-sm-offset-2">
-					    	{{ Form::text('titulo', Input::old('titulo'), array('class' => 'form-control', 'placeholder'=> '*Titulo')) }}	
+					    	{{ Form::text('titulo', Input::old('titulo'), array('class' => 'form-control', 'placeholder'=> '*Titulo', 'required')) }}				
 					    </div>    
 					</div>
 					<h3 class="subtitul">Año de Finalización</h3>
 					<div class="form-group">						
 					    <div class="col-sm-6 col-sm-offset-2">
-					    	{{ Form::input('date','fecha_finalizacion', Input::old('fecha_finalizacion'), array('class' => 'form-control')) }}	
+					    	{{ Form::input('date','fecha_finalizacion', Input::old('fecha_finalizacion'), array('class' => 'form-control', 'required')) }}			
 					    </div>
 					</div>
 				</div>	
@@ -702,7 +691,7 @@
 				<div class="campo col-sm-offset-2">
 					<div class="form-group">	
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="idioma" >
+					    	<select class="form-control" name="idioma" required>
 								 <option selected="selected" class="s" value=" ">Idioma</option>
 								 <option value="Aleman">Aleman</option>				
 								 <option value="Arabe">Arabe</option>	
@@ -719,7 +708,7 @@
 							</select> 
 					    </div>
 					    <div class="col-sm-5">
-					    	<select class="form-control" name="nivel_dominio" >
+					    	<select class="form-control" name="nivel_dominio" required>
 								 <option selected="selected" class="s" value=" ">Nivel de Dominio </option>
 								 <option value="Basico">Basico</option>				
 								 <option value="Intermedio">Intermedio</option>	
