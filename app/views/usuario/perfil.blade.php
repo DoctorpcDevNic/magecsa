@@ -241,14 +241,14 @@
 									<div class="form-group">						
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="genero" data-select='{{$user->usuariodato->genero}}' id="genero">												 
-												 <option selected="selected" class="s" value=" ">*Genero</option>
+												 <option selected="selected" class="s" value="">*Genero</option>
 												 <option value="Femenino">Femenino</option>				
 												 <option value="Masculino">Masculino</option>				
 											</select> 
 									    </div>									
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="departamento" data-select='{{$user->usuariodato->departamento}}' id="departamento">												
-												 <option selected="selected" class="s" value=" ">*Departamento</option>
+												 <option selected="selected" class="s" value="">*Departamento</option>
 												 <option value="Atlantico Norte (RAAN)">Atlantico Norte (RAAN)</option>				
 												 <option value="Atlantico Sur (RAAS)">Atlantico Sur (RAAS)</option>	
 												 <option value="Boaco">Boaco</option>				
@@ -272,7 +272,7 @@
 									<div class="form-group">						
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="tipo_identificacion" data-select='{{$user->usuariodato->tipo_identificacion}}' id="tipo_identificacion">
-												 <option selected="selected" class="s" value=" ">*Tipo de Identiﬁcación </option>	
+												 <option selected="selected" class="s" value="">*Tipo de Identiﬁcación </option>	
 												 <option value="Cedula">Cedula</option>				
 												 <option value="Pasaporte">Pasaporte</option>				
 												 <option value="Cedula de Residencia">Cedula de Residencia</option>				
@@ -293,14 +293,14 @@
 									<div class="form-group">	
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="vehiculo" data-select='{{$user->usuariodato->vehiculo}}' id="vehiculo">
-												 <option selected="selected" class="s" value=" ">Posees Vehiculo </option>
+												 <option selected="selected" class="s" value="">Posees Vehiculo </option>
 												 <option value="0">Si</option>				
 												 <option value="1">No</option>	
 											</select> 
 									    </div>
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="disponible_viajar" data-select='{{$user->usuariodato->disponible_viajar}}' id="disponible_viajar">
-												 <option selected="selected" class="s" value=" ">Disponibilidad de Viajar </option>
+												 <option selected="selected" class="s" value="">Disponibilidad de Viajar </option>
 												 <option value="0">Si</option>				
 												 <option value="1">No</option>	
 											</select> 
@@ -320,13 +320,7 @@
 									     <div class="col-sm-4 col-xs-4">
 									    	<input type="checkbox" name="categoria_licencia[]" value="Sin licencia">Sin licencia<br>
 									    </div>	
-									</div>
-									<h3 class="subtitul">Objetivos/Principales logros/Competencias</h3>
-									<div class="form-group">						
-									    <div class="col-sm-10">
-									    	{{ Form::textarea('objetivo', Input::old('objetivo') ? Input::old(): $user->usuariodato->objetivo, array('class' => 'form-control', 'placeholder'=> '*Escribe aqui tus objetivos')) }}	
-									    </div>
-									</div>								
+									</div>																
 								</div>
 								<div class="form-group">								
 									{{ Form::submit('Actualizar' , array('class'=> 'btn btn-primary regis')) }}				
@@ -360,7 +354,7 @@
 									    </div>
 									    <div class="col-sm-5">
 									    	<select class="form-control" name="expectativa_salarial" data-select='{{$user->usuarioexpectativa()->first()->expectativa_salarial}}' id="expectativa_salarial">
-												<option selected="selected" class="s" value=" ">*Expectativa Salarial Mensual </option>
+												<option selected="selected" class="s" value="">*Expectativa Salarial Mensual </option>
 												<option value="menos de 200">menos de 200</option>				
 												<option value="0-200">0-200</option>	
 												<option value="201-300 "> 201-300</option>	
@@ -724,12 +718,7 @@
 												<h3 class="subtitul" style="width: 100%">Fecha Fin</h3>				
 										    	{{ Form::input('date','fecha_fin', Input::old('fecha_fin') ? Input::old(): $value->fecha_fin, array('class' => 'form-control')) }}	
 										    </div>
-										</div>
-										<div class="form-group">						
-										    <div class="col-sm-10">
-										    	{{ Form::textarea('logros', Input::old('logros') ? Input::old(): $value->logros, array('class' => 'form-control', 'placeholder'=> 'Logros')) }}	
-										    </div>
-										</div>
+										</div>										
 										<div class="form-group">						
 										    <div class="col-sm-10">
 										    	{{ Form::textarea('funciones', Input::old('funciones') ? Input::old(): $value->funciones, array('class' => 'form-control', 'placeholder'=> '*Descripcion breve de principales funciones en el puesto')) }}	
@@ -897,7 +886,7 @@
 									    </div>
 									    <div class="col-sm-5">
 										    {{ Form::select('nivel_dominio', array(
-										    								' ' => 'Nivel de Dominio',
+										    								'' => 'Nivel de Dominio',
 								    										'Basico' => 'Basico', 
 								    										'Intermedio' => 'Intermedio',
 								    										'Avanzado' => 'Avanzado',

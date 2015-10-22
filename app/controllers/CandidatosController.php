@@ -40,18 +40,17 @@ class CandidatosController extends BaseController {
 			'no_identificacion' => 'required',
 			'departamento' => 'required',
 			'direccion' => 'required',
-			'email' => 'required|unique:usuarios',
 			'objetivo' => 'required|max:200',
+			'email' => 'required|unique:usuarios',
 			'interes_laboral' => 'required',
 			'expectativa_salarial' => 'required',
 			'nombre_empresa' => 'required',
 			'actividad_empresa' => 'required',
 			'area' => 'required',
-			'puesto' => 'required',
-			'logros' => 'max:200',
+			'puesto' => 'required',			
 			'fecha_inicio' => 'required',
 			'fecha_fin' => 'required',
-			'funciones' => 'required|max:200',
+			'funciones' => 'required|max:500',
 			'nivel_academico' => 'required',
 			'titulo' => 'required',
 			'instituto' => 'required',			
@@ -90,7 +89,29 @@ class CandidatosController extends BaseController {
 			$userdato->celular = Input::get('celular');
 			$userdato->vehiculo = Input::get('vehiculo');
 
-			$categorias = implode(',',$_POST['categoria_licencia']); 
+			
+
+			if(Input::get('categoria_licencia')){
+
+				$lista = Input::get('categoria_licencia'); 
+				$cate = "";
+
+
+				if(count($lista) > 0){	
+					if(count($lista) == 1){						
+						$cate = $lista[0];										
+					}else{
+						$cate = implode(",", $lista);			
+					}			
+				}				
+
+				$categorias = $cate;
+
+			}else{
+				$categorias = 'Sin licencia'; 
+			}
+
+			
 			$userdato->categoria_licencia = $categorias;
 
 			$userdato->disponible_viajar = Input::get('disponible_viajar');
@@ -143,10 +164,17 @@ class CandidatosController extends BaseController {
 				$userexper->usuariocontacto()->save($contacto);
 			}
 			$user->usuarioeducacion()->save($usereduca);
-			$user->usuariootro()->save($userotro);		
+			$user->usuariootro()->save($userotro);	
 
-			Session::flash('message', 'Usuario Agregado, ya puede iniciar sesion');
-			return Redirect::to('login');
+
+			$userdata = array(
+				'email'    => $user->email,
+				'password' => Input::get('password')
+			);
+
+			if(Auth::attempt($userdata)){
+				return Redirect::to('Perfil/'. $user->username);
+			}				
 		}
 	}	
 
