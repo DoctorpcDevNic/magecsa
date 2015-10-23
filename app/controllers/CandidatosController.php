@@ -39,8 +39,7 @@ class CandidatosController extends BaseController {
 			'tipo_identificacion' => 'required',
 			'no_identificacion' => 'required',
 			'departamento' => 'required',
-			'direccion' => 'required',
-			'objetivo' => 'required|max:200',
+			'direccion' => 'required',			
 			'email' => 'required|unique:usuarios',
 			'interes_laboral' => 'required',
 			'expectativa_salarial' => 'required',
@@ -115,7 +114,7 @@ class CandidatosController extends BaseController {
 			$userdato->categoria_licencia = $categorias;
 
 			$userdato->disponible_viajar = Input::get('disponible_viajar');
-			$userdato->objetivo = Input::get('objetivo');
+		
 					
 			$userexpec->interes_laboral = Input::get('interes_laboral');
 			$userexpec->expectativa_salarial = Input::get('expectativa_salarial');
@@ -130,8 +129,7 @@ class CandidatosController extends BaseController {
 			$userexper->area = Input::get('area');
 			$userexper->puesto = Input::get('puesto');
 			$userexper->fecha_inicio = Input::get('fecha_inicio');
-			$userexper->fecha_fin = Input::get('fecha_fin');
-			$userexper->logros = Input::get('logros');
+			$userexper->fecha_fin = Input::get('fecha_fin');			
 			$userexper->funciones = Input::get('funciones');
 			
 
@@ -217,8 +215,7 @@ class CandidatosController extends BaseController {
 				$userexper->area = Input::get('area');
 				$userexper->puesto = Input::get('puesto');
 				$userexper->fecha_inicio = Input::get('fecha_inicio');
-				$userexper->fecha_fin = Input::get('fecha_fin');
-				$userexper->logros = Input::get('logros');
+				$userexper->fecha_fin = Input::get('fecha_fin');				
 				$userexper->funciones = Input::get('funciones');
 
 
@@ -344,8 +341,7 @@ class CandidatosController extends BaseController {
 				'no_identificacion' => 'required',
 				'departamento' => 'required',
 				'direccion' => 'required',
-				'email' => 'required',
-				'objetivo' => 'required',
+				'email' => 'required',			
 			);
 
 			$message = array(
@@ -379,7 +375,7 @@ class CandidatosController extends BaseController {
 				$userdato->categoria_licencia = $categorias;
 
 				$userdato->disponible_viajar = Input::get('disponible_viajar');
-				$userdato->objetivo = Input::get('objetivo');
+				
 
 				$user->email = Input::get('email');
 				$user->save();		
@@ -454,11 +450,10 @@ class CandidatosController extends BaseController {
 				'nombre_empresa' => 'required',
 				'actividad_empresa' => 'required',
 				'area' => 'required',
-				'puesto' => 'required',
-				'logros' => 'max:400',
+				'puesto' => 'required',				
 				'fecha_inicio' => 'required',
 				'fecha_fin' => 'required',
-				'funciones' => 'required|max:400',
+				'funciones' => 'required|max:500',
 			);
 
 			$message = array(
@@ -486,8 +481,7 @@ class CandidatosController extends BaseController {
 				$userexper->area = Input::get('area');
 				$userexper->puesto = Input::get('puesto');
 				$userexper->fecha_inicio = Input::get('fecha_inicio');
-				$userexper->fecha_fin = Input::get('fecha_fin');
-				$userexper->logros = Input::get('logros');
+				$userexper->fecha_fin = Input::get('fecha_fin');				
 				$userexper->funciones = Input::get('funciones');
 				$userexper->contacto = Input::get('superior');
 
